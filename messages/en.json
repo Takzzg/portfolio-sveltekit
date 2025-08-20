@@ -1,4 +1,6 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"hello_world": "Hello {name} in english!"
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "tiny_crisp_skate_lead": "Welcome!",
+    "new_free_cougar_leap": "I'm Guido",
+    "sharp_trite_bulldog_dash": "fullstack developer"
 }
