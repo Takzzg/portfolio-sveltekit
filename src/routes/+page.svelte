@@ -4,12 +4,12 @@
 
 <div class="grid h-full grid-rows-[100%_auto]">
 	<div class="flex flex-col items-center justify-center bg-stone-900">
-		<h1 class="text-5xl">Welcome</h1>
+		<h1 class="text-5xl">Welcome!</h1>
 
-        <div class="p-10">
-            <h3 class="text-3xl">I'm Guido Queiróz</h3>
-            <h5 class="text-2xl">fullstack developer</h5>
-        </div>
+		<div class="p-10">
+			<h3 class="text-3xl">I'm Guido</h3>
+			<h5 class="text-2xl">fullstack developer</h5>
+		</div>
 	</div>
 
 	<div class="p-10">
