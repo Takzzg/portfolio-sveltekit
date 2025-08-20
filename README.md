@@ -1,38 +1,28 @@
-# sv
+# portfolio-sveltekit
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Project created with [`sv`](https://github.com/sveltejs/cli) - `npx sv create portfolio-sveltekit`
 
-## Creating a project
+### Deployment: https://guidoq.vercel.app/
 
-If you're seeing this, you've probably already done this step. Congrats!
+## How to run
 
-```sh
-# create a new project in the current directory
-npx sv create
+- make sure you have node installed
+- clone repository and `cd` into it
+- install dependencies with `npm install`
+- start development server
+    - `npm run dev` to run locally
+    - `npm run host` to also expose to LAN
+- open [`localhost:5173`](http://localhost:5173) in your browser
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Dependencies
 
-## Developing
+- ParaglideJS - https://inlang.com/m/gerre34r/library-inlang-paraglideJs/sveltekit
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Dev dependencies
 
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- Tailwind - https://tailwindcss.com
+- TypeScript - https://www.typescriptlang.org/
+- SvelteKit - https://svelte.dev/docs/kit/introduction
+    - ESLint plugin - https://github.com/sveltejs/eslint-plugin-svelte
+    - Prettier plugin - https://github.com/sveltejs/prettier-plugin-svelte
+    - Vercel adapter - https://svelte.dev/docs/kit/adapter-vercel

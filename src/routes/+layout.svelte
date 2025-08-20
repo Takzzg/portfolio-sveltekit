@@ -10,7 +10,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="grid h-screen w-screen grid-rows-[auto_1fr] bg-[#121212] text-white">
+<div class="grid h-screen w-screen grid-rows-[auto_1fr] bg-stone-950 text-white">
 	<Navbar />
 
 	<div class="h-full w-full overflow-y-auto">

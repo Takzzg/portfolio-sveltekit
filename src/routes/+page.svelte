@@ -3,7 +3,7 @@
 </script>
 
 <div class="grid h-full grid-rows-[100%_auto]">
-	<div class="flex flex-col items-center justify-center bg-red-500">
+	<div class="flex flex-col items-center justify-center bg-stone-900">
 		<h1 class="text-5xl">Welcome</h1>
 
         <div class="p-10">
