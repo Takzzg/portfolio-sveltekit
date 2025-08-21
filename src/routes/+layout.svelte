@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '$lib/tailwind.css';
+	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import Navbar from '$lib/ui/Navbar.svelte';
 	import { ModeWatcher } from 'mode-watcher';

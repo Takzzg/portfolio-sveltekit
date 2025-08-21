@@ -6,6 +6,7 @@
         "esbenp.prettier-vscode",
         "inlang.vs-code-extension",
         "svelte.svelte-vscode",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "selemondev.vscode-shadcn-svelte"
     ]
 }
