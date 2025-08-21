@@ -19,6 +19,7 @@ If using Visual Studio Code, get the extensions listed in `.vscode/extensions.js
 
 ## Dependencies
 
+- Iconify - https://github.com/iconify/iconify/tree/main/iconify-icon/icon
 - ParaglideJS - https://inlang.com/m/gerre34r/library-inlang-paraglideJs/sveltekit
 - ModeWatcher - https://github.com/svecosystem/mode-watcher#readme
 

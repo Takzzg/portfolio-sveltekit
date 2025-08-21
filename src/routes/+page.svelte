@@ -1,5 +1,6 @@
 <script>
-	import { m } from "$lib/paraglide/messages";
+	import 'iconify-icon';
+	import { m } from '$lib/paraglide/messages';
 </script>
 
 <div class="grid h-full grid-rows-[100%_auto]">
@@ -12,25 +13,17 @@
 		</div>
 	</div>
 
-	<div class="p-10">
-		<p>
-			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam consequuntur, error veritatis
-			deleniti asperiores incidunt, quis facilis neque officiis quos perferendis esse voluptas
-			nostrum laudantium dolor obcaecati dolorem consequatur. Id repellendus aperiam qui eius
-			mollitia autem sint nobis, eaque omnis reprehenderit, sed, nesciunt consequatur. Reiciendis
-			illum dolorum labore praesentium natus quasi distinctio officia unde. Incidunt qui veniam non
-			in autem eveniet illum reprehenderit? Magni, autem, velit ab dicta sunt nam a repellendus
-			consequatur impedit obcaecati aperiam iste cumque nostrum officia consequuntur! Quam nisi ad
-			eos, ea quae quaerat asperiores, totam enim sequi eligendi praesentium dolorum. Sapiente illo
-			ut voluptatem voluptatibus libero, voluptatum iusto ad, illum similique recusandae odit
-			laborum fuga nisi, nesciunt repellat. A fugit, porro corporis ipsa quisquam, quaerat
-			distinctio minus facere, doloremque velit maxime! Earum praesentium, doloribus unde assumenda
-			quia rem, veniam et tenetur nemo suscipit nam enim ipsum molestias sequi veritatis, nostrum
-			blanditiis sed impedit. Delectus beatae ex reprehenderit quasi labore! Molestias, eius impedit
-			blanditiis doloribus sequi aut ipsum soluta unde, omnis repudiandae excepturi, dolorem nostrum
-			sint debitis recusandae minima veniam. Odio iusto omnis voluptas dolor vel assumenda minima!
-			Officiis vel distinctio quo eligendi recusandae, consectetur maiores id sunt voluptatem illo!
-			Modi dignissimos cum omnis officia odio!
-		</p>
+	<div class="flex flex-col gap-4 p-4">
+		<h3 class="text-xl">This portfolio was made using:</h3>
+
+		<iconify-icon icon="logos:svelte-kit" class="h-[64px] w-[300px]" width="300px"></iconify-icon>
+		<iconify-icon icon="logos:tailwindcss" class="h-[64px] w-[300px]" width="300px"></iconify-icon>
+
+		<div class="flex gap-8">
+			<iconify-icon icon="logos:prettier" class="h-[48px] w-[48px]" width="48px" height="48px"
+			></iconify-icon>
+			<iconify-icon icon="logos:eslint" class="h-[48px] w-[48px]" width="48px" height="48px"
+			></iconify-icon>
+		</div>
 	</div>
 </div>

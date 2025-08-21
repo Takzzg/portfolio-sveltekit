@@ -2,10 +2,18 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@layer base {
+	iconify-icon {
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+	}
+}
+
 @theme {
 	--color-dark: #121212;
 }
 
 @theme inline {
-    --color-primary: var(--color-emerald-500);
+	--color-primary: var(--color-emerald-500);
 }
