@@ -10,24 +10,23 @@ Project created with [`sv`](https://github.com/sveltejs/cli) - `npx sv create po
 - clone repository and `cd` into it
 - install dependencies with `npm install`
 - start development server
-    - `npm run dev` to run locally
-    - `npm run host` to also expose to LAN
+  - `npm run dev` to run locally
+  - `npm run host` to also expose to LAN
 - open [`localhost:5173`](http://localhost:5173) in your browser
 
 ### VS Code
-If using Visual Studio Code, get the extensions listed in `.vscode/extensions.json` to enable full syntax support 
+
+If using Visual Studio Code, get the extensions listed in `.vscode/extensions.json` to enable full syntax support
 
 ## Dependencies
 
 - Iconify - https://github.com/iconify/iconify/tree/main/iconify-icon/icon
 - ParaglideJS - https://inlang.com/m/gerre34r/library-inlang-paraglideJs/sveltekit
 - ModeWatcher - https://github.com/svecosystem/mode-watcher#readme
-
-### Dev dependencies
-
 - Tailwind - https://tailwindcss.com
 - TypeScript - https://www.typescriptlang.org/
 - SvelteKit - https://svelte.dev/docs/kit/introduction
-    - ESLint plugin - https://github.com/sveltejs/eslint-plugin-svelte
-    - Prettier plugin - https://github.com/sveltejs/prettier-plugin-svelte
-    - Vercel adapter - https://svelte.dev/docs/kit/adapter-vercel
+  - ESLint plugin - https://github.com/sveltejs/eslint-plugin-svelte
+  - Prettier plugin - https://github.com/sveltejs/prettier-plugin-svelte
+  - Vercel adapter - https://svelte.dev/docs/kit/adapter-vercel
+  - shadcn-svelte - https://www.shadcn-svelte.com/docs
