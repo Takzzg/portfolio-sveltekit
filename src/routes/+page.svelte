@@ -14,15 +14,19 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-4 p-4">
-		<h3 class="text-xl">This portfolio was made using:</h3>
+	<div class="m-auto flex w-full max-w-[800px] flex-col gap-4 p-4">
+		<h3 class="text-center text-xl">This portfolio was made using:</h3>
 
-		<Icon icon="logos:svelte-kit" height={64} width={300} />
-		<Icon icon="logos:tailwindcss" height={64} width={300} />
+		<div class="flex flex-row flex-wrap justify-center gap-1">
+			<Icon icon="logos:svelte-kit" size="banner" />
+			<Icon icon="logos:tailwindcss" size="banner" />
+			<Icon icon="logos:vercel" size="banner" />
+		</div>
 
-		<div class="flex gap-8">
-			<Icon icon="logos:prettier" height={48} width={48} />
-			<Icon icon="logos:eslint" height={48} width={48} />
+		<div class="flex justify-center gap-6">
+			<Icon icon="logos:prettier" size="icon" />
+			<Icon icon="logos:eslint" size="icon" />
+			<Icon icon="logos:typescript-icon" size="icon" />
 		</div>
 	</div>
 </div>
