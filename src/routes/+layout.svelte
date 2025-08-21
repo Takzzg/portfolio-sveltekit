@@ -11,7 +11,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="grid h-screen w-screen grid-rows-[auto_1fr]">
+<div class="grid h-screen w-screen grid-rows-[auto_1fr] dark:bg-dark">
 	<ModeWatcher
 		defaultMode="system"
 		modeStorageKey="guidoq-portfolio-mode-key"

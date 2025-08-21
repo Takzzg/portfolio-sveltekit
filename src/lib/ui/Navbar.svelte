@@ -9,23 +9,25 @@
 	<button
 		onclick={() => setLocale(name)}
 		disabled={getLocale() == name}
-		class="min-w-10 p-1 hover:cursor-pointer disabled:cursor-default disabled:opacity-50"
+		class="min-w-10 bg-white/15 p-1 hover:cursor-pointer disabled:cursor-default disabled:bg-white/10 disabled:opacity-50"
 	>
 		{name}
 	</button>
 {/snippet}
 
-<div class="flex items-center justify-between p-2">
+<div class="flex items-center justify-between bg-black/25 p-2">
 	<div class="flex items-center p-2">NAVBAR</div>
 
 	<div class="flex items-center gap-2">
 		<div>
 			<select
+				name="mode"
 				bind:value={current}
+				class="dark:bg-dark"
 				onchange={(event) => setMode(event.currentTarget.value as 'dark' | 'light' | 'system')}
 			>
-				<option value="dark">Dark Theme</option>
-				<option value="light">Light Theme</option>
+				<option value="dark">Dark Mode</option>
+				<option value="light">Light Mode</option>
 				<option value="system">System Theme</option>
 			</select>
 		</div>

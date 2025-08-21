@@ -3,7 +3,7 @@
 </script>
 
 <div class="grid h-full grid-rows-[100%_auto]">
-	<div class="flex flex-col items-center justify-center">
+	<div class="flex flex-col items-center justify-center bg-emerald-400/10">
 		<h1 class="text-5xl">{m.tiny_crisp_skate_lead()}</h1>
 
 		<div class="p-10">
