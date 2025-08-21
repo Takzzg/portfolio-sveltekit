@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Button from "$lib/components/ui/button/button.svelte";
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -8,24 +9,25 @@
 		DropdownMenuSeparator,
 		DropdownMenuTrigger,
 	} from "$lib/components/ui/dropdown-menu";
-	import SunIcon from "@lucide/svelte/icons/sun";
-	import MoonIcon from "@lucide/svelte/icons/moon";
 	import { getLocale, locales, setLocale, type Locale } from "$lib/paraglide/runtime";
 	import { userPrefersMode, setMode, resetMode } from "mode-watcher";
 
 	let currentMode = $derived(userPrefersMode.current);
-
-	const getPrettyName = (mode: "dark" | "light" | "system"): string => {
-		switch (mode) {
-			case "dark":
-				return "Dark Mode";
-			case "light":
-				return "Light Mode";
-			case "system":
-				return "System Theme";
-		}
-	};
 </script>
+
+<!-- (dark / light / system) theme - icon + pretty name -->
+{#snippet modeOption(mode: "dark" | "light" | "system")}
+	{#if mode == "dark"}
+		<iconify-icon icon="lucide:moon" class="h-4 w-4" width="16" height="16"></iconify-icon>
+		Dark Mode
+	{:else if mode == "light"}
+		<iconify-icon icon="lucide:sun" class="h-4 w-4" width="16" height="16"></iconify-icon>
+		Light Mode
+	{:else if mode == "system"}
+		<iconify-icon icon="lucide:monitor-cog" class="h-4 w-4" width="16" height="16"></iconify-icon>
+		System Theme
+	{/if}
+{/snippet}
 
 {#snippet langBtn(name: Locale)}
 	<button
@@ -41,29 +43,35 @@
 	<div class="flex items-center p-2">NAVBAR</div>
 
 	<div class="flex items-center gap-2">
+		<!-- dark / light mode select -->
 		<DropdownMenu>
-			<DropdownMenuTrigger>{getPrettyName(currentMode)}</DropdownMenuTrigger>
+            <!-- trigger -->
+			<DropdownMenuTrigger>
+				<Button variant="outline" class="hover:cursor-pointer">
+					{@render modeOption(currentMode)}
+				</Button>
+			</DropdownMenuTrigger>
 
+            <!-- options group -->
 			<DropdownMenuContent>
 				<DropdownMenuGroup>
 					<DropdownMenuRadioGroup bind:value={currentMode}>
 						<DropdownMenuRadioItem onclick={() => setMode("dark")} value="dark">
-                            <MoonIcon />
-                            {getPrettyName("dark")}
+							{@render modeOption("dark")}
 						</DropdownMenuRadioItem>
 						<DropdownMenuRadioItem onclick={() => setMode("light")} value="light">
-                            <SunIcon />
-							{getPrettyName("light")}
+							{@render modeOption("light")}
 						</DropdownMenuRadioItem>
 						<DropdownMenuSeparator />
 						<DropdownMenuRadioItem onclick={() => resetMode()} value="system">
-							{getPrettyName("system")}
+							{@render modeOption("system")}
 						</DropdownMenuRadioItem>
 					</DropdownMenuRadioGroup>
 				</DropdownMenuGroup>
 			</DropdownMenuContent>
 		</DropdownMenu>
 
+		<!-- lang select -->
 		<div class="grid grid-cols-2 overflow-hidden rounded-sm border-1 border-stone-600">
 			{#each locales as locale}
 				{@render langBtn(locale)}
