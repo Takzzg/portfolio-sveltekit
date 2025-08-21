@@ -24,6 +24,9 @@ Project created with [`sv`](https://github.com/sveltejs/cli) - `npx sv create po
 
 ## Dependencies
 
+Below are listed the main dependencies needed for each environment. <br/>
+Note: this is not a comprehensive list, as they may have dependencies of their own.
+
 ### Production
 
 - Iconify - https://github.com/iconify/iconify/tree/main/iconify-icon/icon
