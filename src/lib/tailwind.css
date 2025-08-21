@@ -11,7 +11,8 @@
 }
 
 @theme {
-	--color-dark: #121212;
+    --color-dark-bg: #121212;
+    --color-light-bg: whitesmoke;
 }
 
 @theme inline {

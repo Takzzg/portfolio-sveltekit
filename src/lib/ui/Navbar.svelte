@@ -23,7 +23,7 @@
 			<select
 				name="mode"
 				bind:value={currentMode}
-				class="rounded-sm border-1 border-stone-600 p-2 hover:cursor-pointer dark:bg-dark"
+				class="rounded-sm border-1 border-stone-600 p-2 hover:cursor-pointer dark:bg-stone-900"
 				onchange={(event) => setMode(event.currentTarget.value as 'dark' | 'light' | 'system')}
 			>
 				<option value="dark">Dark Mode</option>

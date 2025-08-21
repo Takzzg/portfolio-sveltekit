@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../app.css';
+	import '$lib/tailwind.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import Navbar from '$lib/ui/Navbar.svelte';
 	import { ModeWatcher } from 'mode-watcher';
@@ -11,7 +11,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="grid h-screen w-screen grid-rows-[auto_1fr] dark:bg-dark">
+<div class="bg-light-bg dark:bg-dark-bg grid h-screen w-screen grid-rows-[auto_1fr]">
 	<ModeWatcher
 		defaultMode="system"
 		modeStorageKey="guidoq-portfolio-mode-key"
