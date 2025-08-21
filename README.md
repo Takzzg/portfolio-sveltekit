@@ -17,6 +17,7 @@ Project created with [`sv`](https://github.com/sveltejs/cli) - `npx sv create po
 ## Dependencies
 
 - ParaglideJS - https://inlang.com/m/gerre34r/library-inlang-paraglideJs/sveltekit
+- ModeWatcher - https://github.com/svecosystem/mode-watcher#readme
 
 ### Dev dependencies
 
