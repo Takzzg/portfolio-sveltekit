@@ -14,6 +14,9 @@ Project created with [`sv`](https://github.com/sveltejs/cli) - `npx sv create po
     - `npm run host` to also expose to LAN
 - open [`localhost:5173`](http://localhost:5173) in your browser
 
+### VS Code
+If using Visual Studio Code, get the recommended extensions in `.vscode/extensions.json` to enable full syntax support 
+
 ## Dependencies
 
 - ParaglideJS - https://inlang.com/m/gerre34r/library-inlang-paraglideJs/sveltekit
