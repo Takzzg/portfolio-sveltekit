@@ -15,7 +15,7 @@ Project created with [`sv`](https://github.com/sveltejs/cli) - `npx sv create po
 - open [`localhost:5173`](http://localhost:5173) in your browser
 
 ### VS Code
-If using Visual Studio Code, get the recommended extensions in `.vscode/extensions.json` to enable full syntax support 
+If using Visual Studio Code, get the extensions listed in `.vscode/extensions.json` to enable full syntax support 
 
 ## Dependencies
 

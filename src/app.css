@@ -5,3 +5,7 @@
 @theme {
 	--color-dark: #121212;
 }
+
+@theme inline {
+    --color-primary: var(--color-emerald-500);
+}

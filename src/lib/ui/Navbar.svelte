@@ -2,7 +2,7 @@
 	import { getLocale, locales, setLocale, type Locale } from '$lib/paraglide/runtime';
 	import { userPrefersMode, setMode } from 'mode-watcher';
 
-	let current = $derived(userPrefersMode.current);
+	let currentMode = $derived(userPrefersMode.current);
 </script>
 
 {#snippet langBtn(name: Locale)}
@@ -22,8 +22,8 @@
 		<div>
 			<select
 				name="mode"
-				bind:value={current}
-				class="dark:bg-dark"
+				bind:value={currentMode}
+				class="rounded-sm border-1 border-stone-600 p-2 hover:cursor-pointer dark:bg-dark"
 				onchange={(event) => setMode(event.currentTarget.value as 'dark' | 'light' | 'system')}
 			>
 				<option value="dark">Dark Mode</option>
@@ -32,7 +32,7 @@
 			</select>
 		</div>
 
-		<div class="grid grid-cols-2 overflow-hidden rounded-sm">
+		<div class="grid grid-cols-2 overflow-hidden rounded-sm border-1 border-stone-600">
 			{#each locales as locale}
 				{@render langBtn(locale)}
 			{/each}
