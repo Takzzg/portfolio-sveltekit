@@ -1,6 +1,7 @@
 <script>
 	import 'iconify-icon';
 	import { m } from '$lib/paraglide/messages';
+	import Icon from '$lib/ui/Icon.svelte';
 </script>
 
 <div class="grid h-full grid-rows-[100%_auto]">
@@ -16,14 +17,12 @@
 	<div class="flex flex-col gap-4 p-4">
 		<h3 class="text-xl">This portfolio was made using:</h3>
 
-		<iconify-icon icon="logos:svelte-kit" class="h-[64px] w-[300px]" width="300px"></iconify-icon>
-		<iconify-icon icon="logos:tailwindcss" class="h-[64px] w-[300px]" width="300px"></iconify-icon>
+		<Icon icon="logos:svelte-kit" height={64} width={300} />
+		<Icon icon="logos:tailwindcss" height={64} width={300} />
 
 		<div class="flex gap-8">
-			<iconify-icon icon="logos:prettier" class="h-[48px] w-[48px]" width="48px" height="48px"
-			></iconify-icon>
-			<iconify-icon icon="logos:eslint" class="h-[48px] w-[48px]" width="48px" height="48px"
-			></iconify-icon>
+			<Icon icon="logos:prettier" height={48} width={48} />
+			<Icon icon="logos:eslint" height={48} width={48} />
 		</div>
 	</div>
 </div>
