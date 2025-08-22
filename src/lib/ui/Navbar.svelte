@@ -9,7 +9,8 @@
 		DropdownMenuSeparator,
 		DropdownMenuTrigger,
 	} from "$lib/components/ui/dropdown-menu";
-	import { getLocale, locales, setLocale, type Locale } from "$lib/paraglide/runtime";
+	import { ToggleGroup, ToggleGroupItem } from "$lib/components/ui/toggle-group";
+	import { getLocale, setLocale, type Locale } from "$lib/paraglide/runtime";
 	import { userPrefersMode, setMode, resetMode } from "mode-watcher";
 
 	let currentMode = $derived(userPrefersMode.current);
@@ -29,40 +30,50 @@
 	{/if}
 {/snippet}
 
-{#snippet langBtn(name: Locale)}
-	<button
-		onclick={() => setLocale(name)}
-		disabled={getLocale() == name}
-		class="min-w-10 bg-white/15 p-1 hover:cursor-pointer disabled:cursor-default disabled:bg-white/10 disabled:opacity-50"
-	>
-		{name}
-	</button>
+<!-- (es / en) lang - icon + pretty name -->
+{#snippet langOption(locale: Locale)}
+	{#if locale == "es"}
+		<iconify-icon icon="flag:ar-1x1" class="h-4 w-4" width="16" height="16"></iconify-icon>
+		Es
+	{:else if locale == "en"}
+		<iconify-icon icon="flag:gb-1x1" class="h-4 w-4" width="16" height="16"></iconify-icon>
+		En
+	{/if}
 {/snippet}
 
+<!-- Navbar.svelte -->
 <div class="flex items-center justify-between bg-black/25 p-2">
+	<!-- site navigation -->
 	<div class="flex items-center p-2">NAVBAR</div>
 
+	<!-- settings -->
 	<div class="flex items-center gap-2">
 		<!-- dark / light mode select -->
 		<DropdownMenu>
-            <!-- trigger -->
+			<!-- trigger -->
 			<DropdownMenuTrigger>
 				<Button variant="outline" class="hover:cursor-pointer">
 					{@render modeOption(currentMode)}
 				</Button>
 			</DropdownMenuTrigger>
 
-            <!-- options group -->
+			<!-- options group -->
 			<DropdownMenuContent>
 				<DropdownMenuGroup>
 					<DropdownMenuRadioGroup bind:value={currentMode}>
+						<!-- dark -->
 						<DropdownMenuRadioItem onclick={() => setMode("dark")} value="dark">
 							{@render modeOption("dark")}
 						</DropdownMenuRadioItem>
+
+						<!-- light -->
 						<DropdownMenuRadioItem onclick={() => setMode("light")} value="light">
 							{@render modeOption("light")}
 						</DropdownMenuRadioItem>
+
 						<DropdownMenuSeparator />
+
+						<!-- system -->
 						<DropdownMenuRadioItem onclick={() => resetMode()} value="system">
 							{@render modeOption("system")}
 						</DropdownMenuRadioItem>
@@ -72,10 +83,31 @@
 		</DropdownMenu>
 
 		<!-- lang select -->
-		<div class="grid grid-cols-2 overflow-hidden rounded-sm border-1 border-stone-600">
-			{#each locales as locale}
-				{@render langBtn(locale)}
-			{/each}
-		</div>
+		<ToggleGroup
+			variant="outline"
+			type="single"
+			value={getLocale()}
+			onValueChange={(value) => setLocale(value as Locale)}
+		>
+			<!-- english -->
+			<ToggleGroupItem
+				disabled={getLocale() == "en"}
+				class="hover:cursor-pointer"
+				value={"en"}
+				aria-label={"English"}
+			>
+				{@render langOption("en")}
+			</ToggleGroupItem>
+
+			<!-- español -->
+			<ToggleGroupItem
+				disabled={getLocale() == "es"}
+				class="hover:cursor-pointer"
+				value={"es"}
+				aria-label={"Español"}
+			>
+				{@render langOption("es")}
+			</ToggleGroupItem>
+		</ToggleGroup>
 	</div>
 </div>
