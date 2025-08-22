@@ -1,9 +1,21 @@
-<script>
+<script lang="ts">
 	import "iconify-icon";
 	import { m } from "$lib/paraglide/messages";
 	import { Button } from "$lib/components/ui/button";
-	import TechLogo from "$lib/components/custom/TechLogo.svelte";
+	import Tooltip from "$lib/ui/Tooltip.svelte";
 </script>
+
+{#snippet techLogo(icon: string, size: "icon" | "banner")}
+	<Tooltip>
+		<div class="flex items-center rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10">
+			{#if size == "icon"}
+				<iconify-icon class="h-[48px] w-[48px]" {icon} height="48px" width="48px"></iconify-icon>
+			{:else if size == "banner"}
+				<iconify-icon class="h-[64px] w-[300px]" {icon} height="64px" width="300px"></iconify-icon>
+			{/if}
+		</div>
+	</Tooltip>
+{/snippet}
 
 <div class="grid h-full grid-rows-[100%_auto]">
 	<div class="flex flex-col items-center justify-center bg-primary/10">
@@ -21,15 +33,15 @@
 		<h3 class="text-center text-xl">This portfolio was made using:</h3>
 
 		<div class="flex flex-row flex-wrap justify-center gap-1">
-			<TechLogo icon="logos:svelte-kit" size="banner" />
-			<TechLogo icon="logos:tailwindcss" size="banner" />
-			<TechLogo icon="logos:vercel" size="banner" />
+			{@render techLogo("logos:svelte-kit", "banner")}
+			{@render techLogo("logos:tailwindcss", "banner")}
+			{@render techLogo("logos:vercel", "banner")}
 		</div>
 
 		<div class="flex justify-center gap-6">
-			<TechLogo icon="logos:prettier" size="icon" />
-			<TechLogo icon="logos:eslint" size="icon" />
-			<TechLogo icon="logos:typescript-icon" size="icon" />
+			{@render techLogo("logos:prettier", "icon")}
+			{@render techLogo("logos:eslint", "icon")}
+			{@render techLogo("logos:typescript-icon", "icon")}
 		</div>
 	</div>
 </div>
