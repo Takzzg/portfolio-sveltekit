@@ -34,10 +34,10 @@
 {#snippet modeSelect()}
 	<DropdownMenu>
 		<!-- trigger -->
-		<DropdownMenuTrigger>
-			<Button variant="outline" class="hover:cursor-pointer">
-				{@render modeOption(currentMode)}
-			</Button>
+		<DropdownMenuTrigger
+			class="flex items-center gap-2 rounded-md border-1 bg-background p-2 hover:cursor-pointer hover:bg-accent"
+		>
+			{@render modeOption(currentMode)}
 		</DropdownMenuTrigger>
 
 		<!-- options group -->
@@ -88,7 +88,7 @@
 		<!-- english -->
 		<ToggleGroupItem
 			disabled={getLocale() == "en"}
-			class="hover:cursor-pointer bg-primary"
+			class="hover:cursor-pointer"
 			value={"en"}
 			aria-label={"English"}
 		>
@@ -98,7 +98,7 @@
 		<!-- español -->
 		<ToggleGroupItem
 			disabled={getLocale() == "es"}
-			class="hover:cursor-pointer bg-primary"
+			class="hover:cursor-pointer"
 			value={"es"}
 			aria-label={"Español"}
 		>
