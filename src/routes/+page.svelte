@@ -2,19 +2,32 @@
 	import "iconify-icon";
 	import { m } from "$lib/paraglide/messages";
 	import { Button } from "$lib/components/ui/button";
-	import Tooltip from "$lib/ui/Tooltip.svelte";
+	import { HoverCard, HoverCardContent, HoverCardTrigger } from "$lib/components/ui/hover-card";
 </script>
 
-{#snippet techLogo(icon: string, size: "icon" | "banner")}
-	<Tooltip>
-		<div class="flex items-center rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10">
-			{#if size == "icon"}
-				<iconify-icon class="h-[48px] w-[48px]" {icon} height="48px" width="48px"></iconify-icon>
-			{:else if size == "banner"}
-				<iconify-icon class="h-[64px] w-[300px]" {icon} height="64px" width="300px"></iconify-icon>
-			{/if}
-		</div>
-	</Tooltip>
+{#snippet techLogo(icon: string, type: "icon" | "banner")}
+	<HoverCard openDelay={50} closeDelay={50}>
+		<!-- tooltip trigger -->
+		<HoverCardTrigger>
+			<div
+				class="flex items-center rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10"
+			>
+				{#if type == "icon"}
+					<iconify-icon {icon} class="h-[48px] w-[48px]" height="48px" width="48px"></iconify-icon>
+				{:else if type == "banner"}
+					<iconify-icon
+						{icon}
+						class="h-[64px] w-[300px]"
+						height="64px"
+						width="300px"
+					></iconify-icon>
+				{/if}
+			</div>
+		</HoverCardTrigger>
+
+		<!-- tooltip -->
+		<HoverCardContent>Tooltip Test</HoverCardContent>
+	</HoverCard>
 {/snippet}
 
 <div class="grid h-full grid-rows-[100%_auto]">

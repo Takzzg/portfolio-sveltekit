@@ -1,8 +1,9 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ------------------------------- iconify ------------------------------- */
 @layer base {
 	iconify-icon {
 		display: inline-block;
@@ -10,16 +11,17 @@
 		height: 1em;
 	}
 }
-/*
-@theme {
-    --color-dark-bg: #121212;
-    --color-light-bg: whitesmoke;
+
+/* ------------------------------- shadcn/ui ------------------------------- */
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
 }
 
-@theme inline {
-	--color-primary: var(--color-emerald-500);
-}
-*/
 :root {
 	--radius: 0.625rem;
 	--background: oklch(1 0 0);
@@ -125,13 +127,4 @@
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
-}
-
-@layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	body {
-		@apply bg-background text-foreground;
-	}
 }
