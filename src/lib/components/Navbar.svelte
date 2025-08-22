@@ -30,6 +30,42 @@
 	{/if}
 {/snippet}
 
+<!-- dark / light mode select -->
+{#snippet modeSelect()}
+	<DropdownMenu>
+		<!-- trigger -->
+		<DropdownMenuTrigger>
+			<Button variant="outline" class="hover:cursor-pointer">
+				{@render modeOption(currentMode)}
+			</Button>
+		</DropdownMenuTrigger>
+
+		<!-- options group -->
+		<DropdownMenuContent>
+			<DropdownMenuGroup>
+				<DropdownMenuRadioGroup bind:value={currentMode}>
+					<!-- dark -->
+					<DropdownMenuRadioItem onclick={() => setMode("dark")} value="dark">
+						{@render modeOption("dark")}
+					</DropdownMenuRadioItem>
+
+					<!-- light -->
+					<DropdownMenuRadioItem onclick={() => setMode("light")} value="light">
+						{@render modeOption("light")}
+					</DropdownMenuRadioItem>
+
+					<DropdownMenuSeparator />
+
+					<!-- system -->
+					<DropdownMenuRadioItem onclick={() => resetMode()} value="system">
+						{@render modeOption("system")}
+					</DropdownMenuRadioItem>
+				</DropdownMenuRadioGroup>
+			</DropdownMenuGroup>
+		</DropdownMenuContent>
+	</DropdownMenu>
+{/snippet}
+
 <!-- (es / en) lang - icon + pretty name -->
 {#snippet langOption(locale: Locale)}
 	{#if locale == "es"}
@@ -41,73 +77,46 @@
 	{/if}
 {/snippet}
 
-<!-- Navbar.svelte -->
-<div class="flex items-center justify-between bg-black/25 p-2">
-	<!-- site navigation -->
-	<div class="flex items-center p-2">NAVBAR</div>
-
-	<!-- settings -->
-	<div class="flex items-center gap-2">
-		<!-- dark / light mode select -->
-		<DropdownMenu>
-			<!-- trigger -->
-			<DropdownMenuTrigger>
-				<Button variant="outline" class="hover:cursor-pointer">
-					{@render modeOption(currentMode)}
-				</Button>
-			</DropdownMenuTrigger>
-
-			<!-- options group -->
-			<DropdownMenuContent>
-				<DropdownMenuGroup>
-					<DropdownMenuRadioGroup bind:value={currentMode}>
-						<!-- dark -->
-						<DropdownMenuRadioItem onclick={() => setMode("dark")} value="dark">
-							{@render modeOption("dark")}
-						</DropdownMenuRadioItem>
-
-						<!-- light -->
-						<DropdownMenuRadioItem onclick={() => setMode("light")} value="light">
-							{@render modeOption("light")}
-						</DropdownMenuRadioItem>
-
-						<DropdownMenuSeparator />
-
-						<!-- system -->
-						<DropdownMenuRadioItem onclick={() => resetMode()} value="system">
-							{@render modeOption("system")}
-						</DropdownMenuRadioItem>
-					</DropdownMenuRadioGroup>
-				</DropdownMenuGroup>
-			</DropdownMenuContent>
-		</DropdownMenu>
-
-		<!-- lang select -->
-		<ToggleGroup
-			variant="outline"
-			type="single"
-			value={getLocale()}
-			onValueChange={(value) => setLocale(value as Locale)}
+<!-- lang toggle -->
+{#snippet langToggleGroup()}
+	<ToggleGroup
+		variant="outline"
+		type="single"
+		value={getLocale()}
+		onValueChange={(value) => setLocale(value as Locale)}
+	>
+		<!-- english -->
+		<ToggleGroupItem
+			disabled={getLocale() == "en"}
+			class="hover:cursor-pointer bg-primary"
+			value={"en"}
+			aria-label={"English"}
 		>
-			<!-- english -->
-			<ToggleGroupItem
-				disabled={getLocale() == "en"}
-				class="hover:cursor-pointer"
-				value={"en"}
-				aria-label={"English"}
-			>
-				{@render langOption("en")}
-			</ToggleGroupItem>
+			{@render langOption("en")}
+		</ToggleGroupItem>
 
-			<!-- español -->
-			<ToggleGroupItem
-				disabled={getLocale() == "es"}
-				class="hover:cursor-pointer"
-				value={"es"}
-				aria-label={"Español"}
-			>
-				{@render langOption("es")}
-			</ToggleGroupItem>
-		</ToggleGroup>
+		<!-- español -->
+		<ToggleGroupItem
+			disabled={getLocale() == "es"}
+			class="hover:cursor-pointer bg-primary"
+			value={"es"}
+			aria-label={"Español"}
+		>
+			{@render langOption("es")}
+		</ToggleGroupItem>
+	</ToggleGroup>
+{/snippet}
+
+<!-- Navbar.svelte -->
+<div class="bg-black/25 p-2">
+	<div class="m-auto flex max-w-4xl items-center justify-between">
+		<!-- site navigation -->
+		<div class="flex items-center p-2">NAVBAR</div>
+
+		<!-- settings -->
+		<div class="flex items-center gap-2">
+			{@render modeSelect()}
+			{@render langToggleGroup()}
+		</div>
 	</div>
 </div>

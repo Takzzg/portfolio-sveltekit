@@ -1,7 +1,6 @@
 <script lang="ts">
 	import "iconify-icon";
 	import { m } from "$lib/paraglide/messages";
-	import { Button } from "$lib/components/ui/button";
 	import { HoverCard, HoverCardContent, HoverCardTrigger } from "$lib/components/ui/hover-card";
 </script>
 
@@ -48,20 +47,19 @@
 		</div>
 	</div>
 
-	<div class="m-auto flex w-full max-w-[800px] flex-col gap-4 p-4">
-		<Button>Click me</Button>
-
+	<div class="m-auto flex w-full max-w-4xl flex-col items-center gap-4 p-4">
 		<h3 class="text-center text-xl">This portfolio was made using:</h3>
 
-		<div class="flex flex-row flex-wrap justify-center gap-1">
+		<div class="flex flex-col justify-center gap-1">
 			{@render techLogoBanner("logos:svelte-kit")}
 			{@render techLogoBanner("logos:tailwindcss")}
-			{@render techLogoBanner("logos:vercel")}
-
-			{@render techLogoIcon("logos:prettier", "Prettier")}
-			{@render techLogoIcon("logos:eslint", "ESLint")}
+            
+			{@render techLogoIcon("devicon:vercel", "Vercel")}
 			{@render techLogoIcon("logos:typescript-icon", "TypeScript")}
 			{@render techLogoIcon("vscode-icons:file-type-light-shadcn", "shadcn/ui")}
+			{@render techLogoIcon("logos:vitejs", "Vite")}
+			{@render techLogoIcon("logos:prettier", "Prettier")}
+			{@render techLogoIcon("logos:eslint", "ESLint")}
 		</div>
 	</div>
 </div>
