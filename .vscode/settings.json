@@ -1,4 +1,7 @@
 {
-    "editor.wordWrap": "bounded",
-    "prettier.useTabs": true
+	"editor.wordWrap": "bounded",
+	"prettier.useTabs": true,
+	"files.associations": {
+		"*.css": "tailwindcss"
+	}
 }
