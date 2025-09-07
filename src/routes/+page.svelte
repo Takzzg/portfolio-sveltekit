@@ -1,7 +1,9 @@
 <script lang="ts">
 	import "iconify-icon";
+
 	import { m } from "$lib/paraglide/messages";
 	import { HoverCard, HoverCardContent, HoverCardTrigger } from "$lib/components/ui/hover-card";
+	import StyledMarkdown from "$lib/components/markdown/StyledMarkdown.svelte";
 </script>
 
 {#snippet techLogoBanner(icon: string)}
@@ -47,13 +49,13 @@
 		</div>
 	</div>
 
-	<div class="m-auto flex w-full max-w-4xl flex-col items-center gap-4 p-4">
-		<h3 class="text-center text-xl">This portfolio was made using:</h3>
+	<div class="m-auto grid w-full grid-cols-[auto_1fr] items-center gap-4 p-4">
+		<h3 class="col-span-2 text-center text-xl">This portfolio was made using:</h3>
 
 		<div class="flex flex-col justify-center gap-1">
 			{@render techLogoBanner("logos:svelte-kit")}
 			{@render techLogoBanner("logos:tailwindcss")}
-            
+
 			{@render techLogoIcon("devicon:vercel", "Vercel")}
 			{@render techLogoIcon("logos:typescript-icon", "TypeScript")}
 			{@render techLogoIcon("vscode-icons:file-type-light-shadcn", "shadcn/ui")}
@@ -61,5 +63,7 @@
 			{@render techLogoIcon("logos:prettier", "Prettier")}
 			{@render techLogoIcon("logos:eslint", "ESLint")}
 		</div>
+
+		<StyledMarkdown />
 	</div>
 </div>
