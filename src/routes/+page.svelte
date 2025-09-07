@@ -2,41 +2,22 @@
 	import "iconify-icon";
 
 	import { m } from "$lib/paraglide/messages";
-	import { HoverCard, HoverCardContent, HoverCardTrigger } from "$lib/components/ui/hover-card";
 	import StyledMarkdown from "$lib/components/markdown/StyledMarkdown.svelte";
 </script>
 
 {#snippet techLogoBanner(icon: string)}
-	<HoverCard openDelay={50} closeDelay={50}>
-		<!-- tooltip trigger -->
-		<HoverCardTrigger>
-			<div
-				class="flex items-center rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10"
-			>
+	<div class="flex items-center rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10">
 				<iconify-icon {icon} class="h-[64px] w-[300px]" height="64px" width="300px"></iconify-icon>
 			</div>
-		</HoverCardTrigger>
-
-		<!-- tooltip -->
-		<HoverCardContent>Tooltip Test</HoverCardContent>
-	</HoverCard>
 {/snippet}
 
 {#snippet techLogoIcon(icon: string, prettyName: string)}
-	<HoverCard openDelay={50} closeDelay={50}>
-		<!-- tooltip trigger -->
-		<HoverCardTrigger>
 			<div
 				class="flex items-center gap-4 rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10"
 			>
 				<iconify-icon {icon} class="h-[64px] w-[64px]" height="64px" width="64px"></iconify-icon>
 				<span class="text-2xl">{prettyName}</span>
 			</div>
-		</HoverCardTrigger>
-
-		<!-- tooltip -->
-		<HoverCardContent>Tooltip Test</HoverCardContent>
-	</HoverCard>
 {/snippet}
 
 <div class="grid h-full grid-rows-[100%_auto]">
