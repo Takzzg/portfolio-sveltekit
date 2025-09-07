@@ -36,7 +36,7 @@
 	{/if}
 {/snippet}
 
-<div class="m-auto grid w-full grow-0 grid-cols-[auto_1fr] items-center">
+<div class="grid h-full w-full grid-cols-[auto_1fr] items-center">
 	<div class="flex flex-col justify-center gap-1 p-8">
 		{#each Technologies as tech (tech.id)}
 			<button
@@ -51,7 +51,7 @@
 		{/each}
 	</div>
 
-	<div class="flex h-full w-full flex-col items-center bg-primary/25 p-4">
+	<div class="flex h-full w-full flex-col items-center bg-primary/25 p-4 overflow-y-hidden">
 		{#if selectedTech}
 			<div class="flex w-full items-center gap-8 p-2">
 				<span class="flex w-full items-center gap-4">

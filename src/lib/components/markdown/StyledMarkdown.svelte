@@ -9,7 +9,7 @@
 	const plugins = [gfmPlugin(), { rehypePlugin: rehypeRaw }];
 </script>
 
-<div class="markdown-body h-[840px] max-w-[980px] w-full overflow-y-auto border-2" data-theme={mode.current}>
+<div class="markdown-body w-full max-w-[980px] overflow-y-auto border-2" data-theme={mode.current}>
 	<Markdown {md} {plugins} />
 </div>
 
