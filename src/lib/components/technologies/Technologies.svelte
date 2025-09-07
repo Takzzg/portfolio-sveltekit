@@ -37,10 +37,10 @@
 	<span class="text-2xl">{tech.name}</span>
 {/snippet}
 
-<div class="flex h-full flex-col bg-teal-900 lg:grid lg:grid-cols-[auto_1fr]">
-	<div class="flex flex-col justify-center bg-background py-4">
-		<span class="p-2 text-center text-xl">Click on any item below</span>
-		<div class="flex w-[22rem] flex-wrap justify-center gap-1 lg:flex-col">
+<div class="flex h-full flex-col bg-teal-900 lg:grid lg:grid-cols-[22rem_1fr]">
+	<div class="flex flex-col justify-around bg-background py-4">
+		<span class="p-4 text-center text-4xl text-wrap whitespace-break-spaces">This portfolio was made using:</span>
+		<div class="flex flex-col gap-1">
 			{#each Technologies as tech (tech.id)}
 				<button
 					class=" {selectedTech?.id &&
