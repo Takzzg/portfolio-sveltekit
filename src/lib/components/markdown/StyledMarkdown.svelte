@@ -18,6 +18,7 @@
 		box-sizing: border-box;
 		min-width: 200px;
 		max-width: 980px;
+        min-height: 600px;
 		max-height: 800px;
 		margin: 0 auto;
 		padding: 45px;

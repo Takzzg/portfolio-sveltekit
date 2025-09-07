@@ -3,8 +3,9 @@ export interface I_Technology {
 	type: "logo" | "banner";
 	icon: string;
 	name: string;
-	readmeURL: string;
+	githubURL: string;
 	websiteURL: string;
+	readmeURL: string;
 }
 
 export const Technologies: I_Technology[] = [
@@ -13,21 +14,20 @@ export const Technologies: I_Technology[] = [
 		type: "banner",
 		icon: "logos:svelte-kit",
 		name: "SvelteKit",
-		readmeURL: "https://raw.githubusercontent.com/sveltejs/kit/refs/heads/main/README.md",
+		githubURL: "https://github.com/sveltejs/kit#readme",
 		websiteURL: "https://svelte.dev/",
+		readmeURL: "https://raw.githubusercontent.com/sveltejs/kit/refs/heads/main/README.md",
 	},
 	{
 		id: "tailwindcss",
 		type: "banner",
 		icon: "logos:tailwindcss",
 		name: "TailwindCSS",
-		readmeURL: "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/refs/heads/main/README.md",
+		githubURL: "https://github.com/tailwindlabs/tailwindcss#readme",
 		websiteURL: "https://tailwindcss.com/",
+		readmeURL: "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/refs/heads/main/README.md",
 	},
 ];
-
-// {@render techLogoBanner("logos:svelte-kit")}
-// {@render techLogoBanner("logos:tailwindcss")}
 
 // {@render techLogoIcon("devicon:vercel", "Vercel")}
 // {@render techLogoIcon("logos:typescript-icon", "TypeScript")}
