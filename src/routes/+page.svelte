@@ -5,7 +5,7 @@
 	let height = $state();
 </script>
 
-<div class="grid h-full" bind:clientHeight={height}>
+<div class="grid h-full overflow-y-scroll" bind:clientHeight={height}>
 	<div style="height: {height}px;" class="flex flex-col items-center justify-center bg-primary/10">
 		<h1 class="text-5xl">{m.tiny_crisp_skate_lead()}</h1>
 
@@ -15,7 +15,11 @@
 		</div>
 	</div>
 
-	<div style="height: {height}px;">
+	<div class="lg:hidden">
+		<Technologies />
+	</div>
+
+	<div class="hidden lg:block" style="height: {height}px;">
 		<Technologies />
 	</div>
 </div>

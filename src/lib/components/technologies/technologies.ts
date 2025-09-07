@@ -47,7 +47,6 @@ export const Technologies: I_Technology[] = [
 	},
 ];
 
-// {@render techLogoIcon("devicon:vercel", "Vercel")}
 // {@render techLogoIcon("logos:typescript-icon", "TypeScript")}
 // {@render techLogoIcon("vscode-icons:file-type-light-shadcn", "shadcn/ui")}
 // {@render techLogoIcon("logos:vitejs", "Vite")}

@@ -20,7 +20,7 @@
 
 	<Navbar />
 
-	<div class="h-full w-full overflow-y-auto">
+	<div class="h-full w-full overflow-hidden">
 		{@render children?.()}
 	</div>
 </div>
