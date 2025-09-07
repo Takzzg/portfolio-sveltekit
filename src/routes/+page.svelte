@@ -3,21 +3,35 @@
 
 	import { m } from "$lib/paraglide/messages";
 	import StyledMarkdown from "$lib/components/markdown/StyledMarkdown.svelte";
+
+	let defaultMarkdown = `
+## Want to learn more ?
+
+Click on any item on the left and take a peek at it's readme.md file!
+`;
+
+	let md = $state(defaultMarkdown);
+
+	const fetchReadme = async () => {
+		const res = await fetch(`https://raw.githubusercontent.com/sveltejs/kit/refs/heads/main/README.md`);
+		const data = await res.text();
+		md = data;
+	};
 </script>
 
+<!-- https://raw.githubusercontent.com/{owner}/{repo}/{branch}/README.md -->
+
 {#snippet techLogoBanner(icon: string)}
-	<div class="flex items-center rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10">
-				<iconify-icon {icon} class="h-[64px] w-[300px]" height="64px" width="300px"></iconify-icon>
-			</div>
+	<button class="flex items-center rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10" aria-label="tech logo banner" onclick={fetchReadme}>
+		<iconify-icon {icon} class="h-[64px] w-[300px]" height="64px" width="300px"></iconify-icon>
+	</button>
 {/snippet}
 
 {#snippet techLogoIcon(icon: string, prettyName: string)}
-			<div
-				class="flex items-center gap-4 rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10"
-			>
-				<iconify-icon {icon} class="h-[64px] w-[64px]" height="64px" width="64px"></iconify-icon>
-				<span class="text-2xl">{prettyName}</span>
-			</div>
+	<div class="flex items-center gap-4 rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10">
+		<iconify-icon {icon} class="h-[64px] w-[64px]" height="64px" width="64px"></iconify-icon>
+		<span class="text-2xl">{prettyName}</span>
+	</div>
 {/snippet}
 
 <div class="grid h-full grid-rows-[100%_auto]">
@@ -45,6 +59,6 @@
 			{@render techLogoIcon("logos:eslint", "ESLint")}
 		</div>
 
-		<StyledMarkdown />
+		<StyledMarkdown {md} />
 	</div>
 </div>

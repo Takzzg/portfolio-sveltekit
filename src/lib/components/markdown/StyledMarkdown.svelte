@@ -4,36 +4,20 @@
 	import Markdown from "svelte-exmarkdown";
 	import { gfmPlugin } from "svelte-exmarkdown/gfm";
 
-	let testMarkdown = `
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
-
-Alternatively, for H1 and H2, an underline-ish style:
-
-Alt-H1
-======
-
-Alt-H2
-------
-`;
+	let { md } = $props();
 	const plugins = [gfmPlugin()];
 </script>
 
-<div class="markdown-body w-full border-2" data-theme={mode.current}>
-	<Markdown md={testMarkdown} {plugins} />
+<div class="markdown-body h-full w-full overflow-y-auto border-2" data-theme={mode.current}>
+	<Markdown {md} {plugins} />
 </div>
 
 <style>
-	/* thanks to https://github.com/sindresorhus - https://github.com/sindresorhus/github-markdown-css */
-
 	.markdown-body {
 		box-sizing: border-box;
 		min-width: 200px;
 		max-width: 980px;
+        max-height: 800px;
 		margin: 0 auto;
 		padding: 45px;
 	}
