@@ -1,11 +1,12 @@
 <script lang="ts">
 	import "./github-markdown.css";
 	import { mode } from "mode-watcher";
+	import rehypeRaw from "rehype-raw";
 	import Markdown from "svelte-exmarkdown";
 	import { gfmPlugin } from "svelte-exmarkdown/gfm";
 
 	let { md } = $props();
-	const plugins = [gfmPlugin()];
+	const plugins = [gfmPlugin(), { rehypePlugin: rehypeRaw }];
 </script>
 
 <div class="markdown-body h-full w-full overflow-y-auto border-2" data-theme={mode.current}>
@@ -17,7 +18,7 @@
 		box-sizing: border-box;
 		min-width: 200px;
 		max-width: 980px;
-        max-height: 800px;
+		max-height: 800px;
 		margin: 0 auto;
 		padding: 45px;
 	}
