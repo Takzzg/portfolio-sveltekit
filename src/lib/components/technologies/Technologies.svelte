@@ -5,9 +5,7 @@
 	import { Technologies, type I_Technology } from "./technologies";
 	import Button from "../ui/button/button.svelte";
 
-    import defaultmd from './default.md?raw';
-
-	let defaultMarkdown = `## Want to learn more ?\nClick on any item on the left and take a peek at it's readme.md file!`;
+	import defaultmd from "./default.md?raw";
 
 	let selectedTech: I_Technology | null = $state(null);
 	let md = $state(defaultmd);
@@ -38,13 +36,13 @@
 	{/if}
 {/snippet}
 
-<div class="m-auto grid w-full grid-cols-[auto_1fr] items-center gap-4 p-4">
-	<div class="flex flex-col justify-center gap-1">
+<div class="m-auto grid w-full grow-0 grid-cols-[auto_1fr] items-center">
+	<div class="flex flex-col justify-center gap-1 p-8">
 		{#each Technologies as tech (tech.id)}
 			<button
 				class="{selectedTech?.id &&
 					tech.id == selectedTech?.id &&
-					'border-2'} flex items-center rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/5"
+					'border-2'} flex items-center gap-4 rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/5"
 				aria-label="tech logo banner"
 				onclick={() => setSelectedTech(tech)}
 			>
@@ -53,10 +51,12 @@
 		{/each}
 	</div>
 
-	<div class="flex h-full w-full flex-col items-center">
+	<div class="flex h-full w-full flex-col items-center bg-primary/25 p-4">
 		{#if selectedTech}
-			<div class="flex items-center gap-8 p-2">
-				{@render techLogo(selectedTech)}
+			<div class="flex w-full items-center gap-8 p-2">
+				<span class="flex w-full items-center gap-4">
+					{@render techLogo(selectedTech)}
+				</span>
 				<Button
 					variant="outline"
 					class="hover:cursor-pointer hover:bg-white/5"

@@ -85,37 +85,25 @@
 		onValueChange={(value) => setLocale(value as Locale)}
 	>
 		<!-- english -->
-		<ToggleGroupItem
-			disabled={getLocale() == "en"}
-			class="hover:cursor-pointer"
-			value={"en"}
-			aria-label={"English"}
-		>
+		<ToggleGroupItem disabled={getLocale() == "en"} class="hover:cursor-pointer" value={"en"} aria-label={"English"}>
 			{@render langOption("en")}
 		</ToggleGroupItem>
 
 		<!-- español -->
-		<ToggleGroupItem
-			disabled={getLocale() == "es"}
-			class="hover:cursor-pointer"
-			value={"es"}
-			aria-label={"Español"}
-		>
+		<ToggleGroupItem disabled={getLocale() == "es"} class="hover:cursor-pointer" value={"es"} aria-label={"Español"}>
 			{@render langOption("es")}
 		</ToggleGroupItem>
 	</ToggleGroup>
 {/snippet}
 
 <!-- Navbar.svelte -->
-<div class="bg-black/25 p-2">
-	<div class="m-auto flex max-w-4xl items-center justify-between">
-		<!-- site navigation -->
-		<div class="flex items-center p-2">NAVBAR</div>
+<div class="m-auto flex w-full max-w-4xl items-center justify-between p-2">
+	<!-- site navigation -->
+	<div class="flex items-center p-2">NAVBAR</div>
 
-		<!-- settings -->
-		<div class="flex items-center gap-2">
-			{@render modeSelect()}
-			{@render langToggleGroup()}
-		</div>
+	<!-- settings -->
+	<div class="flex items-center gap-2">
+		{@render modeSelect()}
+		{@render langToggleGroup()}
 	</div>
 </div>

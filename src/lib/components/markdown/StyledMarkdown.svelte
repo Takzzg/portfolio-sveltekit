@@ -9,17 +9,13 @@
 	const plugins = [gfmPlugin(), { rehypePlugin: rehypeRaw }];
 </script>
 
-<div class="markdown-body h-full w-full overflow-y-auto border-2" data-theme={mode.current}>
+<div class="markdown-body h-[840px] max-w-[980px] w-full overflow-y-auto border-2" data-theme={mode.current}>
 	<Markdown {md} {plugins} />
 </div>
 
 <style>
 	.markdown-body {
 		box-sizing: border-box;
-		min-width: 200px;
-		max-width: 980px;
-        min-height: 600px;
-		max-height: 800px;
 		margin: 0 auto;
 		padding: 45px;
 	}
