@@ -1,38 +1,7 @@
 <script lang="ts">
-	import "iconify-icon";
-
 	import { m } from "$lib/paraglide/messages";
-	import StyledMarkdown from "$lib/components/markdown/StyledMarkdown.svelte";
-
-	let defaultMarkdown = `
-## Want to learn more ?
-
-Click on any item on the left and take a peek at it's readme.md file!
-`;
-
-	let md = $state(defaultMarkdown);
-
-	const fetchReadme = async () => {
-		const res = await fetch(`https://raw.githubusercontent.com/sveltejs/kit/refs/heads/main/README.md`);
-		const data = await res.text();
-		md = data;
-	};
+	import Technologies from "$lib/components/technologies/Technologies.svelte";
 </script>
-
-<!-- https://raw.githubusercontent.com/{owner}/{repo}/{branch}/README.md -->
-
-{#snippet techLogoBanner(icon: string)}
-	<button class="flex items-center rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10" aria-label="tech logo banner" onclick={fetchReadme}>
-		<iconify-icon {icon} class="h-[64px] w-[300px]" height="64px" width="300px"></iconify-icon>
-	</button>
-{/snippet}
-
-{#snippet techLogoIcon(icon: string, prettyName: string)}
-	<div class="flex items-center gap-4 rounded-sm p-2 align-sub hover:cursor-pointer hover:bg-white/10">
-		<iconify-icon {icon} class="h-[64px] w-[64px]" height="64px" width="64px"></iconify-icon>
-		<span class="text-2xl">{prettyName}</span>
-	</div>
-{/snippet}
 
 <div class="grid h-full grid-rows-[100%_auto]">
 	<div class="flex flex-col items-center justify-center bg-primary/10">
@@ -44,21 +13,5 @@ Click on any item on the left and take a peek at it's readme.md file!
 		</div>
 	</div>
 
-	<div class="m-auto grid w-full grid-cols-[auto_1fr] items-center gap-4 p-4">
-		<h3 class="col-span-2 text-center text-xl">This portfolio was made using:</h3>
-
-		<div class="flex flex-col justify-center gap-1">
-			{@render techLogoBanner("logos:svelte-kit")}
-			{@render techLogoBanner("logos:tailwindcss")}
-
-			{@render techLogoIcon("devicon:vercel", "Vercel")}
-			{@render techLogoIcon("logos:typescript-icon", "TypeScript")}
-			{@render techLogoIcon("vscode-icons:file-type-light-shadcn", "shadcn/ui")}
-			{@render techLogoIcon("logos:vitejs", "Vite")}
-			{@render techLogoIcon("logos:prettier", "Prettier")}
-			{@render techLogoIcon("logos:eslint", "ESLint")}
-		</div>
-
-		<StyledMarkdown {md} />
-	</div>
+	<Technologies />
 </div>
