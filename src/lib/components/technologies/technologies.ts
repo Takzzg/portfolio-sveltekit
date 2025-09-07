@@ -1,4 +1,4 @@
-interface I_Technology {
+export interface I_Technology {
 	id: string;
 	type: "logo" | "banner";
 	icon: string;
@@ -15,6 +15,14 @@ export const Technologies: I_Technology[] = [
 		name: "SvelteKit",
 		readmeURL: "https://raw.githubusercontent.com/sveltejs/kit/refs/heads/main/README.md",
 		websiteURL: "https://svelte.dev/",
+	},
+	{
+		id: "tailwindcss",
+		type: "banner",
+		icon: "logos:tailwindcss",
+		name: "TailwindCSS",
+		readmeURL: "https://raw.githubusercontent.com/tailwindlabs/tailwindcss/refs/heads/main/README.md",
+		websiteURL: "https://tailwindcss.com/",
 	},
 ];
 
