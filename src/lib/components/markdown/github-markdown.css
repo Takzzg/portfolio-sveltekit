@@ -173,6 +173,7 @@
 }
 
 .markdown-body a {
+    display: inline-block;
 	background-color: transparent;
 	color: var(--fgColor-accent);
 	text-decoration: none;
