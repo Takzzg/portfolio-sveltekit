@@ -27,21 +27,21 @@
 	};
 </script>
 
-{#snippet techLogo(tech: I_Technology, height: number = 64)}
+{#snippet techLogo(icon: string, height: number = 64)}
 	<iconify-icon
-		icon={tech.icon}
+		{icon}
 		style="width: {height}px; height: {height}px;"
 		height="{height}px"
 		width="{height}px"
 	></iconify-icon>
-	<span class="text-2xl">{tech.name}</span>
 {/snippet}
 
 {#snippet techHeader()}
-	<div class="techHeader m-auto flex w-full max-w-[980px] grow gap-8 bg-stone-200 p-4 text-black">
+	<div class="techHeader m-auto flex w-full max-w-[980px] grow gap-8 p-4 text-black">
 		{#if selectedTech}
-			<span class="flex w-full items-center gap-4">
-				{@render techLogo(selectedTech, 32)}
+			<span class="flex w-full items-center gap-4 text-2xl">
+				{@render techLogo(selectedTech.icon, 32)}
+				{selectedTech.name}
 			</span>
 			<span class="flex flex-col gap-2 lg:flex-row">
 				<Button
@@ -75,15 +75,19 @@
 
 		<div class="flex flex-col gap-1">
 			{#each Technologies as tech (tech.id)}
-				<button
-					class=" {selectedTech?.id &&
+				<Button
+					variant="ghost"
+					class="{selectedTech?.id &&
 						tech.id == selectedTech?.id &&
-						'border-l-16 border-teal-700'} box-border flex items-center gap-2 bg-stone-300 p-2 align-sub text-black hover:cursor-pointer"
+						'border-l-16 border-orange-500'} flex h-auto items-center justify-start gap-4 text-2xl hover:cursor-pointer p-0 rounded-none"
 					aria-label="tech logo banner"
 					onclick={() => setSelectedTech(tech)}
 				>
-					{@render techLogo(tech)}
-				</button>
+					<span class="bg-stone-200 p-2 aspect-square">
+						{@render techLogo(tech.icon)}
+					</span>
+					{tech.name}
+				</Button>
 			{/each}
 		</div>
 	</div>
@@ -92,7 +96,7 @@
 <div class="h-full bg-teal-900 lg:grid lg:grid-cols-[22rem_1fr]">
 	{@render techList()}
 
-	<div class="flex h-full flex-col overflow-hidden pb-4">
+	<div class="flex h-full flex-col overflow-hidden py-4">
 		{@render techHeader()}
 
 		<StyledMarkdown {md} />
@@ -105,10 +109,13 @@
 	.techHeader {
 		position: relative;
 	}
+    .techHeader,
 	.techHeader::before,
 	.techHeader::after {
 		@apply bg-stone-200;
-
+    }
+	.techHeader::before,
+	.techHeader::after {
 		content: " ";
 		position: absolute;
 		width: 1rem;

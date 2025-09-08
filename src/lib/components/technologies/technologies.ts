@@ -50,7 +50,7 @@ export const Technologies: I_Technology[] = [
 	},
 	{
 		id: "prettier-plugin-svelte",
-		icon: "logos:prettier",
+		icon: "vscode-icons:file-type-prettier",
 		name: "prettier-plugin-svelte",
 		websiteURL: "",
 		githubURL: "https://github.com/sveltejs/prettier-plugin-svelte#readme",
