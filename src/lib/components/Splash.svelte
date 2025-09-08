@@ -10,10 +10,10 @@
 		<h5 class="text-2xl">{m.sharp_trite_bulldog_dash()}</h5>
 	</div>
 
-	<div class="absolute top-4 right-4 grid grid-cols-4 gap-4 lg:grid-cols-1">
+	<div class="absolute top-0 m-auto grid grid-cols-4 gap-2 p-2 lg:top-4 lg:right-4 lg:w-auto lg:grid-cols-1">
+		<div class="flex aspect-square items-center justify-center bg-background p-2">background</div>
 		<div class="flex aspect-square items-center justify-center bg-stone-200 p-2 text-black">stone-200</div>
 		<div class="flex aspect-square items-center justify-center bg-orange-400 p-2 text-black">orange-400</div>
-		<div class="flex aspect-square items-center justify-center bg-teal-700 p-2">teal-700</div>
-		<div class="flex aspect-square items-center justify-center bg-background p-2">#121212</div>
+		<div class="flex aspect-square items-center justify-center bg-teal-700 p-2 text-white">teal-700</div>
 	</div>
 </div>
