@@ -1,0 +1,19 @@
+<script lang="ts">
+	import { m } from "$lib/paraglide/messages";
+</script>
+
+<div class="relative flex h-full flex-col items-center justify-center bg-teal-950">
+	<h1 class="text-5xl">{m.tiny_crisp_skate_lead()}</h1>
+
+	<div class="p-10">
+		<h3 class="text-3xl">{m.new_free_cougar_leap()}</h3>
+		<h5 class="text-2xl">{m.sharp_trite_bulldog_dash()}</h5>
+	</div>
+
+	<div class="absolute top-4 right-4 grid grid-cols-4 gap-4 lg:grid-cols-1">
+		<div class="flex aspect-square items-center justify-center bg-stone-200 p-2 text-black">stone-200</div>
+		<div class="flex aspect-square items-center justify-center bg-orange-400 p-2 text-black">orange-400</div>
+		<div class="flex aspect-square items-center justify-center bg-teal-700 p-2">teal-700</div>
+		<div class="flex aspect-square items-center justify-center bg-background p-2">#121212</div>
+	</div>
+</div>

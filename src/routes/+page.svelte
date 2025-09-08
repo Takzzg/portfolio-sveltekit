@@ -1,25 +1,24 @@
 <script lang="ts">
-	import { m } from "$lib/paraglide/messages";
+	import Splash from "@/lib/components/Splash.svelte";
 	import Technologies from "$lib/components/technologies/Technologies.svelte";
 
-	let height = $state();
+	let height: number = $state(0);
 </script>
 
 <div class="grid h-full overflow-y-scroll" bind:clientHeight={height}>
-	<div style="height: {height}px;" class="flex flex-col items-center justify-center bg-primary/10">
-		<h1 class="text-5xl">{m.tiny_crisp_skate_lead()}</h1>
-
-		<div class="p-10">
-			<h3 class="text-3xl">{m.new_free_cougar_leap()}</h3>
-			<h5 class="text-2xl">{m.sharp_trite_bulldog_dash()}</h5>
-		</div>
+	<div style="height: {height}px;">
+		<Splash />
 	</div>
 
-	<div class="lg:hidden">
-		<Technologies />
-	</div>
-
-	<div class="hidden lg:block" style="height: {height}px;">
+	<div class="technologies" style="--height:{height};">
 		<Technologies />
 	</div>
 </div>
+
+<style>
+	@media (min-width: 767px) {
+		.technologies {
+			height: calc(var(--height) * 1px);
+		}
+	}
+</style>

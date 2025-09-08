@@ -37,7 +37,7 @@
 {/snippet}
 
 {#snippet techHeader()}
-	<div class="techHeader m-auto flex w-full max-w-[980px] grow gap-8 p-4 text-black">
+	<div class="techHeader m-auto flex w-full max-w-[980px] grow gap-8 p-4 text-black lg:px-0">
 		{#if selectedTech}
 			<span class="flex w-full items-center gap-4 text-2xl">
 				{@render techLogo(selectedTech.icon, 32)}
@@ -64,7 +64,7 @@
 				</Button>
 			</span>
 		{:else}
-			<span class="text-2xl">About this Portfolio</span>
+			<span class="px-2 text-2xl">About this Portfolio</span>
 		{/if}
 	</div>
 {/snippet}
@@ -79,11 +79,11 @@
 					variant="ghost"
 					class="{selectedTech?.id &&
 						tech.id == selectedTech?.id &&
-						'border-l-16 border-orange-500'} flex h-auto items-center justify-start gap-4 text-2xl hover:cursor-pointer p-0 rounded-none"
+						'border-l-16 border-orange-400'} flex h-auto items-center justify-start gap-4 rounded-none p-0 text-2xl hover:cursor-pointer"
 					aria-label="tech logo banner"
 					onclick={() => setSelectedTech(tech)}
 				>
-					<span class="bg-stone-200 p-2 aspect-square">
+					<span class="aspect-square bg-stone-200 p-2">
 						{@render techLogo(tech.icon)}
 					</span>
 					{tech.name}
@@ -109,11 +109,11 @@
 	.techHeader {
 		position: relative;
 	}
-    .techHeader,
+	.techHeader,
 	.techHeader::before,
 	.techHeader::after {
 		@apply bg-stone-200;
-    }
+	}
 	.techHeader::before,
 	.techHeader::after {
 		content: " ";
