@@ -2,7 +2,7 @@
 	import "iconify-icon";
 
 	import StyledMarkdown from "$lib/components/markdown/StyledMarkdown.svelte";
-	import { Technologies, type I_Technology } from "./technologies";
+	import { Portfolio, type I_Technology } from "./technologies";
 	import Button from "../ui/button/button.svelte";
 
 	import defaultmd from "./default.md?raw";
@@ -94,7 +94,7 @@
 		<span class="p-4 text-center text-2xl text-wrap whitespace-break-spaces">This portfolio was made using:</span>
 
 		<div class="flex flex-col gap-1">
-			{#each Technologies as tech (tech.id)}
+			{#each Portfolio as tech (tech.id)}
 				{@render techButton(tech)}
 			{/each}
 		</div>
