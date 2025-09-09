@@ -101,7 +101,7 @@
 	</div>
 {/snippet}
 
-<div class="h-full bg-teal-700/50 lg:grid lg:grid-cols-[22rem_1fr]">
+<div class="h-full bg-teal-700 lg:grid lg:grid-cols-[22rem_1fr]">
 	{@render techList()}
 
 	<div class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">

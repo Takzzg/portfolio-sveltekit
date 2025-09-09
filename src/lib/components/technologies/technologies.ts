@@ -85,6 +85,8 @@ const AllTechnologies: { [key in E_Technologies]: I_Technology } = {
 	},
 };
 
+export const Experience: I_Technology[] = Object.values(AllTechnologies);
+
 export const Portfolio: I_Technology[] = [
 	AllTechnologies[E_Technologies.SVELTE_KIT],
 	AllTechnologies[E_Technologies.TAILWINDCSS],
