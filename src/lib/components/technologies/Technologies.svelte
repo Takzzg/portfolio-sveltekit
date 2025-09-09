@@ -78,7 +78,7 @@
 		aria-label="tech logo banner"
 		onclick={() => setSelectedTech(tech)}
 	>
-		<span class="aspect-square bg-stone-200 p-2">
+		<span class="flex items-center bg-stone-200 p-2">
 			{@render techLogo(tech.icon)}
 		</span>
 		<span class="h-full w-full py-2">
@@ -101,7 +101,7 @@
 	</div>
 {/snippet}
 
-<div class="h-full bg-teal-900 lg:grid lg:grid-cols-[22rem_1fr]">
+<div class="h-full bg-teal-700/50 lg:grid lg:grid-cols-[22rem_1fr]">
 	{@render techList()}
 
 	<div class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">
