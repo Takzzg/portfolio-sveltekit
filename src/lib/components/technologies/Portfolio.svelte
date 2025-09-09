@@ -4,8 +4,11 @@
 	import StyledMarkdown from "$lib/components/markdown/StyledMarkdown.svelte";
 	import { Portfolio, type I_Technology } from "./technologies";
 	import Button from "../ui/button/button.svelte";
-
 	import defaultmd from "./default.md?raw";
+
+    // DOM element refs
+	let readmeDiv: HTMLDivElement; 
+	let markdownElement: StyledMarkdown;
 
 	let selectedTech: I_Technology | null = $state(null);
 	let md = $state(defaultmd);
@@ -16,14 +19,16 @@
 		md = data;
 	};
 
-	const setSelectedTech = (tech: I_Technology) => {
+	const setSelectedTech = async (tech: I_Technology) => {
 		if (selectedTech?.id == tech.id) {
 			selectedTech = null;
 			md = defaultmd;
 		} else {
 			selectedTech = tech;
-			fetchReadme(tech.readmeURL);
+			await fetchReadme(tech.readmeURL);
 		}
+		readmeDiv.scrollIntoView({ behavior: "smooth" });
+        markdownElement.scrollToTop();
 	};
 </script>
 
@@ -104,10 +109,10 @@
 <div class="h-full bg-teal-700 lg:grid lg:grid-cols-[22rem_1fr]">
 	{@render techList()}
 
-	<div class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">
+	<div bind:this={readmeDiv} class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">
 		{@render techHeader()}
 
-		<StyledMarkdown {md} />
+		<StyledMarkdown bind:this={markdownElement} {md} />
 	</div>
 </div>
 

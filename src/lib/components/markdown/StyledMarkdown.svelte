@@ -5,11 +5,17 @@
 	import Markdown from "svelte-exmarkdown";
 	import { gfmPlugin } from "svelte-exmarkdown/gfm";
 
+	let parent: HTMLDivElement;
+
 	let { md } = $props();
 	const plugins = [gfmPlugin(), { rehypePlugin: rehypeRaw }];
+
+	export const scrollToTop = () => {
+		parent.scrollTo({top:0, behavior:"smooth"});
+	};
 </script>
 
-<div class="markdown-body border-2 h-full w-full overflow-auto" data-theme={mode.current}>
+<div bind:this={parent} class="markdown-body h-full w-full overflow-auto border-2" data-theme={mode.current}>
 	<Markdown {md} {plugins} />
 </div>
 
