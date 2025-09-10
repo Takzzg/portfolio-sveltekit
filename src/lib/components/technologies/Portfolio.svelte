@@ -6,15 +6,20 @@
 	import Button from "../ui/button/button.svelte";
 	import defaultmd from "./default.md?raw";
 
-    // DOM element refs
-	let readmeDiv: HTMLDivElement; 
+	const GITHUB_URL = "https://github.com";
+	const GITHUB_API_URL = "https://api.github.com";
+
+	// DOM element refs
+	let readmeDiv: HTMLDivElement;
 	let markdownElement: StyledMarkdown;
 
 	let selectedTech: I_Technology | null = $state(null);
 	let md = $state(defaultmd);
 
-	const fetchReadme = async (url: string) => {
-		const res = await fetch(url);
+	const fetchReadme = async (github: string) => {
+		const res = await fetch(`${GITHUB_API_URL}/repos/${github}/readme`, {
+			headers: { Accept: "application/vnd.github.html+json" },
+		});
 		const data = await res.text();
 		md = data;
 	};
@@ -25,10 +30,10 @@
 			md = defaultmd;
 		} else {
 			selectedTech = tech;
-			await fetchReadme(tech.readmeURL);
+			await fetchReadme(tech.github);
 		}
 		readmeDiv.scrollIntoView({ behavior: "smooth" });
-        markdownElement.scrollToTop();
+		markdownElement.scrollTo({ top: 0, behavior: "smooth" });
 	};
 </script>
 
@@ -52,7 +57,7 @@
 				<Button
 					variant="secondary"
 					class="hover:cursor-pointer"
-					onclick={() => window.open(selectedTech?.websiteURL, "_blank")}
+					onclick={() => window.open(selectedTech?.website, "_blank")}
 				>
 					<iconify-icon icon="lucide:globe" width="24px" class="h-6 w-6"></iconify-icon>
 					<span>Visit Website</span>
@@ -61,7 +66,7 @@
 				<Button
 					variant="secondary"
 					class="hover:cursor-pointer"
-					onclick={() => window.open(selectedTech?.githubURL, "_blank")}
+					onclick={() => window.open(`${GITHUB_URL}/${selectedTech?.github}/#readme`, "_blank")}
 				>
 					<iconify-icon icon="lucide:github" width="24px" class="h-6 w-6"></iconify-icon>
 					<span>GitHub Repo</span>

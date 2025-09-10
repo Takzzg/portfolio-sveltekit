@@ -10,9 +10,7 @@
 	let { md } = $props();
 	const plugins = [gfmPlugin(), { rehypePlugin: rehypeRaw }];
 
-	export const scrollToTop = () => {
-		parent.scrollTo({top:0, behavior:"smooth"});
-	};
+	export const scrollTo = (options?: ScrollToOptions) => parent.scrollTo(options);
 </script>
 
 <div bind:this={parent} class="markdown-body h-full w-full overflow-auto border-2" data-theme={mode.current}>
