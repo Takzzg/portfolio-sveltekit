@@ -4,7 +4,10 @@
 	import StyledMarkdown from "$lib/components/markdown/StyledMarkdown.svelte";
 	import { Portfolio, type I_Technology } from "./technologies";
 	import Button from "../ui/button/button.svelte";
-	import defaultmd from "./default.md?raw";
+
+    // markdown files
+	import defaultMD from "./default.md?raw";
+	import loadingMD from "./loading.md?raw";
 
 	const GITHUB_URL = "https://github.com";
 	const GITHUB_API_URL = "https://api.github.com";
@@ -14,9 +17,10 @@
 	let markdownElement: StyledMarkdown;
 
 	let selectedTech: I_Technology | null = $state(null);
-	let md = $state(defaultmd);
+	let md = $state(defaultMD);
 
 	const fetchReadme = async (github: string) => {
+        md = loadingMD;
 		const res = await fetch(`${GITHUB_API_URL}/repos/${github}/readme`, {
 			headers: { Accept: "application/vnd.github.html+json" },
 		});
@@ -27,7 +31,7 @@
 	const setSelectedTech = async (tech: I_Technology) => {
 		if (selectedTech?.id == tech.id) {
 			selectedTech = null;
-			md = defaultmd;
+			md = defaultMD;
 		} else {
 			selectedTech = tech;
 			await fetchReadme(tech.github);
