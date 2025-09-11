@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Splash from "@/lib/components/Splash.svelte";
 	import Portfolio from "@/lib/components/technologies/Portfolio.svelte";
-	import Experience from "@/lib/components/technologies/Experience.svelte";
+	import Categories from "@/lib/components/technologies/Categories.svelte";
 
 	let height: number = $state(0);
 </script>
@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="fixedHeight">
-		<Experience />
+		<Categories />
 	</div>
 
 	<div class="fixedHeight">
