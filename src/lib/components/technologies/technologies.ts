@@ -17,7 +17,7 @@ enum E_Technologies {
 	VERCEL = "vercel",
 }
 
-const AllTechnologies: { [key in E_Technologies]: I_Technology } = {
+const AllTechnologies: Record<E_Technologies, I_Technology> = {
 	[E_Technologies.SVELTE_KIT]: {
 		id: E_Technologies.SVELTE_KIT,
 		icon: "logos:svelte-icon",
@@ -76,7 +76,25 @@ const AllTechnologies: { [key in E_Technologies]: I_Technology } = {
 	},
 };
 
-export const Experience: I_Technology[] = Object.values(AllTechnologies);
+export const FrontEnd: I_Technology[] = [
+	AllTechnologies[E_Technologies.SVELTE_KIT],
+	AllTechnologies[E_Technologies.TYPESCRIPT],
+];
+
+export const Styling: I_Technology[] = [
+	AllTechnologies[E_Technologies.TAILWINDCSS],
+	AllTechnologies[E_Technologies.SHADCN_SVELTE],
+];
+
+export const Development: I_Technology[] = [
+	AllTechnologies[E_Technologies.VITE],
+	AllTechnologies[E_Technologies.PRETTIER_PLUGIN_SVELTE],
+	AllTechnologies[E_Technologies.ESLINT_PLUGIN_SVELTE],
+];
+
+export const BackEnd: I_Technology[] = [];
+
+export const Hosting: I_Technology[] = [AllTechnologies[E_Technologies.VERCEL]];
 
 export const Portfolio: I_Technology[] = [
 	AllTechnologies[E_Technologies.SVELTE_KIT],
