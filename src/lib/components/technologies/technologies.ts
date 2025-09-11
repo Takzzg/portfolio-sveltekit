@@ -7,6 +7,7 @@ export interface I_Technology {
 }
 
 enum E_Technologies {
+	REACT = "react",
 	SVELTE_KIT = "svelte-kit",
 	TAILWINDCSS = "tailwindcss",
 	SHADCN_SVELTE = "shadcn-svelte",
@@ -18,6 +19,13 @@ enum E_Technologies {
 }
 
 const AllTechnologies: Record<keyof typeof E_Technologies, I_Technology> = {
+	REACT: {
+		id: E_Technologies.REACT,
+		icon: "logos:react",
+		name: "React",
+		github: "facebook/react",
+		website: "https://react.dev/",
+	},
 	SVELTE_KIT: {
 		id: E_Technologies.SVELTE_KIT,
 		icon: "logos:svelte-icon",
@@ -97,7 +105,7 @@ export const TechCategories: Record<keyof typeof E_Categories, I_Category> = {
 		id: E_Categories.FRONT_END,
 		icon: "lucide:monitor",
 		title: "Front End",
-		techs: [AllTechnologies.SVELTE_KIT, AllTechnologies.TYPESCRIPT],
+		techs: [AllTechnologies.REACT, AllTechnologies.SVELTE_KIT, AllTechnologies.TYPESCRIPT],
 	},
 	STYLING: {
 		id: E_Categories.STYLING,
