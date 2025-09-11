@@ -10,7 +10,7 @@
 		<h5 class="text-2xl">{m.sharp_trite_bulldog_dash()}</h5>
 	</div>
 
-	<div class="absolute top-4 m-auto flex gap-2 bg-background p-2 lg:right-4 lg:w-auto lg:flex-col">
+	<div class="absolute top-4 m-auto flex gap-2 bg-background p-2 lg:left-4 lg:w-auto lg:flex-col">
 		<div class="flex w-8 -rotate-90 items-center justify-center p-2 lg:w-auto lg:rotate-0">background</div>
 		<div class="grid grid-cols-3 gap-2 lg:grid-cols-1">
 			<div class="flex aspect-square items-center justify-center bg-stone-200 p-2 text-black">stone-200</div>

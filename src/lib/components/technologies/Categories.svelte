@@ -100,17 +100,10 @@
 	</div>
 {/snippet}
 
-<div class="grid h-full max-w-screen grid-rows-[auto_1fr] overflow-hidden bg-orange-400">
-	<h2 class="p-4 text-4xl bg-background">What I do</h2>
-	<div bind:this={parentElement} class="grid h-full grid-cols-[1fr_auto] gap-4 overflow-hidden p-4">
-		<div class="grid h-full grid-rows-[auto_1fr] items-center overflow-y-auto">
-			<div class="flex w-full justify-center bg-background/75">
-				{@render techHeader()}
-			</div>
-
-			<StyledMarkdown bind:this={markdownElement} {md} />
-		</div>
-
+<div class="grid h-full grid-rows-[auto_1fr] overflow-hidden bg-orange-400">
+	<h2 class="bg-background p-4 text-4xl">What I do</h2>
+    
+	<div bind:this={parentElement} class="grid h-full grid-cols-[auto_1fr] gap-4 overflow-hidden p-4">
 		<div class="grid max-h-full w-sm gap-2">
 			{@render category(TechCategories.FRONT_END)}
 			{@render category(TechCategories.STYLING)}
@@ -118,6 +111,14 @@
 			{@render category(TechCategories.BACK_END)}
 			{@render category(TechCategories.DATA_BASE)}
 			{@render category(TechCategories.HOSTING)}
+		</div>
+
+		<div class="grid h-full grid-rows-[auto_1fr] items-center overflow-y-auto">
+			<div class="flex w-full justify-center bg-background/75">
+				{@render techHeader()}
+			</div>
+
+			<StyledMarkdown bind:this={markdownElement} {md} />
 		</div>
 	</div>
 </div>
