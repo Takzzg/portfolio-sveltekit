@@ -52,8 +52,8 @@
 				<Button
 					variant="ghost"
 					onclick={() => setSelectedTech(tech)}
-					class="flex aspect-square h-auto items-center rounded-sm border-2 border-transparent p-0 hover:cursor-pointer {tech.id ==
-						selectedTech?.id && 'border-primary'}"
+					class="flex aspect-square h-auto items-center rounded-sm border-2 border-transparent p-2 hover:cursor-pointer {tech.id ==
+						selectedTech?.id && 'border-white'}"
 				>
 					<IconifyIcon icon={tech.icon} height="64px" width="64px" />
 				</Button>
@@ -102,15 +102,17 @@
 
 <div class="grid h-full grid-rows-[auto_1fr] overflow-hidden bg-orange-400">
 	<h2 class="bg-background p-4 text-4xl">What I do</h2>
-    
-	<div bind:this={parentElement} class="grid h-full grid-cols-[auto_1fr] gap-4 overflow-hidden p-4">
-		<div class="grid max-h-full w-sm gap-2">
-			{@render category(TechCategories.FRONT_END)}
-			{@render category(TechCategories.STYLING)}
-			{@render category(TechCategories.DEVELOPMENT)}
-			{@render category(TechCategories.BACK_END)}
-			{@render category(TechCategories.DATA_BASE)}
-			{@render category(TechCategories.HOSTING)}
+
+	<div bind:this={parentElement} class="grid h-full gap-4 overflow-hidden p-2 lg:grid-cols-[auto_1fr]">
+		<div class="h-full overflow-y-auto p-2">
+			<div class="grid w-sm gap-2">
+				{@render category(TechCategories.FRONT_END)}
+				{@render category(TechCategories.STYLING)}
+				{@render category(TechCategories.DEVELOPMENT)}
+				{@render category(TechCategories.BACK_END)}
+				{@render category(TechCategories.DATA_BASE)}
+				{@render category(TechCategories.HOSTING)}
+			</div>
 		</div>
 
 		<div class="grid h-full grid-rows-[auto_1fr] items-center overflow-y-auto">

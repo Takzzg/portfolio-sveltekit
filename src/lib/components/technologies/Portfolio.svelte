@@ -104,10 +104,10 @@
 {/snippet}
 
 {#snippet techList()}
-	<div class="flex flex-col justify-around bg-background py-4">
+	<div class="flex flex-col overflow-hidden h-full justify-around bg-background py-4">
 		<span class="p-4 text-center text-2xl text-wrap whitespace-break-spaces">This portfolio was made using:</span>
 
-		<div class="flex flex-col gap-1">
+		<div class="flex flex-col gap-1 overflow-y-auto">
 			{#each Portfolio as tech (tech.id)}
 				{@render techButton(tech)}
 			{/each}
