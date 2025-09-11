@@ -5,8 +5,8 @@
 	import { Portfolio, type I_Technology } from "./technologies";
 	import Button from "../ui/button/button.svelte";
 
-    // markdown files
-	import defaultMD from "./default.md?raw";
+	// markdown files
+	import defaultMD from "@/../README.md?raw";
 	import loadingMD from "./loading.md?raw";
 
 	const GITHUB_URL = "https://github.com";
@@ -20,7 +20,7 @@
 	let md = $state(defaultMD);
 
 	const fetchReadme = async (github: string) => {
-        md = loadingMD;
+		md = loadingMD;
 		const res = await fetch(`${GITHUB_API_URL}/repos/${github}/readme`, {
 			headers: { Accept: "application/vnd.github.html+json" },
 		});

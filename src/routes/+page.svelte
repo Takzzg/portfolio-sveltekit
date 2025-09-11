@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Splash from "@/lib/components/Splash.svelte";
-	import Portfolio from "@/lib/components/technologies/Portfolio.svelte";
-	import Categories from "@/lib/components/technologies/Categories.svelte";
+	import Splash from "$lib/components/Splash.svelte";
+	import Portfolio from "$lib/components/technologies/Portfolio.svelte";
+	import Categories from "$lib/components/technologies/Categories.svelte";
 
 	let height: number = $state(0);
 </script>
