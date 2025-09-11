@@ -76,25 +76,64 @@ const AllTechnologies: Record<E_Technologies, I_Technology> = {
 	},
 };
 
-export const FrontEnd: I_Technology[] = [
-	AllTechnologies[E_Technologies.SVELTE_KIT],
-	AllTechnologies[E_Technologies.TYPESCRIPT],
-];
+export interface I_Category {
+	id: string;
+	icon: string;
+	title: string;
+	techs: I_Technology[];
+}
 
-export const Styling: I_Technology[] = [
-	AllTechnologies[E_Technologies.TAILWINDCSS],
-	AllTechnologies[E_Technologies.SHADCN_SVELTE],
-];
+export enum E_Categories {
+	FRONT_END = "front_end",
+	STYLING = "styling",
+	DEVELOPMENT = "development",
+    BACK_END = "back_end",
+    DATA_BASE = "data_base",
+	HOSTING = "hosting",
+}
 
-export const Development: I_Technology[] = [
-	AllTechnologies[E_Technologies.VITE],
-	AllTechnologies[E_Technologies.PRETTIER_PLUGIN_SVELTE],
-	AllTechnologies[E_Technologies.ESLINT_PLUGIN_SVELTE],
-];
-
-export const BackEnd: I_Technology[] = [];
-
-export const Hosting: I_Technology[] = [AllTechnologies[E_Technologies.VERCEL]];
+export const TechCategories: Record<keyof typeof E_Categories, I_Category> = {
+	FRONT_END: {
+		id: E_Categories.FRONT_END,
+		icon: "lucide:monitor",
+		title: "Front End",
+		techs: [AllTechnologies[E_Technologies.SVELTE_KIT], AllTechnologies[E_Technologies.TYPESCRIPT]],
+	},
+	STYLING: {
+		id: E_Categories.STYLING,
+		icon: "lucide:paintbrush",
+		title: "Styling",
+		techs: [AllTechnologies[E_Technologies.TAILWINDCSS], AllTechnologies[E_Technologies.SHADCN_SVELTE]],
+	},
+	DEVELOPMENT: {
+		id: E_Categories.DEVELOPMENT,
+		icon: "lucide:code-xml",
+		title: "Development",
+		techs: [
+			AllTechnologies[E_Technologies.VITE],
+			AllTechnologies[E_Technologies.PRETTIER_PLUGIN_SVELTE],
+			AllTechnologies[E_Technologies.ESLINT_PLUGIN_SVELTE],
+		],
+	},
+	BACK_END: {
+		id: E_Categories.BACK_END,
+		icon: "lucide:server",
+		title: "Back End",
+		techs: [],
+	},
+	DATA_BASE: {
+		id: E_Categories.DATA_BASE,
+		icon: "lucide:database",
+		title: "Data Bases",
+		techs: [],
+	},
+	HOSTING: {
+		id: E_Categories.HOSTING,
+		icon: "lucide:network",
+		title: "Hosting",
+		techs: [AllTechnologies[E_Technologies.VERCEL]],
+	},
+};
 
 export const Portfolio: I_Technology[] = [
 	AllTechnologies[E_Technologies.SVELTE_KIT],
