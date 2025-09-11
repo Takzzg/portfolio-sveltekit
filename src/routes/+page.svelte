@@ -5,32 +5,33 @@
 	import { Button } from "@/lib/components/ui/button";
 
 	let height: number = $state(0);
+
+    // dom refs
+	let refSplash: HTMLDivElement;
+	let refCategories: HTMLDivElement;
+	let refPortfolio: HTMLDivElement;
 </script>
 
 {#snippet sectionBtn(text: string, onclick = () => {})}
-	<Button
-		{onclick}
-		variant="ghost"
-		class="border-2 text-background border-background/50 hover:cursor-pointer"
-	>
+	<Button {onclick} variant="ghost" class="border-2 border-background/50 text-background hover:cursor-pointer">
 		{text}
 	</Button>
 {/snippet}
 
 <div class="grid h-full overflow-y-scroll" style="--height:{height};" bind:clientHeight={height}>
-	<div style="height: {height}px;">
+	<div bind:this={refSplash} style="height: {height}px;">
 		<Splash />
 	</div>
 
-	<div class="fixedHeight">
+	<div bind:this={refCategories} class="fixedHeight">
 		<Categories />
 	</div>
 
-	<div class="fixedHeight">
+	<div bind:this={refPortfolio} class="fixedHeight">
 		<Portfolio />
 	</div>
 
-	<div class="absolute right-0 bottom-0 m-8 flex items-center gap-2">
+	<div class="absolute bg-red-500 right-0 bottom-0 m-8 flex items-center gap-2">
 		{@render sectionBtn("Prev")}
 		{@render sectionBtn("Next")}
 	</div>
