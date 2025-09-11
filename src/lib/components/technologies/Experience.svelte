@@ -18,7 +18,7 @@
 {/snippet}
 
 {#snippet techLogo(tech: I_Technology)}
-	<span class="flex items-center rounded-sm bg-stone-200 p-4">
+	<span class="flex items-center rounded-sm p-4">
 		<IconifyIcon icon={tech.icon} height="64px" width="64px" />
 	</span>
 {/snippet}
