@@ -3,11 +3,13 @@
 	import Portfolio from "$lib/components/technologies/Portfolio.svelte";
 	import Categories from "$lib/components/technologies/Categories.svelte";
 	import { Button } from "@/lib/components/ui/button";
+	import AboutMe from "@/lib/components/AboutMe.svelte";
 
 	let height: number = $state(0);
 
-    // dom refs
+	// dom refs
 	let refSplash: HTMLDivElement;
+	let refAboutMe: HTMLDivElement;
 	let refCategories: HTMLDivElement;
 	let refPortfolio: HTMLDivElement;
 </script>
@@ -23,15 +25,19 @@
 		<Splash />
 	</div>
 
-	<div bind:this={refCategories} class="fixedHeight">
+	<div bind:this={refAboutMe} class="lgFixedHeight">
+		<AboutMe />
+	</div>
+
+	<div bind:this={refCategories} class="lgFixedHeight">
 		<Categories />
 	</div>
 
-	<div bind:this={refPortfolio} class="fixedHeight">
+	<div bind:this={refPortfolio} class="lgFixedHeight">
 		<Portfolio />
 	</div>
 
-	<div class="absolute bg-red-500 right-0 bottom-0 m-8 flex items-center gap-2">
+	<div class="absolute right-0 bottom-0 m-8 flex items-center gap-2 bg-red-500">
 		{@render sectionBtn("Prev")}
 		{@render sectionBtn("Next")}
 	</div>
@@ -39,7 +45,7 @@
 
 <style>
 	@media (min-width: 767px) {
-		.fixedHeight {
+		.lgFixedHeight {
 			height: calc(var(--height) * 1px);
 		}
 	}
