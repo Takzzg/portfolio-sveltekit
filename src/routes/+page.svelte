@@ -3,7 +3,7 @@
 
 	import Splash from "$lib/components/Splash.svelte";
 	import Portfolio from "$lib/components/technologies/Portfolio.svelte";
-	import Categories from "$lib/components/technologies/Categories.svelte";
+	import Skills from "@/lib/components/technologies/Skills.svelte";
 	import { Button } from "$lib/components/ui/button";
 	import AboutMe from "$lib/components/AboutMe.svelte";
 	import type { ContextState } from "./+layout.svelte";
@@ -13,10 +13,10 @@
 	// dom refs
 	let refSplash = $state<HTMLDivElement>();
 	let refAboutMe = $state<HTMLDivElement>();
-	let refCategories = $state<HTMLDivElement>();
+	let refSkills = $state<HTMLDivElement>();
 	let refPortfolio = $state<HTMLDivElement>();
 
-	let autoScrollTargets = $derived([refSplash, refAboutMe, refCategories, refPortfolio]);
+	let autoScrollTargets = $derived([refSplash, refAboutMe, refSkills, refPortfolio]);
 	let context = getContext("currentSection") as ContextState;
 
 	const scrollNext = () => {
@@ -50,8 +50,8 @@
 			},
 			{
 				text: "Skills",
-				index: autoScrollTargets.indexOf(refCategories),
-				onclick: () => scrollToSection(refCategories),
+				index: autoScrollTargets.indexOf(refSkills),
+				onclick: () => scrollToSection(refSkills),
 			},
 			{
 				text: "Portfolio",
@@ -89,8 +89,8 @@
 		<AboutMe />
 	</div>
 
-	<div bind:this={refCategories} class="lgFixedHeight">
-		<Categories />
+	<div bind:this={refSkills} class="lgFixedHeight">
+		<Skills />
 	</div>
 
 	<div bind:this={refPortfolio} class="lgFixedHeight">

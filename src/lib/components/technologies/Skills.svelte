@@ -101,7 +101,7 @@
 {/snippet}
 
 <div class="grid h-full grid-rows-[auto_1fr] overflow-hidden bg-orange-400">
-	<h2 class="bg-background p-4 text-4xl">What I do</h2>
+	<h2 class="bg-background p-4 text-4xl">Main Skills</h2>
 
 	<div bind:this={parentElement} class="grid h-full gap-4 overflow-hidden p-2 lg:grid-cols-[auto_1fr]">
 		<div class="h-full overflow-y-auto p-2">
