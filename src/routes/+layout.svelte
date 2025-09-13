@@ -1,10 +1,22 @@
+<script module lang="ts">
+	export type ContextState = {
+		currentSection: number;
+		sectionButtons: { text: string; index: number; onclick: () => void }[];
+	};
+</script>
+
 <script lang="ts">
+	import { ModeWatcher } from "mode-watcher";
+	import { setContext } from "svelte";
+
 	import "../app.css";
 	import favicon from "$lib/assets/favicon.svg";
 	import Navbar from "$lib/components/Navbar.svelte";
-	import { ModeWatcher } from "mode-watcher";
 
 	let { children } = $props();
+
+	let contextState: ContextState = $state({ currentSection: 0, sectionButtons: [] });
+	setContext("currentSection", contextState);
 </script>
 
 <svelte:head>

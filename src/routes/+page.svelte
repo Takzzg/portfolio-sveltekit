@@ -1,9 +1,12 @@
 <script lang="ts">
+	import { getContext } from "svelte";
+
 	import Splash from "$lib/components/Splash.svelte";
 	import Portfolio from "$lib/components/technologies/Portfolio.svelte";
 	import Categories from "$lib/components/technologies/Categories.svelte";
 	import { Button } from "$lib/components/ui/button";
 	import AboutMe from "$lib/components/AboutMe.svelte";
+	import type { ContextState } from "./+layout.svelte";
 
 	let height: number = $state(0);
 
@@ -14,29 +17,54 @@
 	let refPortfolio = $state<HTMLDivElement>();
 
 	let autoScrollTargets = $derived([refSplash, refAboutMe, refCategories, refPortfolio]);
-	let currentSection = $state(0);
+	let context = getContext("currentSection") as ContextState;
 
 	const scrollNext = () => {
-		if (currentSection == autoScrollTargets.length - 1) return;
-		currentSection++;
+		if (context.currentSection == autoScrollTargets.length - 1) return;
+		context.currentSection += 1;
 		scrollCurrent();
 	};
 	const scrollPrev = () => {
-		if (currentSection == 0) return;
-		currentSection--;
+		if (context.currentSection == 0) return;
+		context.currentSection -= 1;
 		scrollCurrent();
 	};
 	const scrollCurrent = () => {
-		autoScrollTargets[currentSection]?.scrollIntoView({ behavior: "smooth" });
+		autoScrollTargets[context.currentSection]?.scrollIntoView({ behavior: "smooth" });
+	};
+	const scrollToSection = (target: HTMLDivElement | undefined) => {
+		autoScrollTargets[autoScrollTargets.indexOf(target)]?.scrollIntoView({ behavior: "smooth" });
 	};
 
 	$effect(() => {
+		context.sectionButtons = [
+			{
+				text: "Home",
+				index: autoScrollTargets.indexOf(refSplash),
+				onclick: () => scrollToSection(refSplash),
+			},
+			{
+				text: "About Me",
+				index: autoScrollTargets.indexOf(refAboutMe),
+				onclick: () => scrollToSection(refAboutMe),
+			},
+			{
+				text: "Skills",
+				index: autoScrollTargets.indexOf(refCategories),
+				onclick: () => scrollToSection(refCategories),
+			},
+			{
+				text: "Portfolio",
+				index: autoScrollTargets.indexOf(refPortfolio),
+				onclick: () => scrollToSection(refPortfolio),
+			},
+		];
+
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						currentSection = autoScrollTargets.indexOf(entry.target as HTMLDivElement);
-						console.log(currentSection);
+						context.currentSection = autoScrollTargets.indexOf(entry.target as HTMLDivElement);
 					}
 				});
 			},

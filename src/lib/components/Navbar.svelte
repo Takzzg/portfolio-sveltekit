@@ -10,9 +10,13 @@
 	} from "$lib/components/ui/dropdown-menu";
 	import { ToggleGroup, ToggleGroupItem } from "$lib/components/ui/toggle-group";
 	import { getLocale, setLocale, type Locale } from "$lib/paraglide/runtime";
+	import type { ContextState } from "@/routes/+layout.svelte";
 	import { userPrefersMode, setMode, resetMode } from "mode-watcher";
+	import { getContext } from "svelte";
+	import Button from "./ui/button/button.svelte";
 
 	let currentMode = $derived(userPrefersMode.current);
+	let context = getContext("currentSection") as ContextState;
 </script>
 
 <!-- (dark / light / system) theme - icon + pretty name -->
@@ -99,7 +103,17 @@
 <!-- Navbar.svelte -->
 <div class="m-auto flex w-full max-w-4xl items-center justify-between p-2">
 	<!-- site navigation -->
-	<div class="flex items-center p-2">NAVBAR</div>
+	<div class="flex items-center gap-2 p-2">
+		{#each context.sectionButtons as btn (btn.text)}
+			<Button
+				onclick={btn.onclick}
+				variant={context.currentSection == btn.index ? "default" : "ghost"}
+				class="hover:cursor-pointer p-2"
+			>
+				{btn.text}
+			</Button>
+		{/each}
+	</div>
 
 	<!-- settings -->
 	<div class="flex items-center gap-2">
