@@ -13,11 +13,11 @@
 	let refCategories = $state<HTMLDivElement>();
 	let refPortfolio = $state<HTMLDivElement>();
 
-	let autoScrollElements = $derived([refSplash, refAboutMe, refCategories, refPortfolio]);
+	let autoScrollTargets = $derived([refSplash, refAboutMe, refCategories, refPortfolio]);
 	let currentSection = $state(0);
 
 	const scrollNext = () => {
-		if (currentSection == autoScrollElements.length - 1) return;
+		if (currentSection == autoScrollTargets.length - 1) return;
 		currentSection++;
 		scrollCurrent();
 	};
@@ -27,8 +27,23 @@
 		scrollCurrent();
 	};
 	const scrollCurrent = () => {
-		autoScrollElements[currentSection]?.scrollIntoView({ behavior: "smooth" });
+		autoScrollTargets[currentSection]?.scrollIntoView({ behavior: "smooth" });
 	};
+
+	$effect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						currentSection = autoScrollTargets.indexOf(entry.target as HTMLDivElement);
+						console.log(currentSection);
+					}
+				});
+			},
+			{ threshold: 0.5 },
+		);
+		autoScrollTargets.forEach((el) => observer.observe(el as Element));
+	});
 </script>
 
 {#snippet sectionBtn(text: string, onclick = () => {})}
