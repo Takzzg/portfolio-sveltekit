@@ -8,6 +8,7 @@
 	import AboutMe from "$lib/components/AboutMe.svelte";
 	import type { ContextState } from "./+layout.svelte";
 	import Projects from "$lib/components/projects/Projects.svelte";
+	import type { UIEventHandler } from "svelte/elements";
 
 	let height: number = $state(0);
 
@@ -35,7 +36,7 @@
 		autoScrollTargets[context.currentSection]?.scrollIntoView({ behavior: "smooth" });
 	};
 	const scrollToSection = (target: HTMLDivElement | undefined) => {
-		autoScrollTargets[autoScrollTargets.indexOf(target)]?.scrollIntoView({ behavior: "smooth" });
+		target?.scrollIntoView({ behavior: "smooth" });
 	};
 
 	$effect(() => {
@@ -66,19 +67,24 @@
 				onclick: () => scrollToSection(refPortfolio),
 			},
 		];
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						context.currentSection = autoScrollTargets.indexOf(entry.target as HTMLDivElement);
-					}
-				});
-			},
-			{ threshold: 0.5 },
-		);
-		autoScrollTargets.forEach((el) => observer.observe(el as Element));
 	});
+
+	const OnScroll: UIEventHandler<HTMLDivElement> = (event) => {
+		for (let index = 0; index < autoScrollTargets.length; index++) {
+			const el = autoScrollTargets[index];
+
+			let childOffset: number = (el as HTMLElement).offsetTop ?? 0;
+			let parentScroll: number = el?.parentElement?.scrollTop ?? 0;
+			let parentOffset: number = el?.parentElement?.offsetTop ?? 0;
+
+			// console.log(el, "childOffset", childOffset, "parentScroll", parentScroll, "parentOffset", parentOffset);
+
+			if (Math.abs(childOffset - parentScroll) <= parentOffset) {
+				context.currentSection = index;
+				break;
+			}
+		}
+	};
 </script>
 
 {#snippet sectionBtn(text: string, onclick = () => {})}
@@ -87,7 +93,7 @@
 	</Button>
 {/snippet}
 
-<div bind:clientHeight={height} class="grid h-full overflow-y-scroll" style="--height:{height};">
+<div bind:clientHeight={height} onscroll={OnScroll} class="grid h-full overflow-y-scroll" style="--height:{height};">
 	<div bind:this={refSplash} style="height: {height}px;">
 		<Splash />
 	</div>

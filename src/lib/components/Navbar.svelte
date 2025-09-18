@@ -100,20 +100,41 @@
 	</ToggleGroup>
 {/snippet}
 
-<!-- Navbar.svelte -->
-<div class="m-auto flex w-full max-w-4xl items-center justify-between p-2">
-	<!-- site navigation -->
-	<div class="flex items-center gap-2 p-2">
+{#snippet desktopNavbar()}
+	<div class="hidden items-center gap-2 p-2 lg:flex">
 		{#each context.sectionButtons as btn (btn.text)}
 			<Button
 				onclick={btn.onclick}
 				variant={context.currentSection == btn.index ? "default" : "ghost"}
-				class="hover:cursor-pointer p-2"
+				class="p-2 hover:cursor-pointer"
 			>
 				{btn.text}
 			</Button>
 		{/each}
 	</div>
+{/snippet}
+
+{#snippet desktopMobile()}
+	<div class="relative z-10">
+		<div class="absolute flex flex-col items-center gap-2 p-2 lg:hidden">
+			{#each context.sectionButtons as btn (btn.text)}
+				<Button
+					onclick={btn.onclick}
+					variant={context.currentSection == btn.index ? "default" : "ghost"}
+					class="p-2 hover:cursor-pointer"
+				>
+					{btn.text}
+				</Button>
+			{/each}
+		</div>
+	</div>
+{/snippet}
+
+<!-- Navbar.svelte -->
+<div class="m-auto flex w-full max-w-4xl items-center justify-between p-2">
+	<!-- site navigation -->
+	{@render desktopNavbar()}
+	{@render desktopMobile()}
 
 	<!-- settings -->
 	<div class="flex items-center gap-2">
