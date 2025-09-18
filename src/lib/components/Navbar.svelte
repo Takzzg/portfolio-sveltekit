@@ -26,13 +26,13 @@
 <!-- (dark / light / system) theme - icon + pretty name -->
 {#snippet modeOption(mode: "dark" | "light" | "system")}
 	{#if mode == "dark"}
-		<iconify-icon icon="lucide:moon" class="h-4 w-4" width="16" height="16"></iconify-icon>
+		<IconifyIcon icon="lucide:moon" width="16px" height="16px" />
 		Dark Mode
 	{:else if mode == "light"}
-		<iconify-icon icon="lucide:sun" class="h-4 w-4" width="16" height="16"></iconify-icon>
+		<IconifyIcon icon="lucide:sun" width="16px" height="16px" />
 		Light Mode
 	{:else if mode == "system"}
-		<iconify-icon icon="lucide:monitor-cog" class="h-4 w-4" width="16" height="16"></iconify-icon>
+		<IconifyIcon icon="lucide:monitor-cog" width="16px" height="16px" />
 		System Theme
 	{/if}
 {/snippet}
@@ -76,10 +76,10 @@
 <!-- (es / en) lang - icon + pretty name -->
 {#snippet langOption(locale: Locale)}
 	{#if locale == "es"}
-		<iconify-icon icon="flag:ar-1x1" class="h-4 w-4" width="16" height="16"></iconify-icon>
+		<IconifyIcon icon="flag:ar-1x1" width="16px" height="16px" />
 		Es
 	{:else if locale == "en"}
-		<iconify-icon icon="flag:gb-1x1" class="h-4 w-4" width="16" height="16"></iconify-icon>
+		<IconifyIcon icon="flag:gb-1x1" width="16px" height="16px" />
 		En
 	{/if}
 {/snippet}
