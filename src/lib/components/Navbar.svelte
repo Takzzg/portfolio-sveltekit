@@ -14,9 +14,13 @@
 	import { userPrefersMode, setMode, resetMode } from "mode-watcher";
 	import { getContext } from "svelte";
 	import Button from "./ui/button/button.svelte";
+	import IconifyIcon from "./IconifyIcon.svelte";
 
 	let currentMode = $derived(userPrefersMode.current);
 	let context = getContext("currentSection") as ContextState;
+
+	let navMenuOpen = $state(false);
+	let refNavMenu = $state<HTMLDivElement>();
 </script>
 
 <!-- (dark / light / system) theme - icon + pretty name -->
@@ -101,7 +105,7 @@
 {/snippet}
 
 {#snippet desktopNavbar()}
-	<div class="hidden items-center gap-2 p-2 lg:flex">
+	<div class="hidden items-center gap-2 lg:flex">
 		{#each context.sectionButtons as btn (btn.text)}
 			<Button
 				onclick={btn.onclick}
@@ -115,11 +119,27 @@
 {/snippet}
 
 {#snippet desktopMobile()}
-	<div class="relative z-10">
-		<div class="absolute flex flex-col items-center gap-2 p-2 lg:hidden">
+	<div class="z-10 flex items-center lg:hidden">
+		<Button
+			variant="ghost"
+			class="p-2 hover:cursor-pointer"
+			onclick={() => {
+				navMenuOpen = !navMenuOpen;
+			}}
+		>
+			<IconifyIcon icon={navMenuOpen ? "lucide:x" : "lucide:menu"} height="32px" width="32px" />
+		</Button>
+		<div
+			bind:this={refNavMenu}
+			style={navMenuOpen ? "left: 0px" : `left: -${refNavMenu?.clientWidth}px`}
+			class="absolute top-full flex flex-col gap-2 bg-background p-2 transition-[left]"
+		>
 			{#each context.sectionButtons as btn (btn.text)}
 				<Button
-					onclick={btn.onclick}
+					onclick={() => {
+						btn.onclick();
+						navMenuOpen = false;
+					}}
 					variant={context.currentSection == btn.index ? "default" : "ghost"}
 					class="p-2 hover:cursor-pointer"
 				>
@@ -131,7 +151,7 @@
 {/snippet}
 
 <!-- Navbar.svelte -->
-<div class="m-auto flex w-full max-w-4xl items-center justify-between p-2">
+<div class="relative m-auto flex w-full max-w-5xl items-center justify-between p-2">
 	<!-- site navigation -->
 	{@render desktopNavbar()}
 	{@render desktopMobile()}

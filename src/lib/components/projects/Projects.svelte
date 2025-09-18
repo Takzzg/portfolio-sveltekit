@@ -14,27 +14,31 @@
 	</span>
 {/snippet}
 
-<div>
-	<span>Check out my Github</span>
+<div class="flex h-full flex-col items-center bg-blue-500">
+	<span class="w-full bg-background p-2 text-2xl">Check out my Github</span>
 	<div class="flex flex-wrap items-start justify-center gap-2 p-2">
 		{#each Object.values(AllProjects) as project (project.id)}
-			<div class="flex w-full max-w-lg flex-col bg-red-500 p-2">
+			<div class="flex w-full max-w-md xl:max-w-lg flex-col bg-red-500 p-2">
 				<span>{project.title} - {project.year}</span>
 				<span>{project.description}</span>
-				{@render LinkBtn("Github", "logos:github-icon", project.github)}
-				{@render LinkBtn(
-					project.websiteURL ? "Website" : (project.websiteError as string),
-					"lucide:globe",
-					project.websiteURL,
-					project.websiteURL ? false : true,
-				)}
+				<span class="flex items-center justify-center gap-2">
+					{@render LinkBtn("Github", "logos:github-icon", project.github)}
+					{@render LinkBtn(
+						project.websiteURL ? "Website" : (project.websiteError as string),
+						"lucide:globe",
+						project.websiteURL,
+						project.websiteURL ? false : true,
+					)}
+				</span>
 			</div>
 		{/each}
 		{#each Object.values(AllGames) as game (game.id)}
-			<div class="flex w-full max-w-lg flex-col bg-red-500 p-2">
+			<div class="flex w-full max-w-md xl:max-w-lg flex-col bg-red-500 p-2">
 				<span>{game.title} - {game.year}</span>
 				<span>{game.description}</span>
-				{@render LinkBtn("Github", "logos:github-icon", game.github)}
+				<span class="flex items-center justify-center gap-2">
+					{@render LinkBtn("Github", "logos:github-icon", game.github)}
+				</span>
 			</div>
 		{/each}
 	</div>

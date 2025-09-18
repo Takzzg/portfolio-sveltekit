@@ -34,7 +34,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		year: 2024,
 		description: "Next.js app part of a technical interview for MercadoLibre",
 		github: GITHUB_URL + E_Projects.MELI_TECH_TEST,
-		websiteError: "Down - API endpoints no longer available",
+		websiteError: "API down",
 	},
 	NEXTDOTS_CHALLENGE: {
 		id: E_Projects.NEXTDOTS_CHALLENGE,
@@ -42,7 +42,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		year: 2019,
 		description: "React-Native app part of a technical interview for NextDots",
 		github: GITHUB_URL + E_Projects.NEXTDOTS_CHALLENGE,
-		websiteError: "Native mobile app",
+		websiteError: "Mobile app",
 	},
 	CHALLENGE_25WATTS: {
 		id: E_Projects.CHALLENGE_25WATTS,
@@ -57,7 +57,8 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		title: "Inividual Project - SoyHenry",
 		year: 2022,
 		description: "Mono-repo containing an Express.js backend and a React.js frontend",
-		github: GITHUB_URL + E_Projects.PI_HENRY_VIDEOGAMES,
+        github: GITHUB_URL + E_Projects.PI_HENRY_VIDEOGAMES,
+        websiteError: "Host down",
 	},
 	PG_HENRY_FOODFAST: {
 		id: E_Projects.PG_HENRY_FOODFAST,
@@ -65,7 +66,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		year: 2022,
 		description: "Mono-repo containing an Express.js backend, a React.js frontend and a telegram bot",
 		github: GITHUB_URL + E_Projects.PG_HENRY_FOODFAST,
-		websiteError: "Down - Host no longer available",
+		websiteError: "Host down",
 	},
 };
 

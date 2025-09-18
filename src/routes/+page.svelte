@@ -121,7 +121,7 @@
 </div>
 
 <style>
-	@media (min-width: 767px) {
+	@media (min-width: 1024px) { /* match tailwind lg size */
 		.lgFixedHeight {
 			height: calc(var(--height) * 1px);
 		}
