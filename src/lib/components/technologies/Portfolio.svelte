@@ -32,7 +32,7 @@
 		onclick={() => setSelectedTech(tech)}
 	>
 		<span class="flex items-center bg-stone-200 p-2">
-			<IconifyIcon icon={tech.icon} width="32px" height="32px" />
+			<IconifyIcon icon={tech.icon} width="64px" height="64px" />
 		</span>
 		<span class="h-full w-full py-2">
 			<span class="flex h-full w-full items-center bg-primary/10 p-2">
