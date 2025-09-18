@@ -1,42 +1,24 @@
 <script lang="ts">
 	import IconifyIcon from "../IconifyIcon.svelte";
-	import StyledMarkdown from "../markdown/StyledMarkdown.svelte";
+	import MarkdownHeader from "../markdown/MarkdownHeader.svelte";
+	import MarkdownBody from "../markdown/MarkdownBody.svelte";
 	import { Button } from "../ui/button";
 	import { TechCategories, type I_Category, type I_Technology } from "./technologies";
 
-	// github urls
-	const GITHUB_URL = "https://github.com";
-	const GITHUB_API_URL = "https://api.github.com";
-
 	// dom refs
 	let refParent = $state<HTMLDivElement>();
-	let refMarkdown = $state<StyledMarkdown>();
+	let refBody = $state<MarkdownBody>();
 
-	let md = $state<string | null>(null);
-	let loadingMD = $state(false);
 	let selectedTech: I_Technology | null = $state(null);
-
-	const fetchReadme = async (github: string) => {
-		loadingMD = true;
-		const res = await fetch(`${GITHUB_API_URL}/repos/${github}/readme`, {
-			headers: { Accept: "application/vnd.github.html+json" },
-		});
-		const data = await res.text();
-		loadingMD = false;
-		md = data;
-	};
 
 	const setSelectedTech = async (tech: I_Technology) => {
 		if (selectedTech?.id == tech.id) {
 			selectedTech = null;
-			md = null;
 		} else {
 			selectedTech = tech;
-			if (tech.github) await fetchReadme(tech.github);
-			else md = null;
 		}
 		refParent?.scrollIntoView({ behavior: "smooth" });
-		refMarkdown?.scrollTo({ top: 0, behavior: "smooth" });
+		refBody?.scrollTo({ top: 0, behavior: "smooth" });
 	};
 </script>
 
@@ -61,62 +43,16 @@
 	</div>
 {/snippet}
 
-{#snippet techHeader()}
-	<div class="flex w-full max-w-[980px] grow gap-8 p-4 lg:px-0">
-		{#if selectedTech}
-			<span class="flex w-full items-center gap-4 text-2xl">
-				<iconify-icon
-					icon={selectedTech.icon}
-					style="width: 32px; height: 32px;"
-					height="32px"
-					width="32px"
-				></iconify-icon>
-				{selectedTech.name}
-			</span>
-			<span class="flex flex-col gap-2 lg:flex-row">
-				<Button
-					variant="secondary"
-					class="hover:cursor-pointer"
-					onclick={() => window.open(selectedTech?.website, "_blank")}
-				>
-					<iconify-icon icon="lucide:globe" width="24px" class="h-6 w-6"></iconify-icon>
-					<span>Visit Website</span>
-					<iconify-icon icon="lucide:external-link" width="16px" class="h-4 w-4"></iconify-icon>
-				</Button>
-				<Button
-					variant="secondary"
-					class="hover:cursor-pointer"
-					onclick={() => window.open(`${GITHUB_URL}/${selectedTech?.github}/#readme`, "_blank")}
-				>
-					<iconify-icon icon="lucide:github" width="24px" class="h-6 w-6"></iconify-icon>
-					<span>GitHub Repo</span>
-					<iconify-icon icon="lucide:external-link" width="16px" class="h-4 w-4"></iconify-icon>
-				</Button>
-			</span>
-		{:else}
-			<span class="px-2 text-2xl">About this Portfolio</span>
-		{/if}
-	</div>
-{/snippet}
-
 <div class="grid h-full grid-rows-[auto_1fr] overflow-hidden bg-orange-400">
 	<h2 class="bg-background p-4 text-4xl">Main Skills</h2>
 
 	<div bind:this={refParent} class="grid h-full gap-4 overflow-hidden p-2 lg:grid-cols-[1fr_auto]">
 		<div class="grid h-full grid-rows-[auto_1fr] items-center overflow-y-auto">
 			<div class="flex w-full justify-center bg-background/75">
-				{@render techHeader()}
+				<MarkdownHeader selected={selectedTech} />
 			</div>
 
-			{#if !selectedTech}
-				<div class="bg-red-500">No tech selected</div>
-			{:else if loadingMD}
-				<div class="bg-red-500">Loading Readme...</div>
-			{:else if !md}
-				<div class="bg-red-500">No readme for selected tech</div>
-			{:else}
-				<StyledMarkdown bind:this={refMarkdown} {md} />
-			{/if}
+			<MarkdownBody bind:this={refBody} selected={selectedTech} />
 		</div>
 
 		<div class="h-full overflow-y-auto p-2">
