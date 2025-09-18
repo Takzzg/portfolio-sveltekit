@@ -4,40 +4,39 @@
 	import { Button } from "../ui/button";
 	import { TechCategories, type I_Category, type I_Technology } from "./technologies";
 
-	// markdown files
-	import defaultMD from "./default.md?raw";
-	import loadingMD from "./loading.md?raw";
-
 	// github urls
 	const GITHUB_URL = "https://github.com";
 	const GITHUB_API_URL = "https://api.github.com";
 
 	// dom refs
-	let parentElement: HTMLDivElement;
-	let markdownElement: StyledMarkdown;
+	let refParent = $state<HTMLDivElement>();
+	let refMarkdown = $state<StyledMarkdown>();
 
-	let md = $state(defaultMD);
+	let md = $state<string | null>(null);
+	let loadingMD = $state(false);
 	let selectedTech: I_Technology | null = $state(null);
 
 	const fetchReadme = async (github: string) => {
-		md = loadingMD;
+		loadingMD = true;
 		const res = await fetch(`${GITHUB_API_URL}/repos/${github}/readme`, {
 			headers: { Accept: "application/vnd.github.html+json" },
 		});
 		const data = await res.text();
+		loadingMD = false;
 		md = data;
 	};
 
 	const setSelectedTech = async (tech: I_Technology) => {
 		if (selectedTech?.id == tech.id) {
 			selectedTech = null;
-			md = defaultMD;
+			md = null;
 		} else {
 			selectedTech = tech;
-			await fetchReadme(tech.github);
+			if (tech.github) await fetchReadme(tech.github);
+			else md = null;
 		}
-		parentElement.scrollIntoView({ behavior: "smooth" });
-		markdownElement.scrollTo({ top: 0, behavior: "smooth" });
+		refParent?.scrollIntoView({ behavior: "smooth" });
+		refMarkdown?.scrollTo({ top: 0, behavior: "smooth" });
 	};
 </script>
 
@@ -103,24 +102,29 @@
 <div class="grid h-full grid-rows-[auto_1fr] overflow-hidden bg-orange-400">
 	<h2 class="bg-background p-4 text-4xl">Main Skills</h2>
 
-	<div bind:this={parentElement} class="grid h-full gap-4 overflow-hidden p-2 lg:grid-cols-[auto_1fr]">
-		<div class="h-full overflow-y-auto p-2">
-			<div class="grid w-sm gap-2">
-				{@render category(TechCategories.FRONT_END)}
-				{@render category(TechCategories.STYLING)}
-				{@render category(TechCategories.DEVELOPMENT)}
-				{@render category(TechCategories.BACK_END)}
-				{@render category(TechCategories.DATA_BASE)}
-				{@render category(TechCategories.HOSTING)}
-			</div>
-		</div>
-
+	<div bind:this={refParent} class="grid h-full gap-4 overflow-hidden p-2 lg:grid-cols-[1fr_auto]">
 		<div class="grid h-full grid-rows-[auto_1fr] items-center overflow-y-auto">
 			<div class="flex w-full justify-center bg-background/75">
 				{@render techHeader()}
 			</div>
 
-			<StyledMarkdown bind:this={markdownElement} {md} />
+			{#if !selectedTech}
+				<div class="bg-red-500">No tech selected</div>
+			{:else if loadingMD}
+				<div class="bg-red-500">Loading Readme...</div>
+			{:else if !md}
+				<div class="bg-red-500">No readme for selected tech</div>
+			{:else}
+				<StyledMarkdown bind:this={refMarkdown} {md} />
+			{/if}
+		</div>
+
+		<div class="h-full overflow-y-auto p-2">
+			<div class="grid w-sm gap-2">
+				{#each Object.values(TechCategories) as cat}
+					{@render category(cat)}
+				{/each}
+			</div>
 		</div>
 	</div>
 </div>

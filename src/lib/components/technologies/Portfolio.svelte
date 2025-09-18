@@ -1,60 +1,49 @@
 <script lang="ts">
-	import "iconify-icon";
-
 	import StyledMarkdown from "$lib/components/markdown/StyledMarkdown.svelte";
 	import { Portfolio, type I_Technology } from "./technologies";
 	import Button from "../ui/button/button.svelte";
+	import IconifyIcon from "../IconifyIcon.svelte";
 
-	// markdown files
-	import defaultMD from "@/../README.md?raw";
-	import loadingMD from "./loading.md?raw";
-
+	// github urls
 	const GITHUB_URL = "https://github.com";
 	const GITHUB_API_URL = "https://api.github.com";
 
-	// DOM element refs
-	let readmeDiv: HTMLDivElement;
-	let markdownElement: StyledMarkdown;
+	// dom refs
+	let refParent = $state<HTMLDivElement>();
+	let refMarkdown = $state<StyledMarkdown>();
 
 	let selectedTech: I_Technology | null = $state(null);
-	let md = $state(defaultMD);
+	let loadingMD = $state(false);
+	let md = $state<string | null>(null);
 
 	const fetchReadme = async (github: string) => {
-		md = loadingMD;
+        loadingMD = true;
 		const res = await fetch(`${GITHUB_API_URL}/repos/${github}/readme`, {
 			headers: { Accept: "application/vnd.github.html+json" },
 		});
 		const data = await res.text();
+        loadingMD = false;
 		md = data;
 	};
 
 	const setSelectedTech = async (tech: I_Technology) => {
 		if (selectedTech?.id == tech.id) {
 			selectedTech = null;
-			md = defaultMD;
+			md = null;
 		} else {
 			selectedTech = tech;
-			await fetchReadme(tech.github);
+			if (tech.github) await fetchReadme(tech.github);
 		}
-		readmeDiv.scrollIntoView({ behavior: "smooth" });
-		markdownElement.scrollTo({ top: 0, behavior: "smooth" });
+		refParent?.scrollIntoView({ behavior: "smooth" });
+		refMarkdown?.scrollTo({ top: 0, behavior: "smooth" });
 	};
 </script>
-
-{#snippet techLogo(icon: string, height: number = 64)}
-	<iconify-icon
-		{icon}
-		style="width: {height}px; height: {height}px;"
-		height="{height}px"
-		width="{height}px"
-	></iconify-icon>
-{/snippet}
 
 {#snippet techHeader()}
 	<div class="techHeader m-auto flex w-full max-w-[980px] grow gap-8 p-4 text-black lg:px-0">
 		{#if selectedTech}
 			<span class="flex w-full items-center gap-4 text-2xl">
-				{@render techLogo(selectedTech.icon, 32)}
+				<IconifyIcon icon={selectedTech.icon} width="32px" height="32px" />
 				{selectedTech.name}
 			</span>
 			<span class="flex flex-col gap-2 lg:flex-row">
@@ -93,7 +82,7 @@
 		onclick={() => setSelectedTech(tech)}
 	>
 		<span class="flex items-center bg-stone-200 p-2">
-			{@render techLogo(tech.icon)}
+			<IconifyIcon icon={tech.icon} width="32px" height="32px" />
 		</span>
 		<span class="h-full w-full py-2">
 			<span class="flex h-full w-full items-center bg-primary/10 p-2">
@@ -104,7 +93,7 @@
 {/snippet}
 
 {#snippet techList()}
-	<div class="flex flex-col overflow-hidden lg:h-full justify-around bg-background py-4">
+	<div class="flex flex-col justify-around overflow-hidden bg-background py-4 lg:h-full">
 		<span class="p-4 text-center text-2xl text-wrap whitespace-break-spaces">This portfolio was made using:</span>
 
 		<div class="flex flex-col gap-1 overflow-y-auto">
@@ -118,10 +107,18 @@
 <div class="h-full bg-teal-700 lg:grid lg:grid-cols-[22rem_1fr]">
 	{@render techList()}
 
-	<div bind:this={readmeDiv} class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">
+	<div bind:this={refParent} class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">
 		{@render techHeader()}
 
-		<StyledMarkdown bind:this={markdownElement} {md} />
+		{#if !selectedTech}
+			<div class="bg-red-500">No tech selected</div>
+		{:else if loadingMD}
+			<div class="bg-red-500">Loading Readme...</div>
+		{:else if !md}
+			<div class="bg-red-500">No readme for selected tech</div>
+		{:else}
+			<StyledMarkdown bind:this={refMarkdown} {md} />
+		{/if}
 	</div>
 </div>
 
