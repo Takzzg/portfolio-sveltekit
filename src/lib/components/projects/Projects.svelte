@@ -15,7 +15,7 @@
 {/snippet}
 
 <div>
-	<span>Check out my projects</span>
+	<span>Check out my Github</span>
 	<div class="flex flex-wrap items-start justify-center gap-2 p-2">
 		{#each Object.values(AllProjects) as project (project.id)}
 			<div class="flex w-full max-w-lg flex-col bg-red-500 p-2">
@@ -30,10 +30,6 @@
 				)}
 			</div>
 		{/each}
-	</div>
-
-	<span>I also made some games...</span>
-	<div class="flex flex-wrap items-start justify-center gap-2 p-2">
 		{#each Object.values(AllGames) as game (game.id)}
 			<div class="flex w-full max-w-lg flex-col bg-red-500 p-2">
 				<span>{game.title} - {game.year}</span>

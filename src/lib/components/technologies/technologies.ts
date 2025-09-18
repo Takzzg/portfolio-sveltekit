@@ -1,4 +1,4 @@
-export interface I_Technology {
+export type I_Technology = {
 	id: string;
 	icon: string;
 	name: string;
@@ -84,7 +84,7 @@ const AllTechnologies: Record<keyof typeof E_Technologies, I_Technology> = {
 	},
 };
 
-export interface I_Category {
+export type I_Category = {
 	id: string;
 	icon: string;
 	title: string;
