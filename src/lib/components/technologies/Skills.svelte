@@ -18,7 +18,6 @@
 			selectedTech = tech;
 		}
 		refParent?.scrollIntoView({ behavior: "smooth" });
-		refBody?.scrollTo({ top: 0, behavior: "smooth" });
 	};
 </script>
 
@@ -43,24 +42,24 @@
 	</div>
 {/snippet}
 
-<div class="grid h-full grid-rows-[auto_1fr] overflow-hidden bg-orange-400">
+<div class="grid h-full grid-rows-[auto_1fr] bg-orange-400">
 	<h2 class="bg-background p-4 text-4xl">Main Skills</h2>
 
-	<div bind:this={refParent} class="grid h-full gap-4 overflow-hidden p-2 lg:grid-cols-[1fr_auto]">
-		<div class="grid h-full grid-rows-[auto_1fr] items-center overflow-y-auto">
-			<div class="flex w-full justify-center bg-background/75">
-				<MarkdownHeader selected={selectedTech} />
-			</div>
-
-			<MarkdownBody bind:this={refBody} selected={selectedTech} />
-		</div>
-
-		<div class="h-full overflow-y-auto p-2">
+	<div class="flex flex-col items-center lg:items-start overflow-hidden lg:grid lg:grid-cols-[auto_1fr]">
+		<div class="max-h-full overflow-y-auto p-2">
 			<div class="grid w-sm gap-2">
 				{#each Object.values(TechCategories) as cat}
 					{@render category(cat)}
 				{/each}
 			</div>
+		</div>
+
+		<div bind:this={refParent} class="grid max-h-full w-full grid-rows-[auto_1fr] items-center overflow-y-auto">
+			<div class="flex w-full justify-center bg-background/75">
+				<MarkdownHeader selected={selectedTech} />
+			</div>
+
+			<MarkdownBody selected={selectedTech} />
 		</div>
 	</div>
 </div>

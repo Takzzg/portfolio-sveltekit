@@ -7,10 +7,10 @@
 	let { selected }: { selected: I_Technology | null } = $props();
 </script>
 
-<div class="flex w-full max-w-[980px] grow gap-8 p-4 2xl:px-0">
+<div class="flex w-full max-w-[980px] grow gap-8 p-2 2xl:px-0">
 	{#if selected}
 		<span class="flex w-full items-center gap-4 text-2xl">
-			<IconifyIcon icon="selected.icon" width="32px" height="32px" />
+			<IconifyIcon icon={selected.icon} width="32px" height="32px" />
 			{selected.name}
 		</span>
 		<span class="flex flex-col gap-2 lg:flex-row">

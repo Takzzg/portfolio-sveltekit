@@ -1,5 +1,4 @@
 <script lang="ts">
-	import StyledMarkdown from "@/lib/components/markdown/MarkdownStyled.svelte";
 	import { Portfolio, type I_Technology } from "./technologies";
 	import Button from "../ui/button/button.svelte";
 	import IconifyIcon from "../IconifyIcon.svelte";
@@ -8,7 +7,6 @@
 
 	// dom refs
 	let refParent = $state<HTMLDivElement>();
-	let refMarkdown = $state<StyledMarkdown>();
 
 	let selectedTech: I_Technology | null = $state(null);
 	const setSelectedTech = async (tech: I_Technology) => {
@@ -18,7 +16,6 @@
 			selectedTech = tech;
 		}
 		refParent?.scrollIntoView({ behavior: "smooth" });
-		refMarkdown?.scrollTo({ top: 0, behavior: "smooth" });
 	};
 </script>
 

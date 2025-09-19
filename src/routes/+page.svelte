@@ -94,7 +94,7 @@
 {/snippet}
 
 <div bind:clientHeight={height} onscroll={OnScroll} class="grid h-full overflow-y-scroll" style="--height:{height};">
-	<div bind:this={refSplash} style="height: {height}px;">
+	<div bind:this={refSplash} style="height: {height}px;" class="min-h-[512px]">
 		<Splash />
 	</div>
 
@@ -121,7 +121,7 @@
 </div>
 
 <style>
-	@media (min-width: 1024px) { /* match tailwind lg size */
+	@media (min-width: 1024px) {
 		.lgFixedHeight {
 			height: calc(var(--height) * 1px);
 		}
