@@ -27,12 +27,12 @@
 			<IconifyIcon icon={cat.icon} height="24px" width="24px" />
 			{cat.title}
 		</span>
-		<div class="flex h-full w-full gap-2 overflow-auto bg-background/50 p-2">
+		<div class="grid h-full w-full grid-cols-4 gap-2 bg-background/75 p-2">
 			{#each cat.techs as tech (tech.id)}
 				<Button
 					variant="ghost"
 					onclick={() => setSelectedTech(tech)}
-					class="flex aspect-square h-auto items-center rounded-sm border-2 border-transparent p-2 hover:cursor-pointer {tech.id ==
+					class="flex aspect-square h-auto items-center border-4 border-transparent p-2 hover:cursor-pointer hover:border-background/50 dark:hover:bg-transparent {tech.id ==
 						selectedTech?.id && 'border-white'}"
 				>
 					<IconifyIcon icon={tech.icon} height="64px" width="64px" />
@@ -45,9 +45,9 @@
 <div class="grid h-full grid-rows-[auto_1fr] bg-orange-400">
 	<h2 class="bg-background p-4 text-4xl">Main Skills</h2>
 
-	<div class="flex flex-col items-center lg:items-start overflow-hidden lg:grid lg:grid-cols-[auto_1fr]">
-		<div class="max-h-full overflow-y-auto p-2">
-			<div class="grid w-sm gap-2">
+	<div class="flex flex-col items-center overflow-hidden lg:grid lg:grid-cols-[auto_1fr] lg:items-start">
+		<div class="max-h-full overflow-y-auto p-2 px-4">
+			<div class="grid gap-2">
 				{#each Object.values(TechCategories) as cat}
 					{@render category(cat)}
 				{/each}
