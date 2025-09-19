@@ -94,7 +94,7 @@
 {/snippet}
 
 <div bind:clientHeight={height} onscroll={OnScroll} class="grid h-full overflow-y-scroll" style="--height:{height};">
-	<div bind:this={refSplash} style="height: {height}px;" class="min-h-[512px]">
+	<div bind:this={refSplash} style="height: {height != 0 ? `${height}px` : ''}" class="h-screen">
 		<Splash />
 	</div>
 
