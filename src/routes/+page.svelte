@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext } from "svelte";
 
-	import Splash from "$lib/components/Splash.svelte";
+	import Splash from "@/lib/components/Splash.svelte";
 	import Portfolio from "$lib/components/technologies/Portfolio.svelte";
 	import Skills from "@/lib/components/technologies/Skills.svelte";
 	import { Button } from "$lib/components/ui/button";

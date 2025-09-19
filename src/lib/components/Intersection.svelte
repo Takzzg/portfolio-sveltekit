@@ -1,34 +1,35 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
+	import type { ClassValue } from "svelte/elements";
 
 	type Props = {
 		children: Snippet;
-        element?: HTMLElement
 		onObserve?: (entry: IntersectionObserverEntry) => void;
-		margin?: string;
 		threshold?: number;
+		className?: ClassValue;
 	};
 
 	let refParent = $state<HTMLDivElement>();
-	let { children, element, onObserve, margin, threshold = 0 }: Props = $props();
+	let { children, onObserve, className, threshold = 0 }: Props = $props();
 
 	$effect(() => {
 		let observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
-					console.log(entry);
-
+					// console.log(entry);
 					onObserve?.(entry);
 				});
 			},
-			{ threshold, rootMargin: margin },
+			{ threshold },
 		);
 
-		if (element) observer.observe(element);
+		if (refParent) observer.observe(refParent);
 		return () => {
 			observer.disconnect();
 		};
 	});
 </script>
 
-{@render children()}
+<div bind:this={refParent} class="bg-red-500 {className}">
+	{@render children()}
+</div>
