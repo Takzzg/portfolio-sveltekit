@@ -28,7 +28,7 @@
 			{cat.title}
 		</span>
 		<div class="grid h-full w-full grid-cols-4 gap-2 bg-background/75 p-2">
-			{#each cat.techs as tech (tech.id)}
+			{#each Object.values(cat.techs) as tech (tech.id)}
 				<Button
 					variant="ghost"
 					onclick={() => setSelectedTech(tech)}
