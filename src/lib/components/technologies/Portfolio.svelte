@@ -56,7 +56,7 @@
 
 	<div bind:this={refParent} class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">
 		<div class="techHeader m-auto flex w-full max-w-[980px] grow gap-8 text-black lg:px-0">
-			<MarkdownHeader selected={selectedTech} />
+			<MarkdownHeader selected={selectedTech} btnVariant="secondary" />
 		</div>
 
 		<MarkdownBody selected={selectedTech} />

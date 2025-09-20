@@ -1,10 +1,15 @@
 <script lang="ts">
 	import { GITHUB_URL } from "@/lib/utils";
-	import Button from "../ui/button/button.svelte";
+	import Button, { type ButtonVariant } from "../ui/button/button.svelte";
 	import type { I_Technology } from "../technologies/technologies";
 	import IconifyIcon from "../IconifyIcon.svelte";
 
-	let { selected }: { selected: I_Technology | null } = $props();
+	type Props = {
+		selected: I_Technology | null;
+		btnVariant?: ButtonVariant;
+	};
+
+	let { selected, btnVariant }: Props = $props();
 </script>
 
 <div class="flex w-full max-w-[980px] grow gap-8 p-2 2xl:px-0">
@@ -14,13 +19,17 @@
 			{selected.name}
 		</span>
 		<span class="flex flex-col gap-2 lg:flex-row">
-			<Button variant="secondary" class="hover:cursor-pointer" onclick={() => window.open(selected?.website, "_blank")}>
+			<Button
+				variant={btnVariant}
+				class="hover:cursor-pointer"
+				onclick={() => window.open(selected?.website, "_blank")}
+			>
 				<IconifyIcon icon="lucide:globe" width="24px" height="24px" />
 				<span>Visit Website</span>
 				<IconifyIcon icon="lucide:external-link" width="16px" height="16px" />
 			</Button>
 			<Button
-				variant="secondary"
+				variant={btnVariant}
 				class="hover:cursor-pointer"
 				onclick={() => window.open(`${GITHUB_URL}/${selected?.github}/#readme`, "_blank")}
 			>
