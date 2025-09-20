@@ -1,6 +1,6 @@
 export type I_Technology = {
 	id: string;
-	icon: string;
+    icon: string;
 	name: string;
 	website: string;
 	github?: string;
@@ -21,7 +21,7 @@ export const TechCategories: Record<string, I_Category> = {
 		techs: {
 			HTML: {
 				id: "html",
-				icon: "devicon-plain:html5-wordmark",
+				icon: "akar-icons:html-fill",
 				name: "HTML",
 				github: "whatwg/html",
 				website: "https://html.spec.whatwg.org/",
@@ -34,41 +34,41 @@ export const TechCategories: Record<string, I_Category> = {
 			},
 			JAVASCRIPT: {
 				id: "javascript",
-				icon: "simple-icons:javascript",
+				icon: "akar-icons:javascript-fill",
 				name: "JavaScript",
 				website: "https://ecma-international.org/",
 			},
 			TYPESCRIPT: {
 				id: "typescript",
-				icon: "logos:typescript-icon",
+				icon: "akar-icons:typescript-fill",
 				name: "TypeScript",
 				github: "microsoft/TypeScript",
 				website: "https://www.typescriptlang.org/",
 			},
 			REACT_JS: {
 				id: "react.js",
-				icon: "logos:react",
+				icon: "simple-icons:react",
 				name: "React.js",
 				github: "facebook/react",
 				website: "https://react.dev/",
 			},
 			NEXT_JS: {
 				id: "next.js",
-				icon: "logos:nextjs-icon",
+				icon: "akar-icons:nextjs-fill",
 				name: "Next.js",
 				github: "vercel/next.js",
 				website: "https://nextjs.org/",
 			},
 			SVELTE_KIT: {
 				id: "svelte-kit",
-				icon: "logos:svelte-icon",
+				icon: "simple-icons:svelte",
 				name: "SvelteKit",
 				github: "sveltejs/kit",
 				website: "https://svelte.dev/",
 			},
 			REDUX: {
 				id: "redux",
-				icon: "logos:redux",
+				icon: "simple-icons:redux",
 				name: "Redux",
 				github: "reduxjs/redux",
 				website: "https://redux.js.org/",
@@ -82,42 +82,42 @@ export const TechCategories: Record<string, I_Category> = {
 		techs: {
 			TAILWINDCSS: {
 				id: "tailwind",
-				icon: "logos:tailwindcss-icon",
+				icon: "simple-icons:tailwindcss",
 				name: "TailwindCSS",
 				github: "tailwindlabs/tailwindcss",
 				website: "https://tailwindcss.com/",
 			},
 			SHADCN_SVELTE: {
 				id: "shadcn-svelte",
-				icon: "vscode-icons:file-type-light-shadcn",
+                icon: "simple-icons:shadcnui",
 				name: "shadcn-svelte",
 				github: "huntabyte/shadcn-svelte",
 				website: "https://www.shadcn-svelte.com/",
 			},
 			BOOTSTRAP: {
 				id: "bootstrap",
-				icon: "logos:bootstrap",
+				icon: "akar-icons:bootstrap-fill",
 				name: "Bootstrap",
 				github: "twbs/bootstrap",
 				website: "https://getbootstrap.com/",
 			},
 			SASS: {
 				id: "sass",
-				icon: "logos:sass",
+				icon: "cib:sass-alt",
 				name: "Sass",
 				github: "sass/sass",
 				website: "https://sass-lang.com/",
 			},
 			LESS: {
 				id: "less",
-				icon: "logos:less",
+				icon: "simple-icons:less",
 				name: "Less",
 				github: "less/less.js",
 				website: "https://lesscss.org/",
 			},
 			POST_CSS: {
 				id: "post-css",
-				icon: "logos:postcss",
+				icon: "simple-icons:postcss",
 				name: "PostCSS",
 				github: "postcss/postcss",
 				website: "https://postcss.org/",
@@ -131,7 +131,7 @@ export const TechCategories: Record<string, I_Category> = {
 		techs: {
 			NODE_JS: {
 				id: "node.js",
-				icon: "logos:nodejs-icon",
+				icon: "akar-icons:node-fill",
 				name: "Node.js",
 				github: "nodejs/node",
 				website: "https://nodejs.org/",
@@ -145,35 +145,35 @@ export const TechCategories: Record<string, I_Category> = {
 			},
 			POSTGRES: {
 				id: "postgres",
-				icon: "logos:postgresql",
+				icon: "simple-icons:postgresql",
 				name: "PostgreSQL",
 				github: "postgres/postgres",
 				website: "https://www.postgresql.org/",
 			},
 			MONGO_DB: {
 				id: "mongdb",
-				icon: "logos:mongodb-icon",
+				icon: "simple-icons:mongodb",
 				name: "MongoDB",
 				github: "mongodb/mongo",
 				website: "https://www.mongodb.com/",
 			},
 			PRISMA_ORM: {
 				id: "prisma-orm",
-				icon: "logos:prisma",
+				icon: "simple-icons:prisma",
 				name: "Prisma ORM",
 				github: "prisma/prisma",
 				website: "https://www.prisma.io/",
 			},
 			SEQUELIZE_ORM: {
 				id: "sequelize-orm",
-				icon: "logos:sequelize",
+				icon: "simple-icons:sequelize",
 				name: "Sequalize ORM",
 				github: "sequelize/sequelize",
 				website: "https://sequelize.org/",
 			},
 			MONGOOSE: {
 				id: "mongoose",
-				icon: "devicon:mongoose-wordmark",
+				icon: "simple-icons:mongoose",
 				name: "Mongoose",
 				github: "Automattic/mongoose",
 				website: "https://mongoosejs.com/",
@@ -187,28 +187,28 @@ export const TechCategories: Record<string, I_Category> = {
 		techs: {
 			HEROKU: {
 				id: "herouk",
-				icon: "logos:heroku-icon",
+				icon: "simple-icons:heroku",
 				name: "Heroku",
 				github: "heroku/cli",
 				website: "https://www.heroku.com/",
 			},
 			NETLIFY: {
 				id: "netlify",
-				icon: "logos:netlify-icon",
+				icon: "simple-icons:netlify",
 				name: "Netlify",
 				github: "netlify/cli",
 				website: "https://www.netlify.com/",
 			},
 			VERCEL: {
 				id: "vercel",
-				icon: "devicon:vercel",
+				icon: "simple-icons:vercel",
 				name: "Vercel",
 				github: "vercel/vercel",
 				website: "https://vercel.com/",
 			},
 			SUPABASE: {
 				id: "supabase",
-				icon: "logos:supabase-icon",
+				icon: "simple-icons:supabase",
 				name: "Supabase",
 				github: "postgres/postgres",
 				website: "https://www.postgresql.org/",
@@ -222,34 +222,34 @@ export const TechCategories: Record<string, I_Category> = {
 		techs: {
 			GIT: {
 				id: "git",
-				icon: "logos:git-icon",
+				icon: "simple-icons:git",
 				name: "Git",
 				website: "https://git-scm.com/",
 			},
 			DOCKER: {
 				id: "docker",
-				icon: "logos:docker-icon",
+				icon: "simple-icons:docker",
 				name: "Docker",
 				github: "docker/docs",
 				website: "https://www.docker.com/",
 			},
 			VITE: {
 				id: "vite",
-				icon: "logos:vitejs",
+				icon: "file-icons:vite",
 				name: "Vite",
 				github: "vitejs/vite",
 				website: "https://vite.dev/",
 			},
 			PRETTIER_PLUGIN_SVELTE: {
 				id: "prettier-plugin-svelte",
-				icon: "vscode-icons:file-type-prettier",
+				icon: "simple-icons:prettier",
 				name: "prettier-plugin-svelte",
 				github: "sveltejs/prettier-plugin-svelte",
 				website: "",
 			},
 			ESLINT_PLUGIN_SVELTE: {
 				id: "eslint-plugin-svelte",
-				icon: "logos:eslint",
+				icon: "simple-icons:eslint",
 				name: "eslint-plugin-svelte",
 				github: "sveltejs/eslint-plugin-svelte",
 				website: "https://sveltejs.github.io/eslint-plugin-svelte/",

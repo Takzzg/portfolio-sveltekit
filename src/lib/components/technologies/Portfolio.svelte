@@ -28,7 +28,7 @@
 		aria-label="tech logo banner"
 		onclick={() => setSelectedTech(tech)}
 	>
-		<span class="flex items-center bg-stone-200 p-2">
+		<span class="flex items-center bg-primary/25  p-2">
 			<IconifyIcon icon={tech.icon} width="64px" height="64px" />
 		</span>
 		<span class="h-full w-full py-2">

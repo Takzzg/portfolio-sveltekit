@@ -32,7 +32,7 @@
 				<Button
 					variant="ghost"
 					onclick={() => setSelectedTech(tech)}
-					class="flex aspect-square h-auto items-center border-4 border-transparent p-2 hover:cursor-pointer hover:border-background/50 dark:hover:bg-transparent {tech.id ==
+					class="flex aspect-square h-auto items-center border-4 border-transparent p-2 text-primary hover:cursor-pointer hover:border-background/50 dark:hover:bg-transparent {tech.id ==
 						selectedTech?.id && 'border-white'}"
 				>
 					<IconifyIcon icon={tech.icon} height="64px" width="64px" />
