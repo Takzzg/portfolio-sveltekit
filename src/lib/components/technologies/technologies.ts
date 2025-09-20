@@ -3,17 +3,17 @@ export type I_Technology = {
 	icon: string;
 	name: string;
 	website: string;
-	github?: string;
+	github: string;
 };
 
 export type I_Category = {
 	id: string;
 	icon: string;
 	title: string;
-	techs: { [key: string]: I_Technology };
+	techs: Record<string, I_Technology>;
 };
 
-export const TechCategories = {
+export const TechCategories: Record<string, I_Category> = {
 	FRONT_END: {
 		id: "front_end",
 		icon: "lucide:monitor",
@@ -30,12 +30,14 @@ export const TechCategories = {
 				id: "css",
 				icon: "simple-icons:css",
 				name: "CSS",
+				github: "CSS-Next/css-next",
 				website: "https://www.w3.org/Style/CSS/",
 			},
 			JAVASCRIPT: {
 				id: "javascript",
 				icon: "akar-icons:javascript-fill",
 				name: "JavaScript",
+				github: "tc39/ecma262",
 				website: "https://ecma-international.org/",
 			},
 			TYPESCRIPT: {
@@ -72,62 +74,6 @@ export const TechCategories = {
 				name: "Redux",
 				github: "reduxjs/redux",
 				website: "https://redux.js.org/",
-			},
-		},
-	},
-	STYLING: {
-		id: "styling",
-		icon: "lucide:paintbrush",
-		title: "Styling",
-		techs: {
-			TAILWINDCSS: {
-				id: "tailwind",
-				icon: "simple-icons:tailwindcss",
-				name: "TailwindCSS",
-				github: "tailwindlabs/tailwindcss",
-				website: "https://tailwindcss.com/",
-			},
-			SHADCN_SVELTE: {
-				id: "shadcn-svelte",
-				icon: "simple-icons:shadcnui",
-				name: "shadcn-svelte",
-				github: "huntabyte/shadcn-svelte",
-				website: "https://www.shadcn-svelte.com/",
-			},
-			BOOTSTRAP: {
-				id: "bootstrap",
-				icon: "akar-icons:bootstrap-fill",
-				name: "Bootstrap",
-				github: "twbs/bootstrap",
-				website: "https://getbootstrap.com/",
-			},
-			SASS: {
-				id: "sass",
-				icon: "cib:sass-alt",
-				name: "Sass",
-				github: "sass/sass",
-				website: "https://sass-lang.com/",
-			},
-			LESS: {
-				id: "less",
-				icon: "simple-icons:less",
-				name: "Less",
-				github: "less/less.js",
-				website: "https://lesscss.org/",
-			},
-			POST_CSS: {
-				id: "post-css",
-				icon: "simple-icons:postcss",
-				name: "PostCSS",
-				github: "postcss/postcss",
-				website: "https://postcss.org/",
-			},
-			STYLED_COMPONENTS: {
-				id: "styled-components",
-				icon: "simple-icons:styledcomponents",
-				name: "styled-components",
-				github: "styled-components/styled-components",
-				website: "https://styled-components.com/",
 			},
 		},
 	},
@@ -213,7 +159,7 @@ export const TechCategories = {
 				github: "cypress-io/cypress",
 				website: "https://www.cypress.io/",
 			},
-			POSTMAN: {
+			INSOMNIA: {
 				id: "insomnia",
 				icon: "simple-icons:insomnia",
 				name: "Insomnia",
@@ -257,6 +203,62 @@ export const TechCategories = {
 			},
 		},
 	},
+	STYLING: {
+		id: "styling",
+		icon: "lucide:paintbrush",
+		title: "Styling",
+		techs: {
+			TAILWINDCSS: {
+				id: "tailwind",
+				icon: "simple-icons:tailwindcss",
+				name: "TailwindCSS",
+				github: "tailwindlabs/tailwindcss",
+				website: "https://tailwindcss.com/",
+			},
+			SHADCN_SVELTE: {
+				id: "shadcn-svelte",
+				icon: "simple-icons:shadcnui",
+				name: "shadcn-svelte",
+				github: "huntabyte/shadcn-svelte",
+				website: "https://www.shadcn-svelte.com/",
+			},
+			BOOTSTRAP: {
+				id: "bootstrap",
+				icon: "akar-icons:bootstrap-fill",
+				name: "Bootstrap",
+				github: "twbs/bootstrap",
+				website: "https://getbootstrap.com/",
+			},
+			SASS: {
+				id: "sass",
+				icon: "cib:sass-alt",
+				name: "Sass",
+				github: "sass/sass",
+				website: "https://sass-lang.com/",
+			},
+			LESS: {
+				id: "less",
+				icon: "simple-icons:less",
+				name: "Less",
+				github: "less/less.js",
+				website: "https://lesscss.org/",
+			},
+			POST_CSS: {
+				id: "post-css",
+				icon: "simple-icons:postcss",
+				name: "PostCSS",
+				github: "postcss/postcss",
+				website: "https://postcss.org/",
+			},
+			STYLED_COMPONENTS: {
+				id: "styled-components",
+				icon: "simple-icons:styledcomponents",
+				name: "styled-components",
+				github: "styled-components/styled-components",
+				website: "https://styled-components.com/",
+			},
+		},
+	},
 	DEVELOPMENT: {
 		id: "development",
 		icon: "lucide:code-xml",
@@ -266,6 +268,7 @@ export const TechCategories = {
 				id: "git",
 				icon: "simple-icons:git",
 				name: "Git",
+				github: "git/git",
 				website: "https://git-scm.com/",
 			},
 			DOCKER: {

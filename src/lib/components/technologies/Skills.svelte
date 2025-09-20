@@ -50,7 +50,7 @@
 		</div>
 	</div>
 
-	<div bind:this={refParent} class="grid max-h-full w-full grid-rows-[auto_1fr] items-center overflow-y-auto">
+	<div bind:this={refParent} class="grid h-full w-full overflow-hidden grid-rows-[auto_1fr] items-center">
 		<div class="flex w-full justify-center bg-background/75">
 			<MarkdownHeader selected={selectedTech} defaultTitle="Main Skills" />
 		</div>

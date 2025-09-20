@@ -1,19 +1,15 @@
 <script lang="ts">
-	import Markdown from "svelte-exmarkdown";
-	import { gfmPlugin } from "svelte-exmarkdown/gfm";
-	import rehypeRaw from "rehype-raw";
 	import { mode } from "mode-watcher";
 
-    import './github-markdown.css'
+	import "./github-markdown.css";
 	import { GITHUB_API_URL } from "@/lib/utils";
 	import type { I_Technology } from "../technologies/technologies";
+	import IconifyIcon from "../IconifyIcon.svelte";
 
 	let { selected }: { selected: I_Technology | null } = $props();
 	let loadingMD = $state(false);
-	let md = $state<string | null>(null);
+	let md = $state<any | null>(null);
 	let styled = $state<HTMLDivElement>();
-
-	const plugins = [gfmPlugin(), { rehypePlugin: rehypeRaw }];
 
 	const fetchReadme = async (github: string) => {
 		loadingMD = true;
@@ -30,34 +26,29 @@
 		if (selected?.github) fetchReadme(selected?.github);
 		else md = null;
 	});
-
-	// export const scrollTo = (options?: ScrollToOptions) => styled?.scrollTo(options);
 </script>
 
-{#if !selected}
-	<div class="bg-red-500">No tech selected</div>
-{:else if loadingMD}
-	<div class="bg-red-500">Loading Readme...</div>
-{:else if !md}
-	<div class="bg-red-500">No readme for selected tech</div>
-{:else}
-	<div bind:this={styled} class="markdown-body h-full w-full overflow-auto border-2" data-theme={mode.current}>
-		<Markdown {md} {plugins} />
-	</div>
-{/if}
+<div class="relative m-auto mt-0 h-full max-h-[800px] w-full max-w-[896px] overflow-hidden lg:max-h-full">
+	{#if loadingMD}
+		<div class="absolute z-10 flex h-full w-full items-center justify-center">
+			<span class="z-10">Loading Readme...</span>
+			<span class="absolute h-full w-full bg-background/75 backdrop-blur-md"></span>
+		</div>
+	{/if}
 
-<style>
-	.markdown-body {
-		box-sizing: border-box;
-		max-width: 980px;
-		margin: 0 auto;
-		padding: 45px;
-	}
-
-	@media (max-width: 767px) {
-		.markdown-body {
-			padding: 15px;
-			max-width: 100vw;
-		}
-	}
-</style>
+	{#if !selected}
+		<div class="flex h-full w-full flex-col items-center justify-center gap-4 bg-red-500 p-8">
+			<IconifyIcon icon="lucide:mouse-pointer-click" height="64px" width="64px" />
+			<span class="text-2xl">Learn more</span>
+			<span>Click on any logo to take a peek at it's README.md</span>
+		</div>
+	{:else if md}
+		<div
+			bind:this={styled}
+			data-theme={mode.current}
+			class="markdown-body box-border max-h-full overflow-auto border-2 p-8"
+		>
+			{@html md}
+		</div>
+	{/if}
+</div>

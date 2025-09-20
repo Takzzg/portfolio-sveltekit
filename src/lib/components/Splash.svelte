@@ -17,7 +17,7 @@
 	</div>
 {/snippet}
 
-<div class="relative flex h-full max-w-full overflow-clip flex-col items-center justify-center bg-teal-700">
+<div class="relative flex min-h-[800px] h-full max-w-full overflow-clip flex-col items-center justify-center bg-teal-700">
 	<h1 class="text-5xl">{m.tiny_crisp_skate_lead()}</h1>
 
 	<div class="p-10">

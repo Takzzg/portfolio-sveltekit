@@ -54,7 +54,7 @@
 	{@render techList()}
 
 	<div bind:this={refParent} class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">
-		<div class="techHeader m-auto flex w-full max-w-[980px] grow gap-8 text-black lg:px-0">
+		<div class="techHeader m-auto max-w-[896px] w-full gap-8 text-black lg:px-0">
 			<MarkdownHeader selected={selectedTech} btnVariant="secondary" defaultTitle="About this portfolio" />
 		</div>
 

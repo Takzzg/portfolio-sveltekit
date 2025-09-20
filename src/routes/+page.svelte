@@ -9,6 +9,7 @@
 	import type { ContextState } from "./+layout.svelte";
 	import Projects from "$lib/components/projects/Projects.svelte";
 	import type { UIEventHandler } from "svelte/elements";
+	import IconifyIcon from "@/lib/components/IconifyIcon.svelte";
 
 	let height: number = $state(0);
 
@@ -79,7 +80,7 @@
 
 			// console.log(el, "childOffset", childOffset, "parentScroll", parentScroll, "parentOffset", parentOffset);
 
-			if (Math.abs(childOffset - parentScroll) <= parentOffset) {
+			if (Math.abs(childOffset - parentScroll) <= parentOffset * 2) {
 				context.currentSection = index;
 				break;
 			}
@@ -87,14 +88,8 @@
 	};
 </script>
 
-{#snippet sectionBtn(text: string, onclick = () => {})}
-	<Button {onclick} variant="ghost" class="border-2 border-background/50 text-background hover:cursor-pointer">
-		{text}
-	</Button>
-{/snippet}
-
-<div bind:clientHeight={height} onscroll={OnScroll} class="grid h-full overflow-y-scroll" style="--height:{height};">
-	<div bind:this={refSplash} style="height: {height != 0 ? `${height}px` : ''}" class="h-screen">
+<div bind:clientHeight={height} onscroll={OnScroll} class="h-full overflow-y-scroll" style="--height:{height};">
+	<div bind:this={refSplash} class="lgFixedHeight">
 		<Splash />
 	</div>
 
@@ -114,9 +109,23 @@
 		<Portfolio />
 	</div>
 
-	<div class="absolute right-0 bottom-0 m-8 flex items-center gap-2 bg-red-500">
-		{@render sectionBtn("Prev", scrollPrev)}
-		{@render sectionBtn("Next", scrollNext)}
+	<div class="absolute right-0 bottom-0 m-4 flex flex-col gap-2">
+		<Button
+			onclick={scrollPrev}
+			variant="ghost"
+			disabled={context.currentSection == 0}
+			class="bg-background/25 h-auto border-2 border-secondary p-0 text-secondary opacity-50 hover:cursor-pointer disabled:opacity-15"
+		>
+			<IconifyIcon icon="lucide:chevron-up" height="48px" width="48px" />
+		</Button>
+		<Button
+			onclick={scrollNext}
+			variant="ghost"
+			disabled={context.currentSection == context.sectionButtons.length - 1}
+			class="bg-background/25 h-auto border-2 border-secondary p-0 text-secondary opacity-50 hover:cursor-pointer disabled:opacity-15"
+		>
+			<IconifyIcon icon="lucide:chevron-down" height="48px" width="48px" />
+		</Button>
 	</div>
 </div>
 
