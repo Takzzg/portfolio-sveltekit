@@ -7,10 +7,8 @@
 
 	// dom refs
 	let refParent = $state<HTMLDivElement>();
-	let refBody = $state<MarkdownBody>();
 
 	let selectedTech: I_Technology | null = $state(null);
-
 	const setSelectedTech = async (tech: I_Technology) => {
 		if (selectedTech?.id == tech.id) {
 			selectedTech = null;
@@ -42,24 +40,22 @@
 	</div>
 {/snippet}
 
-<div class="grid h-full grid-rows-[auto_1fr] bg-orange-400">
-	<h2 class="bg-background p-4 text-4xl">Main Skills</h2>
+<div
+	class="flex h-full flex-col items-center overflow-hidden bg-orange-400 lg:grid lg:grid-cols-[auto_1fr] lg:items-start"
+>
+	<div class="max-h-full overflow-y-auto p-2 px-4">
+		<div class="grid gap-2">
+			{#each Object.values(TechCategories) as cat}
+				{@render category(cat)}
+			{/each}
+		</div>
+	</div>
 
-	<div class="flex flex-col items-center overflow-hidden lg:grid lg:grid-cols-[auto_1fr] lg:items-start">
-		<div class="max-h-full overflow-y-auto p-2 px-4">
-			<div class="grid gap-2">
-				{#each Object.values(TechCategories) as cat}
-					{@render category(cat)}
-				{/each}
-			</div>
+	<div bind:this={refParent} class="grid max-h-full w-full grid-rows-[auto_1fr] items-center overflow-y-auto">
+		<div class="flex w-full justify-center bg-background/75">
+			<MarkdownHeader selected={selectedTech} />
 		</div>
 
-		<div bind:this={refParent} class="grid max-h-full w-full grid-rows-[auto_1fr] items-center overflow-y-auto">
-			<div class="flex w-full justify-center bg-background/75">
-				<MarkdownHeader selected={selectedTech} />
-			</div>
-
-			<MarkdownBody selected={selectedTech} />
-		</div>
+		<MarkdownBody selected={selectedTech} />
 	</div>
 </div>
