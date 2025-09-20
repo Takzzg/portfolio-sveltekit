@@ -122,6 +122,13 @@ export const TechCategories = {
 				github: "postcss/postcss",
 				website: "https://postcss.org/",
 			},
+			STYLED_COMPONENTS: {
+				id: "styled-components",
+				icon: "simple-icons:styledcomponents",
+				name: "styled-components",
+				github: "styled-components/styled-components",
+				website: "https://styled-components.com/",
+			},
 		},
 	},
 	BACK_END: {
