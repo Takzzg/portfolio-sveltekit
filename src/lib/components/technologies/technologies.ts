@@ -125,7 +125,7 @@ export const TechCategories = {
 		},
 	},
 	BACK_END: {
-		id: "development",
+		id: "back_end",
 		icon: "lucide:server",
 		title: "Back End",
 		techs: {
@@ -180,8 +180,43 @@ export const TechCategories = {
 			},
 		},
 	},
+	TESTING: {
+		id: "testing",
+		icon: "lucide:bug",
+		title: "Testing",
+		techs: {
+			JEST: {
+				id: "jest",
+				icon: "simple-icons:jest",
+				name: "Jest",
+				github: "jestjs/jest",
+				website: "https://jestjs.io/",
+			},
+			MOCHA: {
+				id: "mocha",
+				icon: "devicon-plain:mocha",
+				name: "Mocha",
+				github: "mochajs/mocha",
+				website: "https://mochajs.org/",
+			},
+			CYPRESS: {
+				id: "cypress",
+				icon: "simple-icons:cypress",
+				name: "Cypress",
+				github: "cypress-io/cypress",
+				website: "https://www.cypress.io/",
+			},
+			POSTMAN: {
+				id: "insomnia",
+				icon: "simple-icons:insomnia",
+				name: "Insomnia",
+				github: "Kong/insomnia",
+				website: "https://insomnia.rest/",
+			},
+		},
+	},
 	HOSTING: {
-		id: "back_end",
+		id: "hosting",
 		icon: "lucide:network",
 		title: "Hosting",
 		techs: {
@@ -216,7 +251,7 @@ export const TechCategories = {
 		},
 	},
 	DEVELOPMENT: {
-		id: "hosting",
+		id: "development",
 		icon: "lucide:code-xml",
 		title: "Development",
 		techs: {
