@@ -1,6 +1,6 @@
 export type I_Technology = {
 	id: string;
-    icon: string;
+	icon: string;
 	name: string;
 	website: string;
 	github?: string;
@@ -10,10 +10,10 @@ export type I_Category = {
 	id: string;
 	icon: string;
 	title: string;
-	techs: Record<string, I_Technology>;
+	techs: { [key: string]: I_Technology };
 };
 
-export const TechCategories: Record<string, I_Category> = {
+export const TechCategories = {
 	FRONT_END: {
 		id: "front_end",
 		icon: "lucide:monitor",
@@ -89,7 +89,7 @@ export const TechCategories: Record<string, I_Category> = {
 			},
 			SHADCN_SVELTE: {
 				id: "shadcn-svelte",
-                icon: "simple-icons:shadcnui",
+				icon: "simple-icons:shadcnui",
 				name: "shadcn-svelte",
 				github: "huntabyte/shadcn-svelte",
 				website: "https://www.shadcn-svelte.com/",
@@ -256,7 +256,7 @@ export const TechCategories: Record<string, I_Category> = {
 			},
 		},
 	},
-} as const;
+};
 
 export const Portfolio: I_Technology[] = [
 	TechCategories.FRONT_END.techs.SVELTE_KIT,
