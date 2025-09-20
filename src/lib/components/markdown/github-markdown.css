@@ -551,11 +551,18 @@
 	color: var(--fgColor-danger);
 }
 
+.markdown-heading {
+    position: relative;
+}
+
 .markdown-body .anchor {
 	float: left;
 	padding-right: var(--base-size-4);
 	margin-left: -20px;
 	line-height: 1;
+    transform: translateY(calc(-50% - 0.3rem));
+    position: absolute;
+    top: 50%;
 }
 
 .markdown-body .anchor:focus {
