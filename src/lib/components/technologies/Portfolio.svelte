@@ -9,12 +9,11 @@
 	let refParent = $state<HTMLDivElement>();
 
 	let selectedTech: I_Technology | null = $state(null);
+
 	const setSelectedTech = async (tech: I_Technology) => {
-		if (selectedTech?.id == tech.id) {
-			selectedTech = null;
-		} else {
-			selectedTech = tech;
-		}
+		if (selectedTech?.id == tech.id) selectedTech = null;
+		else selectedTech = tech;
+
 		refParent?.scrollIntoView({ behavior: "smooth" });
 	};
 </script>
@@ -28,7 +27,7 @@
 		aria-label="tech logo banner"
 		onclick={() => setSelectedTech(tech)}
 	>
-		<span class="flex items-center bg-primary/25  p-2">
+		<span class="flex items-center bg-primary/25 p-2">
 			<IconifyIcon icon={tech.icon} width="64px" height="64px" />
 		</span>
 		<span class="h-full w-full py-2">
@@ -56,7 +55,7 @@
 
 	<div bind:this={refParent} class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">
 		<div class="techHeader m-auto flex w-full max-w-[980px] grow gap-8 text-black lg:px-0">
-			<MarkdownHeader selected={selectedTech} btnVariant="secondary" />
+			<MarkdownHeader selected={selectedTech} btnVariant="secondary" defaultTitle="About this portfolio" />
 		</div>
 
 		<MarkdownBody selected={selectedTech} />

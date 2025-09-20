@@ -9,12 +9,11 @@
 	let refParent = $state<HTMLDivElement>();
 
 	let selectedTech: I_Technology | null = $state(null);
+
 	const setSelectedTech = async (tech: I_Technology) => {
-		if (selectedTech?.id == tech.id) {
-			selectedTech = null;
-		} else {
-			selectedTech = tech;
-		}
+		if (selectedTech?.id == tech.id) selectedTech = null;
+		else selectedTech = tech;
+
 		refParent?.scrollIntoView({ behavior: "smooth" });
 	};
 </script>
@@ -53,7 +52,7 @@
 
 	<div bind:this={refParent} class="grid max-h-full w-full grid-rows-[auto_1fr] items-center overflow-y-auto">
 		<div class="flex w-full justify-center bg-background/75">
-			<MarkdownHeader selected={selectedTech} />
+			<MarkdownHeader selected={selectedTech} defaultTitle="Main Skills" />
 		</div>
 
 		<MarkdownBody selected={selectedTech} />

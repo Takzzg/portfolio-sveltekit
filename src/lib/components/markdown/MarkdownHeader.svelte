@@ -6,10 +6,11 @@
 
 	type Props = {
 		selected: I_Technology | null;
+		defaultTitle: string;
 		btnVariant?: ButtonVariant;
 	};
 
-	let { selected, btnVariant }: Props = $props();
+	let { selected, defaultTitle, btnVariant }: Props = $props();
 </script>
 
 <div class="flex w-full max-w-[980px] grow gap-8 p-2 2xl:px-0">
@@ -39,6 +40,6 @@
 			</Button>
 		</span>
 	{:else}
-		<span class="px-2 text-2xl">About this Portfolio</span>
+		<span class="px-2 text-2xl">{defaultTitle}</span>
 	{/if}
 </div>
