@@ -1,31 +1,23 @@
 const GITHUB_URL = "https://github.com/Takzzg/";
 
+export type I_Project = {
+    id: string;
+    title: string;
+    year: number;
+    description: string;
+    github: string;
+    website?: string;
+};
+
 export enum E_Projects {
 	CONTACTS_APP = "contacts-app",
+	CHALLENGE_25WATTS = "25Watts",
+	PATIO_MENU = "patio-menu",
 	MELI_TECH_TEST = "prueba-tecnica-meli",
 	NEXTDOTS_CHALLENGE = "challengeNextDots",
 	PI_HENRY_VIDEOGAMES = "PI-Videogames-Guido",
 	PG_HENRY_FOODFAST = "food-fast",
-    CHALLENGE_25WATTS = "25Watts",
-
-    // games
-	GRIDDLERS_ULP = "Griddlers-ULP-2025",
-	PYTHON_TETRIS = "Python_Tetris",
-	PYTHON_SNAKE = "Python_Snake",
-	PYTHON_PONG = "Python_Pong",
-	PYTHON_CONNECT_FOUR = "Python_Connect-Four",
-	GODOT_HORDE_SURVIVOR = "Godot_horde-survivor",
-	LIBGDX_PONG = "LibGDX_Pong",
 }
-
-export type I_Project = {
-	id: string;
-	title: string;
-	year: number;
-	description: string;
-	github: string;
-	websiteURL?: string;
-};
 
 export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 	CONTACTS_APP: {
@@ -34,7 +26,23 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		year: 2022,
 		description: "Next.js app focused on drag-n-drop functionality, part of a technical interview for Front.id",
 		github: GITHUB_URL + E_Projects.CONTACTS_APP,
-		websiteURL: "https://contacts-app-guidoq.vercel.app",
+		website: "https://contacts-app-guidoq.vercel.app",
+	},
+	PATIO_MENU: {
+		id: E_Projects.PATIO_MENU,
+		title: "El Patio - Menu",
+		year: 2021,
+		description: "React.js single page application online menu",
+		github: GITHUB_URL + E_Projects.PATIO_MENU,
+		website: "https://elpatiomerlosl.netlify.app/",
+	},
+	CHALLENGE_25WATTS: {
+		id: E_Projects.CHALLENGE_25WATTS,
+		title: "25 Watts challenge",
+		year: 2020,
+		description: "Static HTML site using Bootstrap and JQuery, part of a technical interview for 25Watts",
+		github: GITHUB_URL + E_Projects.CHALLENGE_25WATTS,
+		website: "https://25-watts-challenge-guidoq.vercel.app/",
 	},
 	MELI_TECH_TEST: {
 		id: E_Projects.MELI_TECH_TEST,
@@ -50,14 +58,6 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		description: "React-Native app part of a technical interview for NextDots",
 		github: GITHUB_URL + E_Projects.NEXTDOTS_CHALLENGE,
 	},
-	CHALLENGE_25WATTS: {
-		id: E_Projects.CHALLENGE_25WATTS,
-		title: "25 Watts challenge",
-		year: 2020,
-		description: "Static HTML site using Bootstrap and JQuery, part of a technical interview for 25Watts",
-		github: GITHUB_URL + E_Projects.CHALLENGE_25WATTS,
-		websiteURL: "https://25-watts-challenge-guidoq.vercel.app/",
-	},
 	PI_HENRY_VIDEOGAMES: {
 		id: E_Projects.PI_HENRY_VIDEOGAMES,
 		title: "Inividual Project - SoyHenry",
@@ -72,53 +72,74 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		description: "Mono-repo containing an Express.js backend, a React.js frontend and a telegram bot",
 		github: GITHUB_URL + E_Projects.PG_HENRY_FOODFAST,
 	},
+};
+
+export type I_Game = {
+    id: string;
+    title: string;
+    year: number;
+    description: string;
+    github: string;
+};
+
+export enum E_Games {
+	GRIDDLERS_ULP = "Griddlers-ULP-2025",
+	PYTHON_TETRIS = "Python_Tetris",
+	PYTHON_SNAKE = "Python_Snake",
+	PYTHON_PONG = "Python_Pong",
+	PYTHON_CONNECT_FOUR = "Python_Connect-Four",
+	GODOT_HORDE_SURVIVOR = "Godot_horde-survivor",
+	LIBGDX_PONG = "LibGDX_Pong",
+}
+
+export const AllGames: Record<keyof typeof E_Games, I_Game> = {
 	LIBGDX_PONG: {
-		id: E_Projects.LIBGDX_PONG,
-		title: "Pong (LibGDX)",
+		id: E_Games.LIBGDX_PONG,
+		title: "Pong - LibGDX",
 		year: 2025,
 		description: "Pong game implemented using PyGame",
-		github: GITHUB_URL + E_Projects.LIBGDX_PONG,
+		github: GITHUB_URL + E_Games.LIBGDX_PONG,
 	},
 	GODOT_HORDE_SURVIVOR: {
-		id: E_Projects.GODOT_HORDE_SURVIVOR,
-		title: "Horde Survivor (Godot)",
+		id: E_Games.GODOT_HORDE_SURVIVOR,
+		title: "Horde Survivor - Godot",
 		year: 2025,
 		description: "Horde Survivor game implemented using PyGame",
-		github: GITHUB_URL + E_Projects.GODOT_HORDE_SURVIVOR,
+		github: GITHUB_URL + E_Games.GODOT_HORDE_SURVIVOR,
 	},
 	GRIDDLERS_ULP: {
-		id: E_Projects.GRIDDLERS_ULP,
+		id: E_Games.GRIDDLERS_ULP,
 		title: "Griddlers ULP",
 		year: 2016,
 		description: "Griddlers game as a console app",
-		github: GITHUB_URL + E_Projects.GRIDDLERS_ULP,
+		github: GITHUB_URL + E_Games.GRIDDLERS_ULP,
 	},
 	PYTHON_TETRIS: {
-		id: E_Projects.PYTHON_TETRIS,
-		title: "Tetris (Python)",
+		id: E_Games.PYTHON_TETRIS,
+		title: "Tetris - Python",
 		year: 2021,
 		description: "Tetris game implemented using PyGame",
-		github: GITHUB_URL + E_Projects.PYTHON_TETRIS,
+		github: GITHUB_URL + E_Games.PYTHON_TETRIS,
 	},
 	PYTHON_SNAKE: {
-		id: E_Projects.PYTHON_SNAKE,
-		title: "Snake (Python)",
+		id: E_Games.PYTHON_SNAKE,
+		title: "Snake - Python",
 		year: 2021,
 		description: "Snake game implemented using PyGame",
-		github: GITHUB_URL + E_Projects.PYTHON_SNAKE,
+		github: GITHUB_URL + E_Games.PYTHON_SNAKE,
 	},
 	PYTHON_PONG: {
-		id: E_Projects.PYTHON_PONG,
-		title: "Pong (Python)",
+		id: E_Games.PYTHON_PONG,
+		title: "Pong - Python",
 		year: 2021,
 		description: "Pong game implemented using PyGame",
-		github: GITHUB_URL + E_Projects.PYTHON_PONG,
+		github: GITHUB_URL + E_Games.PYTHON_PONG,
 	},
 	PYTHON_CONNECT_FOUR: {
-		id: E_Projects.PYTHON_CONNECT_FOUR,
-		title: "Connect-Four (Python)",
+		id: E_Games.PYTHON_CONNECT_FOUR,
+		title: "Connect Four - Python",
 		year: 2021,
 		description: "Connect-Four game implemented using PyGame",
-		github: GITHUB_URL + E_Projects.PYTHON_CONNECT_FOUR,
+		github: GITHUB_URL + E_Games.PYTHON_CONNECT_FOUR,
 	},
 };
