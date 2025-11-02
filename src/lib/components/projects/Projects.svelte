@@ -1,40 +1,70 @@
 <script lang="ts">
 	import IconifyIcon from "../IconifyIcon.svelte";
-	import { AllGames, AllProjects } from "./projects";
+	import { AllGames, AllProjects, type I_Game, type I_Project } from "./projects";
 </script>
 
 {#snippet LinkBtn(text: string, icon: string, link?: string)}
-	<span class="flex items-center gap-2 hover:cursor-pointer">
+	<a href={link} target="_blank" class="flex items-center gap-2">
 		<IconifyIcon {icon} height="32px" width="32px" />
-		<a href={link} target="_blank">{text}</a>
-	</span>
+		{text}
+	</a>
+{/snippet}
+
+{#snippet projectCard(project: I_Project)}
+	<div class="flex w-sm flex-col gap-2 bg-background/50 p-2">
+		<span class="flex items-center justify-between text-xl">
+			<span>{project.title}</span>
+			<span class="flex items-center gap-2">
+				<IconifyIcon icon={"lucide:calendar-days"} height="24px" width="24px" />
+				{project.year}
+			</span>
+		</span>
+        
+		<span class="flex items-center gap-2">
+			{#each project.techs as icon}
+				<IconifyIcon {icon} height="24px" width="24px" />
+			{/each}
+		</span>
+
+		<span>{project.description}</span>
+
+		{@render LinkBtn("Github", "logos:github-icon", project.github)}
+
+		{#if project.website}
+			{@render LinkBtn("Website", "lucide:globe", project.website)}
+		{/if}
+	</div>
+{/snippet}
+
+{#snippet gameCard(game: I_Game)}
+	<div class="flex w-sm flex-col gap-2 bg-background/50 p-2">
+		<span class="flex items-center justify-between text-xl">
+			<span>
+				<IconifyIcon icon={game.lang} height="24px" width="24px" />
+				{game.title}
+			</span>
+			<span class="flex items-center gap-2">
+				<IconifyIcon icon={"lucide:calendar-days"} height="24px" width="24px" />
+				{game.year}
+			</span>
+		</span>
+
+		<span>{game.description}</span>
+
+		{@render LinkBtn("Github", "logos:github-icon", game.github)}
+	</div>
 {/snippet}
 
 <div class="flex h-full w-full flex-col items-center bg-blue-500">
 	<span class="w-full bg-background p-2 text-2xl">Check out my Github</span>
 
-	<div class="flex flex-wrap max-w-7xl gap-2 p-2 justify-center">
+	<div class="flex max-w-7xl flex-wrap justify-center gap-2 p-2">
 		{#each Object.values(AllProjects) as project (project.id)}
-			<div class="flex flex-col bg-background/50 p-2 w-sm">
-				<span>{project.title} - {project.year}</span>
-				<span>{project.description}</span>
-				<span class="flex items-center justify-center gap-2">
-					{@render LinkBtn("Github", "logos:github-icon", project.github)}
-					{#if project.website}
-						{@render LinkBtn("Website", "lucide:globe", project.website)}
-					{/if}
-				</span>
-			</div>
+			{@render projectCard(project)}
 		{/each}
-	</div>
 
-	<div class="flex flex-wrap max-w-7xl gap-2 p-2 justify-center">
 		{#each Object.values(AllGames) as game (game.id)}
-			<div class="flex flex-col bg-background/50 p-2 w-sm">
-				<span>{game.title} - {game.year}</span>
-				<span>{game.description}</span>
-				{@render LinkBtn("Github", "logos:github-icon", game.github)}
-			</div>
+			{@render gameCard(game)}
 		{/each}
 	</div>
 </div>

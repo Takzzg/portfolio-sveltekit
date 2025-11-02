@@ -6,7 +6,7 @@ export type I_Technology = {
 	github: string;
 };
 
-enum E_Technologies {
+export enum E_Technologies {
 	// frontend
 	HTML = "html",
 	CSS = "css",
@@ -40,7 +40,8 @@ enum E_Technologies {
 
 	// styling
 	TAILWINDCSS = "tailwind",
-	SHADCN_SVELTE = "shadcn-svelte",
+	SHADCN_UI = "shadcn-ui",
+	MATERIAL_UI = "material-ui",
 	BOOTSTRAP = "bootstrap",
 	SASS = "sass",
 	LESS = "less",
@@ -51,12 +52,18 @@ enum E_Technologies {
 	GIT = "git",
 	DOCKER = "docker",
 	VITE = "vite",
-	PRETTIER_PLUGIN_SVELTE = "prettier-plugin-svelte",
+	ESLINT = "eslint",
+	PRETTIER = "prettier",
+
+	// portfolio specific
+	SHADCN_SVELTE = "shadcn-svelte",
 	ESLINT_PLUGIN_SVELTE = "eslint-plugin-svelte",
+	PRETTIER_PLUGIN_SVELTE = "prettier-plugin-svelte",
 }
 
 export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 	// ------------------------------------- frontend -------------------------------------
+
 	[E_Technologies.HTML]: {
 		id: E_Technologies.HTML,
 		icon: "akar-icons:html-fill",
@@ -64,6 +71,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 		github: "whatwg/html",
 		website: "https://html.spec.whatwg.org/",
 	},
+
 	[E_Technologies.CSS]: {
 		id: E_Technologies.CSS,
 		icon: "simple-icons:css",
@@ -71,6 +79,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 		github: "CSS-Next/css-next",
 		website: "https://www.w3.org/Style/CSS/",
 	},
+
 	[E_Technologies.JAVASCRIPT]: {
 		id: E_Technologies.JAVASCRIPT,
 		icon: "akar-icons:javascript-fill",
@@ -78,6 +87,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 		github: "tc39/ecma262",
 		website: "https://ecma-international.org/",
 	},
+
 	[E_Technologies.TYPESCRIPT]: {
 		id: E_Technologies.TYPESCRIPT,
 		icon: "akar-icons:typescript-fill",
@@ -85,6 +95,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 		github: "microsoft/TypeScript",
 		website: "https://www.typescriptlang.org/",
 	},
+
 	[E_Technologies.REACT_JS]: {
 		id: E_Technologies.REACT_JS,
 		icon: "simple-icons:react",
@@ -92,6 +103,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 		github: "facebook/react",
 		website: "https://react.dev/",
 	},
+
 	[E_Technologies.NEXT_JS]: {
 		id: E_Technologies.NEXT_JS,
 		icon: "akar-icons:nextjs-fill",
@@ -99,6 +111,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 		github: "vercel/next.js",
 		website: "https://nextjs.org/",
 	},
+
 	[E_Technologies.SVELTE_KIT]: {
 		id: E_Technologies.SVELTE_KIT,
 		icon: "simple-icons:svelte",
@@ -106,6 +119,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 		github: "sveltejs/kit",
 		website: "https://svelte.dev/",
 	},
+
 	[E_Technologies.REDUX]: {
 		id: E_Technologies.REDUX,
 		icon: "simple-icons:redux",
@@ -247,12 +261,19 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 		website: "https://tailwindcss.com/",
 	},
 
-	[E_Technologies.SHADCN_SVELTE]: {
-		id: E_Technologies.SHADCN_SVELTE,
+	[E_Technologies.SHADCN_UI]: {
+		id: E_Technologies.SHADCN_UI,
 		icon: "simple-icons:shadcnui",
-		name: "shadcn-svelte",
-		github: "huntabyte/shadcn-svelte",
-		website: "https://www.shadcn-svelte.com/",
+		name: "shadcn-ui",
+		github: "shadcn-ui/ui",
+		website: "https://ui.shadcn.com/",
+	},
+	[E_Technologies.MATERIAL_UI]: {
+		id: E_Technologies.MATERIAL_UI,
+		icon: "devicon-plain:materialui",
+		name: "Material UI",
+		github: "mui/material-ui",
+		website: "https://mui.com/material-ui/",
 	},
 
 	[E_Technologies.BOOTSTRAP]: {
@@ -320,20 +341,43 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 		website: "https://vite.dev/",
 	},
 
-	[E_Technologies.PRETTIER_PLUGIN_SVELTE]: {
-		id: E_Technologies.PRETTIER_PLUGIN_SVELTE,
-		icon: "simple-icons:prettier",
-		name: "prettier-plugin-svelte",
-		github: "sveltejs/prettier-plugin-svelte",
-		website: "",
+	[E_Technologies.ESLINT]: {
+		id: E_Technologies.ESLINT,
+		icon: "simple-icons:eslint",
+		name: "eslint",
+		github: "eslint/eslint",
+		website: "https://eslint.org/",
 	},
 
+	[E_Technologies.PRETTIER]: {
+		id: E_Technologies.PRETTIER,
+		icon: "simple-icons:prettier",
+		name: "prettier",
+		github: "prettier/prettier",
+		website: "https://prettier.io/",
+	},
+
+	// ------------------------------------- portfolio specific -------------------------------------
+	[E_Technologies.SHADCN_SVELTE]: {
+		id: E_Technologies.SHADCN_SVELTE,
+		icon: "simple-icons:shadcnui",
+		name: "shadcn-svelte",
+		github: "huntabyte/shadcn-svelte",
+		website: "https://www.shadcn-svelte.com/",
+	},
 	[E_Technologies.ESLINT_PLUGIN_SVELTE]: {
 		id: E_Technologies.ESLINT_PLUGIN_SVELTE,
 		icon: "simple-icons:eslint",
 		name: "eslint-plugin-svelte",
 		github: "sveltejs/eslint-plugin-svelte",
 		website: "https://sveltejs.github.io/eslint-plugin-svelte/",
+	},
+	[E_Technologies.PRETTIER_PLUGIN_SVELTE]: {
+		id: E_Technologies.PRETTIER_PLUGIN_SVELTE,
+		icon: "simple-icons:prettier",
+		name: "prettier-plugin-svelte",
+		github: "sveltejs/prettier-plugin-svelte",
+		website: "https://svelte.dev/docs/cli/prettier",
 	},
 };
 
@@ -344,7 +388,7 @@ export type I_Category = {
 	techs: I_Technology[];
 };
 
-enum E_Categories {
+export enum E_Categories {
 	FRONT_END = "front_end",
 	BACK_END = "back_end",
 	TESTING = "testing",
@@ -411,7 +455,8 @@ export const TechCategories: Record<E_Categories, I_Category> = {
 		title: "Styling",
 		techs: [
 			AllTechnologies[E_Technologies.TAILWINDCSS],
-			AllTechnologies[E_Technologies.SHADCN_SVELTE],
+			AllTechnologies[E_Technologies.SHADCN_UI],
+			AllTechnologies[E_Technologies.MATERIAL_UI],
 			AllTechnologies[E_Technologies.BOOTSTRAP],
 			AllTechnologies[E_Technologies.SASS],
 			AllTechnologies[E_Technologies.LESS],
@@ -427,8 +472,8 @@ export const TechCategories: Record<E_Categories, I_Category> = {
 			AllTechnologies[E_Technologies.GIT],
 			AllTechnologies[E_Technologies.DOCKER],
 			AllTechnologies[E_Technologies.VITE],
-			AllTechnologies[E_Technologies.PRETTIER_PLUGIN_SVELTE],
-			AllTechnologies[E_Technologies.ESLINT_PLUGIN_SVELTE],
+			AllTechnologies[E_Technologies.PRETTIER],
+			AllTechnologies[E_Technologies.ESLINT],
 		],
 	},
 };
@@ -443,3 +488,15 @@ export const Portfolio: I_Technology[] = [
 	AllTechnologies[E_Technologies.ESLINT_PLUGIN_SVELTE],
 	AllTechnologies[E_Technologies.VERCEL],
 ];
+
+export const OtherIcons = {
+	AXIOS: "simple-icons:axios",
+	REACT_ROUTER: "simple-icons:reactrouter",
+	CHAI: "simple-icons:chai",
+	LOTTIE: "uil:lottiefiles-alt",
+	LIBGDX: "devicon-plain:libgdx",
+	JAVA: "devicon-plain:java",
+	GODOT: "simple-icons:godotengine",
+	TERMINAL: "lucide:square-terminal",
+	PYTHON: "simple-icons:python",
+};
