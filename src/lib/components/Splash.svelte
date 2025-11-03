@@ -5,6 +5,7 @@
 	import Intersection from "./Intersection.svelte";
 	import Button from "./ui/button/button.svelte";
 	import LangToggle from "./preferences/LangToggle.svelte";
+	import ModeToggle from "./preferences/ModeToggle.svelte";
 
 	let refPageSettings = $state<HTMLDivElement>();
 	let refPaletteLeft = $state<HTMLDivElement>();
@@ -69,9 +70,7 @@
 
 				<span class="">Theme</span>
 				<div class="flex justify-center gap-2">
-					{@render modeOption("dark")}
-					{@render modeOption("light")}
-					{@render modeOption("system")}
+					<ModeToggle type="icons" />
 				</div>
 			</div>
 		</div>
