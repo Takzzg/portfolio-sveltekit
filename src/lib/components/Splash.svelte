@@ -1,17 +1,12 @@
 <script lang="ts">
 	import { m } from "$lib/paraglide/messages";
-	import { setMode, userPrefersMode } from "mode-watcher";
-	import IconifyIcon from "./IconifyIcon.svelte";
 	import Intersection from "./Intersection.svelte";
-	import Button from "./ui/button/button.svelte";
 	import LangToggle from "./preferences/LangToggle.svelte";
 	import ModeToggle from "./preferences/ModeToggle.svelte";
 
 	let refPageSettings = $state<HTMLDivElement>();
 	let refPaletteLeft = $state<HTMLDivElement>();
 	// let refPaletteRight = $state<HTMLDivElement>();
-
-	let currentMode = $derived(userPrefersMode.current);
 </script>
 
 {#snippet palette()}
@@ -23,27 +18,6 @@
 			<div class="flex aspect-square items-center justify-center bg-teal-700 p-2 text-white">teal-700</div>
 		</div>
 	</div>
-{/snippet}
-
-<!-- (dark / light / system) theme icon -->
-{#snippet modeOption(mode: "dark" | "light" | "system")}
-	<Button
-		onclick={() => setMode(mode)}
-		disabled={currentMode == mode}
-		variant="outline"
-		class="aspect-square h-auto cursor-pointer"
-	>
-		{#if mode == "dark"}
-			<!-- Dark Mode -->
-			<IconifyIcon icon="lucide:moon" width="24px" height="24px" />
-		{:else if mode == "light"}
-			<!-- Light Mode -->
-			<IconifyIcon icon="lucide:sun" width="24px" height="24px" />
-		{:else if mode == "system"}
-			<!-- System Theme -->
-			<IconifyIcon icon="lucide:monitor-cog" width="24px" height="24px" />
-		{/if}
-	</Button>
 {/snippet}
 
 <div

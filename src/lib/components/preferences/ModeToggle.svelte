@@ -31,8 +31,32 @@
 	{/if}
 {/snippet}
 
-<!-- dark / light mode select -->
-{#snippet modeDropdown()}
+<!-- (dark / light / system) theme icon -->
+{#snippet iconOption(mode: "dark" | "light" | "system")}
+	<Button
+		onclick={() => setMode(mode)}
+		disabled={currentMode == mode}
+		variant="outline"
+		class="aspect-square h-auto cursor-pointer"
+	>
+		{#if mode == "dark"}
+			<!-- Dark Mode -->
+			<IconifyIcon icon="lucide:moon" width="24px" height="24px" />
+		{:else if mode == "light"}
+			<!-- Light Mode -->
+			<IconifyIcon icon="lucide:sun" width="24px" height="24px" />
+		{:else if mode == "system"}
+			<!-- System Theme -->
+			<IconifyIcon icon="lucide:monitor-cog" width="24px" height="24px" />
+		{/if}
+	</Button>
+{/snippet}
+
+{#if type == "icons"}
+	{@render iconOption("dark")}
+	{@render iconOption("light")}
+	{@render iconOption("system")}
+{:else if type == "dropdown"}
 	<DropdownMenu>
 		<!-- trigger -->
 		<DropdownMenuTrigger
@@ -65,37 +89,4 @@
 			</DropdownMenuGroup>
 		</DropdownMenuContent>
 	</DropdownMenu>
-{/snippet}
-
-<!-- (dark / light / system) theme icon -->
-{#snippet iconOption(mode: "dark" | "light" | "system")}
-	<Button
-		onclick={() => setMode(mode)}
-		disabled={currentMode == mode}
-		variant="outline"
-		class="aspect-square h-auto cursor-pointer"
-	>
-		{#if mode == "dark"}
-			<!-- Dark Mode -->
-			<IconifyIcon icon="lucide:moon" width="24px" height="24px" />
-		{:else if mode == "light"}
-			<!-- Light Mode -->
-			<IconifyIcon icon="lucide:sun" width="24px" height="24px" />
-		{:else if mode == "system"}
-			<!-- System Theme -->
-			<IconifyIcon icon="lucide:monitor-cog" width="24px" height="24px" />
-		{/if}
-	</Button>
-{/snippet}
-
-{#snippet modeIcons()}
-	{@render iconOption("dark")}
-	{@render iconOption("light")}
-	{@render iconOption("system")}
-{/snippet}
-
-{#if type == "dropdown"}
-	{@render modeDropdown()}
-{:else}
-	{@render modeIcons()}
 {/if}

@@ -1,77 +1,16 @@
 <script lang="ts">
-	import {
-		DropdownMenu,
-		DropdownMenuContent,
-		DropdownMenuGroup,
-		DropdownMenuRadioGroup,
-		DropdownMenuRadioItem,
-		DropdownMenuSeparator,
-		DropdownMenuTrigger,
-	} from "$lib/components/ui/dropdown-menu";
 	import type { ContextState } from "@/routes/+layout.svelte";
-	import { userPrefersMode, setMode, resetMode } from "mode-watcher";
 	import { getContext } from "svelte";
 	import Button from "./ui/button/button.svelte";
 	import IconifyIcon from "./IconifyIcon.svelte";
 	import LangToggle from "./preferences/LangToggle.svelte";
 	import ModeToggle from "./preferences/ModeToggle.svelte";
 
-	let currentMode = $derived(userPrefersMode.current);
 	let context = getContext("currentSection") as ContextState;
 
 	let navMenuOpen = $state(false);
 	let refNavMenu = $state<HTMLDivElement>();
 </script>
-
-<!-- (dark / light / system) theme - icon + pretty name -->
-{#snippet modeOption(mode: "dark" | "light" | "system")}
-	{#if mode == "dark"}
-		<IconifyIcon icon="lucide:moon" width="16px" height="16px" />
-		Dark Mode
-	{:else if mode == "light"}
-		<IconifyIcon icon="lucide:sun" width="16px" height="16px" />
-		Light Mode
-	{:else if mode == "system"}
-		<IconifyIcon icon="lucide:monitor-cog" width="16px" height="16px" />
-		System Theme
-	{/if}
-{/snippet}
-
-<!-- dark / light mode select -->
-{#snippet modeSelect()}
-	<DropdownMenu>
-		<!-- trigger -->
-		<DropdownMenuTrigger
-			class="flex items-center gap-2 rounded-md border-1 bg-background p-2 hover:cursor-pointer hover:bg-accent"
-		>
-			{@render modeOption(currentMode)}
-		</DropdownMenuTrigger>
-
-		<!-- options group -->
-		<DropdownMenuContent>
-			<DropdownMenuGroup>
-				<DropdownMenuRadioGroup bind:value={currentMode}>
-					<!-- dark -->
-					<DropdownMenuRadioItem onclick={() => setMode("dark")} value="dark">
-						{@render modeOption("dark")}
-					</DropdownMenuRadioItem>
-
-					<!-- light -->
-					<DropdownMenuRadioItem onclick={() => setMode("light")} value="light">
-						{@render modeOption("light")}
-					</DropdownMenuRadioItem>
-
-					<DropdownMenuSeparator />
-
-					<!-- system -->
-					<DropdownMenuRadioItem onclick={() => resetMode()} value="system">
-						{@render modeOption("system")}
-					</DropdownMenuRadioItem>
-				</DropdownMenuRadioGroup>
-			</DropdownMenuGroup>
-		</DropdownMenuContent>
-	</DropdownMenu>
-{/snippet}
 
 {#snippet desktopNavbar()}
 	<div class="hidden items-center gap-2 lg:flex">
