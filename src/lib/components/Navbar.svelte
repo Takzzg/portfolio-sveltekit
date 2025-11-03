@@ -15,6 +15,7 @@
 	import { getContext } from "svelte";
 	import Button from "./ui/button/button.svelte";
 	import IconifyIcon from "./IconifyIcon.svelte";
+	import LangToggle from "./preferences/LangToggle.svelte";
 
 	let currentMode = $derived(userPrefersMode.current);
 	let context = getContext("currentSection") as ContextState;
@@ -159,6 +160,6 @@
 	<!-- settings -->
 	<div class="flex items-center gap-2">
 		{@render modeSelect()}
-		{@render langToggleGroup()}
+		<LangToggle />
 	</div>
 </div>

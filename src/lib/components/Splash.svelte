@@ -4,8 +4,7 @@
 	import IconifyIcon from "./IconifyIcon.svelte";
 	import Intersection from "./Intersection.svelte";
 	import Button from "./ui/button/button.svelte";
-	import { getLocale, setLocale, type Locale } from "$lib/paraglide/runtime";
-	import { ToggleGroup, ToggleGroupItem } from "$lib/components/ui/toggle-group";
+	import LangToggle from "./preferences/LangToggle.svelte";
 
 	let refPageSettings = $state<HTMLDivElement>();
 	let refPaletteLeft = $state<HTMLDivElement>();
@@ -46,37 +45,6 @@
 	</Button>
 {/snippet}
 
-<!-- (es / en) lang - icon + pretty name -->
-{#snippet langOption(locale: Locale)}
-	{#if locale == "es"}
-		<IconifyIcon icon="flag:ar-1x1" width="16px" height="16px" />
-		Español
-	{:else if locale == "en"}
-		<IconifyIcon icon="flag:gb-1x1" width="16px" height="16px" />
-		English
-	{/if}
-{/snippet}
-
-<!-- lang toggle -->
-{#snippet langToggleGroup()}
-	<ToggleGroup
-		variant="outline"
-		type="single"
-		value={getLocale()}
-		onValueChange={(value) => setLocale(value as Locale)}
-	>
-		<!-- english -->
-		<ToggleGroupItem disabled={getLocale() == "en"} class="hover:cursor-pointer" value={"en"} aria-label={"English"}>
-			{@render langOption("en")}
-		</ToggleGroupItem>
-
-		<!-- español -->
-		<ToggleGroupItem disabled={getLocale() == "es"} class="hover:cursor-pointer" value={"es"} aria-label={"Español"}>
-			{@render langOption("es")}
-		</ToggleGroupItem>
-	</ToggleGroup>
-{/snippet}
-
 <div
 	class="relative flex h-full min-h-[800px] max-w-full flex-col items-center justify-center overflow-clip bg-teal-700"
 >
@@ -96,7 +64,7 @@
 			<div class="m-2 flex flex-col gap-2 rounded-md bg-background p-4">
 				<span class="">Language</span>
 				<div class="flex justify-center">
-					{@render langToggleGroup()}
+					<LangToggle />
 				</div>
 
 				<span class="">Theme</span>
