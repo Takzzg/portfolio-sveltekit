@@ -3,6 +3,8 @@
 	import Intersection from "./Intersection.svelte";
 	import LangToggle from "./preferences/LangToggle.svelte";
 	import ModeToggle from "./preferences/ModeToggle.svelte";
+	import { getTest, setTest } from "./state/GlobalState.svelte";
+	import Button from "./ui/button/button.svelte";
 
 	let refPageSettings = $state<HTMLDivElement>();
 	let refPaletteLeft = $state<HTMLDivElement>();
@@ -28,6 +30,7 @@
 	<div class="p-10">
 		<h3 class="text-3xl">{m.new_free_cougar_leap()}</h3>
 		<h5 class="text-2xl">{m.sharp_trite_bulldog_dash()}</h5>
+        <Button onclick={setTest}>{getTest()}</Button>
 	</div>
 
 	<Intersection

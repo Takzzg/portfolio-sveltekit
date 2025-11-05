@@ -1,17 +1,18 @@
 <script lang="ts">
-	import { getContext } from "svelte";
+	import type { UIEventHandler } from "svelte/elements";
 
-	import Splash from "@/lib/components/Splash.svelte";
+	import Splash from "$lib/components/Splash.svelte";
 	import Portfolio from "$lib/components/technologies/Portfolio.svelte";
-	import Skills from "@/lib/components/technologies/Skills.svelte";
+	import Skills from "$lib/components/technologies/Skills.svelte";
 	import { Button } from "$lib/components/ui/button";
 	import AboutMe from "$lib/components/AboutMe.svelte";
-	import type { ContextState } from "./+layout.svelte";
+	import * as State from "$lib/components/state/GlobalState.svelte";
 	import Projects from "$lib/components/projects/Projects.svelte";
-	import type { UIEventHandler } from "svelte/elements";
-	import IconifyIcon from "@/lib/components/IconifyIcon.svelte";
+	import IconifyIcon from "$lib/components/IconifyIcon.svelte";
 
 	let height: number = $state(0);
+	let currentSection = $derived(State.getScrollCurrent());
+	let sectionButtons = $derived(State.getScrollButtons());
 
 	// dom refs
 	let refSplash = $state<HTMLDivElement>();
@@ -21,53 +22,37 @@
 	let refPortfolio = $state<HTMLDivElement>();
 
 	let autoScrollTargets = $derived([refSplash, refAboutMe, refSkills, refProjects, refPortfolio]);
-	let context = getContext("currentSection") as ContextState;
 
-	const scrollNext = () => {
-		if (context.currentSection == autoScrollTargets.length - 1) return;
-		context.currentSection += 1;
-		scrollCurrent();
-	};
-	const scrollPrev = () => {
-		if (context.currentSection == 0) return;
-		context.currentSection -= 1;
-		scrollCurrent();
-	};
-	const scrollCurrent = () => {
-		autoScrollTargets[context.currentSection]?.scrollIntoView({ behavior: "smooth" });
-	};
-	const scrollToSection = (target: HTMLDivElement | undefined) => {
-		target?.scrollIntoView({ behavior: "smooth" });
+	const scrollToIndex = (index: number) => {
+		if (index < 0) index = 0;
+		else if (index > autoScrollTargets.length) index = autoScrollTargets.length - 1;
+		autoScrollTargets[currentSection]?.scrollIntoView({ behavior: "smooth" });
 	};
 
 	$effect(() => {
-		context.sectionButtons = [
+		const buttons = [
 			{
 				text: "Home",
 				index: autoScrollTargets.indexOf(refSplash),
-				onclick: () => scrollToSection(refSplash),
 			},
 			{
 				text: "About Me",
 				index: autoScrollTargets.indexOf(refAboutMe),
-				onclick: () => scrollToSection(refAboutMe),
 			},
 			{
 				text: "Skills",
 				index: autoScrollTargets.indexOf(refSkills),
-				onclick: () => scrollToSection(refSkills),
 			},
 			{
 				text: "Projects",
 				index: autoScrollTargets.indexOf(refProjects),
-				onclick: () => scrollToSection(refProjects),
 			},
 			{
 				text: "Portfolio",
 				index: autoScrollTargets.indexOf(refPortfolio),
-				onclick: () => scrollToSection(refPortfolio),
 			},
 		];
+		State.setScrollButtons(buttons);
 	});
 
 	const OnScroll: UIEventHandler<HTMLDivElement> = (event) => {
@@ -78,10 +63,8 @@
 			let parentScroll: number = el?.parentElement?.scrollTop ?? 0;
 			let parentOffset: number = el?.parentElement?.offsetTop ?? 0;
 
-			// console.log(el, "childOffset", childOffset, "parentScroll", parentScroll, "parentOffset", parentOffset);
-
 			if (Math.abs(childOffset - parentScroll) <= parentOffset * 2) {
-				context.currentSection = index;
+				State.setScrollCurrent(index);
 				break;
 			}
 		}
@@ -111,18 +94,18 @@
 
 	<div class="absolute right-0 bottom-0 m-4 flex flex-col gap-2">
 		<Button
-			onclick={scrollPrev}
+			onclick={() => scrollToIndex(currentSection - 1)}
 			variant="ghost"
-			disabled={context.currentSection == 0}
-			class="bg-background/25 h-auto border-2 border-secondary p-0 text-secondary opacity-50 hover:cursor-pointer disabled:opacity-15"
+			disabled={currentSection == 0}
+			class="h-auto border-2 border-secondary bg-background/25 p-0 text-secondary opacity-50 hover:cursor-pointer disabled:opacity-15"
 		>
 			<IconifyIcon icon="lucide:chevron-up" height="48px" width="48px" />
 		</Button>
 		<Button
-			onclick={scrollNext}
+			onclick={() => scrollToIndex(currentSection + 1)}
 			variant="ghost"
-			disabled={context.currentSection == context.sectionButtons.length - 1}
-			class="bg-background/25 h-auto border-2 border-secondary p-0 text-secondary opacity-50 hover:cursor-pointer disabled:opacity-15"
+			disabled={currentSection == sectionButtons.length - 1}
+			class="h-auto border-2 border-secondary bg-background/25 p-0 text-secondary opacity-50 hover:cursor-pointer disabled:opacity-15"
 		>
 			<IconifyIcon icon="lucide:chevron-down" height="48px" width="48px" />
 		</Button>

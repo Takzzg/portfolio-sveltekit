@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { userPrefersMode, setMode, resetMode } from "mode-watcher";
-
+	// import { GlobalState } from "@/lib/components/state/GlobalState.svelte";
+	// import { userPrefersMode, setMode, resetMode } from "mode-watcher";
 	import IconifyIcon from "../IconifyIcon.svelte";
+	import * as State from "../state/GlobalState.svelte";
 	import Button from "../ui/button/button.svelte";
 	import {
 		DropdownMenu,
@@ -13,7 +14,6 @@
 		DropdownMenuTrigger,
 	} from "../ui/dropdown-menu";
 
-	let currentMode = $derived(userPrefersMode.current);
 	let { type }: { type: "dropdown" | "icons" } = $props();
 </script>
 
@@ -34,8 +34,8 @@
 <!-- (dark / light / system) theme icon -->
 {#snippet iconOption(mode: "dark" | "light" | "system")}
 	<Button
-		onclick={() => setMode(mode)}
-		disabled={currentMode == mode}
+		onclick={() => State.setMode(mode)}
+		disabled={State.getMode() == mode}
 		variant="outline"
 		class="aspect-square h-auto cursor-pointer"
 	>
@@ -62,27 +62,27 @@
 		<DropdownMenuTrigger
 			class="flex items-center gap-2 rounded-md border-1 bg-background p-2 hover:cursor-pointer hover:bg-accent"
 		>
-			{@render listOption(currentMode)}
+			{@render listOption(State.getMode())}
 		</DropdownMenuTrigger>
 
 		<!-- options group -->
 		<DropdownMenuContent>
 			<DropdownMenuGroup>
-				<DropdownMenuRadioGroup bind:value={currentMode}>
+				<DropdownMenuRadioGroup value={State.getMode()}>
 					<!-- dark -->
-					<DropdownMenuRadioItem onclick={() => setMode("dark")} value="dark">
+					<DropdownMenuRadioItem onclick={() => State.setMode("dark")} value="dark">
 						{@render listOption("dark")}
 					</DropdownMenuRadioItem>
 
 					<!-- light -->
-					<DropdownMenuRadioItem onclick={() => setMode("light")} value="light">
+					<DropdownMenuRadioItem onclick={() => State.setMode("light")} value="light">
 						{@render listOption("light")}
 					</DropdownMenuRadioItem>
 
 					<DropdownMenuSeparator />
 
 					<!-- system -->
-					<DropdownMenuRadioItem onclick={() => resetMode()} value="system">
+					<DropdownMenuRadioItem onclick={() => State.setMode("system")} value="system">
 						{@render listOption("system")}
 					</DropdownMenuRadioItem>
 				</DropdownMenuRadioGroup>

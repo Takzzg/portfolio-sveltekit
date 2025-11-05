@@ -1,12 +1,9 @@
 <script lang="ts">
-	import type { ContextState } from "@/routes/+layout.svelte";
-	import { getContext } from "svelte";
 	import Button from "./ui/button/button.svelte";
 	import IconifyIcon from "./IconifyIcon.svelte";
 	import LangToggle from "./preferences/LangToggle.svelte";
 	import ModeToggle from "./preferences/ModeToggle.svelte";
-
-	let context = getContext("currentSection") as ContextState;
+	import * as State from "$lib/components/state/GlobalState.svelte";
 
 	let navMenuOpen = $state(false);
 	let refNavMenu = $state<HTMLDivElement>();
@@ -14,10 +11,10 @@
 
 {#snippet desktopNavbar()}
 	<div class="hidden items-center gap-2 lg:flex">
-		{#each context.sectionButtons as btn (btn.text)}
+		{#each State.getScrollButtons() as btn (btn.text)}
 			<Button
-				onclick={btn.onclick}
-				variant={context.currentSection == btn.index ? "default" : "ghost"}
+				onclick={() => State.setScrollCurrent(btn.index)}
+				variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
 				class="p-2 hover:cursor-pointer"
 			>
 				{btn.text}
@@ -42,13 +39,13 @@
 			style={navMenuOpen ? "left: 0px" : `left: -${refNavMenu?.clientWidth}px`}
 			class="absolute top-full flex flex-col gap-2 bg-background p-2 transition-[left]"
 		>
-			{#each context.sectionButtons as btn (btn.text)}
+			{#each State.getScrollButtons() as btn (btn.text)}
 				<Button
 					onclick={() => {
-						btn.onclick();
+						State.setScrollCurrent(btn.index);
 						navMenuOpen = false;
 					}}
-					variant={context.currentSection == btn.index ? "default" : "ghost"}
+					variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
 					class="p-2 hover:cursor-pointer"
 				>
 					{btn.text}

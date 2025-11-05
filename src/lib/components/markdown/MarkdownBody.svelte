@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { mode } from "mode-watcher";
-
 	import "./github-markdown.css";
 	import { GITHUB_API_URL } from "@/lib/utils";
 	import type { I_Technology } from "../technologies/technologies";
 	import IconifyIcon from "../IconifyIcon.svelte";
+	import { getMode } from "../state/GlobalState.svelte";
 
 	let { selected }: { selected: I_Technology | null } = $props();
 	let loadingMD = $state(false);
@@ -45,7 +44,7 @@
 	{:else if md}
 		<div
 			bind:this={styled}
-			data-theme={mode.current}
+			data-theme={getMode()}
 			class="markdown-body box-border max-h-full overflow-auto border-2 p-8"
 		>
 			{@html md}
