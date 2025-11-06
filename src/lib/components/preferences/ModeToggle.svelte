@@ -1,6 +1,4 @@
 <script lang="ts">
-	// import { GlobalState } from "@/lib/components/state/GlobalState.svelte";
-	// import { userPrefersMode, setMode, resetMode } from "mode-watcher";
 	import IconifyIcon from "../IconifyIcon.svelte";
 	import * as State from "../state/GlobalState.svelte";
 	import Button from "../ui/button/button.svelte";

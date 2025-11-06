@@ -30,7 +30,6 @@ type I_SectionBtn = {
 };
 
 type I_State = {
-	test: string;
 	lang: I_Lang;
 	mode: {
 		currentMode: I_Mode;
@@ -43,7 +42,6 @@ type I_State = {
 };
 
 const INITIAL_STATE: I_State = {
-	test: "Test Message",
 	lang: LANGUAGES["en"],
 	mode: {
 		currentMode: "system",
@@ -53,16 +51,6 @@ const INITIAL_STATE: I_State = {
 };
 
 let globalState = $state<I_State>(INITIAL_STATE);
-
-// ------------- Test -------------
-
-export const getTest = () => {
-	return globalState.test;
-};
-
-export const setTest = () => {
-	globalState.test = globalState.test == "Test Message" ? "Another Test" : "Test Message";
-};
 
 // ------------- Language -------------
 
