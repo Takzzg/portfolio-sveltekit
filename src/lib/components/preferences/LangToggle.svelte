@@ -1,29 +1,25 @@
 <script lang="ts">
-	import { getLocale, setLocale, type Locale } from "$lib/paraglide/runtime";
 	import { ToggleGroup, ToggleGroupItem } from "$lib/components/ui/toggle-group";
 
 	import IconifyIcon from "../IconifyIcon.svelte";
+	import { getLang, setLang, type I_Lang, type I_LangKey, LANGUAGES } from "../state/GlobalState.svelte";
 </script>
 
 <!-- (es / en) lang - icon + pretty name -->
-{#snippet langOption(locale: Locale)}
-	{#if locale == "es"}
-		<IconifyIcon icon="flag:ar-1x1" width="16px" height="16px" />
-		Español
-	{:else if locale == "en"}
-		<IconifyIcon icon="flag:gb-1x1" width="16px" height="16px" />
-		English
-	{/if}
+{#snippet langOption(lang: I_Lang)}
+	<IconifyIcon icon={lang.flag} width="16px" height="16px" />
+	{lang.name}
 {/snippet}
 
-<ToggleGroup variant="outline" type="single" value={getLocale()} onValueChange={(value) => setLocale(value as Locale)}>
-	<!-- english -->
-	<ToggleGroupItem disabled={getLocale() == "en"} class="hover:cursor-pointer" value={"en"} aria-label={"English"}>
-		{@render langOption("en")}
-	</ToggleGroupItem>
-
-	<!-- español -->
-	<ToggleGroupItem disabled={getLocale() == "es"} class="hover:cursor-pointer" value={"es"} aria-label={"Español"}>
-		{@render langOption("es")}
-	</ToggleGroupItem>
+<ToggleGroup
+	variant="outline"
+	type="single"
+	value={getLang().key}
+	onValueChange={(value) => setLang(value as I_LangKey)}
+>
+	{#each Object.entries(LANGUAGES) as [key, lang]}
+		<ToggleGroupItem disabled={getLang().key == key} class="hover:cursor-pointer" value={key} aria-label={lang.name}>
+			{@render langOption(lang)}
+		</ToggleGroupItem>
+	{/each}
 </ToggleGroup>

@@ -1,8 +1,29 @@
-import { type Locale } from "$lib/paraglide/runtime";
-
+// dark / light mode
 type I_SystemMode = "dark" | "light";
 type I_Mode = I_SystemMode | "system";
 
+// language
+export type I_LangKey = "en" | "es";
+export type I_Lang = {
+    key: I_LangKey,
+    name: string,
+    flag: string
+}
+
+export const LANGUAGES: Record<I_LangKey, I_Lang> = {
+    en: {
+        key: "en",
+        name: "English",
+        flag: 'flag:gb-1x1'
+    },
+    es: {
+        key: "es",
+        name: "Español",
+        flag: 'flag:ar-1x1'
+    },
+}
+
+// nav bar tabs
 type I_SectionBtn = {
 	text: string;
 	index: number;
@@ -10,7 +31,7 @@ type I_SectionBtn = {
 
 type I_State = {
 	test: string;
-	lang: Locale;
+	lang: I_Lang;
 	mode: {
 		currentMode: I_Mode;
 		systemMode: I_SystemMode;
@@ -23,7 +44,7 @@ type I_State = {
 
 const INITIAL_STATE: I_State = {
 	test: "Test Message",
-	lang: "en",
+	lang: LANGUAGES["en"],
 	mode: {
 		currentMode: "system",
 		systemMode: "dark",
@@ -49,8 +70,8 @@ export const getLang = () => {
 	return globalState.lang;
 };
 
-export const setLang = (lang: Locale) => {
-	globalState.lang = lang;
+export const setLang = (lang: I_LangKey) => {
+    globalState.lang = LANGUAGES[lang];
 };
 
 // ------------- Mode -------------

@@ -4,7 +4,7 @@
 	import "../app.css";
 	import favicon from "$lib/assets/favicon.svg";
 	import Navbar from "$lib/components/Navbar.svelte";
-	import { updateSystemMode } from "@/lib/components/state/GlobalState.svelte";
+	import { getLang, updateSystemMode } from "@/lib/components/state/GlobalState.svelte";
 
 	let { children } = $props();
 

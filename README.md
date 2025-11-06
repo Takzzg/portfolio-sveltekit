@@ -27,14 +27,7 @@ Project created with [`sv`](https://github.com/sveltejs/cli) - `npx sv create po
 Below are listed the main dependencies needed for each environment. <br/>
 Note: this is not a comprehensive list, as they may have dependencies of their own.
 
-### Production
-
 - Iconify - https://github.com/iconify/iconify/tree/main/iconify-icon/icon
-- ParaglideJS - https://inlang.com/m/gerre34r/library-inlang-paraglideJs/sveltekit
-- ModeWatcher - https://github.com/svecosystem/mode-watcher#readme
-
-### Development
-
 - Tailwind - https://tailwindcss.com
 - TypeScript - https://www.typescriptlang.org/
 - SvelteKit - https://svelte.dev/docs/kit/introduction

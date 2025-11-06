@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { m } from "$lib/paraglide/messages";
+	import { translate } from "../translations/Translate.svelte";
+
 	import Intersection from "./Intersection.svelte";
 	import LangToggle from "./preferences/LangToggle.svelte";
 	import ModeToggle from "./preferences/ModeToggle.svelte";
@@ -25,11 +26,11 @@
 <div
 	class="relative flex h-full min-h-[800px] max-w-full flex-col items-center justify-center overflow-clip bg-teal-700"
 >
-	<h1 class="text-center text-5xl">{m.tiny_crisp_skate_lead()}</h1>
+	<h1 class="text-center text-5xl">{translate("splash_center_text_1")}</h1>
 
 	<div class="p-10">
-		<h3 class="text-3xl">{m.new_free_cougar_leap()}</h3>
-		<h5 class="text-2xl">{m.sharp_trite_bulldog_dash()}</h5>
+		<h3 class="text-3xl">{translate("splash_center_text_2")}</h3>
+		<h5 class="text-2xl">{translate("splash_center_text_3")}</h5>
         <Button onclick={setTest}>{getTest()}</Button>
 	</div>
 
