@@ -2,7 +2,7 @@
 	import Intersection from '../ui-custom/Intersection.svelte';
 	import LangToggle from '../preferences/LangToggle.svelte';
 	import ModeToggle from '../preferences/ModeToggle.svelte';
-	import { translate } from '@/lib/utils';
+	import { translate } from '$lib/utils';
 
 	let refPageSettings = $state<HTMLDivElement>();
 	let refPaletteLeft = $state<HTMLDivElement>();

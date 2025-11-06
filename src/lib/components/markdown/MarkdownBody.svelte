@@ -1,9 +1,9 @@
 <script lang="ts">
 	import "./github-markdown.css";
 	import { getMode } from "../../state/GlobalState.svelte";
-	import type { I_Technology } from "@/lib/assets/technologies";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
-	import { GITHUB_API_URL } from "@/lib/assets/urls";
+	import type { I_Technology } from "$lib/assets/technologies";
+	import { GITHUB_API_URL } from "$lib/assets/urls";
 
 	let { selected }: { selected: I_Technology | null } = $props();
 	let loadingMD = $state(false);

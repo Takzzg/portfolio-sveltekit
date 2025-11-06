@@ -2,8 +2,8 @@
 	import Button from "../ui/button/button.svelte";
 	import MarkdownHeader from "../markdown/MarkdownHeader.svelte";
 	import MarkdownBody from "../markdown/MarkdownBody.svelte";
-	import { PortfolioTechs, type I_Technology } from "@/lib/assets/technologies";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
+	import { PortfolioTechs, type I_Technology } from "../../assets/technologies";
 
 	// dom refs
 	let refParent = $state<HTMLDivElement>();
@@ -63,7 +63,7 @@
 </div>
 
 <style lang="postcss">
-	@reference '@/app.css';
+	@reference 'tailwindcss';
 
 	.techHeader {
 		position: relative;

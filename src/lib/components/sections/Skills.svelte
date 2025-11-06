@@ -2,8 +2,8 @@
 	import MarkdownHeader from "../markdown/MarkdownHeader.svelte";
 	import MarkdownBody from "../markdown/MarkdownBody.svelte";
 	import { Button } from "../ui/button";
-	import { TechCategories, type I_Category, type I_Technology } from "@/lib/assets/technologies";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
+	import { TechCategories, type I_Category, type I_Technology } from "$lib/assets/technologies";
 
 	// dom refs
 	let refParent = $state<HTMLDivElement>();
