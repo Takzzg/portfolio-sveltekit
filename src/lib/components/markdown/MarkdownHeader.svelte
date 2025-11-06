@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { GITHUB_URL } from "@/lib/utils";
 	import Button, { type ButtonVariant } from "../ui/button/button.svelte";
 	import type { I_Technology } from "@/lib/assets/technologies";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
+	import { GITHUB_URL } from "@/lib/assets/urls";
 
 	type Props = {
 		selected: I_Technology | null;

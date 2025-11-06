@@ -1,4 +1,4 @@
-import type { I_TranslationKey } from "./Translate.svelte";
+import type { I_TranslationKey } from "./keys";
 
 const en: Record<I_TranslationKey, string> = {
 	splash_center_text_1: "Welcome!",
