@@ -58,7 +58,7 @@
 	<DropdownMenu>
 		<!-- trigger -->
 		<DropdownMenuTrigger
-			class="flex items-center gap-2 rounded-md border-1 bg-background p-2 hover:cursor-pointer hover:bg-accent"
+			class="flex items-center gap-2 rounded-md border-2 p-2 hover:cursor-pointer hover:bg-accent"
 		>
 			{@render listOption(State.getMode())}
 		</DropdownMenuTrigger>

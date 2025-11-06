@@ -15,7 +15,7 @@
 			<Button
 				onclick={() => State.scrollToIndex(btn.index)}
 				variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
-				class="p-2 hover:cursor-pointer"
+				class="hover:cursor-pointer text-md h-auto"
 			>
 				{btn.text}
 			</Button>
@@ -56,14 +56,16 @@
 {/snippet}
 
 <!-- Navbar.svelte -->
-<div class="relative m-auto flex w-full max-w-5xl items-center justify-between p-2">
-	<!-- site navigation -->
-	{@render desktopNavbar()}
-	{@render desktopMobile()}
+<div class="border-b-2">
+	<div class="relative m-auto flex w-full max-w-5xl items-center justify-between p-2">
+		<!-- site navigation -->
+		{@render desktopNavbar()}
+		{@render desktopMobile()}
 
-	<!-- settings -->
-	<div class="flex items-center gap-2">
-		<ModeToggle type="dropdown" />
-		<LangToggle />
+		<!-- settings -->
+		<div class="flex items-center gap-2">
+			<ModeToggle type="dropdown" />
+			<LangToggle />
+		</div>
 	</div>
 </div>

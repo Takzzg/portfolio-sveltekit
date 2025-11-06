@@ -479,14 +479,14 @@ export const TechCategories: Record<E_Categories, I_Category> = {
 };
 
 export const PortfolioTechs: I_Technology[] = [
+	AllTechnologies[E_Technologies.TYPESCRIPT],
 	AllTechnologies[E_Technologies.SVELTE_KIT],
 	AllTechnologies[E_Technologies.TAILWINDCSS],
 	AllTechnologies[E_Technologies.SHADCN_SVELTE],
-	AllTechnologies[E_Technologies.TYPESCRIPT],
-	AllTechnologies[E_Technologies.VITE],
+	AllTechnologies[E_Technologies.VERCEL],
 	AllTechnologies[E_Technologies.PRETTIER_PLUGIN_SVELTE],
 	AllTechnologies[E_Technologies.ESLINT_PLUGIN_SVELTE],
-	AllTechnologies[E_Technologies.VERCEL],
+	AllTechnologies[E_Technologies.VITE],
 ];
 
 export const OtherIcons = {

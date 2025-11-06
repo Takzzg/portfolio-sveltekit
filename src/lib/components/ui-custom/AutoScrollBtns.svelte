@@ -10,17 +10,17 @@
 <div class="flex flex-col gap-2">
 	<Button
 		onclick={() => State.scrollToIndex(currentSection - 1)}
-		variant="ghost"
+		variant="outline"
 		disabled={currentSection == 0}
-		class="h-auto border-2 border-secondary bg-background/25 p-0 text-secondary opacity-50 hover:cursor-pointer disabled:opacity-15"
+		class="h-auto p-0 hover:cursor-pointer disabled:opacity-15"
 	>
 		<IconifyIcon icon="lucide:chevron-up" height="48px" width="48px" />
 	</Button>
 	<Button
 		onclick={() => State.scrollToIndex(currentSection + 1)}
-		variant="ghost"
+		variant="outline"
 		disabled={currentSection == sectionButtons.length - 1}
-		class="h-auto border-2 border-secondary bg-background/25 p-0 text-secondary opacity-50 hover:cursor-pointer disabled:opacity-15"
+		class="h-auto p-0 hover:cursor-pointer disabled:opacity-15"
 	>
 		<IconifyIcon icon="lucide:chevron-down" height="48px" width="48px" />
 	</Button>

@@ -1,15 +1,15 @@
 <script lang="ts">
-	import Intersection from '../ui-custom/Intersection.svelte';
-	import LangToggle from '../preferences/LangToggle.svelte';
-	import ModeToggle from '../preferences/ModeToggle.svelte';
-	import { translate } from '$lib/utils';
+	import Intersection from "../ui-custom/Intersection.svelte";
+	import LangToggle from "../preferences/LangToggle.svelte";
+	import ModeToggle from "../preferences/ModeToggle.svelte";
+	import { translate } from "$lib/utils";
 
 	let refPageSettings = $state<HTMLDivElement>();
-	let refPaletteLeft = $state<HTMLDivElement>();
+	// let refPaletteLeft = $state<HTMLDivElement>();
 	// let refPaletteRight = $state<HTMLDivElement>();
 </script>
 
-{#snippet palette()}
+<!-- {#snippet palette()}
 	<div class="flex gap-2 bg-background p-2 lg:flex-col">
 		<div class="flex w-8 -rotate-90 items-center justify-center p-2 lg:w-auto lg:rotate-0">background</div>
 		<div class="grid grid-cols-3 gap-2 lg:grid-cols-1">
@@ -18,11 +18,9 @@
 			<div class="flex aspect-square items-center justify-center bg-teal-700 p-2 text-white">teal-700</div>
 		</div>
 	</div>
-{/snippet}
+{/snippet} -->
 
-<div
-	class="relative flex h-full min-h-[800px] max-w-full flex-col items-center justify-center overflow-clip bg-teal-700"
->
+<div class="relative flex h-full min-h-[800px] max-w-full flex-col items-center justify-center overflow-clip">
 	<h1 class="text-center text-5xl">{translate("splash_center_text_1")}</h1>
 
 	<div class="p-10">
@@ -32,11 +30,11 @@
 
 	<Intersection
 		threshold={1}
-		className="absolute bottom-0 left-0"
+		className="absolute bottom-4 left-4"
 		onObserve={(entry) => refPageSettings?.classList.toggle("hideLeft", !entry.isIntersecting)}
 	>
 		<div bind:this={refPageSettings} class="show hideLeft">
-			<div class="m-2 flex flex-col gap-2 rounded-md bg-background p-4">
+			<div class="flex flex-col gap-2 rounded-md bg-background border-2 p-4">
 				<span class="">Language</span>
 				<div class="flex justify-center">
 					<LangToggle />
@@ -50,7 +48,7 @@
 		</div>
 	</Intersection>
 
-	<Intersection
+	<!-- <Intersection
 		threshold={1}
 		className="absolute top-4 lg:left-4"
 		onObserve={(entry) => refPaletteLeft?.classList.toggle("hideLeft", !entry.isIntersecting)}
@@ -58,7 +56,7 @@
 		<div bind:this={refPaletteLeft} class="show hideLeft">
 			{@render palette()}
 		</div>
-	</Intersection>
+	</Intersection> -->
 
 	<!-- <Intersection
 		threshold={1}

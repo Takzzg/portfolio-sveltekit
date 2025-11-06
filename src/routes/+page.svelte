@@ -70,23 +70,23 @@
 </script>
 
 <div bind:clientHeight={height} onscroll={OnScroll} class="h-full overflow-y-scroll" style="--height:{height};">
-	<div bind:this={refSplash} class="lgFixedHeight">
+	<div bind:this={refSplash} class="lgFixedHeight border-b-2">
 		<Splash />
 	</div>
 
-	<div bind:this={refAboutMe} class="lgFixedHeight">
+	<div bind:this={refAboutMe} class="lgFixedHeight border-b-2">
 		<AboutMe />
 	</div>
 
-	<div bind:this={refSkills} class="lgFixedHeight">
+	<div bind:this={refSkills} class="lgFixedHeight border-b-2">
 		<Skills />
 	</div>
 
-	<div bind:this={refProjects} class="lgFixedHeight">
+	<div bind:this={refProjects} class="lgFixedHeight border-b-2">
 		<Projects />
 	</div>
 
-	<div bind:this={refPortfolio} class="lgFixedHeight">
+	<div bind:this={refPortfolio} class="lgFixedHeight border-b-2">
 		<Portfolio />
 	</div>
 </div>

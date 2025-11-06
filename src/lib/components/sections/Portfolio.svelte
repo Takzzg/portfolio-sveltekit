@@ -21,17 +21,16 @@
 {#snippet techButton(tech: I_Technology)}
 	<Button
 		variant="ghost"
-		class="{selectedTech?.id &&
-			tech.id == selectedTech?.id &&
-			'border-l-16 border-orange-400'} grid h-auto grid-cols-[auto_1fr] justify-start gap-0 rounded-none p-0 text-2xl hover:cursor-pointer hover:bg-inherit!"
+		class="grid h-auto grid-cols-[auto_1fr] justify-start gap-0 rounded-none border-2 p-0 text-2xl hover:cursor-pointer {tech.id ==
+			selectedTech?.id && 'border-l-16'}"
 		aria-label="tech logo banner"
 		onclick={() => setSelectedTech(tech)}
 	>
-		<span class="flex items-center bg-primary/25 p-2">
+		<span class="flex items-center p-2">
 			<IconifyIcon icon={tech.icon} width="64px" height="64px" />
 		</span>
 		<span class="h-full w-full py-2">
-			<span class="flex h-full w-full items-center bg-primary/10 p-2">
+			<span class="flex h-full w-full items-center p-2">
 				{tech.name}
 			</span>
 		</span>
@@ -39,7 +38,7 @@
 {/snippet}
 
 {#snippet techList()}
-	<div class="flex flex-col justify-around overflow-hidden bg-background py-4 lg:h-full">
+	<div class="flex flex-col justify-around overflow-hidden border-r-2 py-4 lg:h-full">
 		<span class="p-4 text-center text-2xl text-wrap whitespace-break-spaces">This portfolio was made using:</span>
 
 		<div class="flex flex-col gap-1 overflow-y-auto">
@@ -50,11 +49,11 @@
 	</div>
 {/snippet}
 
-<div class="h-full bg-teal-700 lg:grid lg:grid-cols-[22rem_1fr]">
+<div class="h-full lg:grid lg:grid-cols-[22rem_1fr]">
 	{@render techList()}
 
 	<div bind:this={refParent} class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">
-		<div class="techHeader m-auto max-w-[896px] w-full gap-8 text-black lg:px-0">
+		<div class="techHeader m-auto w-full max-w-[896px] gap-8 text-black lg:px-0">
 			<MarkdownHeader selected={selectedTech} btnVariant="secondary" defaultTitle="About this portfolio" />
 		</div>
 

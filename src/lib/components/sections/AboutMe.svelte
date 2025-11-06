@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<div class="h-full flex items-center justify-center w-full text-xl bg-red-300">
+<div class="h-full flex items-center justify-center w-full text-xl">
 	<div class="flex max-w-2xl flex-col gap-4 p-4">
 		<h2 class="text-2xl">About Me</h2>
 

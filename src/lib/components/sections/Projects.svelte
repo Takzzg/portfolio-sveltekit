@@ -11,7 +11,7 @@
 {/snippet}
 
 {#snippet projectCard(project: I_Project)}
-	<div class="flex w-sm flex-col gap-2 bg-background/50 p-2">
+	<div class="flex w-sm flex-col gap-2 border-2 p-2">
 		<span class="flex items-center justify-between text-xl">
 			<span>{project.title}</span>
 			<span class="flex items-center gap-2">
@@ -37,7 +37,7 @@
 {/snippet}
 
 {#snippet gameCard(game: I_Game)}
-	<div class="flex w-sm flex-col gap-2 bg-background/50 p-2">
+	<div class="flex w-sm flex-col gap-2 border-2 p-2">
 		<span class="flex items-center justify-between text-xl">
 			<span>
 				<IconifyIcon icon={game.lang} height="24px" width="24px" />
@@ -55,10 +55,10 @@
 	</div>
 {/snippet}
 
-<div class="flex h-full w-full flex-col items-center bg-blue-500">
+<div class="flex h-full w-full flex-col items-center">
 	<span class="w-full bg-background p-2 text-2xl">Check out my Github</span>
 
-	<div class="flex max-w-7xl flex-wrap justify-center gap-2 p-2">
+	<div class="flex max-h-full flex-wrap m-auto justify-center gap-4">
 		{#each Object.values(AllProjects) as project (project.id)}
 			{@render projectCard(project)}
 		{/each}

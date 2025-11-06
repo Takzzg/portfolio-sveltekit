@@ -30,6 +30,6 @@
 	});
 </script>
 
-<div bind:this={refParent} class="bg-red-500 {className}">
+<div bind:this={refParent} class="{className}">
 	{@render children()}
 </div>
