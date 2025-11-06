@@ -5,23 +5,23 @@ type I_Mode = I_SystemMode | "system";
 // language
 export type I_LangKey = "en" | "es";
 export type I_Lang = {
-    key: I_LangKey,
-    name: string,
-    flag: string
-}
+	key: I_LangKey;
+	name: string;
+	flag: string;
+};
 
 export const LANGUAGES: Record<I_LangKey, I_Lang> = {
-    en: {
-        key: "en",
-        name: "English",
-        flag: 'flag:gb-1x1'
-    },
-    es: {
-        key: "es",
-        name: "Español",
-        flag: 'flag:ar-1x1'
-    },
-}
+	en: {
+		key: "en",
+		name: "English",
+		flag: "flag:gb-1x1",
+	},
+	es: {
+		key: "es",
+		name: "Español",
+		flag: "flag:ar-1x1",
+	},
+};
 
 // nav bar tabs
 type I_SectionBtn = {
@@ -38,6 +38,7 @@ type I_State = {
 	scroll: {
 		currentSection: number;
 		sectionButtons: I_SectionBtn[];
+		scrollToIndex: (index: number) => void;
 	};
 };
 
@@ -47,7 +48,13 @@ const INITIAL_STATE: I_State = {
 		currentMode: "system",
 		systemMode: "dark",
 	},
-	scroll: { currentSection: 0, sectionButtons: [] },
+	scroll: {
+		currentSection: 0,
+		sectionButtons: [],
+		scrollToIndex: (index) => {
+			throw new Error("function scrollToIndex not implemented");
+		},
+	},
 };
 
 let globalState = $state<I_State>(INITIAL_STATE);
@@ -59,7 +66,7 @@ export const getLang = () => {
 };
 
 export const setLang = (lang: I_LangKey) => {
-    globalState.lang = LANGUAGES[lang];
+	globalState.lang = LANGUAGES[lang];
 };
 
 // ------------- Mode -------------
@@ -95,4 +102,12 @@ export const getScrollButtons = () => {
 
 export const setScrollButtons = (buttons: I_SectionBtn[]) => {
 	globalState.scroll.sectionButtons = buttons;
+};
+
+export const setScrollFn = (fn: (index: number) => void) => {
+	globalState.scroll.scrollToIndex = fn;
+};
+
+export const scrollToIndex = (index: number) => {
+    globalState.scroll.scrollToIndex(index);
 };

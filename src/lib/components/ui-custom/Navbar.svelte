@@ -13,7 +13,7 @@
 	<div class="hidden items-center gap-2 lg:flex">
 		{#each State.getScrollButtons() as btn (btn.text)}
 			<Button
-				onclick={() => State.setScrollCurrent(btn.index)}
+				onclick={() => State.scrollToIndex(btn.index)}
 				variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
 				class="p-2 hover:cursor-pointer"
 			>
@@ -42,7 +42,7 @@
 			{#each State.getScrollButtons() as btn (btn.text)}
 				<Button
 					onclick={() => {
-						State.setScrollCurrent(btn.index);
+						State.scrollToIndex(btn.index);
 						navMenuOpen = false;
 					}}
 					variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}

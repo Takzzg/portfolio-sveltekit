@@ -5,6 +5,7 @@
 	import favicon from "$lib/assets/favicon.svg";
 	import { updateSystemMode } from "$lib/state/GlobalState.svelte";
 	import Navbar from "$lib/components/ui-custom/Navbar.svelte";
+	import AutoScrollBtns from "$lib/components/ui-custom/AutoScrollBtns.svelte";
 
 	let { children } = $props();
 
@@ -31,5 +32,9 @@
 
 	<div class="h-full w-full overflow-hidden">
 		{@render children?.()}
+	</div>
+
+	<div class="absolute right-0 bottom-0 m-4">
+		<AutoScrollBtns />
 	</div>
 </div>
