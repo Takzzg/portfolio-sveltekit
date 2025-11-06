@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { ToggleGroup, ToggleGroupItem } from "$lib/components/ui/toggle-group";
 
-	import { getLang, setLang, type I_Lang, type I_LangKey, LANGUAGES } from "../state/GlobalState.svelte";
+	import { getLang, setLang, type I_Lang, type I_LangKey, LANGUAGES } from "../../state/GlobalState.svelte";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 </script>
 

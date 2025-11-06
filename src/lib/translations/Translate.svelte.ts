@@ -1,4 +1,4 @@
-import { getLang } from "../components/state/GlobalState.svelte";
+import { getLang } from "../state/GlobalState.svelte";
 import en from "./en";
 import es from "./es";
 

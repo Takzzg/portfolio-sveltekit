@@ -1,6 +1,6 @@
 <script lang="ts">
 	import IconifyIcon from "./IconifyIcon.svelte";
-	import * as State from "$lib/components/state/GlobalState.svelte";
+	import * as State from "$lib/state/GlobalState.svelte";
 	import Button from "../ui/button/button.svelte";
 	import ModeToggle from "../preferences/ModeToggle.svelte";
 	import LangToggle from "../preferences/LangToggle.svelte";

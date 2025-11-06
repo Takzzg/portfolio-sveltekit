@@ -1,7 +1,7 @@
 <script lang="ts">
 	import "./github-markdown.css";
 	import { GITHUB_API_URL } from "@/lib/utils";
-	import { getMode } from "../state/GlobalState.svelte";
+	import { getMode } from "../../state/GlobalState.svelte";
 	import type { I_Technology } from "@/lib/assets/technologies";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 

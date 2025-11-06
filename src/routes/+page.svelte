@@ -1,14 +1,14 @@
 <script lang="ts">
 	import type { UIEventHandler } from "svelte/elements";
 
-	import Skills from "$lib/components/sections/Skills.svelte";
 	import { Button } from "$lib/components/ui/button";
 	import AboutMe from "$lib/components/sections/AboutMe.svelte";
-	import * as State from "$lib/components/state/GlobalState.svelte";
+	import * as State from "$lib/state/GlobalState.svelte";
 	import Projects from "$lib/components/sections/Projects.svelte";
 	import Splash from "@/lib/components/sections/Splash.svelte";
 	import Portfolio from "@/lib/components/sections/Portfolio.svelte";
 	import IconifyIcon from "@/lib/components/ui-custom/IconifyIcon.svelte";
+	import Skills from "@/lib/components/sections/Skills.svelte";
 
 	let height: number = $state(0);
 	let currentSection = $derived(State.getScrollCurrent());

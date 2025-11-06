@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as State from "../state/GlobalState.svelte";
+	import * as State from "../../state/GlobalState.svelte";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 	import Button from "../ui/button/button.svelte";
 	import {
