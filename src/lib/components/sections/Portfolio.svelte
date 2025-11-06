@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { Portfolio, type I_Technology } from "./technologies";
 	import Button from "../ui/button/button.svelte";
-	import IconifyIcon from "../IconifyIcon.svelte";
 	import MarkdownHeader from "../markdown/MarkdownHeader.svelte";
 	import MarkdownBody from "../markdown/MarkdownBody.svelte";
+	import { PortfolioTechs, type I_Technology } from "@/lib/assets/technologies";
+	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 
 	// dom refs
 	let refParent = $state<HTMLDivElement>();
@@ -43,7 +43,7 @@
 		<span class="p-4 text-center text-2xl text-wrap whitespace-break-spaces">This portfolio was made using:</span>
 
 		<div class="flex flex-col gap-1 overflow-y-auto">
-			{#each Portfolio as tech (tech.id)}
+			{#each PortfolioTechs as tech (tech.id)}
 				{@render techButton(tech)}
 			{/each}
 		</div>

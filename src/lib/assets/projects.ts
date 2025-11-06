@@ -1,4 +1,4 @@
-import { AllTechnologies, E_Technologies, OtherIcons } from "../technologies/technologies";
+import { AllTechnologies, E_Technologies, OtherIcons } from "./technologies";
 
 const GITHUB_URL = "https://github.com/Takzzg/";
 

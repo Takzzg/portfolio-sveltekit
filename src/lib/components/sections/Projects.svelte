@@ -1,6 +1,6 @@
 <script lang="ts">
-	import IconifyIcon from "../IconifyIcon.svelte";
-	import { AllGames, AllProjects, type I_Game, type I_Project } from "./projects";
+	import { AllGames, AllProjects, type I_Game, type I_Project } from "../../assets/projects";
+	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 </script>
 
 {#snippet LinkBtn(text: string, icon: string, link?: string)}

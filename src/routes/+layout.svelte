@@ -3,8 +3,8 @@
 
 	import "../app.css";
 	import favicon from "$lib/assets/favicon.svg";
-	import Navbar from "$lib/components/Navbar.svelte";
-	import { getLang, updateSystemMode } from "@/lib/components/state/GlobalState.svelte";
+	import { updateSystemMode } from "@/lib/components/state/GlobalState.svelte";
+	import Navbar from "@/lib/components/ui-custom/Navbar.svelte";
 
 	let { children } = $props();
 

@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { translate } from "../translations/Translate.svelte";
-
-	import Intersection from "./Intersection.svelte";
-	import LangToggle from "./preferences/LangToggle.svelte";
-	import ModeToggle from "./preferences/ModeToggle.svelte";
+	import { translate } from '@/lib/translations/Translate.svelte';
+	import Intersection from '../ui-custom/Intersection.svelte';
+	import LangToggle from '../preferences/LangToggle.svelte';
+	import ModeToggle from '../preferences/ModeToggle.svelte';
 
 	let refPageSettings = $state<HTMLDivElement>();
 	let refPaletteLeft = $state<HTMLDivElement>();

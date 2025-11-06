@@ -1,9 +1,9 @@
 <script lang="ts">
-	import Button from "./ui/button/button.svelte";
 	import IconifyIcon from "./IconifyIcon.svelte";
-	import LangToggle from "./preferences/LangToggle.svelte";
-	import ModeToggle from "./preferences/ModeToggle.svelte";
 	import * as State from "$lib/components/state/GlobalState.svelte";
+	import Button from "../ui/button/button.svelte";
+	import ModeToggle from "../preferences/ModeToggle.svelte";
+	import LangToggle from "../preferences/LangToggle.svelte";
 
 	let navMenuOpen = $state(false);
 	let refNavMenu = $state<HTMLDivElement>();

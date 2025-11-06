@@ -1,6 +1,6 @@
 <script lang="ts">
-	import IconifyIcon from "../IconifyIcon.svelte";
 	import * as State from "../state/GlobalState.svelte";
+	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 	import Button from "../ui/button/button.svelte";
 	import {
 		DropdownMenu,
