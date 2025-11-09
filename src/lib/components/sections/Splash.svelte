@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Intersection from "../ui-custom/Intersection.svelte";
-	import LangToggle from "../preferences/LangToggle.svelte";
-	import ModeToggle from "../preferences/ModeToggle.svelte";
 	import { translate } from "$lib/utils";
+	import LangToggle from "../ui-custom/preferences/LangToggle.svelte";
+	import ModeToggle from "../ui-custom/preferences/ModeToggle.svelte";
 
 	let refPageSettings = $state<HTMLDivElement>();
 	// let refPaletteLeft = $state<HTMLDivElement>();
@@ -34,7 +34,7 @@
 		onObserve={(entry) => refPageSettings?.classList.toggle("hideLeft", !entry.isIntersecting)}
 	>
 		<div bind:this={refPageSettings} class="show hideLeft">
-			<div class="flex flex-col gap-2 rounded-md bg-background border-2 p-4">
+			<div class="flex flex-col gap-2 rounded-md border-2 bg-background p-4">
 				<span class="">Language</span>
 				<div class="flex justify-center">
 					<LangToggle />

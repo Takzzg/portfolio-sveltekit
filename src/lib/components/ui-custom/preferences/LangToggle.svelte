@@ -1,8 +1,7 @@
 <script lang="ts">
+	import IconifyIcon from "../IconifyIcon.svelte";
 	import { ToggleGroup, ToggleGroupItem } from "$lib/components/ui/toggle-group";
-
-	import { getLang, setLang, type I_Lang, type I_LangKey, LANGUAGES } from "../../state/GlobalState.svelte";
-	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
+	import { getLang, setLang, LANGUAGES, type I_Lang, type I_LangKey } from "$lib/state/GlobalState.svelte";
 </script>
 
 <!-- (es / en) lang - icon + pretty name -->
