@@ -64,8 +64,8 @@
 
 		<!-- settings -->
 		<div class="flex items-center gap-2">
-			<ModeToggle type="dropdown" />
-			<LangToggle />
+			<ModeToggle type="list" />
+			<LangToggle type="list"/>
 		</div>
 	</div>
 </div>

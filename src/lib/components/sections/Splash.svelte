@@ -36,12 +36,12 @@
 		<div bind:this={refPageSettings} class="show hideLeft">
 			<div class="flex flex-col gap-2 rounded-md border-2 bg-background p-4">
 				<span class="">Language</span>
-				<div class="flex justify-center">
-					<LangToggle />
+				<div class="flex gap-2">
+					<LangToggle type="icons" />
 				</div>
 
 				<span class="">Theme</span>
-				<div class="flex justify-center gap-2">
+				<div class="flex gap-2">
 					<ModeToggle type="icons" />
 				</div>
 			</div>

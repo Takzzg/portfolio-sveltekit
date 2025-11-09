@@ -1,6 +1,12 @@
 // dark / light mode
 type I_SystemMode = "dark" | "light";
-type I_Mode = I_SystemMode | "system";
+export type I_Mode = I_SystemMode | "system";
+
+export const MODES: Record<I_Mode, I_Mode> = {
+	dark: "dark",
+	light: "light",
+	system: "system",
+};
 
 // language
 export type I_LangKey = "en" | "es";
@@ -109,5 +115,5 @@ export const setScrollFn = (fn: (index: number) => void) => {
 };
 
 export const scrollToIndex = (index: number) => {
-    globalState.scroll.scrollToIndex(index);
+	globalState.scroll.scrollToIndex(index);
 };

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import * as State from "$lib/state/GlobalState.svelte";
-	import Button from "$lib/components/ui/button/button.svelte";
 	import IconifyIcon from "../IconifyIcon.svelte";
 	import {
 		DropdownMenu,
@@ -11,74 +9,64 @@
 		DropdownMenuSeparator,
 		DropdownMenuTrigger,
 	} from "$lib/components/ui/dropdown-menu";
+	import { getMode, MODES, setMode, type I_Mode } from "$lib/state/GlobalState.svelte";
+	import PreferenceIcon from "./PreferenceIcon.svelte";
 
-	let { type }: { type: "dropdown" | "icons" } = $props();
+	let { type }: { type: "icons" | "list" } = $props();
 </script>
 
-<!-- (dark / light / system) theme - icon + pretty name -->
-{#snippet listOption(mode: "dark" | "light" | "system")}
+{#snippet themeIcon(mode: I_Mode, pxSize: number = 16)}
 	{#if mode == "dark"}
-		<IconifyIcon icon="lucide:moon" width="16px" height="16px" />
-		Dark Mode
+		<!-- Dark Mode -->
+		<IconifyIcon icon="lucide:moon" width={pxSize + "px"} height={pxSize + "px"} />
 	{:else if mode == "light"}
-		<IconifyIcon icon="lucide:sun" width="16px" height="16px" />
-		Light Mode
+		<!-- Light Mode -->
+		<IconifyIcon icon="lucide:sun" width={pxSize + "px"} height={pxSize + "px"} />
 	{:else if mode == "system"}
-		<IconifyIcon icon="lucide:monitor-cog" width="16px" height="16px" />
-		System Theme
+		<!-- System Theme -->
+		<IconifyIcon icon="lucide:monitor-cog" width={pxSize + "px"} height={pxSize + "px"} />
 	{/if}
 {/snippet}
 
-<!-- (dark / light / system) theme icon -->
-{#snippet iconOption(mode: "dark" | "light" | "system")}
-	<Button
-		onclick={() => State.setMode(mode)}
-		disabled={State.getMode() == mode}
-		variant="outline"
-		class="aspect-square h-auto cursor-pointer"
-	>
-		{#if mode == "dark"}
-			<!-- Dark Mode -->
-			<IconifyIcon icon="lucide:moon" width="24px" height="24px" />
-		{:else if mode == "light"}
-			<!-- Light Mode -->
-			<IconifyIcon icon="lucide:sun" width="24px" height="24px" />
-		{:else if mode == "system"}
-			<!-- System Theme -->
-			<IconifyIcon icon="lucide:monitor-cog" width="24px" height="24px" />
-		{/if}
-	</Button>
+<!-- (dark / light / system) theme - icon + pretty name -->
+{#snippet listOption(mode: I_Mode)}
+	{@render themeIcon(mode)}
+	{`${mode} Theme`}
 {/snippet}
 
 {#if type == "icons"}
-	{@render iconOption("dark")}
-	{@render iconOption("light")}
-	{@render iconOption("system")}
-{:else if type == "dropdown"}
+	{#each Object.values(MODES) as mode}
+		<PreferenceIcon text={mode} selected={getMode() == mode} onClick={() => setMode(mode)}>
+			{#snippet icon()}
+				{@render themeIcon(mode, 24)}
+			{/snippet}
+		</PreferenceIcon>
+	{/each}
+{:else if type == "list"}
 	<DropdownMenu>
 		<!-- trigger -->
 		<DropdownMenuTrigger class="flex items-center gap-2 rounded-md border-2 p-2 hover:cursor-pointer hover:bg-accent">
-			{@render listOption(State.getMode())}
+			{@render listOption(getMode())}
 		</DropdownMenuTrigger>
 
 		<!-- options group -->
 		<DropdownMenuContent>
 			<DropdownMenuGroup>
-				<DropdownMenuRadioGroup value={State.getMode()}>
+				<DropdownMenuRadioGroup value={getMode()}>
 					<!-- dark -->
-					<DropdownMenuRadioItem onclick={() => State.setMode("dark")} value="dark">
+					<DropdownMenuRadioItem onclick={() => setMode("dark")} value="dark">
 						{@render listOption("dark")}
 					</DropdownMenuRadioItem>
 
 					<!-- light -->
-					<DropdownMenuRadioItem onclick={() => State.setMode("light")} value="light">
+					<DropdownMenuRadioItem onclick={() => setMode("light")} value="light">
 						{@render listOption("light")}
 					</DropdownMenuRadioItem>
 
 					<DropdownMenuSeparator />
 
 					<!-- system -->
-					<DropdownMenuRadioItem onclick={() => State.setMode("system")} value="system">
+					<DropdownMenuRadioItem onclick={() => setMode("system")} value="system">
 						{@render listOption("system")}
 					</DropdownMenuRadioItem>
 				</DropdownMenuRadioGroup>

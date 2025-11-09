@@ -1,24 +1,49 @@
 <script lang="ts">
-	import IconifyIcon from "../IconifyIcon.svelte";
-	import { ToggleGroup, ToggleGroupItem } from "$lib/components/ui/toggle-group";
-	import { getLang, setLang, LANGUAGES, type I_Lang, type I_LangKey } from "$lib/state/GlobalState.svelte";
+	import { getLang, setLang, LANGUAGES, type I_Lang } from "$lib/state/GlobalState.svelte";
+	import {
+		DropdownMenu,
+		DropdownMenuContent,
+		DropdownMenuGroup,
+		DropdownMenuRadioGroup,
+		DropdownMenuRadioItem,
+		DropdownMenuTrigger,
+	} from "$lib/components/ui/dropdown-menu";
+	import PreferenceIcon from "./PreferenceIcon.svelte";
+
+	let { type }: { type: "icons" | "list" } = $props();
 </script>
 
-<!-- (es / en) lang - icon + pretty name -->
-{#snippet langOption(lang: I_Lang)}
-	<IconifyIcon icon={lang.flag} width="16px" height="16px" />
+{#snippet listOption(lang: I_Lang)}
+	<span class="text-lg">{lang.key.toUpperCase()}</span>
 	{lang.name}
 {/snippet}
 
-<ToggleGroup
-	variant="outline"
-	type="single"
-	value={getLang().key}
-	onValueChange={(value) => setLang(value as I_LangKey)}
->
-	{#each Object.entries(LANGUAGES) as [key, lang]}
-		<ToggleGroupItem disabled={getLang().key == key} class="hover:cursor-pointer" value={key} aria-label={lang.name}>
-			{@render langOption(lang)}
-		</ToggleGroupItem>
+{#if type == "icons"}
+	{#each Object.values(LANGUAGES) as lang}
+		<PreferenceIcon text={lang.name} selected={getLang().key == lang.key} onClick={() => setLang(lang.key)}>
+			{#snippet icon()}
+				<span class="text-lg">{lang.key.toUpperCase()}</span>
+			{/snippet}
+		</PreferenceIcon>
 	{/each}
-</ToggleGroup>
+{:else if type == "list"}
+	<DropdownMenu>
+		<!-- trigger -->
+		<DropdownMenuTrigger class="flex items-center gap-2 rounded-md border-2 p-2 hover:cursor-pointer hover:bg-accent">
+			{@render listOption(getLang())}
+		</DropdownMenuTrigger>
+
+		<!-- options group -->
+		<DropdownMenuContent>
+			<DropdownMenuGroup>
+				<DropdownMenuRadioGroup value={getLang().key}>
+					{#each Object.values(LANGUAGES) as lang}
+						<DropdownMenuRadioItem onclick={() => setLang(lang.key)} value={lang.key}>
+							{@render listOption(lang)}
+						</DropdownMenuRadioItem>
+					{/each}
+				</DropdownMenuRadioGroup>
+			</DropdownMenuGroup>
+		</DropdownMenuContent>
+	</DropdownMenu>
+{/if}
