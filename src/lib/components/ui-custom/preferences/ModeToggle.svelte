@@ -1,7 +1,7 @@
 <script lang="ts">
-	import * as State from "../../state/GlobalState.svelte";
-	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
-	import Button from "../ui/button/button.svelte";
+	import * as State from "$lib/state/GlobalState.svelte";
+	import Button from "$lib/components/ui/button/button.svelte";
+	import IconifyIcon from "../IconifyIcon.svelte";
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -10,7 +10,7 @@
 		DropdownMenuRadioItem,
 		DropdownMenuSeparator,
 		DropdownMenuTrigger,
-	} from "../ui/dropdown-menu";
+	} from "$lib/components/ui/dropdown-menu";
 
 	let { type }: { type: "dropdown" | "icons" } = $props();
 </script>
@@ -57,9 +57,7 @@
 {:else if type == "dropdown"}
 	<DropdownMenu>
 		<!-- trigger -->
-		<DropdownMenuTrigger
-			class="flex items-center gap-2 rounded-md border-2 p-2 hover:cursor-pointer hover:bg-accent"
-		>
+		<DropdownMenuTrigger class="flex items-center gap-2 rounded-md border-2 p-2 hover:cursor-pointer hover:bg-accent">
 			{@render listOption(State.getMode())}
 		</DropdownMenuTrigger>
 
