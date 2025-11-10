@@ -21,7 +21,7 @@
 {#snippet techButton(tech: I_Technology)}
 	<Button
 		variant="ghost"
-		class="grid h-auto grid-cols-[auto_1fr] justify-start gap-0 rounded-none border-2 p-0 text-2xl hover:cursor-pointer {tech.id ==
+		class="grid h-auto grid-cols-[auto_1fr] justify-start gap-0 rounded-none border-y-2 p-0 text-2xl hover:cursor-pointer {tech.id ==
 			selectedTech?.id && 'border-l-16'}"
 		aria-label="tech logo banner"
 		onclick={() => setSelectedTech(tech)}
@@ -52,39 +52,13 @@
 <div class="h-full lg:grid lg:grid-cols-[22rem_1fr]">
 	{@render techList()}
 
-	<div bind:this={refParent} class="grid grid-rows-[auto_1fr] items-start overflow-hidden py-4">
-		<div class="techHeader m-auto w-full max-w-[896px] gap-8 text-black lg:px-0">
-			<MarkdownHeader selected={selectedTech} btnVariant="secondary" defaultTitle="About this portfolio" />
+	<div bind:this={refParent} class="grid grid-rows-[auto_1fr] items-start overflow-hidden">
+		<div class="w-full border-b-2">
+			<div class="m-auto w-full max-w-[896px] gap-8 lg:px-0">
+				<MarkdownHeader selected={selectedTech} btnVariant="secondary" defaultTitle="About this portfolio" />
+			</div>
 		</div>
 
 		<MarkdownBody selected={selectedTech} />
 	</div>
 </div>
-
-<style lang="postcss">
-	@reference 'tailwindcss';
-
-	.techHeader {
-		position: relative;
-	}
-	.techHeader,
-	.techHeader::before,
-	.techHeader::after {
-		@apply bg-stone-200;
-	}
-	.techHeader::before,
-	.techHeader::after {
-		content: " ";
-		position: absolute;
-		width: 2rem;
-		height: 100%;
-		padding: 0;
-		top: 0;
-	}
-	.techHeader::before {
-		right: 100%;
-	}
-	.techHeader::after {
-		left: 100%;
-	}
-</style>

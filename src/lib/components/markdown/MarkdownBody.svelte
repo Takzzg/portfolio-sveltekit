@@ -8,7 +8,7 @@
 	let { selected }: { selected: I_Technology | null } = $props();
 	let loadingMD = $state(false);
 	let md = $state<any | null>(null);
-	let styled = $state<HTMLDivElement>();
+	let scrollable = $state<HTMLDivElement>();
 
 	let darkTheme = $derived(getMode() == "dark" || (getMode() == "system" && getSystemMode() == "dark"));
 
@@ -20,7 +20,7 @@
 		const data = await res.text();
 		loadingMD = false;
 		md = data;
-		styled?.scrollTo({ top: 0, behavior: "smooth" });
+		scrollable?.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
 	$effect(() => {
@@ -33,23 +33,24 @@
 	{#if loadingMD}
 		<div class="absolute z-10 flex h-full w-full items-center justify-center">
 			<span class="z-10">Loading Readme...</span>
-			<span class="absolute h-full w-full bg-background/75 backdrop-blur-md"></span>
+			<span class="absolute h-full w-full bg-background/15 backdrop-blur-sm"></span>
 		</div>
 	{/if}
 
 	{#if !selected}
-		<div class="flex h-full w-full flex-col items-center justify-center gap-4 bg-red-500 p-8">
-			<IconifyIcon icon="lucide:mouse-pointer-click" height="64px" width="64px" />
-			<span class="text-2xl">Learn more</span>
-			<span>Click on any logo to take a peek at it's README.md</span>
+		<div class=" flex h-full w-full items-center justify-center">
+			<div class="flex flex-col items-center justify-center gap-4 border-2 p-8">
+				<IconifyIcon icon="lucide:mouse-pointer-click" height="64px" width="64px" />
+				<span class="text-2xl">Learn more</span>
+				<span>Click on any logo to take a peek at it's README.md</span>
+			</div>
 		</div>
 	{:else if md}
-		<div
-			bind:this={styled}
-			data-theme={darkTheme && "dark"}
-			class="markdown-body box-border max-h-full overflow-auto border-2 p-8"
-		>
-			{@html md}
+		<div bind:this={scrollable} class="max-h-full overflow-x-auto">
+			<div data-theme={darkTheme && "dark"} class="markdown-body box-border border-x-2 p-8">
+				{@html md}
+			</div>
+			<div class="mb-4 w-full border-t-2"></div>
 		</div>
 	{/if}
 </div>

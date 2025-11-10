@@ -19,8 +19,8 @@
 </script>
 
 {#snippet category(cat: I_Category)}
-	<div class="flex w-full flex-col overflow-hidden rounded-sm lg:w-auto border-2">
-		<span class="flex items-center gap-2 p-2 px-3 text-2xl border-b-2 ">
+	<div class="flex w-full flex-col overflow-hidden rounded-sm border-2 lg:w-auto">
+		<span class="flex items-center gap-2 border-b-2 p-2 px-3 text-2xl">
 			<IconifyIcon icon={cat.icon} height="24px" width="24px" />
 			{cat.title}
 		</span>
@@ -29,7 +29,7 @@
 				<Button
 					variant="ghost"
 					onclick={() => setSelectedTech(tech)}
-					class="flex aspect-square h-auto items-center border-3 border-transparent p-2 hover:cursor-pointer dark:hover:bg-accent/50 {tech.id ==
+					class="flex aspect-square h-auto items-center border-2 border-transparent p-2 hover:cursor-pointer dark:hover:bg-accent/50 {tech.id ==
 						selectedTech?.id && 'border-primary bg-background/50'}"
 				>
 					<IconifyIcon icon={tech.icon} height="64px" width="64px" />
@@ -39,10 +39,8 @@
 	</div>
 {/snippet}
 
-<div
-	class="flex h-full flex-col items-center overflow-hidden lg:grid lg:grid-cols-[auto_1fr] lg:items-start"
->
-	<div class="max-h-full overflow-y-auto p-4 px-8">
+<div class="flex h-full gap-2 flex-col items-center overflow-hidden lg:grid lg:grid-cols-[auto_1fr] lg:items-start">
+	<div class="max-h-full overflow-y-auto p-4 px-4">
 		<div class="grid gap-2">
 			{#each Object.values(TechCategories) as cat}
 				{@render category(cat)}
@@ -50,8 +48,8 @@
 		</div>
 	</div>
 
-	<div bind:this={refParent} class="grid h-full w-full overflow-hidden grid-rows-[auto_1fr] items-center">
-		<div class="flex w-full justify-center bg-accent">
+	<div bind:this={refParent} class="grid h-full w-full grid-rows-[auto_1fr] items-center overflow-hidden border-l-2">
+		<div class="flex w-full justify-center border-b-2">
 			<MarkdownHeader selected={selectedTech} defaultTitle="Main Skills" />
 		</div>
 
