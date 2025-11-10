@@ -87,7 +87,11 @@ export const setMode = (mode: I_Mode) => {
 	document.body.classList.toggle("dark", enabled);
 };
 
-export const updateSystemMode = (mode: I_SystemMode) => {
+export const getSystemMode = () => {
+	return globalState.mode.systemMode;
+};
+
+export const setSystemMode = (mode: I_SystemMode) => {
 	globalState.mode.systemMode = mode;
 	setMode("system");
 };

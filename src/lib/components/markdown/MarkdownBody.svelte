@@ -1,6 +1,6 @@
 <script lang="ts">
 	import "./github-markdown.css";
-	import { getMode } from "../../state/GlobalState.svelte";
+	import { getMode, getSystemMode } from "../../state/GlobalState.svelte";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 	import type { I_Technology } from "$lib/assets/technologies";
 	import { GITHUB_API_URL } from "$lib/assets/urls";
@@ -9,6 +9,8 @@
 	let loadingMD = $state(false);
 	let md = $state<any | null>(null);
 	let styled = $state<HTMLDivElement>();
+
+	let darkTheme = $derived(getMode() == "dark" || (getMode() == "system" && getSystemMode() == "dark"));
 
 	const fetchReadme = async (github: string) => {
 		loadingMD = true;
@@ -44,7 +46,7 @@
 	{:else if md}
 		<div
 			bind:this={styled}
-			data-theme={getMode()}
+			data-theme={darkTheme && "dark"}
 			class="markdown-body box-border max-h-full overflow-auto border-2 p-8"
 		>
 			{@html md}
