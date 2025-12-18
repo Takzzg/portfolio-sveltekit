@@ -3,7 +3,7 @@
 	import { getMode, getSystemMode } from "../../state/GlobalState.svelte";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 	import type { I_Technology } from "$lib/assets/technologies";
-	import { GITHUB_API_URL } from "$lib/assets/urls";
+	import { URL_GITHUB_API } from "$lib/assets/urls";
 	import { Icons } from "$lib/assets/icons";
 
 	let { selected }: { selected: I_Technology | null } = $props();
@@ -15,7 +15,7 @@
 
 	const fetchReadme = async (github: string) => {
 		loadingMD = true;
-		const res = await fetch(`${GITHUB_API_URL}/repos/${github}/readme`, {
+		const res = await fetch(`${URL_GITHUB_API}/repos/${github}/readme`, {
 			headers: { Accept: "application/vnd.github.html+json" },
 		});
 		const data = await res.text();

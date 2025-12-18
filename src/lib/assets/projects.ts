@@ -1,13 +1,11 @@
 import { AllTechnologies, E_Technologies, PortfolioTechs } from "./technologies";
 import { Icons } from "./icons";
 
-const GITHUB_URL = "https://github.com/Takzzg/";
-
 export type I_Project = {
 	id: string;
 	title: string;
 	description: string;
-	github: string;
+	repo: string;
 	website?: string;
 	techs: string[];
 };
@@ -37,7 +35,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PORTFOLIO_SVELTE,
 		title: "Portfolio",
 		description: "SvelteKit portfolio app. Check the source code for the website you are on right now!",
-		github: GITHUB_URL + E_Projects.PORTFOLIO_SVELTE,
+		repo: E_Projects.PORTFOLIO_SVELTE,
 		website: "https://guidoq.vercel.app",
 		techs: PortfolioTechs.map((tech) => tech.icon),
 	},
@@ -45,7 +43,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.CONTACTS_APP,
 		title: "Contacts App",
 		description: "Next.js app focused on drag-n-drop functionality, part of a technical interview for Front.id",
-		github: GITHUB_URL + E_Projects.CONTACTS_APP,
+		repo: E_Projects.CONTACTS_APP,
 		website: "https://contacts-app-guidoq.vercel.app",
 		techs: [
 			AllTechnologies[E_Technologies.HTML].icon,
@@ -61,7 +59,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.CHALLENGE_25WATTS,
 		title: "25 Watts challenge",
 		description: "Static HTML site using Bootstrap and JQuery, part of a technical interview for 25Watts",
-		github: GITHUB_URL + E_Projects.CHALLENGE_25WATTS,
+		repo: E_Projects.CHALLENGE_25WATTS,
 		website: "https://25-watts-challenge-guidoq.vercel.app/",
 		techs: [
 			AllTechnologies[E_Technologies.HTML].icon,
@@ -74,7 +72,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PATIO_MENU,
 		title: "El Patio - Menu",
 		description: "React.js single page application online menu",
-		github: GITHUB_URL + E_Projects.PATIO_MENU,
+		repo: E_Projects.PATIO_MENU,
 		website: "https://elpatiomerlosl.netlify.app/",
 		techs: [
 			AllTechnologies[E_Technologies.HTML].icon,
@@ -91,7 +89,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.MELI_TECH_TEST,
 		title: "MercadoLibre challenge",
 		description: "Next.js app part of a technical interview for MercadoLibre",
-		github: GITHUB_URL + E_Projects.MELI_TECH_TEST,
+		repo: E_Projects.MELI_TECH_TEST,
 		techs: [
 			AllTechnologies[E_Technologies.HTML].icon,
 			AllTechnologies[E_Technologies.CSS].icon,
@@ -107,7 +105,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.NEXTDOTS_CHALLENGE,
 		title: "NextDots challenge",
 		description: "React-Native app part of a technical interview for NextDots",
-		github: GITHUB_URL + E_Projects.NEXTDOTS_CHALLENGE,
+		repo: E_Projects.NEXTDOTS_CHALLENGE,
 		techs: [
 			AllTechnologies[E_Technologies.HTML].icon,
 			AllTechnologies[E_Technologies.CSS].icon,
@@ -122,7 +120,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PI_HENRY_VIDEOGAMES,
 		title: "Inividual Project - SoyHenry",
 		description: "Mono-repo containing an Express.js backend and a React.js frontend",
-		github: GITHUB_URL + E_Projects.PI_HENRY_VIDEOGAMES,
+		repo: E_Projects.PI_HENRY_VIDEOGAMES,
 		techs: [
 			AllTechnologies[E_Technologies.REACT_JS].icon,
 			AllTechnologies[E_Technologies.REDUX].icon,
@@ -141,7 +139,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PG_HENRY_FOODFAST,
 		title: "Group Project - SoyHenry",
 		description: "Mono-repo containing an Express.js backend, a React.js frontend and a telegram bot",
-		github: GITHUB_URL + E_Projects.PG_HENRY_FOODFAST,
+		repo: E_Projects.PG_HENRY_FOODFAST,
 		techs: [
 			AllTechnologies[E_Technologies.REACT_JS].icon,
 			AllTechnologies[E_Technologies.REDUX].icon,
@@ -162,49 +160,49 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.LIBGDX_PONG,
 		title: "Pong - LibGDX",
 		description: "Pong simulation implemented using LibGDX, targeting windows and web",
-		github: GITHUB_URL + E_Projects.LIBGDX_PONG,
+		repo: E_Projects.LIBGDX_PONG,
 		techs: [Icons.LIBGDX, Icons.JAVA],
 	},
 	GODOT_HORDE_SURVIVOR: {
 		id: E_Projects.GODOT_HORDE_SURVIVOR,
 		title: "Horde Survivor - Godot",
 		description: "2D horde Survivor made using C# and the Godot game engine, targeting desktop and web",
-		github: GITHUB_URL + E_Projects.GODOT_HORDE_SURVIVOR,
+		repo: E_Projects.GODOT_HORDE_SURVIVOR,
 		techs: [Icons.GODOT, Icons.C_SHARP],
 	},
 	GRIDDLERS_ULP: {
 		id: E_Projects.GRIDDLERS_ULP,
 		title: "Griddlers ULP",
 		description: "Griddlers game console application, created as part of an assignment for college",
-		github: GITHUB_URL + E_Projects.GRIDDLERS_ULP,
+		repo: E_Projects.GRIDDLERS_ULP,
 		techs: [Icons.TERMINAL, Icons.C_PP],
 	},
 	PYTHON_TETRIS: {
 		id: E_Projects.PYTHON_TETRIS,
 		title: "Tetris - Python",
 		description: "Basic Tetris game implemented using PyGame",
-		github: GITHUB_URL + E_Projects.PYTHON_TETRIS,
+		repo: E_Projects.PYTHON_TETRIS,
 		techs: [Icons.PYTHON],
 	},
 	PYTHON_SNAKE: {
 		id: E_Projects.PYTHON_SNAKE,
 		title: "Snake - Python",
 		description: "Basic Snake game implemented using PyGame",
-		github: GITHUB_URL + E_Projects.PYTHON_SNAKE,
+		repo: E_Projects.PYTHON_SNAKE,
 		techs: [Icons.PYTHON],
 	},
 	PYTHON_PONG: {
 		id: E_Projects.PYTHON_PONG,
 		title: "Pong - Python",
 		description: "Basic Pong game implemented using PyGame",
-		github: GITHUB_URL + E_Projects.PYTHON_PONG,
+		repo: E_Projects.PYTHON_PONG,
 		techs: [Icons.PYTHON],
 	},
 	PYTHON_CONNECT_FOUR: {
 		id: E_Projects.PYTHON_CONNECT_FOUR,
 		title: "Connect Four - Python",
 		description: "Basic Connect-Four game implemented using PyGame",
-		github: GITHUB_URL + E_Projects.PYTHON_CONNECT_FOUR,
+		repo: E_Projects.PYTHON_CONNECT_FOUR,
 		techs: [Icons.PYTHON],
 	},
 };

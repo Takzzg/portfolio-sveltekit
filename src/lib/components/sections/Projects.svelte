@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Icons } from "$lib/assets/icons";
+	import { URL_GITHUB_PROJECTS } from "$lib/assets/urls";
 	import { AllProjects, type I_Project } from "../../assets/projects";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 </script>
@@ -35,7 +36,7 @@
 		<span>{project.description}</span>
 
 		<span class="flex h-full items-end justify-center gap-2">
-			{@render LinkBtn("Github", Icons.GITHUB, project.github)}
+			{@render LinkBtn("Github", Icons.GITHUB, URL_GITHUB_PROJECTS + project.repo)}
 
 			{#if project.website}
 				{@render LinkBtn("Website", Icons.GLOBE, project.website)}

@@ -2,7 +2,7 @@
 	import Button, { type ButtonVariant } from "../ui/button/button.svelte";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 	import type { I_Technology } from "$lib/assets/technologies";
-	import { GITHUB_URL } from "$lib/assets/urls";
+	import { URL_GITHUB_BASE } from "$lib/assets/urls";
 	import { Icons } from "$lib/assets/icons";
 
 	type Props = {
@@ -29,7 +29,7 @@
 			<Button
 				variant={btnVariant}
 				class="hover:cursor-pointer"
-				onclick={() => window.open(`${GITHUB_URL}/${selected.github}/#readme`, "_blank")}
+				onclick={() => window.open(`${URL_GITHUB_BASE}/${selected.github}/#readme`, "_blank")}
 			>
 				<IconifyIcon icon={Icons.GITHUB} width="24px" height="24px" />
 				<span class="hidden lg:block">GitHub Repo</span>
