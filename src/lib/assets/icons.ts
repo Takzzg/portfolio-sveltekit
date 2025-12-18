@@ -43,14 +43,16 @@ export const Icons = {
 	REACT_ROUTER: "simple-icons:reactrouter",
 	CHAI: "simple-icons:chai",
 	LOTTIE: "uil:lottiefiles-alt",
+	GITHUB: "streamline-logos:github-logo-2-solid",
 
 	// ------------- languages -------------
 	LIBGDX: "devicon-plain:libgdx",
 	JAVA: "devicon-plain:java",
 	GODOT: "simple-icons:godotengine",
 	TERMINAL: "lucide:square-terminal",
-	PYTHON: "simple-icons:python",
-	GITHUB: "streamline-logos:github-logo-2-solid",
+    PYTHON: "simple-icons:python",
+    C_SHARP: "devicon-plain:csharp",
+    C_PP: "devicon-plain:cplusplus",
 
 	// ------------- categories -------------
 	FRONT_END: "lucide:monitor",

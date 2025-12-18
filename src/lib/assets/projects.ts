@@ -1,4 +1,4 @@
-import { AllTechnologies, E_Technologies } from "./technologies";
+import { AllTechnologies, E_Technologies, PortfolioTechs } from "./technologies";
 import { Icons } from "./icons";
 
 const GITHUB_URL = "https://github.com/Takzzg/";
@@ -13,6 +13,7 @@ export type I_Project = {
 };
 
 export enum E_Projects {
+	PORTFOLIO_SVELTE = "portfolio-sveltekit",
 	CONTACTS_APP = "contacts-app",
 	CHALLENGE_25WATTS = "25Watts",
 	PATIO_MENU = "patio-menu",
@@ -20,9 +21,26 @@ export enum E_Projects {
 	NEXTDOTS_CHALLENGE = "challengeNextDots",
 	PI_HENRY_VIDEOGAMES = "PI-Videogames-Guido",
 	PG_HENRY_FOODFAST = "food-fast",
+
+	// ------------- games -------------
+	GRIDDLERS_ULP = "Griddlers-ULP-2025",
+	PYTHON_TETRIS = "Python_Tetris",
+	PYTHON_SNAKE = "Python_Snake",
+	PYTHON_PONG = "Python_Pong",
+	PYTHON_CONNECT_FOUR = "Python_Connect-Four",
+	GODOT_HORDE_SURVIVOR = "Godot_horde-survivor",
+	LIBGDX_PONG = "LibGDX_Pong",
 }
 
 export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
+	PORTFOLIO_SVELTE: {
+		id: E_Projects.PORTFOLIO_SVELTE,
+		title: "Portfolio",
+		description: "SvelteKit portfolio app. Check the source code for the website you are on right now!",
+		github: GITHUB_URL + E_Projects.PORTFOLIO_SVELTE,
+		website: "https://guidoq.vercel.app",
+		techs: PortfolioTechs.map((tech) => tech.icon),
+	},
 	CONTACTS_APP: {
 		id: E_Projects.CONTACTS_APP,
 		title: "Contacts App",
@@ -138,74 +156,55 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 			AllTechnologies[E_Technologies.HEROKU].icon,
 		],
 	},
-};
 
-export type I_Game = {
-	id: string;
-	title: string;
-	description: string;
-	github: string;
-	lang: string;
-};
-
-export enum E_Games {
-	GRIDDLERS_ULP = "Griddlers-ULP-2025",
-	PYTHON_TETRIS = "Python_Tetris",
-	PYTHON_SNAKE = "Python_Snake",
-	PYTHON_PONG = "Python_Pong",
-	PYTHON_CONNECT_FOUR = "Python_Connect-Four",
-	GODOT_HORDE_SURVIVOR = "Godot_horde-survivor",
-	LIBGDX_PONG = "LibGDX_Pong",
-}
-
-export const AllGames: Record<keyof typeof E_Games, I_Game> = {
+	// ------------- games -------------
 	LIBGDX_PONG: {
-		id: E_Games.LIBGDX_PONG,
+		id: E_Projects.LIBGDX_PONG,
 		title: "Pong - LibGDX",
 		description: "Pong implemented using LibGDX, targeting windows and web",
-		github: GITHUB_URL + E_Games.LIBGDX_PONG,
-		lang: Icons.JAVA,
+		github: GITHUB_URL + E_Projects.LIBGDX_PONG,
+		techs: [Icons.LIBGDX, Icons.JAVA],
 	},
 	GODOT_HORDE_SURVIVOR: {
-		id: E_Games.GODOT_HORDE_SURVIVOR,
+		id: E_Projects.GODOT_HORDE_SURVIVOR,
 		title: "Horde Survivor - Godot",
 		description: "Horde Survivor game implemented using PyGame",
-		github: GITHUB_URL + E_Games.GODOT_HORDE_SURVIVOR,
-		lang: Icons.GODOT,
+		github: GITHUB_URL + E_Projects.GODOT_HORDE_SURVIVOR,
+		techs: [Icons.GODOT, Icons.C_SHARP],
 	},
 	GRIDDLERS_ULP: {
-		id: E_Games.GRIDDLERS_ULP,
+		id: E_Projects.GRIDDLERS_ULP,
 		title: "Griddlers ULP",
 		description: "Griddlers game as a console app",
-		github: GITHUB_URL + E_Games.GRIDDLERS_ULP,
-		lang: Icons.TERMINAL,
+		github: GITHUB_URL + E_Projects.GRIDDLERS_ULP,
+		techs: [Icons.TERMINAL, Icons.C_PP],
 	},
 	PYTHON_TETRIS: {
-		id: E_Games.PYTHON_TETRIS,
+		id: E_Projects.PYTHON_TETRIS,
 		title: "Tetris - Python",
 		description: "Tetris game implemented using PyGame",
-		github: GITHUB_URL + E_Games.PYTHON_TETRIS,
-		lang: Icons.PYTHON,
+		github: GITHUB_URL + E_Projects.PYTHON_TETRIS,
+		techs: [Icons.PYTHON],
 	},
 	PYTHON_SNAKE: {
-		id: E_Games.PYTHON_SNAKE,
+		id: E_Projects.PYTHON_SNAKE,
 		title: "Snake - Python",
 		description: "Snake game implemented using PyGame",
-		github: GITHUB_URL + E_Games.PYTHON_SNAKE,
-		lang: Icons.PYTHON,
+		github: GITHUB_URL + E_Projects.PYTHON_SNAKE,
+		techs: [Icons.PYTHON],
 	},
 	PYTHON_PONG: {
-		id: E_Games.PYTHON_PONG,
+		id: E_Projects.PYTHON_PONG,
 		title: "Pong - Python",
 		description: "Pong game implemented using PyGame",
-		github: GITHUB_URL + E_Games.PYTHON_PONG,
-		lang: Icons.PYTHON,
+		github: GITHUB_URL + E_Projects.PYTHON_PONG,
+		techs: [Icons.PYTHON],
 	},
 	PYTHON_CONNECT_FOUR: {
-		id: E_Games.PYTHON_CONNECT_FOUR,
+		id: E_Projects.PYTHON_CONNECT_FOUR,
 		title: "Connect Four - Python",
 		description: "Connect-Four game implemented using PyGame",
-		github: GITHUB_URL + E_Games.PYTHON_CONNECT_FOUR,
-		lang: Icons.PYTHON,
+		github: GITHUB_URL + E_Projects.PYTHON_CONNECT_FOUR,
+		techs: [Icons.PYTHON],
 	},
 };
