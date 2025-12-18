@@ -49,7 +49,7 @@ export const Icons = {
 	LIBGDX: "devicon-plain:libgdx",
 	JAVA: "devicon-plain:java",
 	GODOT: "simple-icons:godotengine",
-	TERMINAL: "lucide:square-terminal",
+	TERMINAL: "bi:terminal",
     PYTHON: "simple-icons:python",
     C_SHARP: "devicon-plain:csharp",
     C_PP: "devicon-plain:cplusplus",

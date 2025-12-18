@@ -19,7 +19,16 @@
 
 		<span class="flex items-center gap-2">
 			{#each project.techs as icon}
-				<IconifyIcon {icon} height="24px" width="24px" />
+				<span class="group relative flex items-center justify-center">
+					<span class="flex group-hover:scale-125">
+						<IconifyIcon {icon} height="24px" width="24px" />
+					</span>
+					<span
+						class="pointer-events-none absolute z-10 hidden -translate-y-full border-2 bg-background p-1 group-hover:block"
+					>
+						{icon.split(":").at(-1)?.split("-")[0]}
+					</span>
+				</span>
 			{/each}
 		</span>
 
