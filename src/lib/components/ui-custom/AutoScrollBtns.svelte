@@ -2,6 +2,7 @@
 	import Button from "../ui/button/button.svelte";
 	import IconifyIcon from "./IconifyIcon.svelte";
 	import * as State from "$lib/state/GlobalState.svelte";
+	import { Icons } from "$lib/assets/icons";
 
 	let currentSection = $derived(State.getScrollCurrent());
 	let sectionButtons = $derived(State.getScrollButtons());
@@ -14,7 +15,7 @@
 		disabled={currentSection == 0}
 		class="h-auto p-0 hover:cursor-pointer disabled:opacity-15"
 	>
-		<IconifyIcon icon="lucide:chevron-up" height="48px" width="48px" />
+		<IconifyIcon icon={Icons.CHEVRON_UP} height="48px" width="48px" />
 	</Button>
 	<Button
 		onclick={() => State.scrollToIndex(currentSection + 1)}
@@ -22,6 +23,6 @@
 		disabled={currentSection == sectionButtons.length - 1}
 		class="h-auto p-0 hover:cursor-pointer disabled:opacity-15"
 	>
-		<IconifyIcon icon="lucide:chevron-down" height="48px" width="48px" />
+		<IconifyIcon icon={Icons.CHEVRON_DOWN} height="48px" width="48px" />
 	</Button>
 </div>

@@ -3,6 +3,7 @@
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 	import type { I_Technology } from "$lib/assets/technologies";
 	import { GITHUB_URL } from "$lib/assets/urls";
+	import { Icons } from "$lib/assets/icons";
 
 	type Props = {
 		selected: I_Technology | null;
@@ -21,18 +22,18 @@
 		</span>
 		<span class="flex flex-row gap-2">
 			<Button variant={btnVariant} class="hover:cursor-pointer" onclick={() => window.open(selected.website, "_blank")}>
-				<IconifyIcon icon="lucide:globe" width="24px" height="24px" />
+				<IconifyIcon icon={Icons.GLOBE} width="24px" height="24px" />
 				<span class="hidden lg:block">Visit Website</span>
-				<IconifyIcon icon="lucide:external-link" width="16px" height="16px" />
+				<IconifyIcon icon={Icons.EXTERNAL_LINK} width="16px" height="16px" />
 			</Button>
 			<Button
 				variant={btnVariant}
 				class="hover:cursor-pointer"
 				onclick={() => window.open(`${GITHUB_URL}/${selected.github}/#readme`, "_blank")}
 			>
-				<IconifyIcon icon="lucide:github" width="24px" height="24px" />
+				<IconifyIcon icon={Icons.GITHUB} width="24px" height="24px" />
 				<span class="hidden lg:block">GitHub Repo</span>
-				<IconifyIcon icon="lucide:external-link" width="16px" height="16px" />
+				<IconifyIcon icon={Icons.EXTERNAL_LINK} width="16px" height="16px" />
 			</Button>
 		</span>
 	{:else}

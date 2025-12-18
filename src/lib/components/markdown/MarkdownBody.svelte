@@ -4,6 +4,7 @@
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 	import type { I_Technology } from "$lib/assets/technologies";
 	import { GITHUB_API_URL } from "$lib/assets/urls";
+	import { Icons } from "$lib/assets/icons";
 
 	let { selected }: { selected: I_Technology | null } = $props();
 	let loadingMD = $state(false);
@@ -40,7 +41,7 @@
 	{#if !selected}
 		<div class=" flex h-full w-full items-center justify-center">
 			<div class="flex flex-col items-center justify-center gap-4 border-2 p-8">
-				<IconifyIcon icon="lucide:mouse-pointer-click" height="64px" width="64px" />
+				<IconifyIcon icon={Icons.MOUSE_CLICK} height="64px" width="64px" />
 				<span class="text-2xl">Learn more</span>
 				<span>Click on any logo to take a peek at it's README.md</span>
 			</div>

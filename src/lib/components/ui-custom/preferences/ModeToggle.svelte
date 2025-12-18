@@ -11,6 +11,7 @@
 	} from "$lib/components/ui/dropdown-menu";
 	import { getMode, MODES, setMode, type I_Mode } from "$lib/state/GlobalState.svelte";
 	import PreferenceIcon from "./PreferenceIcon.svelte";
+	import { Icons } from "$lib/assets/icons";
 
 	let { type }: { type: "icons" | "list" } = $props();
 </script>
@@ -18,13 +19,13 @@
 {#snippet themeIcon(mode: I_Mode, pxSize: number = 16)}
 	{#if mode == "dark"}
 		<!-- Dark Mode -->
-		<IconifyIcon icon="lucide:moon" width={pxSize + "px"} height={pxSize + "px"} />
+		<IconifyIcon icon={Icons.THEME_DARK} width={pxSize + "px"} height={pxSize + "px"} />
 	{:else if mode == "light"}
 		<!-- Light Mode -->
-		<IconifyIcon icon="lucide:sun" width={pxSize + "px"} height={pxSize + "px"} />
+		<IconifyIcon icon={Icons.THEME_LIGHT} width={pxSize + "px"} height={pxSize + "px"} />
 	{:else if mode == "system"}
 		<!-- System Theme -->
-		<IconifyIcon icon="lucide:monitor-cog" width={pxSize + "px"} height={pxSize + "px"} />
+		<IconifyIcon icon={Icons.THEME_SYSTEM} width={pxSize + "px"} height={pxSize + "px"} />
 	{/if}
 {/snippet}
 
@@ -35,7 +36,7 @@
 {/snippet}
 
 {#if type == "icons"}
-	{#each Object.values(MODES) as mode}
+	{#each Object.values(MODES).reverse() as mode}
 		<PreferenceIcon text={mode} selected={getMode() == mode} onClick={() => setMode(mode)}>
 			{#snippet icon()}
 				{@render themeIcon(mode, 24)}

@@ -1,3 +1,5 @@
+import { Icons } from "./icons";
+
 export type I_Technology = {
 	id: string;
 	icon: string;
@@ -54,6 +56,7 @@ export enum E_Technologies {
 	VITE = "vite",
 	ESLINT = "eslint",
 	PRETTIER = "prettier",
+	GITHUB = "github",
 
 	// portfolio specific
 	SHADCN_SVELTE = "shadcn-svelte",
@@ -66,7 +69,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.HTML]: {
 		id: E_Technologies.HTML,
-		icon: "akar-icons:html-fill",
+		icon: Icons.HTML,
 		name: "HTML",
 		github: "whatwg/html",
 		website: "https://html.spec.whatwg.org/",
@@ -74,7 +77,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.CSS]: {
 		id: E_Technologies.CSS,
-		icon: "simple-icons:css",
+		icon: Icons.CSS,
 		name: "CSS",
 		github: "CSS-Next/css-next",
 		website: "https://www.w3.org/Style/CSS/",
@@ -82,7 +85,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.JAVASCRIPT]: {
 		id: E_Technologies.JAVASCRIPT,
-		icon: "akar-icons:javascript-fill",
+		icon: Icons.JAVASCRIPT,
 		name: "JavaScript",
 		github: "tc39/ecma262",
 		website: "https://ecma-international.org/",
@@ -90,7 +93,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.TYPESCRIPT]: {
 		id: E_Technologies.TYPESCRIPT,
-		icon: "akar-icons:typescript-fill",
+		icon: Icons.TYPESCRIPT,
 		name: "TypeScript",
 		github: "microsoft/TypeScript",
 		website: "https://www.typescriptlang.org/",
@@ -98,7 +101,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.REACT_JS]: {
 		id: E_Technologies.REACT_JS,
-		icon: "simple-icons:react",
+		icon: Icons.REACT_JS,
 		name: "React.js",
 		github: "facebook/react",
 		website: "https://react.dev/",
@@ -106,7 +109,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.NEXT_JS]: {
 		id: E_Technologies.NEXT_JS,
-		icon: "akar-icons:nextjs-fill",
+		icon: Icons.NEXT_JS,
 		name: "Next.js",
 		github: "vercel/next.js",
 		website: "https://nextjs.org/",
@@ -114,7 +117,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.SVELTE_KIT]: {
 		id: E_Technologies.SVELTE_KIT,
-		icon: "simple-icons:svelte",
+		icon: Icons.SVELTE_KIT,
 		name: "SvelteKit",
 		github: "sveltejs/kit",
 		website: "https://svelte.dev/",
@@ -122,7 +125,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.REDUX]: {
 		id: E_Technologies.REDUX,
-		icon: "simple-icons:redux",
+		icon: Icons.REDUX,
 		name: "Redux",
 		github: "reduxjs/redux",
 		website: "https://redux.js.org/",
@@ -131,7 +134,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 	// ------------------------------------- backend -------------------------------------
 	[E_Technologies.NODE_JS]: {
 		id: E_Technologies.NODE_JS,
-		icon: "akar-icons:node-fill",
+		icon: Icons.NODE_JS,
 		name: "Node.js",
 		github: "nodejs/node",
 		website: "https://nodejs.org/",
@@ -139,7 +142,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.EXPRESS_JS]: {
 		id: E_Technologies.EXPRESS_JS,
-		icon: "simple-icons:express",
+		icon: Icons.EXPRESS_JS,
 		name: "Express.js",
 		github: "expressjs/express",
 		website: "https://expressjs.com/",
@@ -147,7 +150,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.POSTGRES]: {
 		id: E_Technologies.POSTGRES,
-		icon: "simple-icons:postgresql",
+		icon: Icons.POSTGRES,
 		name: "PostgreSQL",
 		github: "postgres/postgres",
 		website: "https://www.postgresql.org/",
@@ -155,7 +158,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.MONGO_DB]: {
 		id: E_Technologies.MONGO_DB,
-		icon: "simple-icons:mongodb",
+		icon: Icons.MONGO_DB,
 		name: "MongoDB",
 		github: "mongodb/mongo",
 		website: "https://www.mongodb.com/",
@@ -163,7 +166,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.PRISMA_ORM]: {
 		id: E_Technologies.PRISMA_ORM,
-		icon: "simple-icons:prisma",
+		icon: Icons.PRISMA_ORM,
 		name: "Prisma ORM",
 		github: "prisma/prisma",
 		website: "https://www.prisma.io/",
@@ -171,7 +174,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.SEQUELIZE_ORM]: {
 		id: E_Technologies.SEQUELIZE_ORM,
-		icon: "simple-icons:sequelize",
+		icon: Icons.SEQUELIZE_ORM,
 		name: "Sequalize ORM",
 		github: "sequelize/sequelize",
 		website: "https://sequelize.org/",
@@ -179,7 +182,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.MONGOOSE]: {
 		id: E_Technologies.MONGOOSE,
-		icon: "simple-icons:mongoose",
+		icon: Icons.MONGOOSE,
 		name: "Mongoose",
 		github: "Automattic/mongoose",
 		website: "https://mongoosejs.com/",
@@ -188,7 +191,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 	// ------------------------------------- testing -------------------------------------
 	[E_Technologies.JEST]: {
 		id: E_Technologies.JEST,
-		icon: "simple-icons:jest",
+		icon: Icons.JEST,
 		name: "Jest",
 		github: "jestjs/jest",
 		website: "https://jestjs.io/",
@@ -196,7 +199,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.MOCHA]: {
 		id: E_Technologies.MOCHA,
-		icon: "devicon-plain:mocha",
+		icon: Icons.MOCHA,
 		name: "Mocha",
 		github: "mochajs/mocha",
 		website: "https://mochajs.org/",
@@ -204,7 +207,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.CYPRESS]: {
 		id: E_Technologies.CYPRESS,
-		icon: "simple-icons:cypress",
+		icon: Icons.CYPRESS,
 		name: "Cypress",
 		github: "cypress-io/cypress",
 		website: "https://www.cypress.io/",
@@ -212,7 +215,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.INSOMNIA]: {
 		id: E_Technologies.INSOMNIA,
-		icon: "simple-icons:insomnia",
+		icon: Icons.INSOMNIA,
 		name: "Insomnia",
 		github: "Kong/insomnia",
 		website: "https://insomnia.rest/",
@@ -221,7 +224,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 	// ------------------------------------- hosting -------------------------------------
 	[E_Technologies.HEROKU]: {
 		id: E_Technologies.HEROKU,
-		icon: "simple-icons:heroku",
+		icon: Icons.HEROKU,
 		name: "Heroku",
 		github: "heroku/cli",
 		website: "https://www.heroku.com/",
@@ -229,7 +232,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.NETLIFY]: {
 		id: E_Technologies.NETLIFY,
-		icon: "simple-icons:netlify",
+		icon: Icons.NETLIFY,
 		name: "Netlify",
 		github: "netlify/cli",
 		website: "https://www.netlify.com/",
@@ -237,7 +240,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.VERCEL]: {
 		id: E_Technologies.VERCEL,
-		icon: "simple-icons:vercel",
+		icon: Icons.VERCEL,
 		name: "Vercel",
 		github: "vercel/vercel",
 		website: "https://vercel.com/",
@@ -245,7 +248,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.SUPABASE]: {
 		id: E_Technologies.SUPABASE,
-		icon: "simple-icons:supabase",
+		icon: Icons.SUPABASE,
 		name: "Supabase",
 		github: "postgres/postgres",
 		website: "https://www.postgresql.org/",
@@ -255,7 +258,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.TAILWINDCSS]: {
 		id: E_Technologies.TAILWINDCSS,
-		icon: "simple-icons:tailwindcss",
+		icon: Icons.TAILWINDCSS,
 		name: "TailwindCSS",
 		github: "tailwindlabs/tailwindcss",
 		website: "https://tailwindcss.com/",
@@ -263,14 +266,14 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.SHADCN_UI]: {
 		id: E_Technologies.SHADCN_UI,
-		icon: "simple-icons:shadcnui",
+		icon: Icons.SHADCN_UI,
 		name: "shadcn-ui",
 		github: "shadcn-ui/ui",
 		website: "https://ui.shadcn.com/",
 	},
 	[E_Technologies.MATERIAL_UI]: {
 		id: E_Technologies.MATERIAL_UI,
-		icon: "devicon-plain:materialui",
+		icon: Icons.MATERIAL_UI,
 		name: "Material UI",
 		github: "mui/material-ui",
 		website: "https://mui.com/material-ui/",
@@ -278,7 +281,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.BOOTSTRAP]: {
 		id: E_Technologies.BOOTSTRAP,
-		icon: "akar-icons:bootstrap-fill",
+		icon: Icons.BOOTSTRAP,
 		name: "Bootstrap",
 		github: "twbs/bootstrap",
 		website: "https://getbootstrap.com/",
@@ -286,7 +289,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.SASS]: {
 		id: E_Technologies.SASS,
-		icon: "cib:sass-alt",
+		icon: Icons.SASS,
 		name: "Sass",
 		github: "sass/sass",
 		website: "https://sass-lang.com/",
@@ -294,7 +297,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.LESS]: {
 		id: E_Technologies.LESS,
-		icon: "simple-icons:less",
+		icon: Icons.LESS,
 		name: "Less",
 		github: "less/less.js",
 		website: "https://lesscss.org/",
@@ -302,7 +305,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.POST_CSS]: {
 		id: E_Technologies.POST_CSS,
-		icon: "simple-icons:postcss",
+		icon: Icons.POST_CSS,
 		name: "PostCSS",
 		github: "postcss/postcss",
 		website: "https://postcss.org/",
@@ -310,7 +313,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.STYLED_COMPONENTS]: {
 		id: E_Technologies.STYLED_COMPONENTS,
-		icon: "simple-icons:styledcomponents",
+		icon: Icons.STYLED_COMPONENTS,
 		name: "styled-components",
 		github: "styled-components/styled-components",
 		website: "https://styled-components.com/",
@@ -319,7 +322,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 	// ------------------------------------- development -------------------------------------
 	[E_Technologies.GIT]: {
 		id: E_Technologies.GIT,
-		icon: "simple-icons:git",
+		icon: Icons.GIT,
 		name: "Git",
 		github: "git/git",
 		website: "https://git-scm.com/",
@@ -327,7 +330,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.DOCKER]: {
 		id: E_Technologies.DOCKER,
-		icon: "simple-icons:docker",
+		icon: Icons.DOCKER,
 		name: "Docker",
 		github: "docker/docs",
 		website: "https://www.docker.com/",
@@ -335,7 +338,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.VITE]: {
 		id: E_Technologies.VITE,
-		icon: "file-icons:vite",
+		icon: Icons.VITE,
 		name: "Vite",
 		github: "vitejs/vite",
 		website: "https://vite.dev/",
@@ -343,7 +346,7 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.ESLINT]: {
 		id: E_Technologies.ESLINT,
-		icon: "simple-icons:eslint",
+		icon: Icons.ESLINT,
 		name: "eslint",
 		github: "eslint/eslint",
 		website: "https://eslint.org/",
@@ -351,30 +354,40 @@ export const AllTechnologies: Record<E_Technologies, I_Technology> = {
 
 	[E_Technologies.PRETTIER]: {
 		id: E_Technologies.PRETTIER,
-		icon: "simple-icons:prettier",
+		icon: Icons.PRETTIER,
 		name: "prettier",
 		github: "prettier/prettier",
 		website: "https://prettier.io/",
+    },
+    
+	[E_Technologies.GITHUB]: {
+		id: E_Technologies.GITHUB,
+		icon: Icons.GITHUB,
+		name: "github",
+		github: "github/docs",
+		website: "https://github.com/",
 	},
 
 	// ------------------------------------- portfolio specific -------------------------------------
 	[E_Technologies.SHADCN_SVELTE]: {
 		id: E_Technologies.SHADCN_SVELTE,
-		icon: "simple-icons:shadcnui",
+		icon: Icons.SHADCN_SVELTE,
 		name: "shadcn-svelte",
 		github: "huntabyte/shadcn-svelte",
 		website: "https://www.shadcn-svelte.com/",
-	},
+    },
+    
 	[E_Technologies.ESLINT_PLUGIN_SVELTE]: {
 		id: E_Technologies.ESLINT_PLUGIN_SVELTE,
-		icon: "simple-icons:eslint",
+		icon: Icons.ESLINT_PLUGIN_SVELTE,
 		name: "eslint-plugin-svelte",
 		github: "sveltejs/eslint-plugin-svelte",
 		website: "https://sveltejs.github.io/eslint-plugin-svelte/",
-	},
+    },
+    
 	[E_Technologies.PRETTIER_PLUGIN_SVELTE]: {
 		id: E_Technologies.PRETTIER_PLUGIN_SVELTE,
-		icon: "simple-icons:prettier",
+		icon: Icons.PRETTIER_PLUGIN_SVELTE,
 		name: "prettier-plugin-svelte",
 		github: "sveltejs/prettier-plugin-svelte",
 		website: "https://svelte.dev/docs/cli/prettier",
@@ -400,7 +413,7 @@ export enum E_Categories {
 export const TechCategories: Record<E_Categories, I_Category> = {
 	[E_Categories.FRONT_END]: {
 		id: E_Categories.FRONT_END,
-		icon: "lucide:monitor",
+		icon: Icons.FRONT_END,
 		title: "Front End",
 		techs: [
 			AllTechnologies[E_Technologies.HTML],
@@ -415,7 +428,7 @@ export const TechCategories: Record<E_Categories, I_Category> = {
 	},
 	[E_Categories.BACK_END]: {
 		id: E_Categories.BACK_END,
-		icon: "lucide:server",
+		icon: Icons.BACK_END,
 		title: "Back End",
 		techs: [
 			AllTechnologies[E_Technologies.NODE_JS],
@@ -429,7 +442,7 @@ export const TechCategories: Record<E_Categories, I_Category> = {
 	},
 	[E_Categories.TESTING]: {
 		id: E_Categories.TESTING,
-		icon: "lucide:bug",
+		icon: Icons.TESTING,
 		title: "Testing",
 		techs: [
 			AllTechnologies[E_Technologies.JEST],
@@ -440,7 +453,7 @@ export const TechCategories: Record<E_Categories, I_Category> = {
 	},
 	[E_Categories.HOSTING]: {
 		id: E_Categories.HOSTING,
-		icon: "lucide:network",
+		icon: Icons.HOSTING,
 		title: "Hosting",
 		techs: [
 			AllTechnologies[E_Technologies.HEROKU],
@@ -451,7 +464,7 @@ export const TechCategories: Record<E_Categories, I_Category> = {
 	},
 	[E_Categories.STYLING]: {
 		id: E_Categories.STYLING,
-		icon: "lucide:paintbrush",
+		icon: Icons.STYLING,
 		title: "Styling",
 		techs: [
 			AllTechnologies[E_Technologies.TAILWINDCSS],
@@ -466,10 +479,11 @@ export const TechCategories: Record<E_Categories, I_Category> = {
 	},
 	[E_Categories.DEVELOPMENT]: {
 		id: E_Categories.DEVELOPMENT,
-		icon: "lucide:code-xml",
+		icon: Icons.DEVELOPMENT,
 		title: "Development",
 		techs: [
 			AllTechnologies[E_Technologies.GIT],
+			AllTechnologies[E_Technologies.GITHUB],
 			AllTechnologies[E_Technologies.DOCKER],
 			AllTechnologies[E_Technologies.VITE],
 			AllTechnologies[E_Technologies.PRETTIER],
@@ -488,15 +502,3 @@ export const PortfolioTechs: I_Technology[] = [
 	AllTechnologies[E_Technologies.ESLINT_PLUGIN_SVELTE],
 	AllTechnologies[E_Technologies.VITE],
 ];
-
-export const OtherIcons = {
-	AXIOS: "simple-icons:axios",
-	REACT_ROUTER: "simple-icons:reactrouter",
-	CHAI: "simple-icons:chai",
-	LOTTIE: "uil:lottiefiles-alt",
-	LIBGDX: "devicon-plain:libgdx",
-	JAVA: "devicon-plain:java",
-	GODOT: "simple-icons:godotengine",
-	TERMINAL: "lucide:square-terminal",
-	PYTHON: "simple-icons:python",
-};
