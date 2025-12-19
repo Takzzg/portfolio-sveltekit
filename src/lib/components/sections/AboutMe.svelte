@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Contact from "../ui-custom/Contact.svelte";
+
 </script>
 
 <div class="h-full flex items-center justify-center w-full text-xl">
@@ -15,5 +17,7 @@
 			contributed to high-impact apps. I thrive in collaborative environments and love building tools that make users’
 			lives easier.
 		</p>
+
+        <Contact/>
 	</div>
 </div>

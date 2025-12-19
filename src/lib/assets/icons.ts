@@ -72,5 +72,8 @@ export const Icons = {
 	EXTERNAL_LINK: "lucide:external-link",
 	MOUSE_CLICK: "lucide:mouse-pointer-click",
 	CHEVRON_UP: "lucide:chevron-up",
-	CHEVRON_DOWN: "lucide:chevron-down",
+    CHEVRON_DOWN: "lucide:chevron-down",
+    EMAIL: "lucide:mail",
+    AT_SIGN: "lucide:at-sign",
+    CLIPBOARD: "lucide:clipboard-copy",
 };

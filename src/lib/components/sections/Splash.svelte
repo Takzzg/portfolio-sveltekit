@@ -3,6 +3,7 @@
 	import { translate } from "$lib/utils";
 	import LangToggle from "../ui-custom/preferences/LangToggle.svelte";
 	import ModeToggle from "../ui-custom/preferences/ModeToggle.svelte";
+	import Contact from "../ui-custom/Contact.svelte";
 
 	let refPageSettings = $state<HTMLDivElement>();
 	// let refPaletteLeft = $state<HTMLDivElement>();
@@ -20,7 +21,7 @@
 	</div>
 {/snippet} -->
 
-<div class="relative flex h-full min-h-[800px] max-w-full flex-col items-center justify-center overflow-clip">
+<div class="relative flex h-full min-h-[800px] max-w-full flex-col items-center overflow-clip justify-center">
 	<h1 class="text-center text-5xl">{translate("splash_center_text_1")}</h1>
 
 	<div class="p-10">
@@ -28,19 +29,21 @@
 		<h5 class="text-2xl">{translate("splash_center_text_3")}</h5>
 	</div>
 
+	<Contact />
+
 	<Intersection
 		threshold={1}
-		className="absolute bottom-4 left-4"
+		className="lg:absolute p-4 bottom-4 left-4"
 		onObserve={(entry) => refPageSettings?.classList.toggle("hideLeft", !entry.isIntersecting)}
 	>
 		<div bind:this={refPageSettings} class="show hideLeft">
 			<div class="flex flex-col gap-2 rounded-md border-2 bg-background p-4">
-				<span class="">Language</span>
+				<span>Language</span>
 				<div class="flex gap-2">
 					<LangToggle type="icons" />
 				</div>
 
-				<span class="">Theme</span>
+				<span>Theme</span>
 				<div class="flex gap-2">
 					<ModeToggle type="icons" />
 				</div>
