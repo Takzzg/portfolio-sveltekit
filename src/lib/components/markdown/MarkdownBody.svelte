@@ -40,7 +40,7 @@
 
 	{#if !selected}
 		<div class=" flex h-full w-full items-center justify-center">
-			<div class="flex flex-col items-center justify-center gap-4 border-2 p-8">
+			<div class="flex flex-col items-center justify-center gap-4 p-8">
 				<IconifyIcon icon={Icons.MOUSE_CLICK} height="64px" width="64px" />
 				<span class="text-2xl">Learn more</span>
 				<span>Click on any logo to take a peek at it's README.md</span>

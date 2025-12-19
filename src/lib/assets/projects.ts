@@ -33,7 +33,7 @@ export enum E_Projects {
 export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 	PORTFOLIO_SVELTE: {
 		id: E_Projects.PORTFOLIO_SVELTE,
-		title: "Portfolio",
+		title: "Web Portfolio",
 		description: "SvelteKit portfolio app. Check the source code for the website you are on right now!",
 		repo: E_Projects.PORTFOLIO_SVELTE,
 		website: "https://guidoq.vercel.app",

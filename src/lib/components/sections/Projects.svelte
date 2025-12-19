@@ -36,7 +36,7 @@
 		<span>{project.description}</span>
 
 		<span class="flex h-full items-end justify-center gap-2">
-			{@render LinkBtn("Github", Icons.GITHUB, URL_GITHUB_PROJECTS + project.repo)}
+			{@render LinkBtn("Github repo", Icons.GITHUB, URL_GITHUB_PROJECTS + project.repo)}
 
 			{#if project.website}
 				{@render LinkBtn("Website", Icons.GLOBE, project.website)}
