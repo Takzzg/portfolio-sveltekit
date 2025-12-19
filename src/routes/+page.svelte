@@ -17,7 +17,7 @@
 	let refProjects = $state<HTMLDivElement>();
 	let refPortfolio = $state<HTMLDivElement>();
 
-	let autoScrollTargets = $derived([refSplash, refAboutMe, refSkills, refProjects, refPortfolio]);
+	let autoScrollTargets = $derived([refSplash, refSkills, refAboutMe, refProjects, refPortfolio]);
 
 	const scrollToIndex = (index: number) => {
 		if (index < 0) index = 0;
