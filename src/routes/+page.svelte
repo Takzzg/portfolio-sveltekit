@@ -33,13 +33,13 @@
 				index: autoScrollTargets.indexOf(refSplash),
 			},
 			{
-				text: "About Me",
-				index: autoScrollTargets.indexOf(refAboutMe),
-			},
-			{
-				text: "Skills",
+                text: "Skills",
 				index: autoScrollTargets.indexOf(refSkills),
 			},
+            {
+                text: "About Me",
+                index: autoScrollTargets.indexOf(refAboutMe),
+            },
 			{
 				text: "Projects",
 				index: autoScrollTargets.indexOf(refProjects),
@@ -74,13 +74,13 @@
 		<Splash />
 	</div>
 
-	<div bind:this={refAboutMe} class="lgFixedHeight border-b-2">
-		<AboutMe />
-	</div>
-
 	<div bind:this={refSkills} class="lgFixedHeight border-b-2">
-		<Skills />
+        <Skills />
 	</div>
+    
+    <div bind:this={refAboutMe} class="lgFixedHeight border-b-2">
+        <AboutMe />
+    </div>
 
 	<div bind:this={refProjects} class="lgFixedHeight border-b-2">
 		<Projects />
