@@ -21,7 +21,7 @@
 				</span>
 			</span>
 			guido98q@gmail.com
-			<span class="opacity-15 flex items-center">
+			<span class="flex items-center opacity-15">
 				<IconifyIcon icon={Icons.CLIPBOARD} height="24px" width="24px" />
 			</span>
 		</Button>
@@ -29,11 +29,11 @@
 
 	<div class="flex items-center justify-center gap-2">
 		<span>C.V.</span>
-		<Button variant="outline" class="cursor-pointer p-2 text-lg" onclick={() => window.open(URL_CV_ENGLISH, "_blank")}>
+		<Button variant="outline" class="cursor-pointer text-lg" onclick={() => window.open(URL_CV_ENGLISH, "_blank")}>
 			En
 			<IconifyIcon icon={Icons.EXTERNAL_LINK} height="16px" width="16px" />
 		</Button>
-		<Button variant="outline" class="cursor-pointer p-2 text-lg" onclick={() => window.open(URL_CV_SPANISH, "_blank")}>
+		<Button variant="outline" class="cursor-pointer text-lg" onclick={() => window.open(URL_CV_SPANISH, "_blank")}>
 			Es
 			<IconifyIcon icon={Icons.EXTERNAL_LINK} height="16px" width="16px" />
 		</Button>
