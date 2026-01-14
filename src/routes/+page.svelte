@@ -17,47 +17,51 @@
 	let refProjects = $state<HTMLDivElement>();
 	let refPortfolio = $state<HTMLDivElement>();
 
-	let autoScrollTargets = $derived([refSplash, refSkills, refAboutMe, refProjects, refPortfolio]);
-
-	const scrollToIndex = (index: number) => {
-		if (index < 0) index = 0;
-		else if (index > autoScrollTargets.length) index = autoScrollTargets.length - 1;
-		autoScrollTargets[index]?.scrollIntoView({ behavior: "smooth" });
-		State.setScrollCurrent(index);
-	};
+	let sections = $derived([
+		{
+			text: "Home",
+			target: refSplash,
+			element: Splash,
+		},
+		{
+			text: "Skills",
+			target: refSkills,
+			element: Skills,
+		},
+		{
+			text: "About Me",
+			target: refAboutMe,
+			element: AboutMe,
+		},
+        {
+            text: "Portfolio",
+            target: refPortfolio,
+            element: Portfolio,
+        },
+		{
+			text: "Projects",
+			target: refProjects,
+			element: Projects,
+		},
+	]);
 
 	$effect(() => {
-		const buttons = [
-			{
-				text: "Home",
-				index: autoScrollTargets.indexOf(refSplash),
-			},
-			{
-                text: "Skills",
-				index: autoScrollTargets.indexOf(refSkills),
-			},
-            {
-                text: "About Me",
-                index: autoScrollTargets.indexOf(refAboutMe),
-            },
-			{
-				text: "Projects",
-				index: autoScrollTargets.indexOf(refProjects),
-			},
-			{
-				text: "Portfolio",
-				index: autoScrollTargets.indexOf(refPortfolio),
-			},
-		];
+		const buttons = sections.map((sec) => ({ text: sec.text, index: sections.indexOf(sec) }));
 		State.setScrollButtons(buttons);
 		State.setScrollFn(scrollToIndex);
 	});
 
-	const OnScroll: UIEventHandler<HTMLDivElement> = (event) => {
-		for (let index = 0; index < autoScrollTargets.length; index++) {
-			const el = autoScrollTargets[index];
+	const scrollToIndex = (index: number) => {
+		let target = sections.at(index)?.target;
+		target?.scrollIntoView({ behavior: "smooth" });
+		State.setScrollCurrent(index);
+	};
 
-			let childOffset: number = (el as HTMLElement).offsetTop ?? 0;
+	const OnScroll: UIEventHandler<HTMLDivElement> = (event) => {
+		for (let index = 0; index < sections.length; index++) {
+			let el = sections.at(index)?.target;
+
+			let childOffset: number = el?.offsetTop ?? 0;
 			let parentScroll: number = el?.parentElement?.scrollTop ?? 0;
 			let parentOffset: number = el?.parentElement?.offsetTop ?? 0;
 
@@ -70,25 +74,11 @@
 </script>
 
 <div bind:clientHeight={height} onscroll={OnScroll} class="h-full overflow-y-scroll" style="--height:{height};">
-	<div bind:this={refSplash} class="lgFixedHeight border-b-2">
-		<Splash />
-	</div>
-
-	<div bind:this={refSkills} class="lgFixedHeight border-b-2">
-        <Skills />
-	</div>
-    
-    <div bind:this={refAboutMe} class="lgFixedHeight border-b-2">
-        <AboutMe />
-    </div>
-
-	<div bind:this={refProjects} class="lgFixedHeight border-b-2">
-		<Projects />
-	</div>
-
-	<div bind:this={refPortfolio} class="lgFixedHeight border-b-2">
-		<Portfolio />
-	</div>
+	{#each sections as sec}
+		<div bind:this={sec.target} class="lgFixedHeight border-b-2">
+			<sec.element />
+		</div>
+	{/each}
 </div>
 
 <style>
