@@ -1,21 +1,23 @@
 <script lang="ts">
 	import { Icons } from "$lib/assets/icons";
 	import { URL_CV_ENGLISH, URL_CV_SPANISH, URL_GITHUB_PROFILE } from "$lib/assets/urls";
+	import { translation } from "$lib/utils";
 	import Button from "../ui/button/button.svelte";
 	import IconifyIcon from "./IconifyIcon.svelte";
 	import ToolTip from "./ToolTip.svelte";
 
 	let showTooltip = $state(false);
+	let email = "guido98q@gmail.com";
 
 	const onClickEmail = () => {
 		showTooltip = true;
-		navigator.clipboard.writeText("guido98q@gmail.com");
+		navigator.clipboard.writeText(email);
 		setTimeout(() => (showTooltip = false), 1000);
 	};
 </script>
 
 <div class="mx-auto flex flex-col items-center justify-center gap-4 rounded-md border-2 p-4">
-	<span class="text-xl">Get in contact</span>
+	<span class="text-xl">{translation("component_contact_title")}</span>
 
 	<div class="flex items-center justify-center gap-2">
 		<Button variant="outline" class="cursor-pointer py-6" onclick={onClickEmail}>
@@ -25,7 +27,7 @@
 					<IconifyIcon icon={Icons.AT_SIGN} height="16px" width="16px" />
 				</span>
 			</span>
-			guido98q@gmail.com
+			{email}
 			<span class="flex items-center opacity-15">
 				<IconifyIcon icon={Icons.CLIPBOARD} height="24px" width="24px" />
 			</span>
@@ -47,6 +49,6 @@
 
 	<Button class="cursor-pointer" onclick={() => window.open(URL_GITHUB_PROFILE, "_blank")}>
 		<IconifyIcon icon={Icons.GITHUB} height="32px" width="32px" />
-		Check out my Github Profile
+		{translation("component_contact_action_github")}
 	</Button>
 </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Intersection from "../ui-custom/Intersection.svelte";
-	import { translate } from "$lib/utils";
+	import { translation } from "$lib/utils";
 	import LangToggle from "../ui-custom/preferences/LangToggle.svelte";
 	import ModeToggle from "../ui-custom/preferences/ModeToggle.svelte";
 	import Contact from "../ui-custom/Contact.svelte";
@@ -22,11 +22,11 @@
 {/snippet} -->
 
 <div class="relative flex h-full min-h-[800px] max-w-full flex-col items-center overflow-clip justify-center">
-	<h1 class="text-center text-5xl">{translate("splash_center_text_1")}</h1>
+	<h1 class="text-center text-5xl">{translation("splash_center_text_1")}</h1>
 
 	<div class="p-10">
-		<h3 class="text-3xl">{translate("splash_center_text_2")}</h3>
-		<h5 class="text-2xl">{translate("splash_center_text_3")}</h5>
+		<h3 class="text-3xl">{translation("splash_center_text_2")}</h3>
+		<h5 class="text-2xl">{translation("splash_center_text_3")}</h5>
 	</div>
 
 	<Contact />

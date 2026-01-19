@@ -16,7 +16,7 @@ export type WithoutChildren<T> = T extends { children?: any } ? Omit<T, "childre
 export type WithoutChildrenOrChild<T> = WithoutChildren<WithoutChild<T>>;
 export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?: U | null };
 
-export const translate = (key: I_TranslationKey) => {
+export const translation = (key: I_TranslationKey) => {
 	let selected = getLang().key;
 	if (selected == "en") return en[key];
 	else if (selected == "es") return es[key];
