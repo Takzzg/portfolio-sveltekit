@@ -1,10 +1,9 @@
 <script lang="ts">
-	import Intersection from "../ui-custom/Intersection.svelte";
-	import { translation } from "$lib/utils";
-	import LangToggle from "../ui-custom/preferences/LangToggle.svelte";
-	import ModeToggle from "../ui-custom/preferences/ModeToggle.svelte";
-	import Contact from "../ui-custom/Contact.svelte";
-	import { I_TranslationKey } from "$lib/assets/translations/keys";
+	import Intersection from "../../ui-custom/Intersection.svelte";
+	import LangToggle from "../../ui-custom/preferences/LangToggle.svelte";
+	import ModeToggle from "../../ui-custom/preferences/ModeToggle.svelte";
+	import Contact from "../../ui-custom/Contact.svelte";
+	import { I_TraKeySplash, translateKey } from "./translations";
 
 	let refPageSettings = $state<HTMLDivElement>();
 	// let refPaletteLeft = $state<HTMLDivElement>();
@@ -23,11 +22,11 @@
 {/snippet} -->
 
 <div class="relative flex h-full min-h-[800px] max-w-full flex-col items-center justify-center overflow-clip">
-	<h1 class="text-center text-5xl">{translation(I_TranslationKey.section_splash_center_text_1)}</h1>
+	<h1 class="text-center text-5xl">{translateKey(I_TraKeySplash.center_text_1)}</h1>
 
 	<div class="p-10">
-		<h3 class="text-3xl">{translation(I_TranslationKey.section_splash_center_text_2)}</h3>
-		<h5 class="text-2xl">{translation(I_TranslationKey.section_splash_center_text_3)}</h5>
+		<h3 class="text-3xl">{translateKey(I_TraKeySplash.center_text_2)}</h3>
+		<h5 class="text-2xl">{translateKey(I_TraKeySplash.center_text_3)}</h5>
 	</div>
 
 	<Contact />

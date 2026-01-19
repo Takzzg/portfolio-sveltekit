@@ -2,7 +2,7 @@
 	import { Icons } from "$lib/assets/icons";
 	import { I_TranslationKey } from "$lib/assets/translations/keys";
 	import { URL_CV_ENGLISH, URL_CV_SPANISH, URL_GITHUB_PROFILE } from "$lib/assets/urls";
-	import { translation } from "$lib/utils";
+	import { translation } from "$lib/utils/translations";
 	import Button from "../ui/button/button.svelte";
 	import IconifyIcon from "./IconifyIcon.svelte";
 	import ToolTip from "./ToolTip.svelte";

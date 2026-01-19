@@ -4,7 +4,7 @@
 	import AboutMe from "$lib/components/sections/AboutMe.svelte";
 	import * as State from "$lib/state/GlobalState.svelte";
 	import Projects from "$lib/components/sections/Projects.svelte";
-	import Splash from "$lib/components/sections/Splash.svelte";
+	import Splash from "$lib/components/sections/splash/Splash.svelte";
 	import Portfolio from "$lib/components/sections/Portfolio.svelte";
 	import Skills from "$lib/components/sections/Skills.svelte";
 	import { I_TranslationKey } from "$lib/assets/translations/keys";

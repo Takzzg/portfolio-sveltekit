@@ -4,7 +4,7 @@
 	import Button from "../ui/button/button.svelte";
 	import ModeToggle from "./preferences/ModeToggle.svelte";
 	import LangToggle from "./preferences/LangToggle.svelte";
-	import { translation } from "$lib/utils";
+	import { translation } from "$lib/utils/translations";
 
 	let navMenuOpen = $state(false);
 	let refNavMenu = $state<HTMLDivElement>();
