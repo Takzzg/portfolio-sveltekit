@@ -7,8 +7,8 @@
 	import Splash from "$lib/components/sections/splash/Splash.svelte";
 	import Portfolio from "$lib/components/sections/Portfolio.svelte";
 	import Skills from "$lib/components/sections/Skills.svelte";
-	import { I_TranslationKey } from "$lib/assets/translations/keys";
 	import type { Component } from "svelte";
+	import { I_TraKeyNavbar } from "$lib/components/ui-custom/navbar/Navbar.translations";
 
 	let height: number = $state(0);
 
@@ -19,29 +19,29 @@
 	let refProjects = $state<HTMLDivElement>();
 	let refPortfolio = $state<HTMLDivElement>();
 
-	let sections: { translationKey: I_TranslationKey; target: HTMLDivElement | undefined; element: Component }[] = [
+	let sections: { translationKey: I_TraKeyNavbar; target: HTMLDivElement | undefined; element: Component }[] = [
 		{
-			translationKey: I_TranslationKey.component_navbar_home,
+			translationKey: I_TraKeyNavbar.home,
 			target: refSplash,
 			element: Splash,
 		},
 		{
-			translationKey: I_TranslationKey.component_navbar_skills,
+			translationKey: I_TraKeyNavbar.skills,
 			target: refSkills,
 			element: Skills,
 		},
 		{
-			translationKey: I_TranslationKey.component_navbar_about_me,
+			translationKey: I_TraKeyNavbar.about_me,
 			target: refAboutMe,
 			element: AboutMe,
 		},
 		{
-			translationKey: I_TranslationKey.component_navbar_portfolio,
+			translationKey: I_TraKeyNavbar.portfolio,
 			target: refPortfolio,
 			element: Portfolio,
 		},
 		{
-			translationKey: I_TranslationKey.component_navbar_projects,
+			translationKey: I_TraKeyNavbar.projects,
 			target: refProjects,
 			element: Projects,
 		},

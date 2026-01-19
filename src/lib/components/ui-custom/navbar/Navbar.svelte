@@ -1,10 +1,10 @@
 <script lang="ts">
-	import IconifyIcon from "./IconifyIcon.svelte";
+	import IconifyIcon from "../IconifyIcon.svelte";
 	import * as State from "$lib/state/GlobalState.svelte";
-	import Button from "../ui/button/button.svelte";
-	import ModeToggle from "./preferences/ModeToggle.svelte";
-	import LangToggle from "./preferences/LangToggle.svelte";
-	import { translation } from "$lib/utils/translations";
+	import Button from "../../ui/button/button.svelte";
+	import ModeToggle from "../preferences/ModeToggle.svelte";
+	import LangToggle from "../preferences/LangToggle.svelte";
+	import { translateKey } from "./Navbar.translations";
 
 	let navMenuOpen = $state(false);
 	let refNavMenu = $state<HTMLDivElement>();
@@ -18,7 +18,7 @@
 				variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
 				class="text-md h-auto hover:cursor-pointer"
 			>
-				{translation(btn.translationKey)}
+				{translateKey(btn.translationKey)}
 			</Button>
 		{/each}
 	</div>
@@ -49,7 +49,7 @@
 					variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
 					class="p-2 hover:cursor-pointer"
 				>
-					{translation(btn.translationKey)}
+					{translateKey(btn.translationKey)}
 				</Button>
 			{/each}
 		</div>

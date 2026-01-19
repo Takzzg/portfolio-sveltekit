@@ -18,12 +18,14 @@ export const translation = (key: I_TranslationKey) => {
 	return text;
 };
 
-export type I_TranslationsDic<T extends string> = {
+export type I_TraKey = string;
+
+export type I_TranslationsDic<T extends I_TraKey> = {
 	en: Record<T, string>;
 	es: Record<T, string>;
 };
 
-export const getTranslation = <T extends string>(dictionary: I_TranslationsDic<T>, key: T) => {
+export const getTranslation = <T extends I_TraKey>(dictionary: I_TranslationsDic<T>, key: T) => {
 	let lang = getLang().key;
 
 	if (!Object.hasOwn(dictionary[lang], key)) {

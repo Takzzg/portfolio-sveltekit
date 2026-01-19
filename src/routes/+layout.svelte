@@ -4,7 +4,7 @@
 	import "../app.css";
 	import favicon from "$lib/assets/favicon.svg";
 	import { setSystemMode } from "$lib/state/GlobalState.svelte";
-	import Navbar from "$lib/components/ui-custom/Navbar.svelte";
+	import Navbar from "$lib/components/ui-custom/navbar/Navbar.svelte";
 	import AutoScrollBtns from "$lib/components/ui-custom/AutoScrollBtns.svelte";
 
 	let { children } = $props();
