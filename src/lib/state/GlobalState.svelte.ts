@@ -1,6 +1,4 @@
-import { I_TranslationKey } from "$lib/assets/translations/keys";
 import type { I_TraKeyNavbar } from "$lib/components/ui-custom/navbar/Navbar.translations";
-import type { I_TraKey } from "$lib/utils/translations";
 
 // dark / light mode
 type I_SystemMode = "dark" | "light";
