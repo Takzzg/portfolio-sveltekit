@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { getLang } from "./state/GlobalState.svelte";
-import type { I_TranslationKey } from "./assets/translations/keys";
+import { I_TranslationKey } from "./assets/translations/keys";
 import en from "./assets/translations/en";
 import es from "./assets/translations/es";
 

@@ -4,6 +4,7 @@
 	import LangToggle from "../ui-custom/preferences/LangToggle.svelte";
 	import ModeToggle from "../ui-custom/preferences/ModeToggle.svelte";
 	import Contact from "../ui-custom/Contact.svelte";
+	import { I_TranslationKey } from "$lib/assets/translations/keys";
 
 	let refPageSettings = $state<HTMLDivElement>();
 	// let refPaletteLeft = $state<HTMLDivElement>();
@@ -21,12 +22,12 @@
 	</div>
 {/snippet} -->
 
-<div class="relative flex h-full min-h-[800px] max-w-full flex-col items-center overflow-clip justify-center">
-	<h1 class="text-center text-5xl">{translation("splash_center_text_1")}</h1>
+<div class="relative flex h-full min-h-[800px] max-w-full flex-col items-center justify-center overflow-clip">
+	<h1 class="text-center text-5xl">{translation(I_TranslationKey.section_splash_center_text_1)}</h1>
 
 	<div class="p-10">
-		<h3 class="text-3xl">{translation("splash_center_text_2")}</h3>
-		<h5 class="text-2xl">{translation("splash_center_text_3")}</h5>
+		<h3 class="text-3xl">{translation(I_TranslationKey.section_splash_center_text_2)}</h3>
+		<h5 class="text-2xl">{translation(I_TranslationKey.section_splash_center_text_3)}</h5>
 	</div>
 
 	<Contact />

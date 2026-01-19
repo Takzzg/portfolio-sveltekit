@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Icons } from "$lib/assets/icons";
+	import { I_TranslationKey } from "$lib/assets/translations/keys";
 	import { URL_CV_ENGLISH, URL_CV_SPANISH, URL_GITHUB_PROFILE } from "$lib/assets/urls";
 	import { translation } from "$lib/utils";
 	import Button from "../ui/button/button.svelte";
@@ -17,7 +18,7 @@
 </script>
 
 <div class="mx-auto flex flex-col items-center justify-center gap-4 rounded-md border-2 p-4">
-	<span class="text-xl">{translation("component_contact_title")}</span>
+	<span class="text-xl">{translation(I_TranslationKey.component_contact_title)}</span>
 
 	<div class="flex items-center justify-center gap-2">
 		<Button variant="outline" class="cursor-pointer py-6" onclick={onClickEmail}>
@@ -49,6 +50,6 @@
 
 	<Button class="cursor-pointer" onclick={() => window.open(URL_GITHUB_PROFILE, "_blank")}>
 		<IconifyIcon icon={Icons.GITHUB} height="32px" width="32px" />
-		{translation("component_contact_action_github")}
+		{translation(I_TranslationKey.component_contact_action_github)}
 	</Button>
 </div>

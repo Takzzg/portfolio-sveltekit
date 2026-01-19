@@ -1,4 +1,4 @@
-import type { I_TranslationKey } from "$lib/assets/translations/keys";
+import { I_TranslationKey } from "$lib/assets/translations/keys";
 
 // dark / light mode
 type I_SystemMode = "dark" | "light";

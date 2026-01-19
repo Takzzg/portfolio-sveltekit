@@ -1,9 +1,9 @@
-import type { I_TranslationKey } from "./keys";
+import { I_TranslationKey } from "./keys";
 
 const es: Record<I_TranslationKey, string> = {
-	splash_center_text_1: "Bienvenido!",
-	splash_center_text_2: "Soy Guido",
-	splash_center_text_3: "desarrollador fullstack",
+	section_splash_center_text_1: "Bienvenido!",
+	section_splash_center_text_2: "Soy Guido",
+	section_splash_center_text_3: "desarrollador fullstack",
 	component_contact_title: "Contactáme!",
 	component_contact_action_github: "Visitá mi perfil de Github",
 	component_navbar_home: "Inicio",
