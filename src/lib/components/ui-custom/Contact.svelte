@@ -3,17 +3,22 @@
 	import { URL_CV_ENGLISH, URL_CV_SPANISH, URL_GITHUB_PROFILE } from "$lib/assets/urls";
 	import Button from "../ui/button/button.svelte";
 	import IconifyIcon from "./IconifyIcon.svelte";
+	import ToolTip from "./ToolTip.svelte";
+
+	let showTooltip = $state(false);
+
+	const onClickEmail = () => {
+		showTooltip = true;
+		navigator.clipboard.writeText("guido98q@gmail.com");
+		setTimeout(() => (showTooltip = false), 1000);
+	};
 </script>
 
 <div class="mx-auto flex flex-col items-center justify-center gap-4 rounded-md border-2 p-4">
 	<span class="text-xl">Get in contact</span>
 
 	<div class="flex items-center justify-center gap-2">
-		<Button
-			variant="outline"
-			class="cursor-pointer py-6"
-			onclick={() => navigator.clipboard.writeText("guido98q@gmail.com")}
-		>
+		<Button variant="outline" class="cursor-pointer py-6" onclick={onClickEmail}>
 			<span class="relative flex items-center">
 				<IconifyIcon icon={Icons.EMAIL} height="32px" width="32px" />
 				<span class="absolute -right-1 -bottom-0.5 flex rounded-full bg-background p-0.5">
@@ -25,6 +30,7 @@
 				<IconifyIcon icon={Icons.CLIPBOARD} height="24px" width="24px" />
 			</span>
 		</Button>
+		<ToolTip classes={showTooltip ? "block" : "hidden"} text={"Copied to clipboard!"} />
 	</div>
 
 	<div class="flex items-center justify-center gap-2">

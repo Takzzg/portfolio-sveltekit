@@ -3,6 +3,7 @@
 	import { URL_GITHUB_PROFILE } from "$lib/assets/urls";
 	import { AllProjects, type I_Project } from "../../assets/projects";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
+	import ToolTip from "../ui-custom/ToolTip.svelte";
 </script>
 
 {#snippet LinkBtn(text: string, icon: string, link?: string)}
@@ -24,11 +25,7 @@
 					<span class="flex group-hover:scale-125">
 						<IconifyIcon {icon} height="24px" width="24px" />
 					</span>
-					<span
-						class="pointer-events-none absolute z-10 hidden -translate-y-full border-2 bg-background p-1 group-hover:block"
-					>
-						{icon.split(":").at(-1)?.split("-")[0]}
-					</span>
+					<ToolTip classes="hidden group-hover:block" text={icon.split(":").at(-1)?.split("-")[0] ?? "ERROR"} />
 				</span>
 			{/each}
 		</span>
