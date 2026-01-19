@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Contact from "../ui-custom/Contact.svelte";
+	import Contact from "../ui-custom/contact/Contact.svelte";
 
 </script>
 

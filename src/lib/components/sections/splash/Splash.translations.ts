@@ -8,14 +8,14 @@ export enum I_TraKeySplash {
 
 const SplashDic: I_TranslationsDic<I_TraKeySplash> = {
 	en: {
-		[I_TraKeySplash.center_text_1]: "Welcome!",
-		[I_TraKeySplash.center_text_2]: "I'm Guido",
-		[I_TraKeySplash.center_text_3]: "fullstack developer",
+		center_text_1: "Welcome!",
+		center_text_2: "I'm Guido",
+		center_text_3: "fullstack developer",
 	},
 	es: {
-		[I_TraKeySplash.center_text_1]: "Bienvenido!",
-		[I_TraKeySplash.center_text_2]: "Soy Guido",
-		[I_TraKeySplash.center_text_3]: "desarrollador fullstack",
+		center_text_1: "Bienvenido!",
+		center_text_2: "Soy Guido",
+		center_text_3: "desarrollador fullstack",
 	},
 };
 

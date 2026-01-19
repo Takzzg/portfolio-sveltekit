@@ -1,11 +1,10 @@
 <script lang="ts">
 	import { Icons } from "$lib/assets/icons";
-	import { I_TranslationKey } from "$lib/assets/translations/keys";
 	import { URL_CV_ENGLISH, URL_CV_SPANISH, URL_GITHUB_PROFILE } from "$lib/assets/urls";
-	import { translation } from "$lib/utils/translations";
-	import Button from "../ui/button/button.svelte";
-	import IconifyIcon from "./IconifyIcon.svelte";
-	import ToolTip from "./ToolTip.svelte";
+	import Button from "../../ui/button/button.svelte";
+	import IconifyIcon from "../IconifyIcon.svelte";
+	import ToolTip from "../ToolTip.svelte";
+	import { I_TraKeyContact, translateKey } from "./Contact.translations";
 
 	let showTooltip = $state(false);
 	let email = "guido98q@gmail.com";
@@ -18,7 +17,7 @@
 </script>
 
 <div class="mx-auto flex flex-col items-center justify-center gap-4 rounded-md border-2 p-4">
-	<span class="text-xl">{translation(I_TranslationKey.component_contact_title)}</span>
+	<span class="text-xl">{translateKey(I_TraKeyContact.title)}</span>
 
 	<div class="flex items-center justify-center gap-2">
 		<Button variant="outline" class="cursor-pointer py-6" onclick={onClickEmail}>
@@ -50,6 +49,6 @@
 
 	<Button class="cursor-pointer" onclick={() => window.open(URL_GITHUB_PROFILE, "_blank")}>
 		<IconifyIcon icon={Icons.GITHUB} height="32px" width="32px" />
-		{translation(I_TranslationKey.component_contact_action_github)}
+		{translateKey(I_TraKeyContact.action_github)}
 	</Button>
 </div>
