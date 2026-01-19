@@ -1,3 +1,5 @@
+import type { I_TranslationKey } from "$lib/assets/translations/keys";
+
 // dark / light mode
 type I_SystemMode = "dark" | "light";
 export type I_Mode = I_SystemMode | "system";
@@ -31,7 +33,7 @@ export const LANGUAGES: Record<I_LangKey, I_Lang> = {
 
 // nav bar tabs
 type I_SectionBtn = {
-	text: string;
+	translationKey: I_TranslationKey;
 	index: number;
 };
 

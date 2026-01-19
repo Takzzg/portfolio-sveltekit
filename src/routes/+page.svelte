@@ -7,6 +7,8 @@
 	import Splash from "$lib/components/sections/Splash.svelte";
 	import Portfolio from "$lib/components/sections/Portfolio.svelte";
 	import Skills from "$lib/components/sections/Skills.svelte";
+	import type { I_TranslationKey } from "$lib/assets/translations/keys";
+	import type { Component } from "svelte";
 
 	let height: number = $state(0);
 
@@ -17,36 +19,39 @@
 	let refProjects = $state<HTMLDivElement>();
 	let refPortfolio = $state<HTMLDivElement>();
 
-	let sections = $derived([
+	let sections: { translationKey: I_TranslationKey; target: HTMLDivElement | undefined; element: Component }[] = [
 		{
-			text: "Home",
+			translationKey: "component_navbar_home",
 			target: refSplash,
 			element: Splash,
 		},
 		{
-			text: "Skills",
+			translationKey: "component_navbar_skills",
 			target: refSkills,
 			element: Skills,
 		},
 		{
-			text: "About Me",
+			translationKey: "component_navbar_about_me",
 			target: refAboutMe,
 			element: AboutMe,
 		},
-        {
-            text: "Portfolio",
-            target: refPortfolio,
-            element: Portfolio,
-        },
 		{
-			text: "Projects",
+			translationKey: "component_navbar_portfolio",
+			target: refPortfolio,
+			element: Portfolio,
+		},
+		{
+			translationKey: "component_navbar_projects",
 			target: refProjects,
 			element: Projects,
 		},
-	]);
+	];
 
 	$effect(() => {
-		const buttons = sections.map((sec) => ({ text: sec.text, index: sections.indexOf(sec) }));
+		const buttons = sections.map((sec) => ({
+			translationKey: sec.translationKey,
+			index: sections.indexOf(sec),
+		}));
 		State.setScrollButtons(buttons);
 		State.setScrollFn(scrollToIndex);
 	});

@@ -4,6 +4,7 @@
 	import Button from "../ui/button/button.svelte";
 	import ModeToggle from "./preferences/ModeToggle.svelte";
 	import LangToggle from "./preferences/LangToggle.svelte";
+	import { translation } from "$lib/utils";
 
 	let navMenuOpen = $state(false);
 	let refNavMenu = $state<HTMLDivElement>();
@@ -11,13 +12,13 @@
 
 {#snippet desktopNavbar()}
 	<div class="hidden items-center gap-2 lg:flex">
-		{#each State.getScrollButtons() as btn (btn.text)}
+		{#each State.getScrollButtons() as btn}
 			<Button
 				onclick={() => State.scrollToIndex(btn.index)}
 				variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
-				class="hover:cursor-pointer text-md h-auto"
+				class="text-md h-auto hover:cursor-pointer"
 			>
-				{btn.text}
+				{translation(btn.translationKey)}
 			</Button>
 		{/each}
 	</div>
@@ -39,7 +40,7 @@
 			style={navMenuOpen ? "left: 0px" : `left: -${refNavMenu?.clientWidth}px`}
 			class="absolute top-full flex flex-col gap-2 bg-background p-2 transition-[left]"
 		>
-			{#each State.getScrollButtons() as btn (btn.text)}
+			{#each State.getScrollButtons() as btn}
 				<Button
 					onclick={() => {
 						State.scrollToIndex(btn.index);
@@ -48,7 +49,7 @@
 					variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
 					class="p-2 hover:cursor-pointer"
 				>
-					{btn.text}
+					{translation(btn.translationKey)}
 				</Button>
 			{/each}
 		</div>
@@ -65,7 +66,7 @@
 		<!-- settings -->
 		<div class="flex items-center gap-2">
 			<ModeToggle type="list" />
-			<LangToggle type="list"/>
+			<LangToggle type="list" />
 		</div>
 	</div>
 </div>

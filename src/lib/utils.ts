@@ -17,7 +17,16 @@ export type WithoutChildrenOrChild<T> = WithoutChildren<WithoutChild<T>>;
 export type WithElementRef<T, U extends HTMLElement = HTMLElement> = T & { ref?: U | null };
 
 export const translation = (key: I_TranslationKey) => {
-	let selected = getLang().key;
-	if (selected == "en") return en[key];
-	else if (selected == "es") return es[key];
+	let lang = getLang().key;
+	let text = undefined;
+
+	if (lang == "en") text = en[key];
+	else if (lang == "es") text = es[key];
+
+	if (text == undefined) {
+		console.error(`No translation found, lang: ${lang}, key: ${key}`);
+		text = "ERROR_NO_TRANSLATION";
+    }
+    
+	return text;
 };
