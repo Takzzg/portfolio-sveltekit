@@ -1,9 +1,10 @@
 <script lang="ts">
-	import MarkdownHeader from "../markdown/MarkdownHeader.svelte";
-	import MarkdownBody from "../markdown/MarkdownBody.svelte";
-	import { Button } from "../ui/button";
-	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
+	import MarkdownHeader from "../../markdown/MarkdownHeader.svelte";
+	import MarkdownBody from "../../markdown/MarkdownBody.svelte";
+	import { Button } from "../../ui/button";
+	import IconifyIcon from "../../ui-custom/IconifyIcon.svelte";
 	import { TechCategories, type I_Category, type I_Technology } from "$lib/assets/technologies";
+	import { I_TraKeySkills, translateKey } from "./Skills.translations";
 
 	// dom refs
 	let refParent = $state<HTMLDivElement>();
@@ -39,7 +40,7 @@
 	</div>
 {/snippet}
 
-<div class="flex h-full gap-2 flex-col items-center overflow-hidden lg:grid lg:grid-cols-[auto_1fr] lg:items-start">
+<div class="flex h-full flex-col items-center gap-2 overflow-hidden lg:grid lg:grid-cols-[auto_1fr] lg:items-start">
 	<div class="max-h-full overflow-y-auto p-4 px-4">
 		<div class="grid gap-2">
 			{#each Object.values(TechCategories) as cat}
@@ -50,7 +51,7 @@
 
 	<div bind:this={refParent} class="grid h-full w-full grid-rows-[auto_1fr] items-center overflow-hidden border-l-2">
 		<div class="flex w-full justify-center border-b-2">
-			<MarkdownHeader selected={selectedTech} defaultTitle="Main Skills" />
+			<MarkdownHeader selected={selectedTech} defaultTitle={translateKey(I_TraKeySkills.md_title)} />
 		</div>
 
 		<MarkdownBody selected={selectedTech} />

@@ -6,7 +6,7 @@
 	import Projects from "$lib/components/sections/Projects.svelte";
 	import Splash from "$lib/components/sections/splash/Splash.svelte";
 	import Portfolio from "$lib/components/sections/Portfolio.svelte";
-	import Skills from "$lib/components/sections/Skills.svelte";
+	import Skills from "$lib/components/sections/skills/Skills.svelte";
 	import type { Component } from "svelte";
 	import { I_TraKeyNavbar } from "$lib/components/ui-custom/navbar/Navbar.translations";
 
