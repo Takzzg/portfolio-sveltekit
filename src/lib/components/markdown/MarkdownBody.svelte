@@ -1,6 +1,6 @@
 <script lang="ts">
 	import "./github-markdown.css";
-	import { getMode, getSystemMode } from "../../state/GlobalState.svelte";
+	import { getTheme, getSystemTheme } from "../../state/GlobalState.svelte";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 	import type { I_Technology } from "$lib/assets/technologies";
 	import { URL_GITHUB_API } from "$lib/assets/urls";
@@ -11,7 +11,7 @@
 	let md = $state<any | null>(null);
 	let scrollable = $state<HTMLDivElement>();
 
-	let darkTheme = $derived(getMode() == "dark" || (getMode() == "system" && getSystemMode() == "dark"));
+	let darkTheme = $derived(getTheme() == "dark" || (getTheme() == "system" && getSystemTheme() == "dark"));
 
 	const fetchReadme = async (github: string) => {
 		loadingMD = true;

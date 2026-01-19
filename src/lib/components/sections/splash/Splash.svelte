@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Intersection from "../../ui-custom/Intersection.svelte";
 	import LangToggle from "../../ui-custom/preferences/LangToggle.svelte";
-	import ModeToggle from "../../ui-custom/preferences/ModeToggle.svelte";
+	import ThemeToggle from "../../ui-custom/preferences/ThemeToggle.svelte";
 	import Contact from "../../ui-custom/contact/Contact.svelte";
 	import { I_TraKeySplash, translateKey } from "./Splash.translations";
 
@@ -45,7 +45,7 @@
 
 				<span>Theme</span>
 				<div class="flex gap-2">
-					<ModeToggle type="icons" />
+					<ThemeToggle type="icons" />
 				</div>
 			</div>
 		</div>

@@ -1,10 +1,10 @@
 import type { I_TraKeyNavbar } from "$lib/components/ui-custom/navbar/Navbar.translations";
 
-// dark / light mode
-type I_SystemMode = "dark" | "light";
-export type I_Mode = I_SystemMode | "system";
+// dark / light theme
+type I_SystemTheme = "dark" | "light";
+export type I_Theme = I_SystemTheme | "system";
 
-export const MODES: Record<I_Mode, I_Mode> = {
+export const THEMES: Record<I_Theme, I_Theme> = {
 	dark: "dark",
 	light: "light",
 	system: "system",
@@ -39,9 +39,9 @@ type I_SectionBtn = {
 
 type I_State = {
 	lang: I_Lang;
-	mode: {
-		currentMode: I_Mode;
-		systemMode: I_SystemMode;
+	theme: {
+		currentTheme: I_Theme;
+		systemTheme: I_SystemTheme;
 	};
 	scroll: {
 		currentSection: number;
@@ -52,9 +52,9 @@ type I_State = {
 
 const INITIAL_STATE: I_State = {
 	lang: LANGUAGES["en"],
-	mode: {
-		currentMode: "system",
-		systemMode: "dark",
+	theme: {
+		currentTheme: "system",
+		systemTheme: "dark",
 	},
 	scroll: {
 		currentSection: 0,
@@ -77,25 +77,25 @@ export const setLang = (lang: I_LangKey) => {
 	globalState.lang = LANGUAGES[lang];
 };
 
-// ------------- Mode -------------
+// ------------- Theme -------------
 
-export const getMode = () => {
-	return globalState.mode.currentMode;
+export const getTheme = () => {
+	return globalState.theme.currentTheme;
 };
 
-export const setMode = (mode: I_Mode) => {
-	let enabled: boolean = mode == "dark" || (mode == "system" && globalState.mode.systemMode == "dark");
-	globalState.mode.currentMode = mode;
+export const setTheme = (theme: I_Theme) => {
+	let enabled: boolean = theme == "dark" || (theme == "system" && globalState.theme.systemTheme == "dark");
+	globalState.theme.currentTheme = theme;
 	document.body.classList.toggle("dark", enabled);
 };
 
-export const getSystemMode = () => {
-	return globalState.mode.systemMode;
+export const getSystemTheme = () => {
+	return globalState.theme.systemTheme;
 };
 
-export const setSystemMode = (mode: I_SystemMode) => {
-	globalState.mode.systemMode = mode;
-	setMode("system");
+export const setSystemTheme = (theme: I_SystemTheme) => {
+	globalState.theme.systemTheme = theme;
+	setTheme("system");
 };
 
 // ------------- Scroll -------------

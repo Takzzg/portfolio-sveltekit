@@ -2,7 +2,7 @@
 	import IconifyIcon from "../IconifyIcon.svelte";
 	import * as State from "$lib/state/GlobalState.svelte";
 	import Button from "../../ui/button/button.svelte";
-	import ModeToggle from "../preferences/ModeToggle.svelte";
+	import ThemeToggle from "../preferences/ThemeToggle.svelte";
 	import LangToggle from "../preferences/LangToggle.svelte";
 	import { translateKey } from "./Navbar.translations";
 
@@ -26,13 +26,7 @@
 
 {#snippet desktopMobile()}
 	<div class="z-10 flex items-center lg:hidden">
-		<Button
-			variant="ghost"
-			class="p-2 hover:cursor-pointer"
-			onclick={() => {
-				navMenuOpen = !navMenuOpen;
-			}}
-		>
+		<Button variant="ghost" class="p-2 hover:cursor-pointer" onclick={() => (navMenuOpen = !navMenuOpen)}>
 			<IconifyIcon icon={navMenuOpen ? "lucide:x" : "lucide:menu"} height="32px" width="32px" />
 		</Button>
 		<div
@@ -65,7 +59,7 @@
 
 		<!-- settings -->
 		<div class="flex items-center gap-2">
-			<ModeToggle type="list" />
+			<ThemeToggle type="list" />
 			<LangToggle type="list" />
 		</div>
 	</div>
