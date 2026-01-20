@@ -1,12 +1,14 @@
 <script lang="ts">
 	import type { UIEventHandler } from "svelte/elements";
 
-	import AboutMe from "$lib/components/sections/AboutMe.svelte";
+	import AboutMe from "$lib/components/sections/aboutMe/AboutMe.svelte";
 	import * as State from "$lib/state/GlobalState.svelte";
 	import Projects from "$lib/components/sections/Projects.svelte";
-	import Splash from "$lib/components/sections/Splash.svelte";
+	import Splash from "$lib/components/sections/splash/Splash.svelte";
 	import Portfolio from "$lib/components/sections/Portfolio.svelte";
-	import Skills from "$lib/components/sections/Skills.svelte";
+	import Skills from "$lib/components/sections/skills/Skills.svelte";
+	import type { Component } from "svelte";
+	import { I_TraKeyNavbar } from "$lib/components/ui-custom/navbar/Navbar.translations";
 
 	let height: number = $state(0);
 
@@ -17,36 +19,39 @@
 	let refProjects = $state<HTMLDivElement>();
 	let refPortfolio = $state<HTMLDivElement>();
 
-	let sections = $derived([
+	let sections: { translationKey: I_TraKeyNavbar; target: HTMLDivElement | undefined; element: Component }[] = [
 		{
-			text: "Home",
+			translationKey: I_TraKeyNavbar.home,
 			target: refSplash,
 			element: Splash,
 		},
 		{
-			text: "Skills",
+			translationKey: I_TraKeyNavbar.skills,
 			target: refSkills,
 			element: Skills,
 		},
 		{
-			text: "About Me",
+			translationKey: I_TraKeyNavbar.about_me,
 			target: refAboutMe,
 			element: AboutMe,
 		},
-        {
-            text: "Portfolio",
-            target: refPortfolio,
-            element: Portfolio,
-        },
 		{
-			text: "Projects",
+			translationKey: I_TraKeyNavbar.portfolio,
+			target: refPortfolio,
+			element: Portfolio,
+		},
+		{
+			translationKey: I_TraKeyNavbar.projects,
 			target: refProjects,
 			element: Projects,
 		},
-	]);
+	];
 
 	$effect(() => {
-		const buttons = sections.map((sec) => ({ text: sec.text, index: sections.indexOf(sec) }));
+		const buttons = sections.map((sec) => ({
+			translationKey: sec.translationKey,
+			index: sections.indexOf(sec),
+		}));
 		State.setScrollButtons(buttons);
 		State.setScrollFn(scrollToIndex);
 	});

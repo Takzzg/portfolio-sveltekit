@@ -1,15 +1,16 @@
 <script lang="ts">
-	import Intersection from "../ui-custom/Intersection.svelte";
-	import { translate } from "$lib/utils";
-	import LangToggle from "../ui-custom/preferences/LangToggle.svelte";
-	import ModeToggle from "../ui-custom/preferences/ModeToggle.svelte";
-	import Contact from "../ui-custom/Contact.svelte";
+	import Intersection from "../../ui-custom/Intersection.svelte";
+	import LangToggle from "../../ui-custom/preferences/LangToggle.svelte";
+	import ThemeToggle from "../../ui-custom/preferences/ThemeToggle.svelte";
+	import Contact from "../../ui-custom/contact/Contact.svelte";
+	import { I_TraKeySplash, translateKey } from "./Splash.translations";
 
 	let refPageSettings = $state<HTMLDivElement>();
 	// let refPaletteLeft = $state<HTMLDivElement>();
 	// let refPaletteRight = $state<HTMLDivElement>();
 </script>
 
+<!-- !TODO -->
 <!-- {#snippet palette()}
 	<div class="flex gap-2 bg-background p-2 lg:flex-col">
 		<div class="flex w-8 -rotate-90 items-center justify-center p-2 lg:w-auto lg:rotate-0">background</div>
@@ -21,12 +22,12 @@
 	</div>
 {/snippet} -->
 
-<div class="relative flex h-full min-h-[800px] max-w-full flex-col items-center overflow-clip justify-center">
-	<h1 class="text-center text-5xl">{translate("splash_center_text_1")}</h1>
+<div class="relative flex h-full min-h-[800px] max-w-full flex-col items-center justify-center overflow-clip">
+	<h1 class="text-center text-5xl">{translateKey(I_TraKeySplash.center_text_1)}</h1>
 
 	<div class="p-10">
-		<h3 class="text-3xl">{translate("splash_center_text_2")}</h3>
-		<h5 class="text-2xl">{translate("splash_center_text_3")}</h5>
+		<h3 class="text-3xl">{translateKey(I_TraKeySplash.center_text_2)}</h3>
+		<h5 class="text-2xl">{translateKey(I_TraKeySplash.center_text_3)}</h5>
 	</div>
 
 	<Contact />
@@ -45,7 +46,7 @@
 
 				<span>Theme</span>
 				<div class="flex gap-2">
-					<ModeToggle type="icons" />
+					<ThemeToggle type="icons" />
 				</div>
 			</div>
 		</div>

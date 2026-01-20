@@ -3,8 +3,8 @@
 
 	import "../app.css";
 	import favicon from "$lib/assets/favicon.svg";
-	import { setSystemMode } from "$lib/state/GlobalState.svelte";
-	import Navbar from "$lib/components/ui-custom/Navbar.svelte";
+	import { setSystemTheme } from "$lib/state/GlobalState.svelte";
+	import Navbar from "$lib/components/ui-custom/navbar/Navbar.svelte";
 	import AutoScrollBtns from "$lib/components/ui-custom/AutoScrollBtns.svelte";
 
 	let { children } = $props();
@@ -14,11 +14,11 @@
 		let userPrefScheme: MediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
 
 		// update global state
-		setSystemMode(userPrefScheme.matches ? "dark" : "light");
+		setSystemTheme(userPrefScheme.matches ? "dark" : "light");
 
 		// update on change
 		userPrefScheme.addEventListener("change", (e) => {
-			setSystemMode(e.matches ? "dark" : "light");
+			setSystemTheme(e.matches ? "dark" : "light");
 		});
 	});
 </script>

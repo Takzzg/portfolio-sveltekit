@@ -1,9 +1,10 @@
 <script lang="ts">
-	import IconifyIcon from "./IconifyIcon.svelte";
+	import IconifyIcon from "../IconifyIcon.svelte";
 	import * as State from "$lib/state/GlobalState.svelte";
-	import Button from "../ui/button/button.svelte";
-	import ModeToggle from "./preferences/ModeToggle.svelte";
-	import LangToggle from "./preferences/LangToggle.svelte";
+	import Button from "../../ui/button/button.svelte";
+	import ThemeToggle from "../preferences/ThemeToggle.svelte";
+	import LangToggle from "../preferences/LangToggle.svelte";
+	import { translateKey } from "./Navbar.translations";
 
 	let navMenuOpen = $state(false);
 	let refNavMenu = $state<HTMLDivElement>();
@@ -11,13 +12,13 @@
 
 {#snippet desktopNavbar()}
 	<div class="hidden items-center gap-2 lg:flex">
-		{#each State.getScrollButtons() as btn (btn.text)}
+		{#each State.getScrollButtons() as btn}
 			<Button
 				onclick={() => State.scrollToIndex(btn.index)}
 				variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
-				class="hover:cursor-pointer text-md h-auto"
+				class="text-md h-auto hover:cursor-pointer"
 			>
-				{btn.text}
+				{translateKey(btn.translationKey)}
 			</Button>
 		{/each}
 	</div>
@@ -25,13 +26,7 @@
 
 {#snippet desktopMobile()}
 	<div class="z-10 flex items-center lg:hidden">
-		<Button
-			variant="ghost"
-			class="p-2 hover:cursor-pointer"
-			onclick={() => {
-				navMenuOpen = !navMenuOpen;
-			}}
-		>
+		<Button variant="ghost" class="p-2 hover:cursor-pointer" onclick={() => (navMenuOpen = !navMenuOpen)}>
 			<IconifyIcon icon={navMenuOpen ? "lucide:x" : "lucide:menu"} height="32px" width="32px" />
 		</Button>
 		<div
@@ -39,7 +34,7 @@
 			style={navMenuOpen ? "left: 0px" : `left: -${refNavMenu?.clientWidth}px`}
 			class="absolute top-full flex flex-col gap-2 bg-background p-2 transition-[left]"
 		>
-			{#each State.getScrollButtons() as btn (btn.text)}
+			{#each State.getScrollButtons() as btn}
 				<Button
 					onclick={() => {
 						State.scrollToIndex(btn.index);
@@ -48,7 +43,7 @@
 					variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
 					class="p-2 hover:cursor-pointer"
 				>
-					{btn.text}
+					{translateKey(btn.translationKey)}
 				</Button>
 			{/each}
 		</div>
@@ -64,8 +59,8 @@
 
 		<!-- settings -->
 		<div class="flex items-center gap-2">
-			<ModeToggle type="list" />
-			<LangToggle type="list"/>
+			<ThemeToggle type="list" />
+			<LangToggle type="list" />
 		</div>
 	</div>
 </div>
