@@ -10,6 +10,7 @@
 	// let refPaletteRight = $state<HTMLDivElement>();
 </script>
 
+<!-- !TODO -->
 <!-- {#snippet palette()}
 	<div class="flex gap-2 bg-background p-2 lg:flex-col">
 		<div class="flex w-8 -rotate-90 items-center justify-center p-2 lg:w-auto lg:rotate-0">background</div>
