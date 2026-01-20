@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { UIEventHandler } from "svelte/elements";
 
-	import AboutMe from "$lib/components/sections/AboutMe.svelte";
+	import AboutMe from "$lib/components/sections/aboutMe/AboutMe.svelte";
 	import * as State from "$lib/state/GlobalState.svelte";
 	import Projects from "$lib/components/sections/Projects.svelte";
 	import Splash from "$lib/components/sections/splash/Splash.svelte";

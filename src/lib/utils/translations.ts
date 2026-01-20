@@ -15,5 +15,12 @@ export const getTranslation = <T extends I_TraKey>(dictionary: I_TranslationsDic
 		return "ERROR_NO_TRANSLATION";
 	}
 
-	return dictionary[lang][key];
+	let value = dictionary[lang][key];
+
+	if (value == "") {
+		console.error(`Empty translation found, lang: ${lang}, key: ${key}`);
+		return "ERROR_EMPTY_TRANSLATION";
+	}
+
+	return value;
 };
