@@ -1,4 +1,4 @@
-import { getTranslation, type I_TranslationsDic } from "$lib/utils/translations";
+import { getTranslationNew, type I_TranslationsDicNew } from "$lib/utils/translations";
 
 export enum I_TraKeySplash {
 	center_text_1 = "center_text_1",
@@ -6,19 +6,21 @@ export enum I_TraKeySplash {
 	center_text_3 = "center_text_3",
 }
 
-const SplashDic: I_TranslationsDic<I_TraKeySplash> = {
-	en: {
-		center_text_1: "Welcome!",
-		center_text_2: "I'm Guido",
-		center_text_3: "fullstack developer",
+const SplashDic: I_TranslationsDicNew<I_TraKeySplash> = {
+	[I_TraKeySplash.center_text_1]: {
+		en: "Welcome!",
+		es: "Bienvenido!",
 	},
-	es: {
-		center_text_1: "Bienvenido!",
-		center_text_2: "Soy Guido",
-		center_text_3: "desarrollador fullstack",
+	[I_TraKeySplash.center_text_2]: {
+		en: "I'm Guido",
+		es: "Soy Guido",
+	},
+	[I_TraKeySplash.center_text_3]: {
+		en: "fullstack developer",
+		es: "desarrollador fullstack",
 	},
 };
 
-export const translateKey = (key: I_TraKeySplash) => {
-	return getTranslation(SplashDic, key);
+export const findTranslation = (key: I_TraKeySplash) => {
+	return getTranslationNew(SplashDic, key);
 };

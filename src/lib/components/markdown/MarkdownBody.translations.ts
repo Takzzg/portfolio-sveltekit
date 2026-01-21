@@ -19,6 +19,6 @@ const MarkdownBodyDic: I_TranslationsDic<I_TraKeyMarkdownBody> = {
     },
 };
 
-export const translateKey = (key: I_TraKeyMarkdownBody) => {
+export const findTranslation = (key: I_TraKeyMarkdownBody) => {
 	return getTranslation(MarkdownBodyDic, key);
 };

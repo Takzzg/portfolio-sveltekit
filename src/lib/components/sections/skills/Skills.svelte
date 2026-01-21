@@ -4,7 +4,7 @@
 	import { Button } from "../../ui/button";
 	import IconifyIcon from "../../ui-custom/IconifyIcon.svelte";
 	import { TechCategories, type I_Category, type I_Technology } from "$lib/assets/technologies";
-	import { I_TraKeySkills, translateKey } from "./Skills.translations";
+	import { I_TraKeySkills, findTranslation } from "./Skills.translations";
 
 	// dom refs
 	let refParent = $state<HTMLDivElement>();
@@ -51,7 +51,7 @@
 
 	<div bind:this={refParent} class="grid h-full w-full grid-rows-[auto_1fr] items-center overflow-hidden border-l-2">
 		<div class="flex w-full justify-center border-b-2">
-			<MarkdownHeader selected={selectedTech} defaultTitle={translateKey(I_TraKeySkills.md_title)} />
+			<MarkdownHeader selected={selectedTech} defaultTitle={findTranslation(I_TraKeySkills.md_title)} />
 		</div>
 
 		<MarkdownBody selected={selectedTech} />

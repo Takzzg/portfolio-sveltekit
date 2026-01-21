@@ -4,7 +4,7 @@
 	import Button from "../../ui/button/button.svelte";
 	import IconifyIcon from "../IconifyIcon.svelte";
 	import ToolTip from "../ToolTip.svelte";
-	import { I_TraKeyContact, translateKey } from "./Contact.translations";
+	import { I_TraKeyContact, findTranslation } from "./Contact.translations";
 
 	let showTooltip = $state(false);
 	let email = "guido98q@gmail.com";
@@ -17,7 +17,7 @@
 </script>
 
 <div class="mx-auto flex flex-col items-center justify-center gap-4 rounded-md border-2 p-4">
-	<span class="text-xl">{translateKey(I_TraKeyContact.title)}</span>
+	<span class="text-xl">{findTranslation(I_TraKeyContact.title)}</span>
 
 	<div class="flex items-center justify-center gap-2">
 		<Button variant="outline" class="cursor-pointer py-6" onclick={onClickEmail}>
@@ -49,6 +49,6 @@
 
 	<Button class="cursor-pointer" onclick={() => window.open(URL_GITHUB_PROFILE, "_blank")}>
 		<IconifyIcon icon={Icons.GITHUB} height="32px" width="32px" />
-		{translateKey(I_TraKeyContact.action_github)}
+		{findTranslation(I_TraKeyContact.action_github)}
 	</Button>
 </div>

@@ -17,6 +17,6 @@ const AboutMeDic: I_TranslationsDic<I_TraKeyAboutMe> = {
 	},
 };
 
-export const translateKey = (key: I_TraKeyAboutMe) => {
+export const findTranslation = (key: I_TraKeyAboutMe) => {
 	return getTranslation(AboutMeDic, key);
 };

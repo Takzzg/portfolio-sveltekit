@@ -1,10 +1,6 @@
 import { AllTechnologies, E_Technologies, PortfolioTechs } from "./technologies";
 import { Icons } from "./icons";
-
-type I_Translation = {
-	en: string;
-	es: string;
-};
+import type { I_Translation } from "$lib/utils/translations";
 
 export type I_Project = {
 	id: string;

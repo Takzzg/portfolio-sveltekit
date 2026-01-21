@@ -28,6 +28,6 @@ const ThemeToggleDic: I_TranslationsDic<I_traKeyThemeToggle> = {
 	},
 };
 
-export const translateKey = (key: I_traKeyThemeToggle) => {
+export const findTranslation = (key: I_traKeyThemeToggle) => {
 	return getTranslation(ThemeToggleDic, key);
 };

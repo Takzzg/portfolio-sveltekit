@@ -16,6 +16,6 @@ const ContactDic: I_TranslationsDic<I_TraKeyContact> = {
 	},
 };
 
-export const translateKey = (key: I_TraKeyContact) => {
+export const findTranslation = (key: I_TraKeyContact) => {
 	return getTranslation(ContactDic, key);
 };

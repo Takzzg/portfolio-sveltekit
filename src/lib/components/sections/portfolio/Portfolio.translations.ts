@@ -16,6 +16,6 @@ const PortfolioDic: I_TranslationsDic<I_TraKeyPortfolio> = {
     },
 };
 
-export const translateKey = (key: I_TraKeyPortfolio) => {
+export const findTranslation = (key: I_TraKeyPortfolio) => {
 	return getTranslation(PortfolioDic, key);
 };

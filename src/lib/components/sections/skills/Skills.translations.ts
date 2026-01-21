@@ -13,6 +13,6 @@ const SkillsDic: I_TranslationsDic<I_TraKeySkills> = {
     },
 };
 
-export const translateKey = (key: I_TraKeySkills) => {
+export const findTranslation = (key: I_TraKeySkills) => {
 	return getTranslation(SkillsDic, key);
 };

@@ -25,6 +25,6 @@ const NavbarDic: I_TranslationsDic<I_TraKeyNavbar> = {
 	},
 };
 
-export const translateKey = (key: I_TraKeyNavbar) => {
+export const findTranslation = (key: I_TraKeyNavbar) => {
 	return getTranslation(NavbarDic, key);
 };
