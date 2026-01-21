@@ -12,7 +12,7 @@
 	const onClickEmail = () => {
 		showTooltip = true;
 		navigator.clipboard.writeText(email);
-		setTimeout(() => (showTooltip = false), 1000);
+		setTimeout(() => (showTooltip = false), 1500);
 	};
 </script>
 
