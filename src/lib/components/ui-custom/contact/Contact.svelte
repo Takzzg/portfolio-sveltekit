@@ -28,7 +28,7 @@
 				</span>
 			</span>
 			{email}
-			<span class="flex items-center opacity-15">
+			<span class="flex items-center">
 				<IconifyIcon icon={Icons.CLIPBOARD} height="24px" width="24px" />
 			</span>
 		</Button>
