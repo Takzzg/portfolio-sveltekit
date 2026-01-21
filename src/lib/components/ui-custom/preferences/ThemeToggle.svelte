@@ -12,7 +12,7 @@
 	import { getTheme, THEMES, setTheme, type I_Theme } from "$lib/state/GlobalState.svelte";
 	import PreferenceIcon from "./PreferenceIcon.svelte";
 	import { Icons } from "$lib/assets/icons";
-	import { I_traKeyThemeToggle, findTranslation } from "./ThemeToggle.translations";
+	import { E_TranslationKeyThemeToggle, findTranslation } from "./ThemeToggle.translations";
 
 	let { type }: { type: "icons" | "list" } = $props();
 </script>
@@ -33,13 +33,13 @@
 <!-- (dark / light / system) theme - icon + pretty name -->
 {#snippet listOption(theme: I_Theme)}
 	{@render themeIcon(theme)}
-	{findTranslation((theme + "_theme") as I_traKeyThemeToggle)}
+	{findTranslation((theme + "_theme") as E_TranslationKeyThemeToggle)}
 {/snippet}
 
 {#if type == "icons"}
 	{#each Object.values(THEMES).reverse() as theme}
 		<PreferenceIcon
-			text={findTranslation(theme as I_traKeyThemeToggle)}
+			text={findTranslation(theme as E_TranslationKeyThemeToggle)}
 			selected={getTheme() == theme}
 			onClick={() => setTheme(theme)}
 		>
