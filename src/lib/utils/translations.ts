@@ -9,27 +9,21 @@ export type I_Translation = {
 
 export type I_TranslationsDictionary<K extends I_TranslationKey> = Record<K, I_Translation>;
 
-export const getTranslation = <T extends I_TranslationKey>(dictionary: I_TranslationsDictionary<T>, key: T) => {
+export const getTranslation = <K extends I_TranslationKey>(dictionary: I_TranslationsDictionary<K>, key: K) => {
 	if (!Object.hasOwn(dictionary, key)) {
 		console.error(`Translation key not found, key: ${key}`);
 		return "ERROR_MISSING_TRANSLATION_KEY";
 	}
 
-	return translate(dictionary[key]);
+	return translate(dictionary[key], key);
 };
 
-export const translate = (translation: I_Translation) => {
+export const translate = (translation: I_Translation, key?: string) => {
 	let lang = getLang().key;
-
-	if (!Object.hasOwn(translation, lang)) {
-		console.error(`No translation found, lang: ${lang}`);
-		return "ERROR_MISSING_TRANSLATION";
-	}
-
 	let value = translation[lang];
 
 	if (value == "") {
-		console.error(`Empty translation found, lang: ${lang}`);
+		console.error(`Empty translation found, lang: ${lang}, key: ${key ?? "inlined_translation"}`);
 		return "ERROR_EMPTY_TRANSLATION";
 	}
 
