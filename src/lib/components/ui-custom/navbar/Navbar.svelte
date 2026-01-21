@@ -1,9 +1,9 @@
 <script lang="ts">
-	import IconifyIcon from "../IconifyIcon.svelte";
-	import * as State from "$lib/state/GlobalState.svelte";
-	import Button from "../../ui/button/button.svelte";
-	import ThemeToggle from "../preferences/ThemeToggle.svelte";
-	import LangToggle from "../preferences/LangToggle.svelte";
+	import Button from "$lib/components/ui/button/button.svelte";
+	import * as State from "$lib/state/scroll.svelte";
+	import IconifyIcon from "$lib/components/ui-custom/IconifyIcon.svelte";
+	import LangToggle from "$lib/components/ui-custom/preferences/LangToggle.svelte";
+	import ThemeToggle from "$lib/components/ui-custom/preferences/ThemeToggle.svelte";
 	import { findTranslation } from "./Navbar.translations";
 
 	let navMenuOpen = $state(false);
