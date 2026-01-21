@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Intersection from "../../ui-custom/Intersection.svelte";
-	import LangToggle from "../../ui-custom/preferences/LangToggle.svelte";
-	import ThemeToggle from "../../ui-custom/preferences/ThemeToggle.svelte";
-	import Contact from "../../ui-custom/contact/Contact.svelte";
+	import Intersection from "$lib/components/ui-custom/Intersection.svelte";
+	import LangToggle from "$lib/components/ui-custom/preferences/LangToggle.svelte";
+	import ThemeToggle from "$lib/components/ui-custom/preferences/ThemeToggle.svelte";
+	import Contact from "$lib/components/ui-custom/contact/Contact.svelte";
 	import { E_TranslationKeySplash, findTranslation } from "./Splash.translations";
 
 	let refPageSettings = $state<HTMLDivElement>();
@@ -39,12 +39,12 @@
 	>
 		<div bind:this={refPageSettings} class="show hideLeft">
 			<div class="flex flex-col gap-2 rounded-md border-2 bg-background p-4">
-				<span>Language</span>
+				<span>{findTranslation(E_TranslationKeySplash.prefs_language)}</span>
 				<div class="flex gap-2">
 					<LangToggle type="icons" />
 				</div>
 
-				<span>Theme</span>
+				<span>{findTranslation(E_TranslationKeySplash.prefs_theme)}</span>
 				<div class="flex gap-2">
 					<ThemeToggle type="icons" />
 				</div>
