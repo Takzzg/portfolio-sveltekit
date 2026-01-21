@@ -27,7 +27,10 @@
 					<span class="flex group-hover:scale-125">
 						<IconifyIcon {icon} height="24px" width="24px" />
 					</span>
-					<ToolTip classes="hidden group-hover:block" text={icon.split(":").at(-1)?.split("-")[0] ?? "ERROR"} />
+					<ToolTip
+						classes="hidden group-hover:block -translate-y-[110%]"
+						text={icon.split(":").at(-1)?.split("-")[0] ?? "ERROR"}
+					/>
 				</span>
 			{/each}
 		</span>

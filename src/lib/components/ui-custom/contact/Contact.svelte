@@ -32,7 +32,8 @@
 				<IconifyIcon icon={Icons.CLIPBOARD} height="24px" width="24px" />
 			</span>
 		</Button>
-		<ToolTip classes={showTooltip ? "block" : "hidden"} text={"Copied to clipboard!"} />
+        <!-- !TODO translate popup -->
+		<ToolTip classes={`${showTooltip ? "block" : "hidden"} -translate-y-[150%]`} text={"Copied to clipboard!"} />
 	</div>
 
 	<div class="flex items-center justify-center gap-2">
