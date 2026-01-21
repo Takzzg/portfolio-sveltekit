@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getLang, setLang, LANGUAGES, type I_Lang } from "$lib/state/GlobalState.svelte";
+	import { getLang, setLang, LANGUAGES, type I_Lang } from "$lib/state/language.svelte";
 	import {
 		DropdownMenu,
 		DropdownMenuContent,
@@ -11,6 +11,7 @@
 	import PreferenceIcon from "./PreferenceIcon.svelte";
 
 	let { type }: { type: "icons" | "list" } = $props();
+	let currentLang = $derived(getLang());
 </script>
 
 {#snippet listOption(lang: I_Lang)}
@@ -20,7 +21,7 @@
 
 {#if type == "icons"}
 	{#each Object.values(LANGUAGES) as lang}
-		<PreferenceIcon text={lang.name} selected={getLang().key == lang.key} onClick={() => setLang(lang.key)}>
+		<PreferenceIcon text={lang.name} selected={lang.key == currentLang.key} onClick={() => setLang(lang.key)}>
 			{#snippet icon()}
 				<span class="text-lg">{lang.key.toUpperCase()}</span>
 			{/snippet}
@@ -30,13 +31,13 @@
 	<DropdownMenu>
 		<!-- trigger -->
 		<DropdownMenuTrigger class="flex items-center gap-2 rounded-md border-2 p-2 hover:cursor-pointer hover:bg-accent">
-			{@render listOption(getLang())}
+			{@render listOption(currentLang)}
 		</DropdownMenuTrigger>
 
 		<!-- options group -->
 		<DropdownMenuContent>
 			<DropdownMenuGroup>
-				<DropdownMenuRadioGroup value={getLang().key}>
+				<DropdownMenuRadioGroup value={currentLang.key}>
 					{#each Object.values(LANGUAGES) as lang}
 						<DropdownMenuRadioItem onclick={() => setLang(lang.key)} value={lang.key}>
 							{@render listOption(lang)}

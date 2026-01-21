@@ -2,7 +2,7 @@
 	import type { UIEventHandler } from "svelte/elements";
 
 	import AboutMe from "$lib/components/sections/aboutMe/AboutMe.svelte";
-	import * as State from "$lib/state/GlobalState.svelte";
+	import * as State from "$lib/state/scroll.svelte";
 	import Projects from "$lib/components/sections/projects/Projects.svelte";
 	import Splash from "$lib/components/sections/splash/Splash.svelte";
 	import Portfolio from "$lib/components/sections/portfolio/Portfolio.svelte";

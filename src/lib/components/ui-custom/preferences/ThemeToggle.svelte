@@ -9,12 +9,13 @@
 		DropdownMenuSeparator,
 		DropdownMenuTrigger,
 	} from "$lib/components/ui/dropdown-menu";
-	import { getTheme, THEMES, setTheme, type I_Theme } from "$lib/state/GlobalState.svelte";
+	import { getTheme, THEMES, setTheme, type I_Theme } from "$lib/state/theme.svelte";
 	import PreferenceIcon from "./PreferenceIcon.svelte";
 	import { Icons } from "$lib/assets/icons";
 	import { E_TranslationKeyThemeToggle, findTranslation } from "./ThemeToggle.translations";
 
 	let { type }: { type: "icons" | "list" } = $props();
+	let currentTheme = $derived(getTheme());
 </script>
 
 {#snippet themeIcon(theme: I_Theme, pxSize: number = 16)}
@@ -40,7 +41,7 @@
 	{#each Object.values(THEMES).reverse() as theme}
 		<PreferenceIcon
 			text={findTranslation(theme as E_TranslationKeyThemeToggle)}
-			selected={getTheme() == theme}
+			selected={currentTheme == theme}
 			onClick={() => setTheme(theme)}
 		>
 			{#snippet icon()}
@@ -52,13 +53,13 @@
 	<DropdownMenu>
 		<!-- trigger -->
 		<DropdownMenuTrigger class="flex items-center gap-2 rounded-md border-2 p-2 hover:cursor-pointer hover:bg-accent">
-			{@render listOption(getTheme())}
+			{@render listOption(currentTheme)}
 		</DropdownMenuTrigger>
 
 		<!-- options group -->
 		<DropdownMenuContent>
 			<DropdownMenuGroup>
-				<DropdownMenuRadioGroup value={getTheme()}>
+				<DropdownMenuRadioGroup value={currentTheme}>
 					<!-- dark -->
 					<DropdownMenuRadioItem onclick={() => setTheme("dark")} value="dark">
 						{@render listOption("dark")}

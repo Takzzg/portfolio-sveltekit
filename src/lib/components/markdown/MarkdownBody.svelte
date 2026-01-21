@@ -1,18 +1,19 @@
 <script lang="ts">
 	import "./github-markdown.css";
-	import { getTheme, getSystemTheme } from "../../state/GlobalState.svelte";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 	import type { I_Technology } from "$lib/assets/technologies";
 	import { URL_GITHUB_API } from "$lib/assets/urls";
 	import { Icons } from "$lib/assets/icons";
 	import { E_TranslationKeyMarkdownBody, findTranslation } from "./MarkdownBody.translations";
+	import { getSystemTheme, getTheme } from "$lib/state/theme.svelte";
 
 	let { selected }: { selected: I_Technology | null } = $props();
 	let loadingMD = $state(false);
 	let md = $state<any | null>(null);
 	let scrollable = $state<HTMLDivElement>();
 
-	let darkTheme = $derived(getTheme() == "dark" || (getTheme() == "system" && getSystemTheme() == "dark"));
+	let currentTheme = $derived(getTheme());
+	let useDarkTheme = $derived(currentTheme == "dark" || (currentTheme == "system" && getSystemTheme() == "dark"));
 
 	const fetchReadme = async (github: string) => {
 		loadingMD = true;
@@ -49,7 +50,7 @@
 		</div>
 	{:else if md}
 		<div bind:this={scrollable} class="max-h-full overflow-x-auto">
-			<div data-theme={darkTheme && "dark"} class="markdown-body box-border border-x-2 p-8">
+			<div data-theme={useDarkTheme && "dark"} class="markdown-body box-border border-x-2 p-8">
 				{@html md}
 			</div>
 			<div class="mb-4 w-full border-t-2"></div>
