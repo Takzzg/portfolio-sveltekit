@@ -1,9 +1,10 @@
 <script lang="ts">
-	import Button from "../ui/button/button.svelte";
-	import MarkdownHeader from "../markdown/MarkdownHeader.svelte";
-	import MarkdownBody from "../markdown/MarkdownBody.svelte";
-	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
-	import { PortfolioTechs, type I_Technology } from "../../assets/technologies";
+	import Button from "../../ui/button/button.svelte";
+	import MarkdownHeader from "../../markdown/MarkdownHeader.svelte";
+	import MarkdownBody from "../../markdown/MarkdownBody.svelte";
+	import IconifyIcon from "../../ui-custom/IconifyIcon.svelte";
+	import { PortfolioTechs, type I_Technology } from "../../../assets/technologies";
+	import { E_TranslationKeyPortfolio, findTranslation } from "./Portfolio.translations";
 
 	// dom refs
 	let refParent = $state<HTMLDivElement>();
@@ -39,7 +40,9 @@
 
 {#snippet techList()}
 	<div class="flex flex-col justify-around overflow-hidden border-r-2 py-4 lg:h-full">
-		<span class="p-4 text-center text-2xl text-wrap whitespace-break-spaces">This portfolio was made using:</span>
+		<span class="p-4 text-center text-2xl text-wrap whitespace-break-spaces">
+			{findTranslation(E_TranslationKeyPortfolio.list_header)}:
+		</span>
 
 		<div class="flex flex-col gap-1 overflow-y-auto">
 			{#each PortfolioTechs as tech (tech.id)}
@@ -55,7 +58,11 @@
 	<div bind:this={refParent} class="grid grid-rows-[auto_1fr] items-start overflow-hidden">
 		<div class="w-full border-b-2">
 			<div class="m-auto w-full max-w-[896px] gap-8 lg:px-0">
-				<MarkdownHeader selected={selectedTech} btnVariant="secondary" defaultTitle="About this portfolio" />
+				<MarkdownHeader
+					selected={selectedTech}
+					btnVariant="secondary"
+					defaultTitle={findTranslation(E_TranslationKeyPortfolio.md_header)}
+				/>
 			</div>
 		</div>
 

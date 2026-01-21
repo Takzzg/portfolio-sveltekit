@@ -1,6 +1,6 @@
-import { getTranslation, type I_TranslationsDic } from "$lib/utils/translations";
+import { getTranslation, type I_TranslationsDictionary } from "$lib/utils/translations";
 
-export enum I_TraKeyNavbar {
+export enum E_TranslationKeyNavbar {
 	home = "home",
 	skills = "skills",
 	about_me = "about_me",
@@ -8,23 +8,29 @@ export enum I_TraKeyNavbar {
 	projects = "projects",
 }
 
-const NavbarDic: I_TranslationsDic<I_TraKeyNavbar> = {
-	en: {
-		home: "Home",
-		skills: "Skills",
-		about_me: "About Me",
-		portfolio: "Portfolio",
-		projects: "Projects",
+const NavbarDic: I_TranslationsDictionary<E_TranslationKeyNavbar> = {
+	[E_TranslationKeyNavbar.home]: {
+		en: "Home",
+		es: "Inicio",
 	},
-	es: {
-		home: "Inicio",
-		skills: "Habilidades",
-		about_me: "Sobre mi",
-		portfolio: "Portfolio",
-		projects: "Proyectos",
+	[E_TranslationKeyNavbar.skills]: {
+		en: "Skills",
+		es: "Habilidades",
+	},
+	[E_TranslationKeyNavbar.about_me]: {
+		en: "About Me",
+		es: "Sobre mi",
+	},
+	[E_TranslationKeyNavbar.portfolio]: {
+		en: "Portfolio",
+		es: "Portfolio",
+	},
+	[E_TranslationKeyNavbar.projects]: {
+		en: "Projects",
+		es: "Proyectos",
 	},
 };
 
-export const translateKey = (key: I_TraKeyNavbar) => {
+export const findTranslation = (key: E_TranslationKeyNavbar) => {
 	return getTranslation(NavbarDic, key);
 };

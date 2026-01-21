@@ -4,7 +4,7 @@
 	import Button from "../../ui/button/button.svelte";
 	import ThemeToggle from "../preferences/ThemeToggle.svelte";
 	import LangToggle from "../preferences/LangToggle.svelte";
-	import { translateKey } from "./Navbar.translations";
+	import { findTranslation } from "./Navbar.translations";
 
 	let navMenuOpen = $state(false);
 	let refNavMenu = $state<HTMLDivElement>();
@@ -18,7 +18,7 @@
 				variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
 				class="text-md h-auto hover:cursor-pointer"
 			>
-				{translateKey(btn.translationKey)}
+				{findTranslation(btn.translationKey)}
 			</Button>
 		{/each}
 	</div>
@@ -43,7 +43,7 @@
 					variant={State.getScrollCurrent() == btn.index ? "default" : "ghost"}
 					class="p-2 hover:cursor-pointer"
 				>
-					{translateKey(btn.translationKey)}
+					{findTranslation(btn.translationKey)}
 				</Button>
 			{/each}
 		</div>

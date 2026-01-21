@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { Icons } from "$lib/assets/icons";
+	import { AllProjects, type I_Project } from "$lib/assets/projects";
 	import { URL_GITHUB_PROFILE } from "$lib/assets/urls";
-	import { AllProjects, type I_Project } from "../../assets/projects";
-	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
-	import ToolTip from "../ui-custom/ToolTip.svelte";
+	import IconifyIcon from "$lib/components/ui-custom/IconifyIcon.svelte";
+	import ToolTip from "$lib/components/ui-custom/ToolTip.svelte";
+	import { translate } from "$lib/utils/translations";
+	import { findTranslation, E_TranslationKeyProjects } from "./Projects.translations";
 </script>
 
 {#snippet LinkBtn(text: string, icon: string, link?: string)}
@@ -16,7 +18,7 @@
 {#snippet projectCard(project: I_Project)}
 	<div class="flex w-sm flex-col gap-2 rounded-md border-2 p-2">
 		<span class="flex items-center justify-between text-xl">
-			{project.title}
+			{translate(project.title)}
 		</span>
 
 		<span class="flex items-center gap-2">
@@ -30,7 +32,7 @@
 			{/each}
 		</span>
 
-		<span>{project.description}</span>
+		<span>{translate(project.description)}</span>
 
 		<span class="flex h-full items-end justify-center gap-2">
 			{@render LinkBtn("Github repo", Icons.GITHUB, URL_GITHUB_PROFILE + "/" + project.repo)}
@@ -43,7 +45,7 @@
 {/snippet}
 
 <div class="flex h-full w-full flex-col items-center overflow-hidden">
-	<span class="w-full bg-background p-2 text-2xl">Check out my Github</span>
+	<span class="w-full bg-background p-2 text-2xl">{findTranslation(E_TranslationKeyProjects.title)}</span>
 
 	<div class="m-auto flex max-h-full flex-wrap justify-center gap-4 overflow-x-auto p-2 pb-4">
 		{#each Object.values(AllProjects) as project (project.id)}

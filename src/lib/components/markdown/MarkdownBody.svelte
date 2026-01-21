@@ -5,6 +5,7 @@
 	import type { I_Technology } from "$lib/assets/technologies";
 	import { URL_GITHUB_API } from "$lib/assets/urls";
 	import { Icons } from "$lib/assets/icons";
+	import { E_TranslationKeyMarkdownBody, findTranslation } from "./MarkdownBody.translations";
 
 	let { selected }: { selected: I_Technology | null } = $props();
 	let loadingMD = $state(false);
@@ -33,7 +34,7 @@
 <div class="relative m-auto mt-0 h-full max-h-[800px] w-full max-w-[896px] overflow-hidden lg:max-h-full">
 	{#if loadingMD}
 		<div class="absolute z-10 flex h-full w-full items-center justify-center">
-			<span class="z-10">Loading Readme...</span>
+			<span class="z-10">{findTranslation(E_TranslationKeyMarkdownBody.loading)} README.md...</span>
 			<span class="absolute h-full w-full bg-background/15 backdrop-blur-sm"></span>
 		</div>
 	{/if}
@@ -42,8 +43,8 @@
 		<div class=" flex h-full w-full items-center justify-center">
 			<div class="flex flex-col items-center justify-center gap-4 p-8">
 				<IconifyIcon icon={Icons.MOUSE_CLICK} height="64px" width="64px" />
-				<span class="text-2xl">Learn more</span>
-				<span>Click on any logo to take a peek at it's README.md</span>
+				<span class="text-2xl">{findTranslation(E_TranslationKeyMarkdownBody.promtp_title)}</span>
+				<span>{findTranslation(E_TranslationKeyMarkdownBody.prompt_click)} README.md</span>
 			</div>
 		</div>
 	{:else if md}
