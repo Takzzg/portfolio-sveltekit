@@ -58,7 +58,11 @@
 	<div bind:this={refParent} class="grid grid-rows-[auto_1fr] items-start overflow-hidden">
 		<div class="w-full border-b-2">
 			<div class="m-auto w-full max-w-[896px] gap-8 lg:px-0">
-				<MarkdownHeader selected={selectedTech} btnVariant="secondary" defaultTitle="About this portfolio" />
+				<MarkdownHeader
+					selected={selectedTech}
+					btnVariant="secondary"
+					defaultTitle={translateKey(I_TraKeyPortfolio.md_header)}
+				/>
 			</div>
 		</div>
 
