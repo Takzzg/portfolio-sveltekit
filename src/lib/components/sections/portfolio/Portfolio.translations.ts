@@ -1,10 +1,10 @@
 import { getTranslation, type I_TranslationsDic } from "$lib/utils/translations";
 
-export enum I_TraKeySplash {
+export enum I_TraKeyPortfolio {
 	list_header = "list_header",
 }
 
-const SplashDic: I_TranslationsDic<I_TraKeySplash> = {
+const PortfolioDic: I_TranslationsDic<I_TraKeyPortfolio> = {
 	en: {
 		list_header: "This portfolio was made using",
 	},
@@ -13,6 +13,6 @@ const SplashDic: I_TranslationsDic<I_TraKeySplash> = {
 	},
 };
 
-export const translateKey = (key: I_TraKeySplash) => {
-	return getTranslation(SplashDic, key);
+export const translateKey = (key: I_TraKeyPortfolio) => {
+	return getTranslation(PortfolioDic, key);
 };
