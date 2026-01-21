@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { Icons } from "$lib/assets/icons";
+	import { AllProjects, type I_Project } from "$lib/assets/projects";
 	import { URL_GITHUB_PROFILE } from "$lib/assets/urls";
+	import IconifyIcon from "$lib/components/ui-custom/IconifyIcon.svelte";
+	import ToolTip from "$lib/components/ui-custom/ToolTip.svelte";
 	import { translate } from "$lib/utils/translations";
-	import { AllProjects, type I_Project } from "../../assets/projects";
-	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
-	import ToolTip from "../ui-custom/ToolTip.svelte";
+	import { findTranslation, I_TranslationKeyProjects } from "./Projects.translations";
 </script>
 
 {#snippet LinkBtn(text: string, icon: string, link?: string)}
@@ -44,7 +45,7 @@
 {/snippet}
 
 <div class="flex h-full w-full flex-col items-center overflow-hidden">
-	<span class="w-full bg-background p-2 text-2xl">Check out my Github</span>
+	<span class="w-full bg-background p-2 text-2xl">{findTranslation(I_TranslationKeyProjects.title)}</span>
 
 	<div class="m-auto flex max-h-full flex-wrap justify-center gap-4 overflow-x-auto p-2 pb-4">
 		{#each Object.values(AllProjects) as project (project.id)}
