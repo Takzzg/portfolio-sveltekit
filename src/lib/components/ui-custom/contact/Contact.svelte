@@ -51,5 +51,6 @@
 	<Button class="cursor-pointer" onclick={() => window.open(URL_GITHUB_PROFILE, "_blank")}>
 		<IconifyIcon icon={Icons.GITHUB} height="32px" width="32px" />
 		{findTranslation(E_TranslationKeyContact.action_github)}
+		<IconifyIcon icon={Icons.EXTERNAL_LINK} height="16px" width="16px" />
 	</Button>
 </div>
