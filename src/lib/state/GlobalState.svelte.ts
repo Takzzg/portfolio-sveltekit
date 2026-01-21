@@ -1,15 +1,5 @@
 import type { E_TranslationKeyNavbar } from "$lib/components/ui-custom/navbar/Navbar.translations";
 
-// dark / light theme
-export type I_SystemTheme = "dark" | "light";
-export type I_Theme = I_SystemTheme | "system";
-
-export const THEMES: Record<I_Theme, I_Theme> = {
-	dark: "dark",
-	light: "light",
-	system: "system",
-};
-
 // nav bar tabs
 type I_SectionBtn = {
 	translationKey: E_TranslationKeyNavbar;
@@ -17,10 +7,6 @@ type I_SectionBtn = {
 };
 
 type I_State = {
-	theme: {
-		currentTheme: I_Theme;
-		systemTheme: I_SystemTheme;
-	};
 	scroll: {
 		currentSection: number;
 		sectionButtons: I_SectionBtn[];
@@ -29,10 +15,6 @@ type I_State = {
 };
 
 const INITIAL_STATE: I_State = {
-	theme: {
-		currentTheme: "system",
-		systemTheme: "dark",
-	},
 	scroll: {
 		currentSection: 0,
 		sectionButtons: [],
@@ -43,27 +25,6 @@ const INITIAL_STATE: I_State = {
 };
 
 export let globalState = $state<I_State>(INITIAL_STATE);
-
-// ------------- Theme -------------
-
-export const getTheme = () => {
-	return globalState.theme.currentTheme;
-};
-
-export const setTheme = (theme: I_Theme) => {
-	let enabled: boolean = theme == "dark" || (theme == "system" && globalState.theme.systemTheme == "dark");
-	globalState.theme.currentTheme = theme;
-	document.body.classList.toggle("dark", enabled);
-};
-
-export const getSystemTheme = () => {
-	return globalState.theme.systemTheme;
-};
-
-export const setSystemTheme = (theme: I_SystemTheme) => {
-	globalState.theme.systemTheme = theme;
-	setTheme("system");
-};
 
 // ------------- Scroll -------------
 

@@ -20,12 +20,12 @@ export const LANGUAGES: Record<I_LangKey, I_Lang> = {
 };
 
 const INITIAL_STATE: I_Lang = LANGUAGES.en;
-let currentLang = $state<I_Lang>(INITIAL_STATE);
+let langState = $state<I_Lang>(INITIAL_STATE);
 
 export const getLang = () => {
-	return currentLang;
+	return langState;
 };
 
 export const setLang = (lang: I_LangKey) => {
-	currentLang = LANGUAGES[lang];
+	langState = LANGUAGES[lang];
 };

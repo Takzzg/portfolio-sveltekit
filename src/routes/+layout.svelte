@@ -3,7 +3,7 @@
 
 	import "../app.css";
 	import favicon from "$lib/assets/favicon.svg";
-	import { setSystemTheme } from "$lib/state/GlobalState.svelte";
+	import { setSystemTheme } from "$lib/state/theme.svelte";
 	import Navbar from "$lib/components/ui-custom/navbar/Navbar.svelte";
 	import AutoScrollBtns from "$lib/components/ui-custom/AutoScrollBtns.svelte";
 
