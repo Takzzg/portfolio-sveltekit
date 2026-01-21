@@ -1,15 +1,13 @@
 import { getLang } from "$lib/state/GlobalState.svelte";
 
-export type I_TranslationKey = string;
-
 export type I_Translation = {
 	en: string;
 	es: string;
 };
 
-export type I_TranslationsDictionary<K extends I_TranslationKey> = Record<K, I_Translation>;
+export type I_TranslationsDictionary<K extends string> = Record<K, I_Translation>;
 
-export const getTranslation = <K extends I_TranslationKey>(dictionary: I_TranslationsDictionary<K>, key: K) => {
+export const getTranslation = <K extends string>(dictionary: I_TranslationsDictionary<K>, key: K) => {
 	if (!Object.hasOwn(dictionary, key)) {
 		console.error(`Translation key not found, key: ${key}`);
 		return "ERROR_MISSING_TRANSLATION_KEY";
