@@ -1,4 +1,4 @@
-import { getLang } from "$lib/state/GlobalState.svelte";
+import { getLang } from "$lib/state/language.svelte";
 
 export type I_Translation = {
 	en: string;
@@ -17,11 +17,10 @@ export const getTranslation = <K extends string>(dictionary: I_TranslationsDicti
 };
 
 export const translate = (translation: I_Translation, key?: string) => {
-	let lang = getLang().key;
-	let value = translation[lang];
+	let value = translation[getLang().key];
 
 	if (value == "") {
-		console.error(`Empty translation found, lang: ${lang}, key: ${key ?? "inlined_translation"}`);
+		console.error(`Empty translation found, lang: ${getLang().key}, key: ${key ?? "inlined_translation"}`);
 		return "ERROR_EMPTY_TRANSLATION";
 	}
 

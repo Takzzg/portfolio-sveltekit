@@ -1,34 +1,13 @@
 import type { E_TranslationKeyNavbar } from "$lib/components/ui-custom/navbar/Navbar.translations";
 
 // dark / light theme
-type I_SystemTheme = "dark" | "light";
+export type I_SystemTheme = "dark" | "light";
 export type I_Theme = I_SystemTheme | "system";
 
 export const THEMES: Record<I_Theme, I_Theme> = {
 	dark: "dark",
 	light: "light",
 	system: "system",
-};
-
-// language
-export type I_LangKey = "en" | "es";
-export type I_Lang = {
-	key: I_LangKey;
-	name: string;
-	flag: string;
-};
-
-export const LANGUAGES: Record<I_LangKey, I_Lang> = {
-	en: {
-		key: "en",
-		name: "English",
-		flag: "flag:gb-1x1",
-	},
-	es: {
-		key: "es",
-		name: "Español",
-		flag: "flag:ar-1x1",
-	},
 };
 
 // nav bar tabs
@@ -38,7 +17,6 @@ type I_SectionBtn = {
 };
 
 type I_State = {
-	lang: I_Lang;
 	theme: {
 		currentTheme: I_Theme;
 		systemTheme: I_SystemTheme;
@@ -51,7 +29,6 @@ type I_State = {
 };
 
 const INITIAL_STATE: I_State = {
-	lang: LANGUAGES["en"],
 	theme: {
 		currentTheme: "system",
 		systemTheme: "dark",
@@ -65,17 +42,7 @@ const INITIAL_STATE: I_State = {
 	},
 };
 
-let globalState = $state<I_State>(INITIAL_STATE);
-
-// ------------- Language -------------
-
-export const getLang = () => {
-	return globalState.lang;
-};
-
-export const setLang = (lang: I_LangKey) => {
-	globalState.lang = LANGUAGES[lang];
-};
+export let globalState = $state<I_State>(INITIAL_STATE);
 
 // ------------- Theme -------------
 
