@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Icons } from "$lib/assets/icons";
 	import { URL_GITHUB_PROFILE } from "$lib/assets/urls";
+	import { getLang } from "$lib/state/GlobalState.svelte";
 	import { AllProjects, type I_Project } from "../../assets/projects";
 	import IconifyIcon from "../ui-custom/IconifyIcon.svelte";
 	import ToolTip from "../ui-custom/ToolTip.svelte";
@@ -16,7 +17,7 @@
 {#snippet projectCard(project: I_Project)}
 	<div class="flex w-sm flex-col gap-2 rounded-md border-2 p-2">
 		<span class="flex items-center justify-between text-xl">
-			{project.title}
+			{project.title[getLang().key]}
 		</span>
 
 		<span class="flex items-center gap-2">
@@ -30,7 +31,7 @@
 			{/each}
 		</span>
 
-		<span>{project.description}</span>
+		<span>{project.description[getLang().key]}</span>
 
 		<span class="flex h-full items-end justify-center gap-2">
 			{@render LinkBtn("Github repo", Icons.GITHUB, URL_GITHUB_PROFILE + "/" + project.repo)}

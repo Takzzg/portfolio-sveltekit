@@ -1,10 +1,15 @@
 import { AllTechnologies, E_Technologies, PortfolioTechs } from "./technologies";
 import { Icons } from "./icons";
 
+type I_Translation = {
+	en: string;
+	es: string;
+};
+
 export type I_Project = {
 	id: string;
-	title: string;
-	description: string;
+	title: I_Translation;
+	description: I_Translation;
 	repo: string;
 	website?: string;
 	techs: string[];
@@ -33,16 +38,28 @@ export enum E_Projects {
 export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 	PORTFOLIO_SVELTE: {
 		id: E_Projects.PORTFOLIO_SVELTE,
-		title: "Web Portfolio",
-		description: "SvelteKit portfolio app. Check the source code for the website you are on right now!",
+		title: {
+			en: "Web Portfolio",
+			es: "Portfolio Web",
+		},
+		description: {
+			en: "SvelteKit portfolio app. Check the source code for the website you are on right now!",
+			es: "!TODO",
+		},
 		repo: E_Projects.PORTFOLIO_SVELTE,
 		website: "https://guidoq.vercel.app",
 		techs: PortfolioTechs.map((tech) => tech.icon),
 	},
 	CONTACTS_APP: {
 		id: E_Projects.CONTACTS_APP,
-		title: "Contacts App",
-		description: "Next.js app focused on drag-n-drop functionality, part of a technical interview for Front.id",
+		title: {
+			en: "Contacts App",
+			es: "!TODO",
+		},
+		description: {
+			en: "Next.js app focused on drag-n-drop functionality, part of a technical interview for Front.id",
+			es: "!TODO",
+		},
 		repo: E_Projects.CONTACTS_APP,
 		website: "https://contacts-app-guidoq.vercel.app",
 		techs: [
@@ -57,8 +74,14 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 	},
 	CHALLENGE_25WATTS: {
 		id: E_Projects.CHALLENGE_25WATTS,
-		title: "25 Watts challenge",
-		description: "Static HTML site using Bootstrap and JQuery, part of a technical interview for 25Watts",
+		title: {
+			en: "25 Watts challenge",
+			es: "!TODO",
+		},
+		description: {
+			en: "Static HTML site using Bootstrap and JQuery, part of a technical interview for 25Watts",
+			es: "!TODO",
+		},
 		repo: E_Projects.CHALLENGE_25WATTS,
 		website: "https://25-watts-challenge-guidoq.vercel.app/",
 		techs: [
@@ -70,8 +93,14 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 	},
 	PATIO_MENU: {
 		id: E_Projects.PATIO_MENU,
-		title: "El Patio - Menu",
-		description: "React.js single page application online menu",
+		title: {
+			en: "El Patio - Menu",
+			es: "!TODO",
+		},
+		description: {
+			en: "React.js single page application online menu",
+			es: "!TODO",
+		},
 		repo: E_Projects.PATIO_MENU,
 		website: "https://elpatiomerlosl.netlify.app/",
 		techs: [
@@ -87,8 +116,14 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 	},
 	MELI_TECH_TEST: {
 		id: E_Projects.MELI_TECH_TEST,
-		title: "MercadoLibre challenge",
-		description: "Next.js app part of a technical interview for MercadoLibre",
+		title: {
+			en: "MercadoLibre challenge",
+			es: "!TODO",
+		},
+		description: {
+			en: "Next.js app part of a technical interview for MercadoLibre",
+			es: "!TODO",
+		},
 		repo: E_Projects.MELI_TECH_TEST,
 		techs: [
 			AllTechnologies[E_Technologies.HTML].icon,
@@ -103,8 +138,14 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 	},
 	NEXTDOTS_CHALLENGE: {
 		id: E_Projects.NEXTDOTS_CHALLENGE,
-		title: "NextDots challenge",
-		description: "React-Native app part of a technical interview for NextDots",
+		title: {
+			en: "NextDots challenge",
+			es: "!TODO",
+		},
+		description: {
+			en: "React-Native app part of a technical interview for NextDots",
+			es: "!TODO",
+		},
 		repo: E_Projects.NEXTDOTS_CHALLENGE,
 		techs: [
 			AllTechnologies[E_Technologies.HTML].icon,
@@ -118,8 +159,14 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 	},
 	PI_HENRY_VIDEOGAMES: {
 		id: E_Projects.PI_HENRY_VIDEOGAMES,
-		title: "Inividual Project - SoyHenry",
-		description: "Mono-repo containing an Express.js backend and a React.js frontend",
+		title: {
+			en: "Inividual Project - SoyHenry",
+			es: "!TODO",
+		},
+		description: {
+			en: "Mono-repo containing an Express.js backend and a React.js frontend",
+			es: "!TODO",
+		},
 		repo: E_Projects.PI_HENRY_VIDEOGAMES,
 		techs: [
 			AllTechnologies[E_Technologies.REACT_JS].icon,
@@ -137,8 +184,14 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 	},
 	PG_HENRY_FOODFAST: {
 		id: E_Projects.PG_HENRY_FOODFAST,
-		title: "Group Project - SoyHenry",
-		description: "Mono-repo containing an Express.js backend, a React.js frontend and a telegram bot",
+		title: {
+			en: "Group Project - SoyHenry",
+			es: "!TODO",
+		},
+		description: {
+			en: "Mono-repo containing an Express.js backend, a React.js frontend and a telegram bot",
+			es: "!TODO",
+		},
 		repo: E_Projects.PG_HENRY_FOODFAST,
 		techs: [
 			AllTechnologies[E_Technologies.REACT_JS].icon,
@@ -158,50 +211,92 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 	// ------------- games -------------
 	LIBGDX_PONG: {
 		id: E_Projects.LIBGDX_PONG,
-		title: "Pong - LibGDX",
-		description: "Pong simulation implemented using LibGDX, targeting windows and web",
+		title: {
+			en: "Pong - LibGDX",
+			es: "!TODO",
+		},
+		description: {
+			en: "Pong simulation implemented using LibGDX, targeting windows and web",
+			es: "!TODO",
+		},
 		repo: E_Projects.LIBGDX_PONG,
 		techs: [Icons.LIBGDX, Icons.JAVA],
 	},
 	GODOT_HORDE_SURVIVOR: {
 		id: E_Projects.GODOT_HORDE_SURVIVOR,
-		title: "Horde Survivor - Godot",
-		description: "2D horde Survivor made using C# and the Godot game engine, targeting desktop and web",
+		title: {
+			en: "Horde Survivor - Godot",
+			es: "!TODO",
+		},
+		description: {
+			en: "2D horde Survivor made using C# and the Godot game engine, targeting desktop and web",
+			es: "!TODO",
+		},
 		repo: E_Projects.GODOT_HORDE_SURVIVOR,
 		techs: [Icons.GODOT, Icons.C_SHARP],
 	},
 	GRIDDLERS_ULP: {
 		id: E_Projects.GRIDDLERS_ULP,
-		title: "Griddlers ULP",
-		description: "Griddlers game console application, created as part of an assignment for college",
+		title: {
+			en: "Griddlers ULP",
+			es: "!TODO",
+		},
+		description: {
+			en: "Griddlers game console application, created as part of an assignment for college",
+			es: "!TODO",
+		},
 		repo: E_Projects.GRIDDLERS_ULP,
 		techs: [Icons.TERMINAL, Icons.C_PP],
 	},
 	PYTHON_TETRIS: {
 		id: E_Projects.PYTHON_TETRIS,
-		title: "Tetris - Python",
-		description: "Basic Tetris game implemented using PyGame",
+		title: {
+			en: "Tetris - Python",
+			es: "!TODO",
+		},
+		description: {
+			en: "Basic Tetris game implemented using PyGame",
+			es: "!TODO",
+		},
 		repo: E_Projects.PYTHON_TETRIS,
 		techs: [Icons.PYTHON],
 	},
 	PYTHON_SNAKE: {
 		id: E_Projects.PYTHON_SNAKE,
-		title: "Snake - Python",
-		description: "Basic Snake game implemented using PyGame",
+		title: {
+			en: "Snake - Python",
+			es: "!TODO",
+		},
+		description: {
+			en: "Basic Snake game implemented using PyGame",
+			es: "!TODO",
+		},
 		repo: E_Projects.PYTHON_SNAKE,
 		techs: [Icons.PYTHON],
 	},
 	PYTHON_PONG: {
 		id: E_Projects.PYTHON_PONG,
-		title: "Pong - Python",
-		description: "Basic Pong game implemented using PyGame",
+		title: {
+			en: "Pong - Python",
+			es: "!TODO",
+		},
+		description: {
+			en: "Basic Pong game implemented using PyGame",
+			es: "!TODO",
+		},
 		repo: E_Projects.PYTHON_PONG,
 		techs: [Icons.PYTHON],
 	},
 	PYTHON_CONNECT_FOUR: {
 		id: E_Projects.PYTHON_CONNECT_FOUR,
-		title: "Connect Four - Python",
-		description: "Basic Connect-Four game implemented using PyGame",
+		title: {
+			en: "Connect Four - Python",
+			es: "!TODO",
+		},
+		description: {
+			en: "Basic Connect-Four game implemented using PyGame",
+			es: "!TODO",
+		},
 		repo: E_Projects.PYTHON_CONNECT_FOUR,
 		techs: [Icons.PYTHON],
 	},
