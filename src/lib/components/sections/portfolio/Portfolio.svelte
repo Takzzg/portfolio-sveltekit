@@ -4,7 +4,7 @@
 	import MarkdownBody from "../../markdown/MarkdownBody.svelte";
 	import IconifyIcon from "../../ui-custom/IconifyIcon.svelte";
 	import { PortfolioTechs, type I_Technology } from "../../../assets/technologies";
-	import { I_TraKeyPortfolio, findTranslation } from "./Portfolio.translations";
+	import { I_TranslationKeyPortfolio, findTranslation } from "./Portfolio.translations";
 
 	// dom refs
 	let refParent = $state<HTMLDivElement>();
@@ -41,7 +41,7 @@
 {#snippet techList()}
 	<div class="flex flex-col justify-around overflow-hidden border-r-2 py-4 lg:h-full">
 		<span class="p-4 text-center text-2xl text-wrap whitespace-break-spaces">
-			{findTranslation(I_TraKeyPortfolio.list_header)}:
+			{findTranslation(I_TranslationKeyPortfolio.list_header)}:
 		</span>
 
 		<div class="flex flex-col gap-1 overflow-y-auto">
@@ -61,7 +61,7 @@
 				<MarkdownHeader
 					selected={selectedTech}
 					btnVariant="secondary"
-					defaultTitle={findTranslation(I_TraKeyPortfolio.md_header)}
+					defaultTitle={findTranslation(I_TranslationKeyPortfolio.md_header)}
 				/>
 			</div>
 		</div>

@@ -1,24 +1,26 @@
-import { getTranslation, type I_TranslationsDic } from "$lib/utils/translations";
+import { getTranslation, type I_TranslationsDictionary } from "$lib/utils/translations";
 
-export enum I_TraKeyMarkdownBody {
+export enum I_TranslationKeyMarkdownBody {
 	loading = "loading",
 	promtp_title = "promtp_title",
 	prompt_click = "prompt_click",
 }
 
-const MarkdownBodyDic: I_TranslationsDic<I_TraKeyMarkdownBody> = {
-	en: {
-        [I_TraKeyMarkdownBody.loading]: "Loading",
-        [I_TraKeyMarkdownBody.promtp_title]: "Learn more",
-        [I_TraKeyMarkdownBody.prompt_click]: "Click on a logo to take a peek at it's",
-    },
-	es: {
-        [I_TraKeyMarkdownBody.loading]: "Cargando",
-        [I_TraKeyMarkdownBody.promtp_title]: "Conoce más",
-        [I_TraKeyMarkdownBody.prompt_click]: "Hacé click en un logo para ver su",
-    },
+const MarkdownBodyDic: I_TranslationsDictionary<I_TranslationKeyMarkdownBody> = {
+	[I_TranslationKeyMarkdownBody.loading]: {
+		en: "Loading",
+		es: "Cargando",
+	},
+	[I_TranslationKeyMarkdownBody.promtp_title]: {
+		en: "Learn more",
+		es: "Conoce más",
+	},
+	[I_TranslationKeyMarkdownBody.prompt_click]: {
+		en: "Click on a logo to take a peek at it's",
+		es: "Hacé click en un logo para ver su",
+	},
 };
 
-export const findTranslation = (key: I_TraKeyMarkdownBody) => {
+export const findTranslation = (key: I_TranslationKeyMarkdownBody) => {
 	return getTranslation(MarkdownBodyDic, key);
 };

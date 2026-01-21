@@ -1,4 +1,4 @@
-import { getTranslation, type I_TranslationsDic } from "$lib/utils/translations";
+import { getTranslation, type I_TranslationsDictionary } from "$lib/utils/translations";
 
 export const enum I_traKeyThemeToggle {
 	dark = "dark",
@@ -9,22 +9,30 @@ export const enum I_traKeyThemeToggle {
 	system_theme = "system_theme",
 }
 
-const ThemeToggleDic: I_TranslationsDic<I_traKeyThemeToggle> = {
-	en: {
-		dark: "Dark",
-		light: "Light",
-		system: "System",
-		dark_theme: "Dark theme",
-		light_theme: "Light theme",
-		system_theme: "System theme",
+const ThemeToggleDic: I_TranslationsDictionary<I_traKeyThemeToggle> = {
+	[I_traKeyThemeToggle.dark]: {
+		en: "Dark",
+		es: "Oscuro",
 	},
-	es: {
-		dark: "Oscuro",
-		light: "Claro",
-		system: "Sistema",
-		dark_theme: "Tema oscuro",
-		light_theme: "Tema claro",
-		system_theme: "Tema del sistema",
+	[I_traKeyThemeToggle.light]: {
+		en: "Light",
+		es: "Claro",
+	},
+	[I_traKeyThemeToggle.system]: {
+		en: "System",
+		es: "Sistema",
+	},
+	[I_traKeyThemeToggle.dark_theme]: {
+		en: "Dark theme",
+		es: "Tema oscuro",
+	},
+	[I_traKeyThemeToggle.light_theme]: {
+		en: "Light theme",
+		es: "Tema claro",
+	},
+	[I_traKeyThemeToggle.system_theme]: {
+		en: "System theme",
+		es: "Tema del sistema",
 	},
 };
 

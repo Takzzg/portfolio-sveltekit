@@ -40,7 +40,7 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		},
 		description: {
 			en: "SvelteKit portfolio app. Check the source code for the website you are on right now!",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.PORTFOLIO_SVELTE,
 		website: "https://guidoq.vercel.app",
@@ -50,11 +50,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.CONTACTS_APP,
 		title: {
 			en: "Contacts App",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Next.js app focused on drag-n-drop functionality, part of a technical interview for Front.id",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.CONTACTS_APP,
 		website: "https://contacts-app-guidoq.vercel.app",
@@ -72,11 +72,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.CHALLENGE_25WATTS,
 		title: {
 			en: "25 Watts challenge",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Static HTML site using Bootstrap and JQuery, part of a technical interview for 25Watts",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.CHALLENGE_25WATTS,
 		website: "https://25-watts-challenge-guidoq.vercel.app/",
@@ -91,11 +91,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PATIO_MENU,
 		title: {
 			en: "El Patio - Menu",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "React.js single page application online menu",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.PATIO_MENU,
 		website: "https://elpatiomerlosl.netlify.app/",
@@ -114,11 +114,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.MELI_TECH_TEST,
 		title: {
 			en: "MercadoLibre challenge",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Next.js app part of a technical interview for MercadoLibre",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.MELI_TECH_TEST,
 		techs: [
@@ -136,11 +136,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.NEXTDOTS_CHALLENGE,
 		title: {
 			en: "NextDots challenge",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "React-Native app part of a technical interview for NextDots",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.NEXTDOTS_CHALLENGE,
 		techs: [
@@ -157,11 +157,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PI_HENRY_VIDEOGAMES,
 		title: {
 			en: "Inividual Project - SoyHenry",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Mono-repo containing an Express.js backend and a React.js frontend",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.PI_HENRY_VIDEOGAMES,
 		techs: [
@@ -182,11 +182,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PG_HENRY_FOODFAST,
 		title: {
 			en: "Group Project - SoyHenry",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Mono-repo containing an Express.js backend, a React.js frontend and a telegram bot",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.PG_HENRY_FOODFAST,
 		techs: [
@@ -209,11 +209,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.LIBGDX_PONG,
 		title: {
 			en: "Pong - LibGDX",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Pong simulation implemented using LibGDX, targeting windows and web",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.LIBGDX_PONG,
 		techs: [Icons.LIBGDX, Icons.JAVA],
@@ -222,11 +222,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.GODOT_HORDE_SURVIVOR,
 		title: {
 			en: "Horde Survivor - Godot",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "2D horde Survivor made using C# and the Godot game engine, targeting desktop and web",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.GODOT_HORDE_SURVIVOR,
 		techs: [Icons.GODOT, Icons.C_SHARP],
@@ -235,11 +235,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.GRIDDLERS_ULP,
 		title: {
 			en: "Griddlers ULP",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Griddlers game console application, created as part of an assignment for college",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.GRIDDLERS_ULP,
 		techs: [Icons.TERMINAL, Icons.C_PP],
@@ -248,11 +248,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PYTHON_TETRIS,
 		title: {
 			en: "Tetris - Python",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Basic Tetris game implemented using PyGame",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.PYTHON_TETRIS,
 		techs: [Icons.PYTHON],
@@ -261,11 +261,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PYTHON_SNAKE,
 		title: {
 			en: "Snake - Python",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Basic Snake game implemented using PyGame",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.PYTHON_SNAKE,
 		techs: [Icons.PYTHON],
@@ -274,11 +274,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PYTHON_PONG,
 		title: {
 			en: "Pong - Python",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Basic Pong game implemented using PyGame",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.PYTHON_PONG,
 		techs: [Icons.PYTHON],
@@ -287,11 +287,11 @@ export const AllProjects: Record<keyof typeof E_Projects, I_Project> = {
 		id: E_Projects.PYTHON_CONNECT_FOUR,
 		title: {
 			en: "Connect Four - Python",
-			es: "!TODO",
+			es: "",
 		},
 		description: {
 			en: "Basic Connect-Four game implemented using PyGame",
-			es: "!TODO",
+			es: "",
 		},
 		repo: E_Projects.PYTHON_CONNECT_FOUR,
 		techs: [Icons.PYTHON],

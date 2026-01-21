@@ -1,4 +1,4 @@
-import type { I_TraKeyNavbar } from "$lib/components/ui-custom/navbar/Navbar.translations";
+import type { I_TranslationKeyNavbar } from "$lib/components/ui-custom/navbar/Navbar.translations";
 
 // dark / light theme
 type I_SystemTheme = "dark" | "light";
@@ -33,7 +33,7 @@ export const LANGUAGES: Record<I_LangKey, I_Lang> = {
 
 // nav bar tabs
 type I_SectionBtn = {
-	translationKey: I_TraKeyNavbar;
+	translationKey: I_TranslationKeyNavbar;
 	index: number;
 };
 

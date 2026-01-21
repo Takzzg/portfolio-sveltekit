@@ -1,21 +1,21 @@
-import { getTranslation, type I_TranslationsDic } from "$lib/utils/translations";
+import { getTranslation, type I_TranslationsDictionary } from "$lib/utils/translations";
 
-export enum I_TraKeyContact {
+export enum I_TranslationKeyContact {
 	title = "title",
 	action_github = "action_github",
 }
 
-const ContactDic: I_TranslationsDic<I_TraKeyContact> = {
-	en: {
-		title: "Get in contact!",
-		action_github: "Check out my Github profile",
+const ContactDic: I_TranslationsDictionary<I_TranslationKeyContact> = {
+	[I_TranslationKeyContact.title]: {
+		en: "Get in contact!",
+		es: "Contactáme!",
 	},
-	es: {
-		title: "Contactáme!",
-		action_github: "Visitá mi perfil de Github",
+	[I_TranslationKeyContact.action_github]: {
+		en: "Check out my Github profile",
+		es: "Visitá mi perfil de Github",
 	},
 };
 
-export const findTranslation = (key: I_TraKeyContact) => {
+export const findTranslation = (key: I_TranslationKeyContact) => {
 	return getTranslation(ContactDic, key);
 };
